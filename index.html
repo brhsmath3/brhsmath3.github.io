@@ -972,9 +972,11 @@ const DUE_PARTS = {
   ]
 };
 // BACKUP: send each student's results to their teacher's Google Sheet. {} means off.
-// One shared sheet for all teachers:  "*": {url: "https://script.google.com/macros/s/....../exec", key: "the secret word"}
-// (or give a teacher their own sheet with an entry for their id, such as  t4: {url: ..., key: ...})
-const BACKUP = {};
+// TWO WAYS TO BACK UP (use one). Entry "*" = one shared backup for all teachers; or give a teacher their own with an entry for their id (t4: {...}).
+//  A Google Form:   "*": {form: "https://docs.google.com/forms/d/e/....../formResponse", entry: {t: "entry.1", id: "entry.2", k: "entry.3", p: "entry.4"},
+//                         sheet: "https://docs.google.com/spreadsheets/d/....../gviz/tq", tab: "Form Responses 1", cols: {t: "B", id: "C", k: "D", p: "E"}, key: "the key word"}
+//  A Google script: "*": {url: "https://script.google.com/macros/s/....../exec", key: "the secret word"}
+const BACKUP = {"*": {"form": "https://docs.google.com/forms/d/e/1FAIpQLScZ1o49H31WXnvAkmy2-yCw_Ep9TkPZ00yAxVxgfQs7SEpLsg/formResponse", "entry": {"t": "entry.1751049184", "id": "entry.237035316", "k": "entry.1481497006", "p": "entry.1297503653"}, "sheet": "https://docs.google.com/spreadsheets/d/1sphSHIqPdVOg9dgAB5GkWzz7deHmCfzyeGXQQKlYhlg/gviz/tq", "tab": "Form Responses 1", "cols": {"t": "B", "id": "C", "k": "D", "p": "E"}, "key": "hw-265474ea24283a1d"}};
 // CORRECTED IDs: if a student's HW ID is ever fixed (a typo, a middle initial added), list it here so the work they already did
 // comes along to the new ID, on their Chromebook and in the backup sheet.   "teacherId:NEWID": ["OLDID", ...]
 const ID_ALIASES = {"t4:1GB": ["1GG"], "t2:4PE": ["41PE"]};
@@ -1873,7 +1875,7 @@ function renderLogin(){
     <input class="pin" id="pin" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="12" placeholder="Homework ID" value="${esc(S.pin)}">
     <p class="idhelp">[Period #][Last initial][First initial]<br>Ex: 1WA</p>
     <p class="idnote">ID not working? Include your <b>middle initial</b> between your last and first initial (Ex: 1WMA).</p>
-    ${Object.keys(BACKUP).length ? `<p class="idnote bknote">Your homework progress is also backed up to your teacher’s private spreadsheet.</p>` : ""}
+    ${Object.keys(BACKUP).length ? `<p class="idnote bknote">Your homework progress is also backed up to your teacher’s spreadsheet.</p>` : ""}
     <p class="err" id="err"></p>
     <button class="pill go" id="go">Enter</button>
     <div class="tbox">
@@ -2132,8 +2134,8 @@ const BK_LABEL = {saving: "Saving…", ok: "Backed up ✓", offline: "Backup off
 const BK_TITLE = {saving: "Saving your work to your teacher's backup", ok: "Your work is backed up", offline: "The backup can't be reached right now. Your work is still saved on this device, and it will be sent when the connection is back."};
 const bkCfg = () => {
   if(!(S.student && S.teacher)) return null;
-  const c = BACKUP[S.teacher.id] && BACKUP[S.teacher.id].url ? BACKUP[S.teacher.id] : BACKUP["*"];
-  return c && c.url ? c : null;
+  const c = BACKUP[S.teacher.id] && (BACKUP[S.teacher.id].url || BACKUP[S.teacher.id].form) ? BACKUP[S.teacher.id] : BACKUP["*"];
+  return c && (c.url || c.form) ? c : null;
 };
 const bkSig = r => [r.d ? 1 : 0, r.h ? 1 : 0, (r.w || []).length, r.t || 0].join("|");
 // is copy a further along than copy b? Finished beats unfinished; two finished copies: the first stands. (The sheet uses the same rule.)
@@ -2194,6 +2196,59 @@ function bkJsonp(c, params){
     document.head.appendChild(s);
   });
 }
+
+// ---- GOOGLE FORM TRANSPORT: results go out as a form post; they are read back by querying the form's sheet ----
+// (A page cannot see whether a form post worked, so "Backed up" is only ever shown after the sheet itself confirms the results.)
+const BK_REC_RE = /^\d{1,2}-[0-9A-Za-z]{1,3}-\d{1,3}$/;
+const GVP = {};
+(function(){ const g = (window.google = window.google || {}); g.visualization = g.visualization || {}; g.visualization.Query = g.visualization.Query || {};
+  g.visualization.Query.setResponse = r => { const f = GVP[r && r.reqId]; if(f) f(r); }; })();
+const gvCols = c => c.cols || {t: "B", id: "C", k: "D", p: "E"};
+const gvEsc = v => String(v).replace(/['\\]/g, "\\$&");
+function gvQuery(c, query){                       // ask the sheet a question. A <script> tag is how a page reads from Google's servers.
+  return new Promise((resolve, reject) => {
+    const id = "q" + Math.random().toString(36).slice(2, 9), s = document.createElement("script");
+    let done = false, t = null;
+    const end = (v, err) => { if(done) return; done = true; clearTimeout(t); delete GVP[id]; s.remove(); err ? reject(err) : resolve(v); };
+    t = setTimeout(() => end(null, new Error("timeout")), 20000);
+    GVP[id] = r => r && r.status === "ok" ? end(r) : end(null, new Error((r && r.errors && r.errors[0] && (r.errors[0].detailed_message || r.errors[0].message)) || "query error"));
+    s.onerror = () => end(null, new Error("network"));
+    const p = new URLSearchParams({tqx: "out:json;reqId:" + id, tq: query, headers: "1"}); if(c.tab) p.set("sheet", c.tab);
+    s.src = c.sheet + "?" + p.toString(); document.head.appendChild(s);
+  });
+}
+const gvCell = (row, i) => row.c && row.c[i] && row.c[i].v !== null && row.c[i].v !== undefined ? row.c[i].v : "";
+function bkParseRecs(text, into){                  // one submitted row holds a list of results; keep the further-along copy of each problem
+  let arr; try{ arr = JSON.parse(text); }catch(e){ return; }
+  if(!Array.isArray(arr)) return;
+  arr.slice(0, 200).forEach(r => {
+    if(!r || typeof r.k !== "string" || !BK_REC_RE.test(r.k)) return;
+    const rec = {d: r.d ? 1 : 0, h: r.h ? 1 : 0, w: Array.isArray(r.w) ? r.w.slice(0, 60).map(x => typeof x === "number" ? x : String(x).slice(0, 40)) : [], t: Number(r.t) > 0 ? Number(r.t) : 0};
+    if(!into[r.k] || bkAhead(rec, into[r.k])) into[r.k] = rec;
+  });
+}
+async function bkFormStudent(c, id){
+  const k = gvCols(c), who = S.tId || (S.teacher && S.teacher.id);
+  const res = await gvQuery(c, `select ${k.p} where ${k.t} = '${gvEsc(who)}' and ${k.id} = '${gvEsc(id)}' and ${k.k} = '${gvEsc(c.key)}' order by A`);
+  const recs = {}; (res.table.rows || []).forEach(row => bkParseRecs(gvCell(row, 0), recs));
+  return {ok: true, recs};
+}
+async function bkFormClass(c, full){              // the whole class. After the first load, only rows added since the last one.
+  const k = gvCols(c); if(full || !TR.data){ TR.data = {}; TR.seen = 0; }
+  const res = await gvQuery(c, `select ${k.id}, ${k.p} where ${k.t} = '${gvEsc(S.tId)}' and ${k.k} = '${gvEsc(c.key)}' order by A limit 50000 offset ${TR.seen || 0}`);
+  const rows = res.table.rows || [];
+  rows.forEach(row => { const id = String(gvCell(row, 0)); if(!id) return; bkParseRecs(gvCell(row, 1), TR.data[id] = TR.data[id] || {}); });
+  TR.seen = (TR.seen || 0) + rows.length;
+  return TR.data;
+}
+function bkFormFields(c, ids){
+  const f = new URLSearchParams();
+  f.set(c.entry.t, S.teacher.id); f.set(c.entry.id, S.student.id); f.set(c.entry.k, c.key);
+  f.set(c.entry.p, JSON.stringify(ids.map(bkRec)));
+  return f;
+}
+async function bkGetStudent(c, id){ return c.form ? bkFormStudent(c, id) : bkJsonp(c, {a: "get", id, t: S.teacher.id}); }
+
 // take anything the sheet has that is further along than this device (this is what brings lost work back)
 function bkMerge(recs){
   let restored = 0, adopted = 0;
@@ -2212,14 +2267,14 @@ async function bkVerify(){
   const c = bkCfg(), st = S.student; if(!c) return;
   const afterFlush = BK.afterFlush; BK.afterFlush = false;
   try{
-    const res = await bkJsonp(c, {a: "get", id: st.id, t: S.teacher.id});
+    const res = await bkGetStudent(c, st.id);
     if(S.student !== st) return;
     if(!res || !res.ok) throw new Error((res && res.error) || "bad reply");
     const recs = res.recs || {};
     let {restored, adopted} = bkMerge(recs);
     for(const oldId of (st.aliasIds || [])){                       // a corrected ID: also pick up work saved under the old one
       try{
-        const r2 = await bkJsonp(c, {a: "get", id: oldId, t: S.teacher.id});
+        const r2 = await bkGetStudent(c, oldId);
         if(r2 && r2.ok){ const m2 = bkMerge(r2.recs || {}); restored += m2.restored; adopted += m2.adopted; }
       }catch(e){}
     }
@@ -2243,8 +2298,9 @@ async function bkFlush(){
   const ids = bkDirtyIds(); if(!ids.length) return;
   BK.sending = true;
   try{
-    await fetch(c.url, {method: "POST", mode: "no-cors", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: bkBody(c, ids)});
-    if(S.student === st){ BK.afterFlush = true; clearTimeout(BK.vtimer); BK.vtimer = setTimeout(bkVerify, 4000); }
+    if(c.form){ for(let i = 0; i < ids.length; i += 60) await fetch(c.form, {method: "POST", mode: "no-cors", body: bkFormFields(c, ids.slice(i, i + 60))}); }
+    else await fetch(c.url, {method: "POST", mode: "no-cors", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: bkBody(c, ids)});
+    if(S.student === st){ BK.afterFlush = true; clearTimeout(BK.vtimer); BK.vtimer = setTimeout(bkVerify, c.form ? 7000 : 4000); }
   }catch(e){
     if(S.student === st){
       BK.fails++; bkStatus(BK.fails >= 3 ? "offline" : "saving");
@@ -2271,7 +2327,10 @@ function bkStop(){
 function bkBeacon(){          // the tab is closing: one last try, which the browser finishes even after the page is gone
   const c = bkCfg(); if(!c) return;
   const ids = bkDirtyIds(); if(!ids.length) return;
-  try{ navigator.sendBeacon(c.url, new Blob([bkBody(c, ids)], {type: "text/plain;charset=UTF-8"})); }catch(e){}
+  try{
+    if(c.form){ for(let i = 0; i < ids.length; i += 60) navigator.sendBeacon(c.form, bkFormFields(c, ids.slice(i, i + 60))); }
+    else navigator.sendBeacon(c.url, new Blob([bkBody(c, ids)], {type: "text/plain;charset=UTF-8"}));
+  }catch(e){}
 }
 addEventListener("pagehide", bkBeacon);
 document.addEventListener("visibilitychange", () => { if(document.visibilityState === "hidden") bkBeacon(); });
@@ -2283,22 +2342,29 @@ addEventListener("online", () => { if(bkCfg()) bkFlush(); });
    Students' work is saved on their own Chromebooks, so on its own this dashboard only sees work done on the
    device it is opened on. When a sheet is connected, it also pulls every student's saved work from the sheet.
    ============================================================ */
-const TR = {state: "", at: 0, data: null, busy: false, err: "", timer: null};
+const TR = {state: "", at: 0, data: null, busy: false, err: "", timer: null, seen: 0, n: 0};
 const trCfg = () => {
   if(!S.tId) return null;
-  const c = BACKUP[S.tId] && BACKUP[S.tId].url ? BACKUP[S.tId] : BACKUP["*"];
-  return c && c.url ? c : null;
+  const c = BACKUP[S.tId] && (BACKUP[S.tId].url || BACKUP[S.tId].form) ? BACKUP[S.tId] : BACKUP["*"];
+  return c && (c.url || c.form) ? c : null;
 };
 const trTime = () => TR.at ? new Date(TR.at).toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit"}) : "";
-async function trLoad(){
+async function trLoad(full){
   const c = trCfg(), who = S.tId; if(!c || !who || TR.busy) return;
   TR.busy = true; TR.state = "loading"; TR.err = "";
   if(S.view === "teacher") { const b = document.getElementById("trefresh"); if(b){ b.textContent = "Loading class data…"; b.className = "pill sm trbtn loading"; b.disabled = true; } }
   try{
-    const res = await bkJsonp(c, {a: "class", t: who, c: S.tCode});
-    if(!res || !res.ok) throw new Error((res && res.error) || "bad reply");
-    if(S.tId !== who) return;
-    TR.data = res.students || {}; TR.at = Date.now(); TR.state = "ok";
+    TR.n = (TR.n || 0) + 1;
+    if(c.form){
+      await bkFormClass(c, full === true || TR.n % 15 === 0);      // a full reload now and then, so the numbers can never drift
+      if(S.tId !== who) return;
+    }else{
+      const res = await bkJsonp(c, {a: "class", t: who, c: S.tCode});
+      if(!res || !res.ok) throw new Error((res && res.error) || "bad reply");
+      if(S.tId !== who) return;
+      TR.data = res.students || {};
+    }
+    TR.at = Date.now(); TR.state = "ok";
   }catch(e){
     if(S.tId === who){ TR.state = "error"; TR.err = String(e && e.message || e); }
   }finally{ TR.busy = false; }
@@ -2309,7 +2375,7 @@ function trStart(){
   trLoad();
   TR.timer = setInterval(() => { if(S.view === "teacher" && S.tId) trLoad(); }, 120000);      // refresh every two minutes
 }
-function trStop(){ clearInterval(TR.timer); TR.timer = null; TR.state = ""; TR.at = 0; TR.data = null; TR.busy = false; TR.err = ""; }
+function trStop(){ clearInterval(TR.timer); TR.timer = null; TR.state = ""; TR.at = 0; TR.data = null; TR.busy = false; TR.err = ""; TR.seen = 0; TR.n = 0; }
 function trButtonHtml(){
   if(!trCfg()) return "";
   const label = TR.state === "loading" ? "Loading class data…" : TR.state === "ok" ? `Class data ✓ ${trTime()}` : TR.state === "error" ? "Class data: retry" : "Load class data";
@@ -2569,7 +2635,7 @@ const unitBar = () => "";    // the unit picker now lives in the control row abo
 
 function bindChrome(){
   document.getElementById("out").onclick = logout;
-  const rf = document.getElementById("trefresh"); if(rf) rf.onclick = () => trLoad();
+  const rf = document.getElementById("trefresh"); if(rf) rf.onclick = () => trLoad(true);
   const sw = document.getElementById("tsample");
   if(sw) sw.onclick = () => { S.sample = !S.sample; try{ localStorage.setItem("mph4:sampleview", S.sample ? "1" : "0"); }catch(e){} render(); };
   document.getElementById("tback").onclick = tBack;
