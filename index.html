@@ -976,7 +976,8 @@ const DUE_PARTS = {
 //  A Google Form:   "*": {form: "https://docs.google.com/forms/d/e/....../formResponse", entry: {t: "entry.1", id: "entry.2", k: "entry.3", p: "entry.4"},
 //                         sheet: "https://docs.google.com/spreadsheets/d/....../gviz/tq", tab: "Form Responses 1", cols: {t: "B", id: "C", k: "D", p: "E"}, key: "the key word"}
 //  A Google script: "*": {url: "https://script.google.com/macros/s/....../exec", key: "the secret word"}
-const BACKUP = {"*": {"form": "https://docs.google.com/forms/d/e/1FAIpQLScZ1o49H31WXnvAkmy2-yCw_Ep9TkPZ00yAxVxgfQs7SEpLsg/formResponse", "entry": {"t": "entry.1751049184", "id": "entry.237035316", "k": "entry.1481497006", "p": "entry.1297503653"}, "sheet": "https://docs.google.com/spreadsheets/d/1sphSHIqPdVOg9dgAB5GkWzz7deHmCfzyeGXQQKlYhlg/gviz/tq", "tab": "Form Responses 1", "cols": {"t": "B", "id": "C", "k": "D", "p": "E"}, "key": "hw-265474ea24283a1d"}};
+//  Supabase:        "*": {sb: "https://....supabase.co", key: "sb_publishable_..."}   (the publishable key is meant to be public)
+const BACKUP = {"*": {"sb": "https://xmvfnhikyqrqjorrmapj.supabase.co", "key": "sb_publishable_X7Ytap4rLhnr9orDZNVpMQ_vL0FMbYO"}};
 // CORRECTED IDs: if a student's HW ID is ever fixed (a typo, a middle initial added), list it here so the work they already did
 // comes along to the new ID, on their Chromebook and in the backup sheet.   "teacherId:NEWID": ["OLDID", ...]
 const ID_ALIASES = {"t4:1GB": ["1GG"], "t2:4PE": ["41PE"]};
@@ -1875,7 +1876,7 @@ function renderLogin(){
     <input class="pin" id="pin" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="12" placeholder="Homework ID" value="${esc(S.pin)}">
     <p class="idhelp">[Period #][Last initial][First initial]<br>Ex: 1WA</p>
     <p class="idnote">ID not working? Include your <b>middle initial</b> between your last and first initial (Ex: 1WMA).</p>
-    ${Object.keys(BACKUP).length ? `<p class="idnote bknote">Your homework progress is also backed up to your teacher’s spreadsheet.</p>` : ""}
+    ${Object.keys(BACKUP).length ? `<p class="idnote bknote">Your homework progress is also backed up ${Object.values(BACKUP).every(c => c.sb) ? "to your teacher’s private online database" : "to your teacher’s spreadsheet"}.</p>` : ""}
     <p class="err" id="err"></p>
     <button class="pill go" id="go">Enter</button>
     <div class="tbox">
@@ -2134,8 +2135,8 @@ const BK_LABEL = {saving: "Saving…", ok: "Backed up ✓", offline: "Backup off
 const BK_TITLE = {saving: "Saving your work to your teacher's backup", ok: "Your work is backed up", offline: "The backup can't be reached right now. Your work is still saved on this device, and it will be sent when the connection is back."};
 const bkCfg = () => {
   if(!(S.student && S.teacher)) return null;
-  const c = BACKUP[S.teacher.id] && (BACKUP[S.teacher.id].url || BACKUP[S.teacher.id].form) ? BACKUP[S.teacher.id] : BACKUP["*"];
-  return c && (c.url || c.form) ? c : null;
+  const c = BACKUP[S.teacher.id] && (BACKUP[S.teacher.id].url || BACKUP[S.teacher.id].form || BACKUP[S.teacher.id].sb) ? BACKUP[S.teacher.id] : BACKUP["*"];
+  return c && (c.url || c.form || c.sb) ? c : null;
 };
 const bkSig = r => [r.d ? 1 : 0, r.h ? 1 : 0, (r.w || []).length, r.t || 0].join("|");
 // is copy a further along than copy b? Finished beats unfinished; two finished copies: the first stands. (The sheet uses the same rule.)
@@ -2247,7 +2248,32 @@ function bkFormFields(c, ids){
   f.set(c.entry.p, JSON.stringify(ids.map(bkRec)));
   return f;
 }
-async function bkGetStudent(c, id){ return c.form ? bkFormStudent(c, id) : bkJsonp(c, {a: "get", id, t: S.teacher.id}); }
+
+// ---- SUPABASE TRANSPORT: results go to a few database functions, and the database's own answer confirms them ----
+async function sbRpc(c, fn, args, keepalive){
+  const headers = {"Content-Type": "application/json", "apikey": c.key};
+  if(/^eyJ/.test(c.key)) headers["Authorization"] = "Bearer " + c.key;      // an old-style key also goes here. The new publishable key must NOT.
+  const res = await fetch(c.sb.replace(/\/+$/, "") + "/rest/v1/rpc/" + fn, {method: "POST", headers, body: JSON.stringify(args), keepalive: !!keepalive});
+  let data = null; try{ data = await res.json(); }catch(e){}
+  if(!res.ok) throw new Error((data && (data.message || data.error || data.hint)) || ("HTTP " + res.status));
+  if(data && data.ok === false) throw new Error(data.error || "refused");
+  return data;
+}
+async function bkSbStudent(c, id){
+  const r = await sbRpc(c, "hw_get", {p_teacher: S.tId || S.teacher.id, p_id: id});
+  return {ok: true, recs: r.recs || {}};
+}
+async function bkSbClass(c, full){                // the whole class. After the first load, only what changed since (with a minute of overlap).
+  if(full || !TR.data){ TR.data = {}; TR.since = null; }
+  const r = await sbRpc(c, "hw_class", {p_teacher: S.tId, p_code: S.tCode, p_since: TR.since || null});
+  Object.keys(r.students || {}).forEach(id => {
+    const into = TR.data[id] = TR.data[id] || {}, recs = r.students[id];
+    Object.keys(recs).forEach(k => { const rec = recs[k]; if(!into[k] || bkAhead(rec, into[k])) into[k] = {d: rec.d ? 1 : 0, h: rec.h ? 1 : 0, w: rec.w || [], t: rec.t || 0}; });
+  });
+  const now = Date.parse(r.now); TR.since = isNaN(now) ? null : new Date(now - 60000).toISOString();
+  return TR.data;
+}
+async function bkGetStudent(c, id){ return c.sb ? bkSbStudent(c, id) : c.form ? bkFormStudent(c, id) : bkJsonp(c, {a: "get", id, t: S.teacher.id}); }
 
 // take anything the sheet has that is further along than this device (this is what brings lost work back)
 function bkMerge(recs){
@@ -2270,34 +2296,48 @@ async function bkVerify(){
     const res = await bkGetStudent(c, st.id);
     if(S.student !== st) return;
     if(!res || !res.ok) throw new Error((res && res.error) || "bad reply");
-    const recs = res.recs || {};
-    let {restored, adopted} = bkMerge(recs);
-    for(const oldId of (st.aliasIds || [])){                       // a corrected ID: also pick up work saved under the old one
-      try{
-        const r2 = await bkGetStudent(c, oldId);
-        if(r2 && r2.ok){ const m2 = bkMerge(r2.recs || {}); restored += m2.restored; adopted += m2.adopted; }
-      }catch(e){}
-    }
-    Object.keys(progress).forEach(id => { const s = recs[id]; if(s && progress[id] && bkSig(s) === bkSig(progress[id])) BK.ok[id] = bkSig(progress[id]); });
-    bkSaveVer();
-    if(adopted){ try{ localStorage.setItem(storeKey(), JSON.stringify(progress)); }catch(e){} }     // keep the sheet's version on this device too
-    if(restored){ bkToast(restored); const y = window.scrollY; render(); window.scrollTo(0, y); }
-    if(bkDirtyIds().length){
-      if(afterFlush) BK.fails++;
-      bkStatus(BK.fails >= 3 ? "offline" : "saving");
-      clearTimeout(BK.rtimer); BK.rtimer = setTimeout(bkFlush, afterFlush ? Math.min(120000, 3000 * Math.pow(2, BK.fails)) : 0);
-    }else{ BK.fails = 0; bkStatus("ok"); }
+    await bkApply(c, st, res.recs || {}, afterFlush, true);
   }catch(e){
     if(S.student !== st) return;
     BK.fails++; bkStatus(BK.fails >= 3 ? "offline" : "saving");
     clearTimeout(BK.rtimer); BK.rtimer = setTimeout(bkVerify, Math.min(120000, 4000 * Math.pow(2, BK.fails)));
   }
 }
+// compare this device's work with what the backup holds: take what is further along, note what is confirmed, send what is missing
+async function bkApply(c, st, recs, afterFlush, withAlias){
+  let {restored, adopted} = bkMerge(recs);
+  if(withAlias) for(const oldId of (st.aliasIds || [])){            // a corrected ID: also pick up work saved under the old one
+    try{
+      const r2 = await bkGetStudent(c, oldId);
+      if(r2 && r2.ok){ const m2 = bkMerge(r2.recs || {}); restored += m2.restored; adopted += m2.adopted; }
+    }catch(e){}
+  }
+  if(S.student !== st) return;
+  Object.keys(progress).forEach(id => { const s = recs[id]; if(s && progress[id] && bkSig(s) === bkSig(progress[id])) BK.ok[id] = bkSig(progress[id]); });
+  bkSaveVer();
+  if(adopted){ try{ localStorage.setItem(storeKey(), JSON.stringify(progress)); }catch(e){} }     // keep the backup's version on this device too
+  if(restored){ bkToast(restored); const y = window.scrollY; render(); window.scrollTo(0, y); }
+  if(bkDirtyIds().length){
+    if(afterFlush) BK.fails++;
+    bkStatus(BK.fails >= 3 ? "offline" : "saving");
+    clearTimeout(BK.rtimer); BK.rtimer = setTimeout(bkFlush, afterFlush ? Math.min(120000, 3000 * Math.pow(2, BK.fails)) : 0);
+  }else{ BK.fails = 0; bkStatus("ok"); }
+}
 async function bkFlush(){
   const c = bkCfg(), st = S.student; if(!c || BK.sending) return;
   const ids = bkDirtyIds(); if(!ids.length) return;
   BK.sending = true;
   try{
+    if(c.sb){                                       // the database answers with what it now holds, which confirms the save by itself
+      const held = {};
+      for(let i = 0; i < ids.length; i += 60){
+        const res = await sbRpc(c, "hw_put", {p_teacher: S.teacher.id, p_id: S.student.id, p_recs: ids.slice(i, i + 60).map(bkRec)});
+        Object.assign(held, res.recs || {});
+      }
+      BK.sending = false;
+      if(S.student === st) await bkApply(c, st, held, true, false);
+      return;
+    }
     if(c.form){ for(let i = 0; i < ids.length; i += 60) await fetch(c.form, {method: "POST", mode: "no-cors", body: bkFormFields(c, ids.slice(i, i + 60))}); }
     else await fetch(c.url, {method: "POST", mode: "no-cors", headers: {"Content-Type": "text/plain;charset=utf-8"}, body: bkBody(c, ids)});
     if(S.student === st){ BK.afterFlush = true; clearTimeout(BK.vtimer); BK.vtimer = setTimeout(bkVerify, c.form ? 7000 : 4000); }
@@ -2328,7 +2368,8 @@ function bkBeacon(){          // the tab is closing: one last try, which the bro
   const c = bkCfg(); if(!c) return;
   const ids = bkDirtyIds(); if(!ids.length) return;
   try{
-    if(c.form){ for(let i = 0; i < ids.length; i += 60) navigator.sendBeacon(c.form, bkFormFields(c, ids.slice(i, i + 60))); }
+    if(c.sb){ for(let i = 0; i < ids.length; i += 60) sbRpc(c, "hw_put", {p_teacher: S.teacher.id, p_id: S.student.id, p_recs: ids.slice(i, i + 60).map(bkRec)}, true).catch(() => {}); }
+    else if(c.form){ for(let i = 0; i < ids.length; i += 60) navigator.sendBeacon(c.form, bkFormFields(c, ids.slice(i, i + 60))); }
     else navigator.sendBeacon(c.url, new Blob([bkBody(c, ids)], {type: "text/plain;charset=UTF-8"}));
   }catch(e){}
 }
@@ -2345,9 +2386,10 @@ addEventListener("online", () => { if(bkCfg()) bkFlush(); });
 const TR = {state: "", at: 0, data: null, busy: false, err: "", timer: null, seen: 0, n: 0};
 const trCfg = () => {
   if(!S.tId) return null;
-  const c = BACKUP[S.tId] && (BACKUP[S.tId].url || BACKUP[S.tId].form) ? BACKUP[S.tId] : BACKUP["*"];
-  return c && (c.url || c.form) ? c : null;
+  const c = BACKUP[S.tId] && (BACKUP[S.tId].url || BACKUP[S.tId].form || BACKUP[S.tId].sb) ? BACKUP[S.tId] : BACKUP["*"];
+  return c && (c.url || c.form || c.sb) ? c : null;
 };
+const trWhere = () => { const c = trCfg(); return c && c.sb ? "backup" : "backup sheet"; };       // what to call the place the numbers come from
 const trTime = () => TR.at ? new Date(TR.at).toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit"}) : "";
 async function trLoad(full){
   const c = trCfg(), who = S.tId; if(!c || !who || TR.busy) return;
@@ -2355,7 +2397,10 @@ async function trLoad(full){
   if(S.view === "teacher") { const b = document.getElementById("trefresh"); if(b){ b.textContent = "Loading class data…"; b.className = "pill sm trbtn loading"; b.disabled = true; } }
   try{
     TR.n = (TR.n || 0) + 1;
-    if(c.form){
+    if(c.sb){
+      await bkSbClass(c, full === true || TR.n % 15 === 0);
+      if(S.tId !== who) return;
+    }else if(c.form){
       await bkFormClass(c, full === true || TR.n % 15 === 0);      // a full reload now and then, so the numbers can never drift
       if(S.tId !== who) return;
     }else{
@@ -2375,11 +2420,11 @@ function trStart(){
   trLoad();
   TR.timer = setInterval(() => { if(S.view === "teacher" && S.tId) trLoad(); }, 120000);      // refresh every two minutes
 }
-function trStop(){ clearInterval(TR.timer); TR.timer = null; TR.state = ""; TR.at = 0; TR.data = null; TR.busy = false; TR.err = ""; TR.seen = 0; TR.n = 0; }
+function trStop(){ clearInterval(TR.timer); TR.timer = null; TR.state = ""; TR.at = 0; TR.data = null; TR.busy = false; TR.err = ""; TR.seen = 0; TR.n = 0; TR.since = null; }
 function trButtonHtml(){
   if(!trCfg()) return "";
   const label = TR.state === "loading" ? "Loading class data…" : TR.state === "ok" ? `Class data ✓ ${trTime()}` : TR.state === "error" ? "Class data: retry" : "Load class data";
-  const title = TR.state === "error" ? `Couldn’t load your class from the backup sheet (${esc(TR.err)}). Click to try again.` : TR.state === "ok" ? `Your class’s work from the backup sheet, updated at ${trTime()}. Click to refresh.` : "Load every student’s work from your backup sheet";
+  const title = TR.state === "error" ? `Couldn’t load your class from the ${trWhere()} (${esc(TR.err)}). Click to try again.` : TR.state === "ok" ? `Your class’s work from the ${trWhere()}, updated at ${trTime()}. Click to refresh.` : "Load every student’s work from your " + trWhere();
   return `<button class="pill sm trbtn ${TR.state}" id="trefresh" title="${title}" ${TR.state === "loading" ? "disabled" : ""}>${label}</button>`;
 }
 
@@ -2627,9 +2672,9 @@ function teacherHeader(){
 const sampleNote = () => S.sample
   ? `<p class="tnote foot samplewarn"><b>SAMPLE DATA</b> · made-up numbers so you can preview the dashboard. They are not your students’ real work, and exporting is turned off. <span class="livedot">●</span> means real progress saved on this device.</p>`
   : trCfg() && TR.state === "ok"
-  ? `<p class="tnote foot">Showing your class’s work from your backup sheet (updated ${trTime()}), plus anything done on this device. <span class="livedot">●</span> means a student has real progress.</p>`
+  ? `<p class="tnote foot">Showing your class’s work from your ${trWhere()} (updated ${trTime()}), plus anything done on this device. <span class="livedot">●</span> means a student has real progress.</p>`
   : trCfg() && TR.state === "error"
-  ? `<p class="tnote foot trerr">Couldn’t reach your backup sheet, so this page shows only work done on this device. Click “Class data: retry” (top right) to try again.</p>`
+  ? `<p class="tnote foot trerr">Couldn’t reach your ${trWhere()}, so this page shows only work done on this device. Click “Class data: retry” (top right) to try again.</p>`
   : `<p class="tnote foot">Showing real work only. Each student’s progress is saved on the Chromebook they use, so this page shows work done on this device. <span class="livedot">●</span> means a student has real progress here.</p>`;
 const unitBar = () => "";    // the unit picker now lives in the control row above
 
@@ -2665,9 +2710,9 @@ function renderTeacherHome(all, unit){
   const byBlock = {}; all.forEach(r => { byBlock[r.period] = (byBlock[r.period] || 0) + 1; });
   const blockTxt = Object.keys(byBlock).sort().map(k => `Block ${k}: ${byBlock[k]}`).join(" · ");
   const card = (cls, head, body) => `<div class="hstat ${cls}"><div class="hhead">${head}</div><div class="hbody">${body}</div></div>`;
-  const trNote = TR.state === "loading" ? "Loading your class from the backup sheet…"
-    : TR.state === "error" ? "Couldn’t reach your backup sheet yet. Click “Class data: retry” (top right)."
-    : "Your backup sheet has no student work yet. Work appears here after students answer a problem while connected to the internet.";
+  const trNote = TR.state === "loading" ? "Loading your class from the " + trWhere() + "…"
+    : TR.state === "error" ? "Couldn’t reach your " + trWhere() + " yet. Click “Class data: retry” (top right)."
+    : "Your " + trWhere() + " has no student work yet. Work appears here after students answer a problem while connected to the internet.";
   const empty = trCfg()
     ? `<div class="notice emptyhome"><b>No student work to show yet.</b><br>Your roster is loaded (${all.length} students · ${blockTxt}). ${trNote} To see how it will look, turn on <b>Sample data</b> (top right).</div>`
     : `<div class="notice emptyhome"><b>No student work has been saved on this device yet.</b><br>Your roster is loaded (${all.length} students · ${blockTxt}). Each student’s progress is saved on the Chromebook they use, so this page fills in with work done on this device. To see how it will look, turn on <b>Sample data</b> (top right).</div>`;
