@@ -1058,6 +1058,15 @@ body.noscroll{overflow:hidden}
 @media (prefers-color-scheme: dark){.attpart.ok .attmark{color:#7bd37b}.attpart.no .attmark{color:#ff8a80}}
 .topband #tpreview{margin-left:auto;white-space:nowrap}
 .previewpill{background:var(--orange);color:#111}
+
+/* ---- the monitor ---- */
+.tpick{margin:2px 0 8px;align-items:center;justify-content:center}
+.tname{display:inline-block;margin-left:5px;padding:0 7px;border:1.5px solid var(--ink);border-radius:999px;font-size:.66rem;font-weight:600;color:var(--muted);vertical-align:middle}
+.cmphead{margin:14px 0 4px;font-family:"Playfair Display",Georgia,serif;font-size:1.2rem}
+.cmptable tr.tgroup td{font-weight:700;background:var(--surface)}
+.cmptable tr.tclass td.idc{padding-left:26px;font-weight:400}
+.cmptable tr.tall td{font-weight:700;border-top:2px solid var(--ink)}
+.cmptable th{font-size:.74rem;padding-left:4px;padding-right:4px;overflow-wrap:normal;word-break:normal}
 </style>
 </head>
 <body>
@@ -1077,13 +1086,16 @@ const TEACHERS = [
   {id:"t4", name:"Watts"}
 ];
 
+// A monitor has no students of her own. Her code opens a dashboard that can see every teacher's classes.
+const MONITOR = {id: "t5", name: "Monitor"};
+
 // Student HW IDs are stored only as hashes (never as plain text).
 // level: "standard" or "honors"
 const STUDENTS = [{"h": "db3a2545c4b880c56a10bbf0b3fc8d2455177484ec303ff68a4ee67526f642c4", "level": "honors"}, {"h": "34a0d5e1bf6564c9a21edb69877f5ec0409428583e0d9692b5303866923891f5", "level": "honors"}, {"h": "fc9c78b52fd63a9ca2a5f478b54a074d1c2ef223c9452dc9e212c96c27c392b1", "level": "honors"}, {"h": "489d02c5e5351af92d95086ed33434889fccce1847de8b9641bd1c2dd7dffa38", "level": "honors"}, {"h": "48a8bb0c1cb2d539c177292656c43facf090fb4c011989274732caefafeec1de", "level": "honors"}, {"h": "9e7f9664277c6426eb6cb1b2d07a4f7e4fac5196b969258cd6581032ad7ae575", "level": "honors"}, {"h": "26da16036583c1f1dfd2aad7848585e5df8d2fea624ffa2489a3c0c74700d7ca", "level": "honors"}, {"h": "fb232ff222d7d9757aad5c1403ab6bd0291d96a01e27c533e585dd02fc247701", "level": "honors"}, {"h": "d7e96363391b54384cd3440aa11371cd971e2910dba9abf95de74a515b326648", "level": "honors"}, {"h": "014e33a10245812e80eef4e7d574cf335fc6f2eaa7a0c2e0d299eea67990d27e", "level": "honors"}, {"h": "f36457b2e88f7028d8185b7bf28898d5023e4b56728edb396de912b9fb448572", "level": "honors"}, {"h": "42161c8637cf11733f2e244bcfbd321972761eeb34585768e2011ad0da88e5eb", "level": "honors"}, {"h": "388deec418bc5dd67f1e4065b9242b141b2aa5c84fa9d52a39a4820118c3b1fe", "level": "honors"}, {"h": "7253786d496d8bf8ba07e21ed0fb488df07deb73e68a85f1a446b3c2d173ecf7", "level": "honors"}, {"h": "a0a3517f3eaf6abcb3544c8162c217a4bc8864060cf2baef984e42abe93e96f3", "level": "honors"}, {"h": "56b8659e539c7327245d1fcad229ddce8b5785f498dc5639f436d03a4e3b7d65", "level": "honors"}, {"h": "dbc5cefffcf82bb8eadfa083aa62124922f9e16abdc75291b52d7b145feeb24e", "level": "honors"}, {"h": "b678490592a354737bd8263564a82ff841737670b3c5703b32e78be1899273c7", "level": "honors"}, {"h": "83301dcbcd55c190342694f2049382c7f9456f7c3a00eee98af62720f7755e75", "level": "honors"}, {"h": "72a0315b06e0a205e91166f381dd9f1212ced4be0c6f5f15f12c4fef6ea692de", "level": "honors"}, {"h": "78faa8fc5adc3b2fd4652a1238e16026c6d0e1e1b2b4a6851cf135cdc7af00e5", "level": "honors"}, {"h": "1cce4afa2851438894fa4c3e5b961f23d893c9d4fe176fa600e8ed36d087509d", "level": "honors"}, {"h": "4026df5eea77b89e9d5c1b2fc03ed074e17ac0fcfd8403513dae2f4ee4bbccb6", "level": "honors"}, {"h": "17cff778bb0658b9a14bd591bdf94233140d868dececffc6698a63a3d956e99a", "level": "honors"}, {"h": "1bb15527ddd90b80e2169e8a31e89bd6ebd68be894dc98e50b54bd7f44206daa", "level": "honors"}, {"h": "1a1074688a6a73b6af46596cd8daf3fab3872adee644da628d38d10a7d445f52", "level": "honors"}, {"h": "351130f8ddbb29e0623f2ca156c0d6fc70bd610b9bfc0898eafdb4aad239b8a4", "level": "honors"}, {"h": "f14ee5e8eb49fdcb1bf3405d2f1a51ce62a2093ed66d398c2ddb4237285d16be", "level": "honors"}, {"h": "f83e2f952b76b6cd636df538ac79c3bba0b6807f35b695f4070896c281803cc2", "level": "honors"}, {"h": "c565493e74d3d0b7418ce4179722e757e8369b2e487d81cfd540f43be6aa04e0", "level": "honors"}, {"h": "46bab0e63ee6e143635193f6d2812c6a83bdb4f2802e4dfe18556def2fd9429b", "level": "honors"}, {"h": "01effb80ee42059b1748ac2caffde434e3cb2cb29e911cb65414bddd810f6968", "level": "honors"}, {"h": "76ff2900a5b574074da2a98c7714c83714c57a80837dbf65d30ec5b5a2a0a021", "level": "standard"}, {"h": "6c58596295567fb07c1c42f280b87546757b3baa61c082d08756e5c01738575c", "level": "standard"}, {"h": "40f1cbdfd621ce8e3ae80943e2d887d6619bf94c6a3f1e5b4593a39c19fc3381", "level": "standard"}, {"h": "9b96c9a19928028e632e13985ac2a74312b6e5ddce0d58677e7ba4d6e3b2fe9c", "level": "standard"}, {"h": "bd4851c058755c338dee1e983223b28a77156cfa6a8f16866780ecbc52a3b483", "level": "standard"}, {"h": "f3be1a8c2e5a76f7faa9329d6180420bd891e5b4d71577e12f05daa6e8204342", "level": "standard"}, {"h": "40531d21e7ece6e306ba9564c100006aabbafacd976bf870a4466dc5cca27b5f", "level": "standard"}, {"h": "372fd12d9f4b54a2b20fedef8805f330f3033a8bfda8f06bad833bb90cc2e0c5", "level": "standard"}, {"h": "a60d7a9424af43bd544a0e06d48bf885e675a2a1d3c8c8d734e8675bd1632af2", "level": "standard"}, {"h": "1ae365f883f2ca237df065fe2075791487d2303d6812da6686935f9b428b5a4e", "level": "standard"}, {"h": "837ab003f752ba7ad647d73aeef8f91047cff3458f4dc108dc703f6f54220fd8", "level": "standard"}, {"h": "b3c6f24d4497c105ff14fa12f445a7cb73aa2ab387091b66b509f38fe5b28b07", "level": "standard"}, {"h": "4095eaabac6228380d32d16860bf55f48b2f1bb9a6cff10a20811707cab4f976", "level": "standard"}, {"h": "58e5fe7f9fdde27210de7602508590c0bc1e6e4e1baa6fc389a64e9c332814bc", "level": "standard"}, {"h": "44a7e1456e610fbbd1944659872fb9258639dd023327624fd49039f6125acef8", "level": "standard"}, {"h": "2605426f4e77347ff587c8ca2c9c62beee39c44c073e1ff879a33d9ef9aca6b4", "level": "standard"}, {"h": "df4d8295addde02da7f1920d3b6844895703ef504ca1e4ae7f2aa231b79d6c18", "level": "standard"}, {"h": "7a7c3a9559a2fb8c788aff644ba34a629256ad9704bfd53c3b8bcc58bd06bfb0", "level": "standard"}, {"h": "6216aa5fd71b903cc78b72753536453cf47d02cd0df88419f5d7814cbaf8ba9b", "level": "standard"}, {"h": "38bd700b1aaa5394c1b86eb9b4b4d45b5c14eaa758641eb17688aaa6c147fc4c", "level": "standard"}, {"h": "d17213a65876d4176ec530c6732a11f4c39b05ed33456015c149e4c7dcd6119c", "level": "standard"}, {"h": "ac9c8997d385b5de8c94feab5718e4c9a8402fe6b1a129430255ef33766f725a", "level": "standard"}, {"h": "3da3d6bb0891f9068f4070ce5284f1e4ea7b9340b9dd7811c8b7f59edb45e28e", "level": "standard"}, {"h": "fde340fa8806338c8dd16ae7e4cc26e94372a98d555b068ed685d836ba774ccd", "level": "standard"}, {"h": "91a61383460c4a241fdfd38a4932249257e59c22f69f81f28beccb225b5719bd", "level": "standard"}, {"h": "676ebbeed749e71c386f4df9afee0620c078ae22e8e3b9d6e1596ec3b66e0a7b", "level": "standard"}, {"h": "21ae32b35a67dc3cf6467f43c890300761146702faf38e8a63d834619b638aa5", "level": "standard"}, {"h": "18766bf6677a4bdd249ab526b39437a82e831d53e7f32698271ee9d6ec52d671", "level": "standard"}, {"h": "75be6c88e91d1049cb4d18f61c4b814515bdb80dc1fabbc74c77cedccb94ceae", "level": "standard"}, {"h": "8dadc002ee79718a2c57ae6d777e133c3db47d30615f203b0fceb4ea674d6e25", "level": "standard"}, {"h": "fb12a5f1103d7ff59faaeb5a4cc0945480392e59ee767ca6ce4d996ab0b136cc", "level": "standard"}, {"h": "f33d6963d82d8180f8b2678b751c76669ebc8a43d8b24e292ef045ca30aac819", "level": "standard"}, {"h": "a66e12e4e850babccd4e7eeae55d45097bf136d3924509aa0ff62c0176b3cda6", "level": "standard"}, {"h": "cfd15b322420f4fde80e5f3216f360dcaf41795ffb59362b3cdb56433450d25c", "level": "standard"}, {"h": "231ed9acb475f3d31e9d03320d3152a0fd7f9bbc3705eaadee1fe654d7bc5d53", "level": "standard"}, {"h": "8be6083e502f48f96c7f149006ee4eda96ecd40a693e84b71a07117ffa4fcb8c", "level": "standard"}, {"h": "872fbbdc4f3b7b76544093ae89601cb60c9a6cdd15d9c379cb205cdb0358701f", "level": "standard"}, {"h": "69ac2478118b453c1cd51942a91a5844f4823f4e4e7bdb66cbc23984c87a332a", "level": "standard"}, {"h": "957c9d6ba4242dd2d23beff4b1ef91280f1a57b2f885e5daddeda4723f98b49e", "level": "standard"}, {"h": "fc178f2c73b96b396dc1c74200fe4502f57255a36c2d387dd61db88ae142b4df", "level": "standard"}, {"h": "b340244c9553607047a19e67bb4f82c6d68bd20cb3ad362b3fd5da045daf7e1c", "level": "standard"}, {"h": "c9a836c5fba560befe717befc5e87b106e9f16bf0563ab8c6d75e3061b70b688", "level": "standard"}, {"h": "d889a6845bfe6a03a0ea5b2a2206e8b3a7d581dfd7a12160053988f913782817", "level": "standard"}, {"h": "c16715350fc174250b3728fd9c022f6ef161c151ee777ff2f0e8a7630042e5ee", "level": "standard"}, {"h": "ec7d38e04df6bf6404934d5eda4bbee28038152d0e65a6773b101eaab6b4d284", "level": "standard"}, {"h": "d61f9ef0f76f279d2af74a9c5612b8485d8cedbde25ab541f51f1b1694e0d4d5", "level": "honors"}, {"h": "ac626d8ea4a5bafaa7df409de175ad51671718ff51b2155892aba40a6e3d4f88", "level": "honors"}, {"h": "1b171d14f1347df23a78da7aeb44067bf33b2c04fa0a09033ca5a9546a2951a0", "level": "honors"}, {"h": "30c6b8987120161a5b47e604eee9a85751aa7ba169d4c78d9e3949f963d58b0a", "level": "honors"}, {"h": "d8cbdd1c98f3ec81b3cc8e62015b41f8f303a2752c3a7cd18093cf3d50b40be5", "level": "honors"}, {"h": "b46aa5a0e093d1e792d12d739230bbc19fc389af78abac3fbe5e55c462b38373", "level": "honors"}, {"h": "77857b10a2f6c73e89fd9f1710df644084f3cd1b10efc49492180444e1ae9261", "level": "honors"}, {"h": "82a7aedbaa9b02a5dd439d931d649202bc3e9751f9cf16ba5f6a31c91aa02758", "level": "honors"}, {"h": "5596efc9a69a58ab7846c1e633c7a0432d551f38ab181efb47469e58e5f5f01b", "level": "honors"}, {"h": "6dc097da976392c1c501c0089c02ca8d65c3aa5ab83945ada6e7fd9ac82a0e14", "level": "honors"}, {"h": "6822c63cbe1f43ef23fad96eb79ce064682d17d4112cda6b2050fadfba8f4bdb", "level": "honors"}, {"h": "f2c0e33b5dba5f0aeda632a2428e43eed873a8df81627abe4eee3f94a2c7387b", "level": "honors"}, {"h": "ae94332811805fb05246bc31f90b23df353715dd502df5284de1e161715ebd2a", "level": "honors"}, {"h": "56bbbea47c2ad38aec5d160542001c6e8a96208051d26a03cd6f0959e33ec53b", "level": "honors"}, {"h": "a88ffc6b73bfe06ae11738b1e02591fc5e31f4bc16d843000524119a2b4a17da", "level": "honors"}, {"h": "a19a950e696ea67ac4e997ff3b299da6e15ed6e1b47b37ed4ee948dbfdd5981f", "level": "honors"}, {"h": "0680ec1cfcd2f730dc9add5959f2036ef23482ff5db2f831b0c2994e400f8499", "level": "honors"}, {"h": "3deb571ac589dfb9746463ac3d54294d5ef52cc7c275c90210e322270d0053af", "level": "honors"}, {"h": "6e95a5c2ccbe40a8ddbb7cc059884b3b52e401b85f6f83619891eca2c6b17796", "level": "honors"}, {"h": "0ee0881b50600755c3d3a4d834390cd412f0ea987ef85d312b50c7e026c6fbc1", "level": "honors"}, {"h": "0b632617e202d7484cbb17320b9363195569dd1479f8f87ae499595038f33029", "level": "honors"}, {"h": "54c144b87ff654fe0bd61a14b7238b7a2a5622e85f9e7e59f9be379fee75c769", "level": "honors"}, {"h": "52dc71515ee34715c2eaf189ea721bd7e78edb9fb59261de3fd242fc05a0d627", "level": "honors"}, {"h": "e282c229747be28ff61e6ef0f5bb326ae8e903a66a023b1fe1a4e7040bd9f845", "level": "honors"}, {"h": "d60ba1eaa9dad0094ef2c8739db01f02985dd3b29b78341f5b76dbe2c0be423d", "level": "honors"}, {"h": "0994d8748f16616ef3dc2a9295f9b13a28982ece0a57d41923677a784ad794e9", "level": "honors"}, {"h": "628b2cacc36f05728b99ee948c8171eee86e453228971cf0b68b91b0b70d3861", "level": "honors"}, {"h": "e81fc17acc57fc7c9e0170be551b150b26be63c237576cb85f9c7a2e0a4de912", "level": "honors"}, {"h": "1a077f6da43eec3e4768fba6bddefd70da26d9fd6d7cb6d808c72e823faf2ec4", "level": "honors"}, {"h": "2129a8566f8a7b16b58f0e60d7466a945a0ec865873606ce96afab86bb552400", "level": "honors"}, {"h": "3963e47989acc720d14286948fb06ae183556c51ccb9d3f6e5116460edec0501", "level": "honors"}, {"h": "839d1aa715e1549776256caa7b7fddb22ed30c0ef9b0801aad353d8ac972ddbd", "level": "honors"}, {"h": "1eab907706897af4c7116e30f3c1854a991cb2b5a1c5f909ab30dfd8fc237af9", "level": "standard"}, {"h": "1c2e7d0b034bb7c081d2fa29470e347285a965eef3cfe8883fcff069539e5637", "level": "standard"}, {"h": "2ae339d85acebf842b9025fe87a363e3af6cf4a9e824de2e86ec7d9a13797eb9", "level": "standard"}, {"h": "9a9ef68b49827ef649a326cda63609b1e5ae881390d46941e8e102f602bf478c", "level": "standard"}, {"h": "2d404a2a841b572ebc3c9d2eb2c9cddca036e5a120ba0336335df63c24bc5249", "level": "standard"}, {"h": "a97edc82bbbbf8159af145cf0a63634260ae1a74322d7ddb2844fae55e54a8fa", "level": "standard"}, {"h": "4970d96b2a51ab870f294175758ae477dacb14345d545a605c0fc89ff1ec9f84", "level": "standard"}, {"h": "4e368e6234aa29ad79b7a0113f2223a96a2a7639673a7e1c71f22d316d73e478", "level": "standard"}, {"h": "99b58939ca52fffb9bbf10aeacebd78b8921d1f88ddfabc4aa4e423f4d25b237", "level": "standard"}, {"h": "12c9c4e94f1b7ed6458b43f41b9fd2852b301885a000833a76ea9b6e50c3a414", "level": "standard"}, {"h": "4076bd7729b165e3c7f2146135c820c9d725324008d6dc10d23b10f687d30bce", "level": "standard"}, {"h": "88584f5c4ef3cfdd8710d4fb3a14d1613b73b83a4671a9a0ea066b61c0695512", "level": "standard"}, {"h": "f7728ef479aa11b0af63339b15b4e8cf77e34a3ae4fb8977d0d282ee14c3d3d6", "level": "standard"}, {"h": "40761c6d1a6b024543e10205a1e8a9177dc5aef47483bddea9186209c7a5c486", "level": "standard"}, {"h": "7ba6f542bc497343710737a7ed7251d62e3d1354274a62931ac58f73853d7ea3", "level": "standard"}, {"h": "0af0450c426049f1d2f99a28fb91365cf26e091494bc9b4acaed73825fda74d6", "level": "standard"}, {"h": "836d6617f15b61c38155790b2eefd6a2249cccfcabb4916f014a9b78644c8750", "level": "standard"}, {"h": "2dcaf33e9502bea2d5350f01619291b64c6509d24185dedc1506fd041a664665", "level": "standard"}, {"h": "34d42c75d47e1230689f4fff91838364579956764f1696b3c47b8e8c0653d0d0", "level": "standard"}, {"h": "5ad19c405ef856e5929256e6556a1b0e0a0a4831dd2bbd9bc5b09e28b244687d", "level": "standard"}, {"h": "124e4b96babac816c370963b90ca689ef6140cc0dae0fdedcf5b0b28f4ec46ed", "level": "standard"}, {"h": "928072758422cf30a8c0d765f0ae3dcc2066acc3f341621556e8aa36616a48d1", "level": "standard"}, {"h": "72afbe946a292dc8f553f2b3cbdc4f06dddac0700c481deaffd9cc58d548ce97", "level": "standard"}, {"h": "e6b956eef75100f894994ade7b06e52842209ea64da313d00ab9da959193ec79", "level": "standard"}, {"h": "a1cfd3ae9d13dff2adeca41177d962e540d3454f27f17a09338938d37837554b", "level": "standard"}, {"h": "a0bec9de0d08ab690e4bd353f12deb624aca02b6b3039ce27dcf9506fcdf4469", "level": "standard"}, {"h": "7e6995c7f042cee0e5bdbe8d687a9a36b8a7016dadc1755f77488d53ec2e9717", "level": "standard"}, {"h": "a74224a88a737102007e974398819d67918bc307f69554d3ad6e51ca1e674a63", "level": "standard"}, {"h": "88796e80d91909271e07990b19ce40e41ae53bb1c851986ae69b15619c2a8c28", "level": "standard"}, {"h": "fa19208d4f094a3f790e216a1d4d16c74738b923acdb5f9aa43af2348e572d32", "level": "standard"}, {"h": "8b5d772f78bf026a5364c755111296146de533121ea5c75a843327da28c5f909", "level": "standard"}, {"h": "914df71e2a3dffc5cad8ef520b55c045df48f9e1537def6f01dd52c1c885bdba", "level": "standard"}, {"h": "aff182e6a0bbb38179ddaa9a45af495b08b0793d86ffa4a91a86eda76b07b2ea", "level": "standard"}, {"h": "c1b41d85562fd70fefcbeb6050f225a03ef4dddc967b5aa58314ae34f9680483", "level": "standard"}, {"h": "832a1c2086f50cd26ad53a85ed638974d05584370ad14256fc193235dc0cf9cf", "level": "standard"}, {"h": "49e027224d28fb8c067baf40ed8b1ee1bb54d2c662418bf0ed3cc18e97a01699", "level": "standard"}, {"h": "321c5bc565516cf74e9d4543c681d33c1d5838098e22d04e47ca2a37917aa2a2", "level": "standard"}, {"h": "c0ef3b9b125901250854c0f7a77bcf370bc95539d63a14e8d7099d855647b113", "level": "standard"}, {"h": "101cd7a3d61e668c1e868d19a0843161ed7ce25b6232e4ce3b287dfeb209909c", "level": "standard"}, {"h": "9514066265b681b3567ae0e5ce5bc45ac584b10dab948cc284ddf75716ada763", "level": "standard"}, {"h": "f4b854de2b844265b4f0deee53e77b3d2f59df54eaca789065e68e32975003fb", "level": "standard"}, {"h": "46470910e3e7aa70819a9783ffc572dfce4b7ff8f2827acb6db927a4fa74e317", "level": "standard"}, {"h": "1873d18fa32bd79c7f6f774b07fedb8fe371b68fabd801f40b9268bf2d80445f", "level": "standard"}, {"h": "2aa88b6c26d4fdb5ea570f662a942b204faea3558056a50ea7cdde9e92509167", "level": "standard"}, {"h": "453e5c036ee6c50fb280e26e5d5d351ffd4301984bc9ada6691559b7531c7c30", "level": "honors"}, {"h": "4ef7251083733979a757eb455863a9f29d4d8e955d8cfa641fbc03370844b040", "level": "honors"}, {"h": "2528b8ed7d8f490b0847e9fe0bd9ef57b44e7f71f71f2ed2fbf4a179d2428527", "level": "honors"}, {"h": "5d729c30b901d417166652589440b3c1cf30fa2b62308fe04294f20d2827271f", "level": "honors"}, {"h": "cacb8d2719569a6b96de4b18ff8aa9c5da29b9f28f4863dad3b0d7bfb8e2d38f", "level": "honors"}, {"h": "321688e802dfaded302743aad874d4e711e2d0ef471ba5ecd99700cb74315631", "level": "honors"}, {"h": "12891e05a0df534aadf6d27ba06900b100a3b3e007dea3cb03c8844448c3cb07", "level": "honors"}, {"h": "b2472b42c4396d0d4502dbeae757c27d337f6b1baf0e0f3789998418c6c5822f", "level": "honors"}, {"h": "6b536244f04f01b9dac26e0c257f8f5468b9551302697eb1f3ccb0f91847fe3b", "level": "honors"}, {"h": "06463169e42238ba8aeb08e0919b1db88d5ed1e4bebb300d99dae15eaccf06f3", "level": "honors"}, {"h": "c1b1418985250fc9a45985857ddaea00924835860147d22158a553f9b7d2a593", "level": "honors"}, {"h": "cafb8544169864dcdea994eb99be2f4f9dde8522ff788236fa2ae3f98fb60dca", "level": "honors"}, {"h": "76596e855f8ab4c01273f2c4637f7dc51e736ae0948ed56939215c2167d28ee7", "level": "honors"}, {"h": "de9e301558da5d168e1f3f8fb14bb0103fe0214e64138e585b41226e1dc3be05", "level": "honors"}, {"h": "2a280c305341e15eb81d4f3554a0091f68237870017c41de50b4a352840a1d2b", "level": "honors"}, {"h": "00ea3f175ef15f4dfadb9f6c7a9cb1a08b534f22493ccd59a56ff4b8f6be4e8d", "level": "honors"}, {"h": "07e4888257525104f2d5dce08b0daa9b8bb19c629259eb6d5d3f1c921f7fc1ca", "level": "honors"}, {"h": "7d341501721724e63828eacaf76ded30665d82e25a082deccf3486a3a588635d", "level": "honors"}, {"h": "5b1e63a5fc46cfd9ca95d505e5abc73823b5da4e004c9ab1c4aeaee2b49d07d5", "level": "honors"}, {"h": "7003182e5672a0010ce27cfee1bb700102c1cf9a0426ec6db0a1fcee2fa185f1", "level": "honors"}, {"h": "a3d0b6843d717d490029daa8d9e8ba9593d6f834fd71afc7feb651e545f2acf4", "level": "honors"}, {"h": "bab696ddaa5eec022fbdd992bcce1e60e9f02200e3f8edb1c7bd06b069b696c8", "level": "honors"}, {"h": "b33b39dd9cd1abdc8707656687f01118ba006062d8e27422f73bacd6c9a26172", "level": "honors"}, {"h": "265e5df00d37c218fddb86a27fd31e08fbffc16a2f4eb99748379b0dffbb1621", "level": "honors"}, {"h": "612ce447a9cebbcfb2d77e82fcd0efbd1cefdfb47f501d8b15f8716b62bf5f3a", "level": "honors"}, {"h": "6c90bd9ae357f0961341757bed616071ee8f673e8f2e3e4c06d0eceeb6385021", "level": "honors"}, {"h": "b05585f76c9a77563418c8d646da747924542ed281d6b30b0a0ebb32d51264a2", "level": "honors"}, {"h": "a33fc5b2754d95bc8a6e9dfeda7c8fbf49a88ece49d6ce660befc250c995459c", "level": "honors"}, {"h": "5bc3c8469ab333ff3b9efce2ed590e9d931c28098045e15e742dcf7cac483fa4", "level": "honors"}, {"h": "313aa69cbd723874f62ad8a1822d03a2658a4f49aac6845e41c2ce30d105d1da", "level": "honors"}, {"h": "8544938370972c0bac58961ba229648ee1b457b3131db75d17b43cda9d20e93e", "level": "honors"}, {"h": "60087572180fd0b1613b86aca0b690bea216b160d2309047533f94c71138144f", "level": "standard"}, {"h": "7e8845d5ba0cf95ed94a7d8fc795bd7c3e39f6a2be4fb81e1d4a430b11209d95", "level": "standard"}, {"h": "5c0fa8a15d1c77bdd6ca5b08858023e69ada1a7139176fa7bc8d17782faecceb", "level": "standard"}, {"h": "5605e0078d39cf00c9aa4d2155cede8bed0f75c22b449ccfae31554a40006c6a", "level": "standard"}, {"h": "b2bb105375265160e041cdd31f0c2fbb59958dcd403dc6297a7633870754ee14", "level": "standard"}, {"h": "283e07c32974e2757a8c7fefe424033158cf31b9e81692a9409c5588c2c87c27", "level": "standard"}, {"h": "bbe22ba9b992d1f10cd2dad9e24a0320f615426e275ed52288986380a79fb11e", "level": "standard"}, {"h": "33eb735e52840da96b9709e5eed8b448f60387a80dc61e9cf74e56e465ae7f0c", "level": "standard"}, {"h": "72745cd4eca69c8d61c8105a524128430fc76c0a9275ff66ad799c57ca5cc370", "level": "standard"}, {"h": "ba205873d90f0a551e3471f404ff4bca39160ac5ccf833eadde41855165fc62d", "level": "standard"}, {"h": "c5e5ce0d844292f08c563e8d9b1e2b82e9f01bfeeefc789c755d46a1da7cdbc8", "level": "standard"}, {"h": "0fef80715df487cf6493fa7a60bfcfa222174ea1bc5251ea059a0a1099b9cf22", "level": "standard"}, {"h": "460df688c0e289104836365d316d2e33b59458adfc137c95dc96deef00592eb2", "level": "standard"}, {"h": "1623f17948b90071e6e445ade3d0d43d58c6f6e9a4fa2f62fac46b31c93ffaae", "level": "standard"}, {"h": "8c7f4a19d635ae5c2cec823549a24cf36bab68921ad891c4aabbe3b393bfd509", "level": "standard"}, {"h": "557c059513ee770d4dcec21d0fc7405356ce696ac357b525cca2ddbf86a02c16", "level": "standard"}, {"h": "854f37bed93d9964da1322463215bfbdd67a6c8b9ffa0d7b78dcb2150187b7ae", "level": "standard"}, {"h": "74930f40544b262a6934eab5bb6b4c6ceb90e0cdb3f79eb64b6bd2b825a011dc", "level": "standard"}, {"h": "81c6205c7a3775c729fa40c04ed40feb8529714a4eb143dd61b5ad450a4eea98", "level": "standard"}, {"h": "dd2b1c86e2e322e0227d80fa857dfa470e85f32b2ddf718a2f2222fb006fb771", "level": "standard"}, {"h": "8874259d1734ef347103bed03e8bb3e8d951253ec4401e3f2c5b8a72f19c2dc4", "level": "standard"}, {"h": "277a0400c10e20716751bc8911057569380f9beef2718f5b51dced841dc705f6", "level": "standard"}, {"h": "75b8500c5981941dbf648cb6aff2619687d54b1e509b3a784be85fdc3a76f5cf", "level": "standard"}, {"h": "b6b83715dfe2e25e3bc1bca151dc4bcff32f5b3ab747f53ca2e661551763941e", "level": "standard"}, {"h": "24e6a436c11d900dd21ace11759a25710b6f214be1d21ee28a2b354b5a57d437", "level": "standard"}, {"h": "e63986f6940426c56f30373357cf0448f88972c30a07bc72567adcdbea5cde5f", "level": "standard"}, {"h": "8964720228c24430541838e6703d346d4487d9fa88a3ac665df97a445f920cce", "level": "standard"}, {"h": "ad754819ade1d933ee7363ced77885bbd5a3357ae4e9535475c9cad28a944086", "level": "standard"}, {"h": "fcdeeed80b9a9df1529660c0e50eddf58c2e8b5dee4852e7b247f41b95231660", "level": "standard"}, {"h": "a66500738f79c4053691e3d7b09906f5df70823040049476190d0bdf7752c19c", "level": "standard"}, {"h": "35875ecba86b294db5f4b1a80ce88fa53eda894aebe833725b0583cd7cd108ea", "level": "standard"}, {"h": "1b7f05f1387cf3868b8aae5c0472824c846601f36daa1f1ba8f49443ec9833c7", "level": "standard"}, {"h": "3a209c0125abc372644fc9aca660cec229e64f909532355364f50c01786a78a1", "level": "standard"}, {"h": "891f97d2e5fa69b087a461c744698ddbee087562ba103e8b2e3a097fb63cda1a", "level": "standard"}, {"h": "f747e61efe04fd7ff0ae278034319f80121c20b0c4b7afda2a7db05ac3052afe", "level": "standard"}, {"h": "70340e7dd9ce3591f1a5945408874310a2f523a712529f627b6458497d2d18ff", "level": "standard"}, {"h": "2bef327f93419c5d83f2581ef6dc7649cb50caa1801f794d3550c37966fb3e65", "level": "standard"}, {"h": "d8ebe14202e9451e5c4b842972f3c7911d3879152538bfcb873fcf0a84a88d4f", "level": "standard"}, {"h": "c421d8599415f7b15ad48244b6493ba1d73646d1802562dfe1269093a92d9bbe", "level": "standard"}, {"h": "b95625e47c4210a56fc756067d8734b16a218713eeed4f1041c10fc63706fe04", "level": "honors"}, {"h": "5c8487e535175fddd4c7cdb7e6a04d09b58f0eb228745640d71dc451f0552cb4", "level": "standard"}, {"h": "717067658127228a79c5ccb14c60f960edaa0fe587d18788a4e4f80f32ed77bd", "level": "standard"}];
 
 // TEACHER SIDE ------------------------------------------------------------
 // Teacher codes are stored as hashes. Each code opens that teacher's dashboard.
-const TEACHER_CODES = [{"teacher": "t1", "h": "6e82e049a79936ee451efaac4a0c4ba6700f26a1b6372642184f46ea13de1054"}, {"teacher": "t2", "h": "9235e9a11d9e14657ecd3ee9f0d55f25c6ba46925e9a4f909560c0f3dffaf2d1"}, {"teacher": "t3", "h": "3d63dbf97e104ebc50cb485a65c6cd00c335e4de3865baf1b42a4e465909812c"}, {"teacher": "t4", "h": "b252768310da7e5ff20323c9422361321056e9993099ff4c0a151e61f3627379"}];
+const TEACHER_CODES = [{"teacher": "t1", "h": "6e82e049a79936ee451efaac4a0c4ba6700f26a1b6372642184f46ea13de1054"}, {"teacher": "t2", "h": "9235e9a11d9e14657ecd3ee9f0d55f25c6ba46925e9a4f909560c0f3dffaf2d1"}, {"teacher": "t3", "h": "3d63dbf97e104ebc50cb485a65c6cd00c335e4de3865baf1b42a4e465909812c"}, {"teacher": "t4", "h": "b252768310da7e5ff20323c9422361321056e9993099ff4c0a151e61f3627379"}, {"teacher": "t5", "h": "f076aeaf238ac6fc01a4b1075ddaa80ad06706bc9ede3089bd871f685a67f2b7"}];
 
 // DEMO ROSTER (made-up names). The period is the first character of the ID.
 // Real student names should NOT be placed in this file: anyone can read it.
@@ -2004,7 +2016,7 @@ function exitPreview(){
   S.preview = false; S.student = null; S.hist = []; progress = {}; resetLive();
   S.view = "teacher"; render(); window.scrollTo(0, 0);
 }
-function logout(){ if(S.preview) return exitPreview(); bkBeacon(); bkStop(); trStop(); S.teacher=null; S.student=null; S.tId=null; S.pin=""; S.hist=[]; progress={}; resetLive(); go("login"); }
+function logout(){ if(S.preview) return exitPreview(); bkBeacon(); bkStop(); trStop(); S.teacher=null; S.student=null; S.tId=null; S.mon=false; S.tTeacher="all"; S.pin=""; S.hist=[]; progress={}; resetLive(); go("login"); }
 
 function header(){
   if(S.student && S.student.preview) return `<header class="top"><h1>Math 3</h1><div class="who"><span class="pill sm previewpill" title="You are looking at the student pages as an honors student. Nothing you do here is saved.">Teacher preview · honors view</span><button class="logout" id="out">Back to teacher view</button></div></header>`;
@@ -2062,7 +2074,7 @@ function renderLogin(){
     if(!code){ err.textContent = "Enter your teacher code."; return; }
     for(const tc of TEACHER_CODES){
       if(await sha("tc:" + tc.teacher + ":" + code) === tc.h){
-        S.teacher = TEACHERS.find(t => t.id === tc.teacher); S.student = null;
+        S.teacher = TEACHERS.find(t => t.id === tc.teacher) || (tc.teacher === MONITOR.id ? MONITOR : null); S.student = null; S.mon = tc.teacher === MONITOR.id; S.tTeacher = "all";
         S.tCode = code; S.tId = tc.teacher; S.tUnit = 5; S.tBlock = ROSTER.filter(r => r.t === tc.teacher && !r.test).map(r => r.id[0]).sort()[0] || "1"; S.tSection = "home"; S.tLesson = "1"; S.tBox = ""; S.tHist = [];
         S.sample = (() => { try{ return localStorage.getItem("mph4:sampleview") === "1"; }catch(e){ return false; } })();
         trStart(); go("teacher"); return;
@@ -2421,9 +2433,12 @@ async function bkSbStudent(c, id){
 }
 async function bkSbClass(c, full){                // the whole class. After the first load, only what changed since (with a minute of overlap).
   if(full || !TR.data){ TR.data = {}; TR.since = null; }
-  const r = await sbRpc(c, "hw_class", {p_teacher: S.tId, p_code: S.tCode, p_since: TR.since || null});
-  Object.keys(r.students || {}).forEach(id => {
-    const into = TR.data[id] = TR.data[id] || {}, recs = r.students[id];
+  const r = S.mon ? await sbRpc(c, "hw_all", {p_code: S.tCode, p_since: TR.since || null}) : await sbRpc(c, "hw_class", {p_teacher: S.tId, p_code: S.tCode, p_since: TR.since || null});
+  const flat = {};                                  // the monitor gets every teacher's classes, so each student is keyed by teacher and HW ID
+  if(S.mon) Object.keys(r.students || {}).forEach(t => Object.keys(r.students[t]).forEach(id => { flat[t + ":" + id] = r.students[t][id]; }));
+  else Object.keys(r.students || {}).forEach(id => { flat[id] = r.students[id]; });
+  Object.keys(flat).forEach(id => {
+    const into = TR.data[id] = TR.data[id] || {}, recs = flat[id];
     Object.keys(recs).forEach(k => { const rec = recs[k]; if(!into[k] || bkAhead(rec, into[k])) into[k] = {d: rec.d ? 1 : 0, h: rec.h ? 1 : 0, w: rec.w || [], t: rec.t || 0}; });
   });
   const now = Date.parse(r.now); TR.since = isNaN(now) ? null : new Date(now - 60000).toISOString();
@@ -3245,7 +3260,7 @@ function challengeCard(unit, shown, isAll, testRows){
   if(!shown.length && !testRows.some(r => r.ch && r.ch.tried)) return "";
   const tried = shown.filter(r => r.ch && r.ch.tried > 0), testT = testRows.filter(r => r.ch && r.ch.tried > 0);
   const cell = s => !s || !s.tried ? `<td class="muted">—</td>` : `<td><span class="cell ${s.n && s.done === s.n ? "done" : s.done ? "prog" : "todo"}">${s.done}/${s.n}${s.score !== null ? " · " + s.score + "%" : ""}</span></td>`;
-  const rowH = r => `<tr>${isAll ? `<td>${esc(r.period)}</td>` : ""}<td class="idc"><span class="sid">${esc(r.id)}</span></td>${r.ch.topics.map(cell).join("")}<td title="${r.ch.done} of ${r.ch.n} problems finished"><b>${r.ch.score !== null ? r.ch.score + "%" : "—"}</b></td></tr>`;
+  const rowH = r => `<tr>${isAll ? `<td>${esc(r.period)}</td>` : ""}<td class="idc"><span class="sid">${esc(r.id)}</span>${S.mon && S.tTeacher === "all" ? ` <span class="tname">${esc(r.tname)}</span>` : ""}</td>${r.ch.topics.map(cell).join("")}<td title="${r.ch.done} of ${r.ch.n} problems finished"><b>${r.ch.score !== null ? r.ch.score + "%" : "—"}</b></td></tr>`;
   const ncols = topics.length + 2 + (isAll ? 1 : 0);
   const body = tried.map(rowH).join("") + (testT.length ? `<tr class="testsep"><td colspan="${ncols}">Test student · not counted in any class numbers</td></tr>` + testT.map(rowH).join("") : "");
   return `<h2 class="vtitle" style="margin-top:22px">Challenge section</h2>
@@ -3274,6 +3289,7 @@ async function trLoad(full){
   if(S.view === "teacher") { const b = document.getElementById("trefresh"); if(b){ b.textContent = "Loading class data…"; b.className = "pill sm trbtn loading"; b.disabled = true; } }
   try{
     TR.n = (TR.n || 0) + 1;
+    if(S.mon && !c.sb) throw new Error("the monitor view needs the Supabase backup");
     if(c.sb){
       await bkSbClass(c, full === true || TR.n % 15 === 0);
       if(S.tId !== who) return;
@@ -3430,7 +3446,7 @@ function openAtt(r, unit, lesson, opener){
   const hints = ps.filter(p => prog[p.id] && prog[p.id].h).length;
   m.dataset.opener = opener || ""; S.attOpen = true;
   m.innerHTML = `<div class="attcard" role="dialog" aria-modal="true" aria-label="Answers and attempts for ${esc(r.id)}">
-    <div class="atthead"><div><h3>${esc(r.id)}${r.test ? " (test student)" : ""} · Block ${esc(r.period)}</h3><p class="attsub">Lesson ${esc(lesson.id)}: ${esc(lesson.title)}</p>
+    <div class="atthead"><div><h3>${esc(r.id)}${r.test ? " (test student)" : ""} · ${S.mon ? esc(r.tname) + " · " : ""}Block ${esc(r.period)}</h3><p class="attsub">Lesson ${esc(lesson.id)}: ${esc(lesson.title)}</p>
       <p class="attsum">${s ? `${s.done}/${s.n} finished${s.acc !== null ? ` · ${s.acc}% accuracy` : ""}` : ""}${hints ? ` · 💡 ${hints} hint${hints === 1 ? "" : "s"}` : ""}${s && s.late ? ` · ${s.late} finished late` : ""}</p></div>
       <button class="pill unit" id="attclose">Close</button></div>
     <div class="attall">${ps.map(p => attCard(p, prog[p.id], unit, lesson)).join("")}</div>
@@ -3523,8 +3539,8 @@ async function loadClassData(unit){
   const lessons = CONTENT[unit] || [];
   const parts = PARTS[unit] || {p1:[], p2:[]};
   const rows = [];
-  for(const st of ROSTER.filter(r => r.t === S.tId)){
-    const h = await sha(st.t + ":" + st.id);
+  for(const st of (S.mon ? ROSTER.filter(r => !r.test) : ROSTER.filter(r => r.t === S.tId))){
+    const h = await sha(st.t + ":" + st.id), dk = id => (S.mon ? st.t + ":" : "") + id;      // the monitor sees four teachers, so the same HW ID can appear more than once
     let saved = null;
     try{ saved = JSON.parse(localStorage.getItem("mph4:" + h)); }catch(e){}
     const take = (recs) => {                                      // add whichever copy of each problem is further along
@@ -3535,14 +3551,14 @@ async function loadClassData(unit){
         if(!saved[k] || bkAhead(r, saved[k])) saved[k] = {w: r.w || [], d: r.d ? 1 : 0, h: r.h ? 1 : 0, ...(r.t ? {t: r.t} : {})};
       });
     };
-    take(TR.data && TR.data[st.id]);                                // this student's work from the backup sheet
+    take(TR.data && TR.data[dk(st.id)]);                                // this student's work from the backup sheet
     for(const a of (ID_ALIASES[st.t + ":" + st.id] || [])){          // and anything saved under their old ID
       let old = null; try{ old = JSON.parse(localStorage.getItem("mph4:" + await sha(st.t + ":" + a))); }catch(e){}
-      take(old); take(TR.data && TR.data[a]);
+      take(old); take(TR.data && TR.data[dk(a)]);
     }
     const live = !!saved && Object.keys(saved).some(k => k.startsWith(unit + "-") && !isChallengeKey(k));
     const known = !st.test && !!TR.data && TR.state === "ok";                // the backup has answered for the whole class
-    const prog = live ? saved : (S.sample && !st.test ? sampleProgress(st.id, st.level, unit) : {});   // the test student never gets made-up work   // made-up work only in sample mode
+    const prog = live ? saved : (S.sample && !st.test ? sampleProgress(S.mon ? st.t + ":" + st.id : st.id, st.level, unit) : {});   // the test student never gets made-up work   // made-up work only in sample mode
     const per = {};
     lessons.forEach(l => {
       const n = l.problems.filter(p => !p.retired && (st.level === "honors" || !p.honors)).length;
@@ -3553,11 +3569,11 @@ async function loadClassData(unit){
     const partGrade = ids => { if(!started) return null; const v = ids.map(i => per[i]).filter(Boolean).map(x => x.score); return v.length ? mean(v) : null; };
     const p1 = partGrade(parts.p1), p2 = partGrade(parts.p2);
     const halves = [p1, p2].filter(v => v !== null);
-    const chSrc = saved && Object.keys(saved).some(isChallengeKey) ? saved : (S.sample && !st.test ? sampleChallenge(st.id, unit, st.level) : null);
-    rows.push({...st, period: st.id[0], live, per, std: standardStats(unit, st.level, prog), misc: misconceptionHits(unit, st.level, prog), ch: challengeStats(unit, st.level, chSrc), prog,
+    const chSrc = saved && Object.keys(saved).some(isChallengeKey) ? saved : (S.sample && !st.test ? sampleChallenge(S.mon ? st.t + ":" + st.id : st.id, unit, st.level) : null);
+    rows.push({...st, key: st.t + ":" + st.id, tname: ((TEACHERS.find(t => t.id === st.t)) || {}).name || "", period: st.id[0], live, per, std: standardStats(unit, st.level, prog), misc: misconceptionHits(unit, st.level, prog), ch: challengeStats(unit, st.level, chSrc), prog,
                p1: rnd(p1), p2: rnd(p2), unit: rnd(halves.length ? mean(halves) : null)});
   }
-  rows.sort((a,b) => a.id.localeCompare(b.id));
+  rows.sort((a,b) => (S.mon ? a.t.localeCompare(b.t) : 0) || a.id.localeCompare(b.id));
   return rows;
 }
 
@@ -3583,7 +3599,10 @@ function tBack(){
 }
 const tHome = () => tGo({section: "home"});
 
-function teacherHeader(){
+function teacherPicker(){
+  return `<div class="lrow tabs tpick" role="group" aria-label="Choose a teacher"><span class="tlabel2">Teacher</span><button class="pill sm ${S.tTeacher === "all" ? "sel" : ""}" data-teacher="all" aria-pressed="${S.tTeacher === "all"}">All teachers</button>${TEACHERS.map(t => `<button class="pill sm ${S.tTeacher === t.id ? "sel" : ""}" data-teacher="${t.id}" aria-pressed="${S.tTeacher === t.id}">${esc(t.name)}</button>`).join("")}</div>`;
+}
+function teacherHeader(noPick){
   const isWatts = S.tId === "t4";     // the lightbulb is Mr. Watts's page only
   const nums = [1,2,3,4,5,6,7,8].map(u => {
     const label = `Unit ${u} · ${UNIT_TITLES[u]}${unitHas(u) ? "" : " (not added yet)"}`;
@@ -3601,7 +3620,7 @@ function teacherHeader(){
       </div>
       <span class="unitnums" role="group" aria-label="Choose a unit">${nums}</span>
       <button class="pill sm" id="tpreview" title="See the student pages (the honors version) to look at lessons and problems. Nothing you do there is saved.">See student view</button>
-    </div>`;
+    </div>${S.mon && !noPick ? teacherPicker() : ""}`;
 }
 const sampleNote = () => S.sample
   ? `<p class="tnote foot samplewarn"><b>SAMPLE DATA</b> · made-up numbers so you can preview the dashboard. They are not your students’ real work, and exporting is turned off. <span class="livedot">●</span> means real progress saved on this device.</p>`
@@ -3621,6 +3640,7 @@ function bindChrome(){
   const hb = document.getElementById("thome"); if(hb) hb.onclick = tHome;
   const bulb = document.getElementById("tbulb"); if(bulb) bulb.onclick = logout;   // back to the page where students log in
   const pv = document.getElementById("tpreview"); if(pv) pv.onclick = enterPreview;
+  document.querySelectorAll("[data-teacher]").forEach(b => b.onclick = () => { S.tTeacher = b.dataset.teacher; S.tBox = ""; render(); });
   document.querySelectorAll("[data-unit]").forEach(b => b.onclick = () => tGo({unit: +b.dataset.unit}));
 }
 
@@ -3665,15 +3685,68 @@ function renderTeacherHome(all, unit){
     : `<div class="notice">Nothing here yet. Unit ${unit} hasn’t been added.</div>`;
   const bub = (sec, name) => `<button class="pill hbtn" data-sec="${sec}" ${has ? "" : "disabled"}>${name}</button>`;
   app.innerHTML = `<div class="tview sec-home">` + teacherHeader() + `
-    <h2 class="vtitle">Mastery breakdown</h2>
-    ${overview}
+    <h2 class="vtitle">${S.mon ? (S.tTeacher === "all" ? "All teachers" : esc(((TEACHERS.find(t => t.id === S.tTeacher)) || {}).name)) + " · " : ""}Mastery breakdown</h2>
+    ${overview}${S.mon && S.tTeacher === "all" && has ? `<h2 class="vtitle" style="margin-top:22px">By teacher</h2><div class="tscroll">${teacherSummaryTable(all, unit)}</div>` : ""}
     <div class="homebubs">
       ${bub("lesson", "Lesson data analysis")}
       ${bub("unit", "Unit grade calculation")}
       ${bub("standards", "Standards mastery")}
+      ${S.mon ? bub("teachers", "Compare teachers") : ""}
     </div>${sampleNote()}</div>`;
   bindChrome();
   app.querySelectorAll("[data-sec]").forEach(b => b.onclick = () => { if(!b.disabled) tGo({section: b.dataset.sec}); });
+}
+
+
+// ---- the monitor's views: classes grouped by teacher, and teachers side by side ----
+const classGroups = rs => {                                    // one group per class (a teacher's block), in order
+  const m = {};
+  rs.forEach(r => { const k = (S.mon ? r.t + ":" : "") + r.period; (m[k] = m[k] || {bk: r.period, tname: r.tname, rows: []}).rows.push(r); });
+  return Object.keys(m).sort().map(k => m[k]);
+};
+function teacherSummaryTable(rows, unit){
+  const groups = TEACHERS.map(t => ({t, rs: rows.filter(r => r.t === t.id)})).filter(g => g.rs.length);
+  const line = (label, rs, cls) => {
+    const o = unitOverview(rs, unit), grades = rs.filter(r => r.unit !== null).map(r => r.unit);
+    return `<tr class="${cls}"><td class="idc">${label}</td><td>${rs.length}</td><td>${o.worked}</td><td>${fmt(o.comp)}</td><td>${fmt(o.acc)}</td><td>${fmt(rnd(mean(grades)))}</td>${o.levels.map(n => `<td>${n}</td>`).join("")}</tr>`;
+  };
+  const cg = [15, 8, 8, 10, 10, 10, 10, 10, 10, 9].map(w => `<col style="width:${w}%">`).join("");
+  return `<table class="ttable fit cmptable"><colgroup>${cg}</colgroup><thead><tr><th>Teacher</th><th>Students</th><th>With work</th><th>Completed</th><th>Accuracy</th><th>Unit grade</th>${LEVELS.map(L => `<th>${lvIcon(L.key)}${L.label}</th>`).join("")}</tr></thead><tbody>
+    ${groups.map(g => line(esc(g.t.name), g.rs, "tgroup") + classGroups(g.rs).map(c => line("Block " + esc(c.bk), c.rows, "tclass")).join("")).join("")}
+    ${line("All teachers", rows, "tall")}</tbody></table>`;
+}
+function renderTeacherCompare(rows, unit){
+  const STD = STANDARDS[unit] || {}, has = unitHas(unit);
+  const groups = TEACHERS.map(t => ({t, rs: rows.filter(r => r.t === t.id)})).filter(g => g.rs.length);
+  const cols = Object.keys(STD).filter(code => rows.some(r => r.std[code] && r.std[code].n > 0));
+  const avgStd = (rs, code) => { const v = rs.map(r => r.std[code]).filter(x => x && x.score !== null).map(x => x.score); return v.length ? Math.round(mean(v)) : null; };
+  const overall = rs => { const v = cols.map(c => avgStd(rs, c)).filter(x => x !== null); return v.length ? Math.round(mean(v)) : null; };
+  const cell = v => v === null ? `<td class="stdc muted">—</td>` : `<td class="stdc stdcell ${levelOf(v).key}">${lvIcon(levelOf(v).key)}<b>${v}%</b></td>`;
+  const line = (label, rs, cls) => `<tr class="${cls}"><td class="idc">${label}</td><td>${rs.length}</td>${cell(overall(rs))}${cols.map(c => cell(avgStd(rs, c))).join("")}</tr>`;
+  const hbtn = code => `<button class="stdh ${STD[code].review ? "rev" : ""}" data-std="${esc(code)}" title="${esc(stdTip(unit, code))}" aria-label="${esc(code)}, show details">${esc(STD[code].short)}</button>`;
+  const keyChips = LEVELS.map(L => `<span class="lvl ${L.key}">${lvIcon(L.key)}${L.label}</span>`).join("");
+  app.innerHTML = `<div class="tview sec-standards">` + teacherHeader(true) + `
+    <div class="lrow tabs">
+      <button class="pill" data-sec="lesson">Lesson data analysis</button><button class="pill" data-sec="unit">Unit grade calculation</button>
+      <button class="pill" data-sec="standards">Standards mastery</button><button class="pill sel" data-sec="teachers">Compare teachers</button>
+    </div>
+    <h2 class="vtitle">Compare teachers · Unit ${unit}</h2>
+    ${has && rows.length ? `
+    <h3 class="cmphead">Overview by teacher</h3>
+    <p class="tnote2">Each teacher's classes together, with every class underneath. Completed and Accuracy are class averages. Students with no work yet are counted in Students but not in the averages.</p>
+    <div class="tscroll">${teacherSummaryTable(rows, unit)}</div>
+    <h2 class="vtitle" style="margin-top:26px">Standards mastery by teacher</h2>
+    <div class="lrow">${keyChips}</div>
+    <p class="tnote2">The average mastery of each teacher's students on each standard, and an overall number (the average of the standards). A hint on a problem lowers that problem's score here by ${HINT_PENALTY} points. Click a standard to see where it shows up.</p>
+    <div class="tscroll"><table class="ttable fit stdgrid cmptable ${cols.length > 7 ? "many" : ""}"><colgroup>${[11, 7, 7, ...cols.map(() => (75 / cols.length).toFixed(2))].map(w => `<col style="width:${w}%">`).join("")}</colgroup><thead><tr><th>Teacher</th><th>Students</th><th>Overall</th>${cols.map(c => `<th>${hbtn(c)}</th>`).join("")}</tr></thead><tbody>
+      ${groups.map(g => line(esc(g.t.name), g.rs, "tgroup") + classGroups(g.rs).map(c => line("Block " + esc(c.bk), c.rows, "tclass")).join("")).join("")}
+      ${line("All teachers", rows, "tall")}</tbody></table></div>` : `<div class="notice">${has ? "No student data to compare yet. It appears here as students work and the backup is read." : `Nothing here yet. Unit ${unit} hasn’t been added.`}</div>`}
+    <div id="stdmodal" class="modal" hidden></div>${sampleNote()}</div>`;
+  bindChrome();
+  app.querySelectorAll("[data-sec]").forEach(b => b.onclick = () => { if(!b.disabled) tGo({section: b.dataset.sec}); });
+  app.querySelectorAll("[data-std]").forEach(b => b.onclick = () => openStd(b.dataset.std, b.dataset.std));
+  const modal = document.getElementById("stdmodal"); modal.onclick = e => { if(e.target === modal) closeStd(); };
+  document.onkeydown = e => { if(e.key === "Escape") closeStd(); };
 }
 
 function miscSection(shown){
@@ -3701,8 +3774,10 @@ async function renderTeacher(){
   const unit = S.tUnit, lessons = CONTENT[unit] || [];
   const parts = PARTS[unit] || {p1:[], p2:[]};
   const STD = STANDARDS[unit] || {};
-  const all = await loadClassData(unit);
+  const all0 = await loadClassData(unit);
   if(S.view !== "teacher") return;
+  if(S.mon && S.tSection === "teachers") return renderTeacherCompare(all0.filter(r => !r.test), unit);
+  const all = S.mon && S.tTeacher !== "all" ? all0.filter(r => r.t === S.tTeacher) : all0;       // the monitor can look at one teacher or at everyone
   const realAll = all.filter(r => !r.test);          // the test student (Block 0) is kept out of class numbers
   if(S.tSection === "home") return renderTeacherHome(realAll, unit);
   if(!unitHas(unit)){
@@ -3711,13 +3786,14 @@ async function renderTeacher(){
     bindChrome(); document.getElementById("tgohome").onclick = tHome; return;
   }
   const blocks = [...new Set(all.map(r => r.period))].sort((a, b) => (a === "0") - (b === "0") || a.localeCompare(b));   // Block 0 (test) goes last
+  if(S.tBlock !== "all" && blocks.length && !blocks.includes(S.tBlock)) S.tBlock = blocks[0];
   const isAll = S.tBlock === "all";
   const shown = isAll ? realAll : all.filter(r => r.period === S.tBlock);
   const sec = S.tSection;
   const built = lessons.filter(l => l.problems.length);
   const lv = sec === "lesson" ? (built.find(l => l.id === S.tLesson) || built[0]) : null;
   const avg = f => { const v = shown.map(f).filter(x => x !== null); return v.length ? Math.round(mean(v)) : null; };
-  const idCell = r => `<td class="idc"><span class="sid">${esc(r.id)}</span>${r.live ? ` <span class="livedot" title="live">●</span>` : ""}</td>`;
+  const idCell = r => `<td class="idc"><span class="sid">${esc(r.id)}</span>${S.mon && S.tTeacher === "all" ? ` <span class="tname">${esc(r.tname)}</span>` : ""}${r.live ? ` <span class="livedot" title="live">●</span>` : ""}</td>`;
   const bTag = isAll ? "all-blocks" : "block" + S.tBlock;
   const cgroup = ws => `<colgroup>${ws.map(w => `<col style="width:${w}%">`).join("")}</colgroup>`;
   const keyChips = LEVELS.map(L => `<span class="lvl ${L.key}">${lvIcon(L.key)}${L.label}</span>`).join("");
@@ -3737,16 +3813,16 @@ async function renderTeacher(){
       const cls = s.done === s.n ? "done" : s.done > 0 ? "prog" : "todo", byComp = r.level !== "honors";
       const canOpen = lv && attLessonProblems(lv, unit, r.level).some(p => { const q = r.prog && r.prog[p.id]; return q && (q.d || (q.w && q.w.length) || q.h); });
       const pill = `${s.done}/${s.n} · ${compOf(s)}%`;
-      return `<tr>${blk}${idCell(r)}<td class="${byComp ? "basis" : ""}">${canOpen ? `<button type="button" class="cell ${cls} attbtn" data-att="${esc(r.id)}" title="See ${esc(r.id)}’s answers and every attempt">${pill}</button>` : `<span class="cell ${cls}">${pill}</span>`}${s.late ? `<span class="latecount" title="${s.late} finished after the due date">${s.late} late</span>` : ""}</td><td class="${byComp ? "" : "basis"}">${fmt(s.acc)}</td><td>${bulbs(s.hints)}</td></tr>`;
+      return `<tr>${blk}${idCell(r)}<td class="${byComp ? "basis" : ""}">${canOpen ? `<button type="button" class="cell ${cls} attbtn" data-att="${esc(r.key)}" title="See ${esc(r.id)}’s answers and every attempt">${pill}</button>` : `<span class="cell ${cls}">${pill}</span>`}${s.late ? `<span class="latecount" title="${s.late} finished after the due date">${s.late} late</span>` : ""}</td><td class="${byComp ? "" : "basis"}">${fmt(s.acc)}</td><td>${bulbs(s.hints)}</td></tr>`;
     };
     const testRows = isAll ? all.filter(r => r.test) : [];      // shown last, set apart, and never exported or averaged
     const body = shown.map(rowHtml).join("") + (testRows.length ? `<tr class="testsep"><td colspan="5">Test student · not counted in any class numbers</td></tr>` + testRows.map(rowHtml).join("") : "");
     const foot = isAll ? "" : `<tfoot><tr class="avg"><td class="idc">Avg</td><td>${fmt(avg(r => x(r) ? compOf(x(r)) : null))}</td><td>${fmt(avg(r => x(r) ? x(r).acc : null))}</td><td title="Average number of problems with a hint, per student">${(m => m === null ? "—" : "💡 " + m.toFixed(1))(mean(shown.map(x).filter(Boolean).map(s => s.hints)))}</td></tr></tfoot>`;
     table = `<table class="ttable fit">${cgroup(isAll ? [12,14,30,24,20] : [18,34,28,20])}<thead><tr>${head}</tr></thead><tbody>${body}</tbody>${foot}</table>`;
     if(isAll) extra = `<h2 class="vtitle" style="margin-top:22px">By block</h2>
-      <div class="tscroll"><table class="ttable fit"><thead><tr><th>Block</th><th>Students</th><th>Completed</th><th>Accuracy</th><th title="Average problems with a hint, per student">Hints (avg)</th></tr></thead><tbody>${blocks.filter(bk => bk !== "0").map(bk => {
-        const rs = realAll.filter(r => r.period === bk).map(x).filter(Boolean);
-        return `<tr><td class="idc"><b>${esc(bk)}</b></td><td>${realAll.filter(r => r.period === bk).length}</td><td>${fmt(rnd(mean(rs.map(compOf))))}</td><td>${fmt(rnd(mean(rs.filter(s => s.acc !== null).map(s => s.acc))))}</td><td>${rs.length ? "💡 " + mean(rs.map(s => s.hints)).toFixed(1) : "—"}</td></tr>`;
+      <div class="tscroll"><table class="ttable fit"><thead><tr><th>Block</th><th>Students</th><th>Completed</th><th>Accuracy</th><th title="Average problems with a hint, per student">Hints (avg)</th></tr></thead><tbody>${classGroups(realAll).map(g => {
+        const rs = g.rows.map(x).filter(Boolean);
+        return `<tr><td class="idc"><b>${S.mon ? esc(g.tname) + " · " : ""}${esc(g.bk)}</b></td><td>${g.rows.length}</td><td>${fmt(rnd(mean(rs.map(compOf))))}</td><td>${fmt(rnd(mean(rs.filter(s => s.acc !== null).map(s => s.acc))))}</td><td>${rs.length ? "💡 " + mean(rs.map(s => s.hints)).toFixed(1) : "—"}</td></tr>`;
       }).join("")}</tbody></table></div>`;
     grid = [["Block","HW ID","Class","Completed","Total","Completion %","Accuracy %","Grade %","Finished late","Hints used","Challenge finished","Challenge %"],
       ...shown.map(r => { const s = x(r);
@@ -3771,9 +3847,9 @@ async function renderTeacher(){
     fname = `math3-unit${unit}-grades-${bTag}.csv`;
     extra = `<p class="tnote2">A red <span class="latemark">●</span> beside a lesson score means some of that lesson was finished after its due date.</p>`;
     if(isAll) extra += `<h2 class="vtitle" style="margin-top:22px">By block</h2>
-      <div class="tscroll"><table class="ttable fit"><thead><tr><th>Block</th><th>Students</th><th>Average unit grade</th>${LEVELS.map(L => `<th>${lvIcon(L.key)}${L.label}</th>`).join("")}</tr></thead><tbody>${blocks.filter(bk => bk !== "0").map(bk => {
-        const rs = realAll.filter(r => r.period === bk), grades = rs.filter(r => r.unit !== null).map(r => r.unit);
-        return `<tr><td class="idc">Block ${esc(bk)}</td><td>${rs.length}</td><td>${fmt(rnd(mean(grades)))}</td>${LEVELS.map(L => `<td>${rs.filter(r => r.unit !== null && levelOf(r.unit).key === L.key).length}</td>`).join("")}</tr>`;
+      <div class="tscroll"><table class="ttable fit"><thead><tr><th>Block</th><th>Students</th><th>Average unit grade</th>${LEVELS.map(L => `<th>${lvIcon(L.key)}${L.label}</th>`).join("")}</tr></thead><tbody>${classGroups(realAll).map(g => {
+        const rs = g.rows, grades = rs.filter(r => r.unit !== null).map(r => r.unit);
+        return `<tr><td class="idc">${S.mon ? esc(g.tname) + " · " : ""}Block ${esc(g.bk)}</td><td>${rs.length}</td><td>${fmt(rnd(mean(grades)))}</td>${LEVELS.map(L => `<td>${rs.filter(r => r.unit !== null && levelOf(r.unit).key === L.key).length}</td>`).join("")}</tr>`;
       }).join("")}</tbody></table></div>`;
 
   } else {
@@ -3805,6 +3881,7 @@ async function renderTeacher(){
     extra += miscSection(shown);
   }
 
+  if(S.mon) title = (S.tTeacher === "all" ? "All teachers" : esc(((TEACHERS.find(t => t.id === S.tTeacher)) || {}).name)) + " · " + title;
   const blockBtn = bk => BLOCK_IMG[bk]
     ? `<button class="blk ${S.tBlock === bk ? "sel" : ""}" data-blk="${esc(bk)}" aria-pressed="${S.tBlock === bk}" aria-label="Block ${esc(bk)}"><img src="${BLOCK_IMG[bk]}" alt=""></button>`
     : `<button class="pill ${S.tBlock === bk ? "sel" : ""}" data-blk="${esc(bk)}" aria-pressed="${S.tBlock === bk}" title="Your test student. Not counted in any class numbers.">${bk === "0" ? "Block 0 · test" : "Block " + esc(bk)}</button>`;
@@ -3814,6 +3891,7 @@ async function renderTeacher(){
       <button class="pill ${sec === "lesson" ? "sel" : ""}" data-sec="lesson">Lesson data analysis</button>
       <button class="pill ${sec === "unit" ? "sel" : ""}" data-sec="unit">Unit grade calculation</button>
       <button class="pill ${sec === "standards" ? "sel" : ""}" data-sec="standards">Standards mastery</button>
+      ${S.mon ? `<button class="pill" data-sec="teachers">Compare teachers</button>` : ""}
     </div>
     ${sec === "lesson" ? `<div class="lrow tabs">${lessons.map(l => l.problems.length
         ? `<button class="pill ${lv && lv.id === l.id ? "sel" : ""}" data-lesson="${esc(l.id)}">Lesson ${esc(l.id)}</button>`
@@ -3840,7 +3918,7 @@ async function renderTeacher(){
   const attModal = document.getElementById("attmodal");
   attModal.onclick = e => { if(e.target === attModal) closeAtt(); };
   document.onkeydown = e => { if(e.key === "Escape"){ closeStd(); closeAtt(); } };
-  const byId = {}; all.forEach(r => { byId[r.id] = r; });
+  const byId = {}; all.forEach(r => { byId[r.key] = r; });
   app.querySelectorAll("[data-att]").forEach(b => b.onclick = () => openAtt(byId[b.dataset.att], unit, lv, b.dataset.att));
 
   document.getElementById("tcopy").onclick = async () => {
