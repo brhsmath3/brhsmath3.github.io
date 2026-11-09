@@ -918,6 +918,112 @@ header.top .who{margin-left:auto}
 .trbtn.error{border-color:var(--err);color:var(--err)}
 .trbtn.loading{opacity:.7}
 .tnote.trerr{color:var(--err)}
+
+/* ---- challenge section ---- */
+.challenge{margin:28px 0 10px;padding:18px 18px 20px;border:2px solid var(--ink);border-radius:20px;background:var(--surface)}
+.chhead{margin:0 0 6px;font-family:"Playfair Display",Georgia,serif;font-size:2.1rem;line-height:1.1;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.chhead .tile{display:inline-block;padding:2px 14px 5px;border:2px solid var(--ink);box-shadow:3px 3px 0 var(--ink);color:var(--text)}
+.chhead .tile.a{background:var(--pink);transform:rotate(-2deg)}
+.chhead .tile.b{background:var(--blue);transform:rotate(1.6deg)}
+.chimg{display:block;max-width:100%;margin:0 auto 10px;border-radius:14px}
+.chnote{margin:2px 0 14px;color:var(--muted);font-size:.92rem}
+.chnote.sm{font-size:.8rem;margin-top:12px}
+.chbtns{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.t0{background:var(--pink)} .t1{background:var(--green)} .t2{background:var(--orange)} .t3{background:var(--blue)}
+@media(max-width:760px){.chbtns{grid-template-columns:repeat(2,minmax(0,1fr))}} @media(max-width:430px){.chbtns{grid-template-columns:1fr}.chhead{font-size:1.7rem}}
+.chpill{color:var(--text)}
+.chcard{padding:16px 18px;margin:0 0 16px;border:2px solid var(--ink);border-radius:18px;background:var(--surface)}
+.chcard.soon{border-style:dashed}
+.chtitle{margin:0 0 6px;font-family:"Playfair Display",Georgia,serif;font-size:1.6rem}
+.chsub{margin:0 0 10px;font-family:"Playfair Display",Georgia,serif;font-size:1.25rem}
+.chsub.pr{margin-top:6px}
+.chsample{display:inline-block;margin:0 0 10px;padding:3px 10px;border:1.5px dashed var(--ink);border-radius:999px;font-size:.78rem;color:var(--muted)}
+.chbody .facts{margin:10px 0 4px;padding-left:20px;line-height:1.9}
+.demowrap{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:16px;align-items:start}
+@media(max-width:780px){.demowrap{grid-template-columns:1fr}}
+.eqboard{min-height:240px;padding:14px 18px;border:2px dashed var(--ink);border-radius:14px;font-size:1.3rem;line-height:2}
+.eqline.new{animation:eqin .45s ease both}
+.eqline mark{background:rgba(246,178,107,.6);color:inherit;border-radius:5px;padding:0 4px}
+@keyframes eqin{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:none}}
+.speaker{display:flex;gap:10px;align-items:flex-start}
+.mascot{flex:0 0 54px;width:54px;height:54px;border-radius:50%;border:2px solid var(--ink);background:#ffe27a;display:grid;place-items:center}
+.mascot svg{width:30px;height:30px;fill:#111}
+.mascot.hop{animation:hop .55s ease}
+@keyframes hop{0%,100%{transform:none}40%{transform:translateY(-9px) rotate(-7deg)}}
+.bubble{position:relative;flex:1;min-width:0;min-height:76px;padding:12px 15px;border:2px solid var(--ink);border-radius:16px;background:#fff;color:#111;font-size:1rem;line-height:1.5}
+.bubble::before{content:"";position:absolute;left:-12px;top:20px;border:8px solid transparent;border-left:0;border-right-color:var(--ink)}
+.bubble::after{content:"";position:absolute;left:-8px;top:22px;border:6px solid transparent;border-left:0;border-right-color:#fff}
+.bubble.pop{animation:bpop .38s ease both}
+@keyframes bpop{from{opacity:0;transform:scale(.93) translateX(8px)}to{opacity:1;transform:none}}
+.democtl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:14px}
+.dots{display:inline-flex;gap:5px;margin-left:8px}
+.dots i{width:10px;height:10px;border-radius:50%;border:1.5px solid var(--ink);background:transparent}
+.dots i.on{background:var(--ink)}
+.stepcount{font-size:.85rem;color:var(--muted);margin-left:4px}
+@media (prefers-reduced-motion: reduce){.eqline.new,.bubble.pop,.mascot.hop{animation:none}.chbtn{transition:none}}
+.chtable th{white-space:normal;font-size:.8rem}
+
+/* ---- challenge: header picture, fractions, example buttons, tables ---- */
+.chimg{background:#fff;border-radius:14px;padding:4px 10px}
+.chimg.sm{display:block;max-width:420px;width:100%;margin:0 0 12px}
+.chlabel{margin:2px 0 0;text-align:center;font:700 .82rem "Poppins",system-ui,sans-serif;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.challenge .chnote{text-align:center}
+.fr{display:inline-flex;flex-direction:column;vertical-align:middle;text-align:center;line-height:1.2;margin:0 .12em}
+.fr .n{padding:0 .3em .05em;border-bottom:1.5px solid currentColor}
+.fr .d{padding:.05em .3em 0}
+.eqline{padding:3px 0}
+.bigeq{font-size:1.35rem;text-align:center;margin:12px 0;line-height:2.2}
+.exrow{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 10px}
+.exbtn{cursor:pointer}
+.exbtn.sel{background:var(--ink);color:var(--bg)}
+.extitle{margin:0 0 10px;font-weight:600;font-size:1.05rem}
+.ctable{border-collapse:collapse;margin:10px auto 14px;font-size:1.02rem}
+.ctable th,.ctable td{padding:6px 18px;border:1.5px solid var(--ink);text-align:center}
+.ctable th{background:var(--blue)}
+.choice .fr,.optb .fr{font-size:.95em}
+
+.demowrap{grid-template-columns:minmax(0,1.5fr) minmax(0,1fr)}
+@media(max-width:780px){.demowrap{grid-template-columns:1fr}}
+.eqboard{font-size:1.2rem}
+
+/* ---- challenge header: small, so it never competes with the homework above it ---- */
+.challenge{margin:22px 0 8px;padding:12px 14px 14px;border-radius:18px}
+.chtop{display:flex;align-items:center;gap:16px;margin:0 0 12px}
+.chtop .chimg{width:190px;max-width:36%;height:auto;flex:0 0 auto;padding:2px 6px}
+.chtext{flex:1;min-width:0}
+.challenge .chlabel{text-align:left;margin:0 0 3px;font-size:.74rem}
+.challenge .chnote{text-align:left;margin:0;font-size:.9rem;line-height:1.45}
+.chimg.sm{max-width:170px;margin:0 0 10px}
+@media(max-width:560px){.chtop{flex-direction:column;align-items:flex-start;gap:8px}.chtop .chimg{width:170px;max-width:60%}}
+
+/* ---- radicals and the reminder box ---- */
+.rad{display:inline-flex;align-items:center;white-space:nowrap;vertical-align:middle;margin:0 .1em}
+.rad .ix{align-self:flex-start;font-size:.62em;line-height:1;margin-right:-.32em;margin-top:-.05em;position:relative;z-index:1}
+.rad .rs{font-size:1.45em;line-height:1;margin-right:-.06em;transform:translateY(.03em)}
+.rad .rc{border-top:1.6px solid currentColor;padding:.08em .22em 0;line-height:1.25}
+.remind{margin:14px 0;padding:6px 18px 10px;border:2px dashed var(--ink);border-radius:14px;background:var(--bluebg,var(--surface))}
+.remind h4{margin:8px 0 2px;font-family:"Playfair Display",Georgia,serif;font-size:1.15rem}
+.remind .facts{margin:6px 0 8px}
+.ctable td small{color:var(--muted)}
+.ctable td{text-align:left}
+
+/* ---- challenge: a tad bigger header; topic buttons look like the lesson buttons ---- */
+:root{--chpink:#B2307C;--chgreen:#3D7A33;--chorange:#A65A00;--chblue:#2B6CA8}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){--chpink:#FF9AD5;--chgreen:#B6D7A8;--chorange:#F6B26B;--chblue:#9FC5E8}}
+:root[data-theme="dark"]{--chpink:#FF9AD5;--chgreen:#B6D7A8;--chorange:#F6B26B;--chblue:#9FC5E8}
+.chtop .chimg{width:270px;max-width:48%}
+.chimg.sm{max-width:230px}
+.pill.chbtn{flex-direction:column;width:100%;white-space:normal;text-align:center;line-height:1.2;padding-top:9px;padding-bottom:8px}
+.chbtn small{display:block;margin-top:3px;font:600 .72rem "Poppins",system-ui,sans-serif;letter-spacing:.02em;text-transform:none;color:var(--muted)}
+.chbtn.c0{color:var(--chpink)} .chbtn.c1{color:var(--chgreen)} .chbtn.c2{color:var(--chorange)} .chbtn.c3{color:var(--chblue)}
+.chpill.t0{background:var(--pink)} .chpill.t1{background:var(--green)} .chpill.t2{background:var(--orange)} .chpill.t3{background:var(--blue)}
+.chbtns{gap:12px}
+@media(max-width:560px){.chtop .chimg{width:210px;max-width:70%}}
+/* ---- hints in the teacher's tables ---- */
+.hintcell{font-size:.95rem;letter-spacing:.05em;white-space:nowrap}
+.stdcell{position:relative}
+.hmark{position:absolute;top:2px;right:3px;margin:0;font-size:.58rem;line-height:1;font-weight:600;white-space:nowrap;opacity:.9}
 </style>
 </head>
 <body>
@@ -928,6 +1034,7 @@ header.top .who{margin-left:auto}
    CONFIGURATION: edit this section to customize the site.
    ============================================================ */
 const PENALTY = 5; // percent lost per wrong attempt
+const HINT_PENALTY = 10;   // points a hint takes off a problem on the teacher's Standards mastery page only. Student scores and unit grades do not use it.
 
 const TEACHERS = [
   {id:"t1", name:"Badmus"},
@@ -1860,11 +1967,13 @@ function header(){
     <button class="logout" id="out">Log out</button></div></header>`;
 }
 function render(){
+  demoStop();
   document.body.dataset.view = S.view;
   if(S.view==="login") return renderLogin();
   if(S.view==="units") return renderUnits();
   if(S.view==="unit") return renderUnit();
   if(S.view==="lesson") return renderLesson();
+  if(S.view==="challenge") return renderChallenge();
   if(S.view==="teacher") return renderTeacher();
 }
 
@@ -1932,8 +2041,8 @@ function renderUnit(){
     `<div class="sband">${studentNav()}<img class="unitpic" src="${UNIT_IMG[S.unit]}" alt="Unit ${S.unit}">${partsOf(S.unit).map(pt => dueHtml(S.unit, pt.part, "box")).join("")}</div>
      <div class="legend"><span class="dot done"></span>Complete <span class="dot prog"></span>In progress <span class="dot todo"></span>Not started <span class="dot done latedot"></span>Finished late <span class="legend-tip">Tap a number to jump</span></div>` +
     (ls.length ? ls.map((l,i) => `<div class="lrow"><button class="pill lesson ${partClass(l)}" data-l="${i}">U${S.unit} Lesson ${esc(l.id)}</button>${statusRow(l,"open",i)}</div>`).join("")
-               : `<p class="empty">No lessons have been added to this unit yet.</p>`);
-  document.getElementById("out").onclick = logout; bindStudentNav();
+               : `<p class="empty">No lessons have been added to this unit yet.</p>`) + challengePanel();
+  document.getElementById("out").onclick = logout; bindStudentNav(); bindChallengePanel();
   app.querySelectorAll("[data-l]").forEach(b => b.onclick = () => {
     if(!problemsFor(ls[+b.dataset.l]).length) return;
     go("lesson",{lesson:+b.dataset.l, jump:null});
@@ -2043,7 +2152,7 @@ function qHtml(p){
   const hint = r.h ? `<div class="hintbox"><b>Hint:</b> ${p.hint}</div>` : "";
   const hbtn = (!r.h && !done) ? `<button class="pill sm hintbtn" data-hint>💡 Use my hint (1 per problem)</button>` : "";
   return `<div class="q ${p.side ? "withside" : ""} ${p.wide ? "wide" : ""}" id="q-${p.id}">
-    <div class="num"><span class="ptitle">Problem ${esc(p.n)}</span> ${p.honors?`<span class="pill sm">Honors</span>`:""}${wbPageTag(p)}${lateTag(p)}</div>
+    <div class="num"><span class="ptitle">Problem ${esc(p.n)}</span> ${p.honors?`<span class="pill sm">Honors</span>`:""}${p.sample?` <span class="pill sm">Sample</span>`:""}${wbPageTag(p)}${lateTag(p)}</div>
     <div class="text">${p.q}</div>${extra}<div class="qbody">${body}${fb}${hint}${hbtn}</div></div>`;
 }
 
@@ -2157,7 +2266,7 @@ function bkRel(local, server){
   return bkAhead(local, server) ? "send" : "adopt";
 }
 function bkProblem(id){
-  const [u, l, i] = id.split("-"), les = (CONTENT[u] || []).find(x => String(x.id) === l);
+  const [u, l, i] = id.split("-"), les = (CONTENT[u] || []).concat(CHALLENGE[u] || []).find(x => String(x.id) === l);
   return les && les.problems[+i] ? les.problems[+i] : null;
 }
 function bkRec(id){
@@ -2378,6 +2487,728 @@ document.addEventListener("visibilitychange", () => { if(document.visibilityStat
 addEventListener("online", () => { if(bkCfg()) bkFlush(); });
 
 
+
+/* ============================================================
+   CHALLENGE SECTION (honors only). Work here is saved and backed up like any other work,
+   but it lives apart from the lessons, so it never touches a lesson score, a unit grade, or a standard.
+   ============================================================ */
+const CHALLENGE_OPEN = false;                       // false = only the practice logins below can see it. Change to true when it is ready for honors students.
+const CHALLENGE_PREVIEW_IDS = ["0TS", "1AW"];       // practice logins (both honors) that can see it while it is being built
+const CHALLENGE_HEADER_IMG = "data:image/webp;base64,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";                    // the fun header picture, once uploaded, as a data: address. "" shows the built-in banner.
+
+// Each topic: id (C1, C2, ...), title, short (the teacher's column name), overview (html), demo (a step-by-step example), problems.
+//  demo = {intro, start, steps: [{line: "the equation line that appears", say: "what the speech bubble says"}]}
+//  problems use the same shapes as lesson problems (mc, dd, match). sample:true shows a "Sample" tag until real problems replace them.
+const FR = (n, d) => `<span class="fr"><span class="n">${n}</span><span class="d">${d}</span></span>`;       // a stacked fraction
+const FINV = `f<sup>−1</sup>(x)`;
+const RAD = (i, x) => `<span class="rad">${i && i != 2 ? `<sup class="ix">${i}</sup>` : ""}<span class="rs">√</span><span class="rc">${x}</span></span>`;       // a radical sign with an index
+const CH_INTRO = `Hi! Press Next, or Play, and I will walk you through it one step at a time.`;
+const CHALLENGE = {
+  5: [
+    // ============================================================ 1. LOGARITHMIC PROPERTIES
+    { id:"C1", title:"Logarithmic Properties", short:"Log properties",
+      overview:`<p>A logarithm tells you which power you need. That means every log property is really an exponent rule in disguise, so let us start with a quick reminder of the exponent rules.</p>
+        <div class="remind"><h4>Quick reminder: exponent rules</h4>
+          <ul class="facts">
+            <li><b>Multiply with the same base: add the exponents.</b> ${PW("a","m")} · ${PW("a","n")} = ${PW("a","m + n")} &nbsp;(for example, ${PW("x",3)} · ${PW("x",4)} = ${PW("x",7)})</li>
+            <li><b>Divide with the same base: subtract the exponents.</b> ${FR(PW("a","m"), PW("a","n"))} = ${PW("a","m − n")} &nbsp;(for example, ${FR(PW("x",7), PW("x",2))} = ${PW("x",5)})</li>
+            <li><b>Power of a power: multiply the exponents.</b> ${PW("(" + PW("a","m") + ")","n")} = ${PW("a","mn")} &nbsp;(for example, ${PW("(" + PW("x",2) + ")",3)} = ${PW("x",6)})</li>
+            <li><b>Zero and negative exponents.</b> ${PW("a",0)} = 1 and ${PW("a","−n")} = ${FR(1, PW("a","n"))}</li>
+          </ul>
+          <p><b>Radicals are exponents too.</b> The <b>index</b> is the small number on the radical sign. It goes in the <b>denominator</b>. The <b>power</b> inside the radical goes in the <b>numerator</b>. If no index is written, it is a square root, and the index is 2.</p>
+          <p class="bigeq">${RAD("n", PW("a","m"))} = ${PW("a","m/n")}</p>
+          <ul class="facts">
+            <li>${RAD(2,"x")} = ${PW("x","1/2")}</li>
+            <li>${RAD(3,PW("x",2))} = ${PW("x","2/3")}</li>
+            <li>${RAD(4,PW("y",5))} = ${PW("y","5/4")}</li>
+          </ul></div>
+        <p>Each log property copies one of those exponent rules.</p>
+        <table class="ctable"><thead><tr><th>Exponent rule</th><th>Log property</th></tr></thead><tbody>
+          <tr><td>${PW("b","x")} · ${PW("b","y")} = ${PW("b","x + y")}<br><small>exponents add</small></td><td><b>Product:</b> ${LG("b","m · n")} = ${LG("b","m")} + ${LG("b","n")}<br><small>logs add</small></td></tr>
+          <tr><td>${FR(PW("b","x"), PW("b","y"))} = ${PW("b","x − y")}<br><small>exponents subtract</small></td><td><b>Quotient:</b> ${LG("b",FR("m","n"))} = ${LG("b","m")} − ${LG("b","n")}<br><small>logs subtract</small></td></tr>
+          <tr><td>${PW("(" + PW("b","x") + ")","n")} = ${PW("b","nx")}<br><small>exponents multiply</small></td><td><b>Power:</b> ${LG("b","m<sup>n</sup>")} = n · ${LG("b","m")}<br><small>the exponent comes to the front</small></td></tr>
+        </tbody></table>
+        <p>These hold for any positive numbers <i>m</i> and <i>n</i>, and for any base <i>b</i> that is positive and not 1.</p>
+        <p><b>Expand</b> means work forward: turn one log into a sum or difference of simple logs. <b>Condense</b> means work backward: squeeze a sum or difference of logs into a single log.</p>
+        <p class="muted">There is no property for the log of a sum or a difference, so ${LG("b","m + n")} cannot be split.</p>`,
+      demos:[
+        {label:"Expand 1", title:`Expand ${LG(3,"x<sup>2</sup>y<sup>7</sup>")}`, intro:CH_INTRO, start:`${LG(3,"x<sup>2</sup>y<sup>7</sup>")}`, steps:[
+          {line:`= <mark>${LG(3,"x<sup>2</sup>")} + ${LG(3,"y<sup>7</sup>")}</mark>`, say:`The factors x squared and y to the seventh are multiplied inside the log. The product property splits that into a sum of two logs.`},
+          {line:`= <mark>2</mark>&nbsp;${LG(3,"x")} + <mark>7</mark>&nbsp;${LG(3,"y")}`, say:`Now the power property. Each exponent hops out in front as a multiplier. Nothing is left to split, so we are done.`}]},
+        {label:"Expand 2", title:`Expand ln(z(z − 1)<sup>2</sup>)`, intro:CH_INTRO, start:`ln(z(z − 1)<sup>2</sup>)`, steps:[
+          {line:`= <mark>ln(z) + ln((z − 1)<sup>2</sup>)</mark>`, say:`The log of a product becomes a sum. The two factors are z and (z − 1) squared.`},
+          {line:`= ln(z) + <mark>2</mark> ln(z − 1)`, say:`The power property moves the 2 to the front. We cannot split (z − 1), because there is no property for the log of a difference.`}]},
+        {label:"Condense 1", title:`Condense 5&nbsp;${LG(3,"x")} + ${FR(2,3)}&nbsp;${LG(3,"y")}`, intro:`Now we work backward. Press Next to condense this into one log.`, start:`5&nbsp;${LG(3,"x")} + ${FR(2,3)}&nbsp;${LG(3,"y")}`, steps:[
+          {line:`= <mark>${LG(3,"x<sup>5</sup>")} + ${LG(3,"y<sup>2/3</sup>")}</mark>`, say:`Work backward. The power property in reverse turns each coefficient into an exponent.`},
+          {line:`= <mark>${LG(3,"x<sup>5</sup>y<sup>2/3</sup>")}</mark>`, say:`A sum of logs with the same base is the log of a product. Multiply what is inside, and you have one log.`}]},
+        {label:"Condense 2", title:`Condense 3&nbsp;${LG(3,"x")} + 4&nbsp;${LG(3,"y")} − 4&nbsp;${LG(3,"z")}`, intro:`Three terms this time. Press Next to condense them into one log.`, start:`3&nbsp;${LG(3,"x")} + 4&nbsp;${LG(3,"y")} − 4&nbsp;${LG(3,"z")}`, steps:[
+          {line:`= <mark>${LG(3,"x<sup>3</sup>")} + ${LG(3,"y<sup>4</sup>")} − ${LG(3,"z<sup>4</sup>")}</mark>`, say:`First, turn each coefficient into an exponent.`},
+          {line:`= <mark>${LG(3,"x<sup>3</sup>y<sup>4</sup>")}</mark> − ${LG(3,"z<sup>4</sup>")}`, say:`Adding logs means multiplying inside. Combine the first two logs into one.`},
+          {line:`= <mark>${LG(3,FR("x<sup>3</sup>y<sup>4</sup>","z<sup>4</sup>"))}</mark>`, say:`Subtracting a log means dividing. Put the z part in the denominator. One log, and we are finished.`}]},
+        {label:"Why it works", title:`Why the product property works`, intro:`Let us see why the product property is true. It all comes from the exponent rule. Press Next.`, start:`Let m = ${PW("b","x")} and n = ${PW("b","y")}`, steps:[
+          {line:`m · n = ${PW("b","x")} · ${PW("b","y")} = <mark>${PW("b","x + y")}</mark>`, say:`Multiply them. The exponent rule says to add the exponents, so m times n is b to the power x plus y.`},
+          {line:`${LG("b","m · n")} = <mark>x + y</mark>`, say:`A log asks for the exponent on b. The exponent that gives m times n is x plus y.`},
+          {line:`x = ${LG("b","m")} &nbsp;and&nbsp; y = ${LG("b","n")}`, say:`But x is the exponent that gives m, and y is the exponent that gives n. So they are exactly the logs of m and n.`},
+          {line:`${LG("b","m · n")} = <mark>${LG("b","m")} + ${LG("b","n")}</mark>`, say:`There it is. The product property is the add-the-exponents rule in disguise.`}]},
+        {label:"Radical to power", title:`Write ${RAD(3,PW("x",2))} as a power of x`, intro:CH_INTRO, start:`${RAD(3,PW("x",2))}`, steps:[
+          {line:`index = <mark>3</mark>`, say:`First find the index, the small number on the radical sign. Here it is 3, so this is a cube root.`},
+          {line:`power = <mark>2</mark>`, say:`Next find the power inside the radical. Here x is squared, so the power is 2.`},
+          {line:`${RAD(3,PW("x",2))} = ${PW("x","<mark>2/3</mark>")}`, say:`Power over index. The power, 2, is the numerator, and the index, 3, is the denominator.`}]},
+        {label:"Radical in a log", title:`Expand ${LG(5,RAD(4,PW("x",3)))}`, intro:CH_INTRO, start:`${LG(5,RAD(4,PW("x",3)))}`, steps:[
+          {line:`= ${LG(5,PW("x","<mark>3/4</mark>"))}`, say:`Rewrite the radical as an exponent first. The power, 3, goes over the index, 4.`},
+          {line:`= <mark>${FR(3,4)}</mark>&nbsp;${LG(5,"x")}`, say:`Now the power property brings the exponent to the front. The radical has become a fraction multiplier.`}]}
+      ],
+      problems:[
+        {std:[], n:"1", type:"mc", q:`Expand ${LG(8,FR("√x","3y"))}.`,
+         c:[`${FR(1,2)}&nbsp;${LG(8,"x")} − ${LG(8,3)} + ${LG(8,"y")}`, `2&nbsp;${LG(8,"x")} − ${LG(8,3)} − ${LG(8,"y")}`, `${FR(1,2)}&nbsp;${LG(8,"x")} − ${LG(8,3)} − ${LG(8,"y")}`, `${FR(1,2)}&nbsp;${LG(8,"x")} − ${LG(8,3)} · ${LG(8,"y")}`], a:2,
+         hint:`Use the quotient property first to separate the top from the bottom. Rewrite the square root as a power of one half, then use the power property. Be careful with the minus sign, because it applies to everything in the denominator.`},
+        {std:[], n:"2", type:"mc", q:`Expand ${LG(4,FR("4x","y<sup>9</sup>"))}.`,
+         c:[`${LG(4,"x")} − 9&nbsp;${LG(4,"y")}`, `4 + ${LG(4,"x")} − 9&nbsp;${LG(4,"y")}`, `1 + ${LG(4,"x")} + 9&nbsp;${LG(4,"y")}`, `1 + ${LG(4,"x")} − 9&nbsp;${LG(4,"y")}`], a:3,
+         hint:`Use the quotient property first, then the product property on the 4x. Think about what number you get when the base and the number inside the log are the same.`},
+        {std:[], n:"3", type:"mc", q:`Expand ${LG("1/2","3x<sup>2</sup>")}.`,
+         c:[`2&nbsp;${LG("1/2",3)} + ${LG("1/2","x")}`, `${LG("1/2",3)} + (${LG("1/2","x")})<sup>2</sup>`, `${LG("1/2",3)} + 2&nbsp;${LG("1/2","x")}`, `2&nbsp;${LG("1/2","3x")}`], a:2,
+         hint:`Split the product with the product property. Then use the power property to bring down the exponent. Check which factor the exponent belongs to.`},
+        {std:[], n:"4", type:"mc", q:`Expand ${LG(8,FR("x<sup>4</sup>","9"))}.`,
+         c:[`4&nbsp;${LG(8,"x")} + ${LG(8,9)}`, `4&nbsp;${LG(8,"x")} − 9`, `${LG(8,"4x")} − ${LG(8,9)}`, `4&nbsp;${LG(8,"x")} − ${LG(8,9)}`], a:3,
+         hint:`The fraction means the quotient property applies. Then the power property turns the exponent on x into a multiplier. The 9 stays inside its own log.`},
+        {std:[], n:"5", type:"mc", q:`Condense ${FR(3,5)}&nbsp;log(x) − 7 log(y) to a single logarithm.`,
+         c:[`log(x<sup>3/5</sup>y<sup>7</sup>)`, `log(${FR("3x","35y")})`, `log(${FR("x<sup>3/5</sup>","y<sup>7</sup>")})`, `log(x<sup>3/5</sup> − y<sup>7</sup>)`], a:2,
+         hint:`Work backward. First use the power property to turn each coefficient into an exponent. Then use the quotient property to combine the two logs into one.`},
+        {std:[], n:"6", type:"mc", q:`Condense ln(x) − 2[ln(x) + ln(3)] to a single logarithm.`,
+         c:[`ln(${FR(3,"x")})`, `ln(${FR(1,"9x")})`, `ln(${FR(1,6)})`, `ln(9x)`], a:1,
+         hint:`Distribute the −2 to both terms inside the brackets before you combine anything. Turn the coefficients into exponents, then combine, and watch the signs.`},
+        {std:[], n:"7", type:"mc", q:`Condense 2&nbsp;ln(x) − 7&nbsp;ln(y) + ln(z) to a single logarithm.`,
+         c:[`ln(${FR("x<sup>2</sup>","y<sup>7</sup>z")})`, `ln(${FR("2xz","7y")})`, `ln(${FR("x<sup>2</sup>z","y<sup>7</sup>")})`, `ln(x<sup>2</sup>z − y<sup>7</sup>)`], a:2,
+         hint:`Turn each coefficient into an exponent first. Terms that are added go in the numerator, and terms that are subtracted go in the denominator.`},
+        {std:[], n:"8", type:"mc", q:`Condense 2&nbsp;${LG(2,"x")} − ${FR(1,2)}&nbsp;${LG(2,"x")} to a single logarithm.`,
+         c:[`${LG(2,"x<sup>5/2</sup>")}`, `${LG(2,"x<sup>3/2</sup>")}`, `${LG(2,"x<sup>−1</sup>")}`, `${LG(2,"x<sup>4</sup>")}`], a:1,
+         hint:`These are like terms: same base and the same number inside. Combine the coefficients first, then use the power property in reverse.`},
+        {std:[], n:"9", type:"match", q:`Match each expression with the logarithm that has the same value.`,
+         chips:[`${LG(3,64)}`, `${LG(3,3)}`, `${LG(3,12)}`, `${LG(3,36)}`],
+         rows:[
+           {t:`${LG(3,6)} − ${LG(3,2)}`, a:1},
+           {t:`2&nbsp;${LG(3,6)}`, a:3},
+           {t:`6&nbsp;${LG(3,2)}`, a:0},
+           {t:`${LG(3,6)} + ${LG(3,2)}`, a:2}],
+         hint:`Use the three properties to turn each expression into a single logarithm. Then look for that logarithm in the list.`},
+        {std:[], n:"10", type:"dd", cols:1, q:`Expand each logarithmic expression.`,
+         parts:[
+           {t:`a. Expand ${LG(3,"2x")}`, b:true, o:[`${LG(3,2)} · ${LG(3,"x")}`, `${LG(3,2)} + ${LG(3,"x")}`, `2&nbsp;${LG(3,"x")}`, `${LG(3,2)} − ${LG(3,"x")}`], a:1},
+           {t:`b. Expand ${LG(8,"3x")}`, b:true, o:[`3&nbsp;${LG(8,"x")}`, `${LG(8,3)} · ${LG(8,"x")}`, `${LG(8,3)} − ${LG(8,"x")}`, `${LG(8,3)} + ${LG(8,"x")}`], a:3},
+           {t:`c. Expand log(10x<sup>5</sup>)`, b:true, o:[`1 + 5&nbsp;log(x)`, `10 + 5&nbsp;log(x)`, `1 + log(5x)`, `1 + (log(x))<sup>5</sup>`], a:0},
+           {t:`d. Expand ln(3x<sup>4</sup>)`, b:true, o:[`4&nbsp;ln(3) + ln(x)`, `ln(3) + (ln(x))<sup>4</sup>`, `ln(3) + 4&nbsp;ln(x)`, `4&nbsp;ln(3x)`], a:2}],
+         hint:`Expand means work forward. Use the product property to split a product, the quotient property to split a quotient, and the power property to bring an exponent to the front. Remember that a log of the base itself is a simple number.`},
+        {std:[], n:"11", type:"dd", cols:1, q:`Expand each logarithmic expression.`,
+         parts:[
+           {t:`a. Expand ln(${FR("x","3y")})`, b:true, o:[`ln(x) − ln(3) + ln(y)`, `ln(x) − ln(3) − ln(y)`, `ln(x) − 3&nbsp;ln(y)`, `ln(x) + ln(3) − ln(y)`], a:1},
+           {t:`b. Expand ln(${FR("6x<sup>2</sup>","y<sup>4</sup>")})`, b:true, o:[`ln(6) + 2&nbsp;ln(x) + 4&nbsp;ln(y)`, `2&nbsp;ln(6) + ln(x) − 4&nbsp;ln(y)`, `ln(6) + 2&nbsp;ln(x) − 4`, `ln(6) + 2&nbsp;ln(x) − 4&nbsp;ln(y)`], a:3},
+           {t:`c. Expand ${LG(7,`5${RAD(2,"x")}`)}`, b:true, o:[`${LG(7,5)} + ${FR(1,2)}&nbsp;${LG(7,"x")}`, `${LG(7,5)} + 2&nbsp;${LG(7,"x")}`, `${FR(1,2)}&nbsp;${LG(7,5)} + ${FR(1,2)}&nbsp;${LG(7,"x")}`, `${LG(7,5)} − ${FR(1,2)}&nbsp;${LG(7,"x")}`], a:0},
+           {t:`d. Expand ${LG(5,`${RAD(3,"x<sup>2</sup>y")}`)}`, b:true, o:[`${FR(2,3)}&nbsp;${LG(5,"x")} + ${LG(5,"y")}`, `${FR(3,2)}&nbsp;${LG(5,"x")} + 3&nbsp;${LG(5,"y")}`, `${FR(2,3)}&nbsp;${LG(5,"x")} + ${FR(1,3)}&nbsp;${LG(5,"y")}`, `${FR(2,3)}&nbsp;${LG(5,"x")} − ${FR(1,3)}&nbsp;${LG(5,"y")}`], a:2}],
+         hint:`First rewrite any radical as a fractional exponent, with the power over the index. Then use the quotient, product and power properties. A minus sign in front of a log applies to every factor in the denominator.`},
+        {std:[], n:"12", type:"dd", cols:1, q:`Condense each logarithmic expression to a single logarithm.`,
+         parts:[
+           {t:`a. Condense ${LG(4,7)} − ${LG(4,10)}`, b:true, o:[`${LG(4,`${FR(10,7)}`)}`, `${LG(4,`${FR(7,10)}`)}`, `${LG(4,70)}`, `${LG(4,17)}`], a:1},
+           {t:`b. Condense ln(12) − ln(4)`, b:true, o:[`ln(8)`, `ln(48)`, `ln(${FR(1,3)})`, `ln(3)`], a:3},
+           {t:`c. Condense 6&nbsp;ln(x) + 4&nbsp;ln(y)`, b:true, o:[`ln(x<sup>6</sup>y<sup>4</sup>)`, `ln(x<sup>4</sup>y<sup>6</sup>)`, `ln(24xy)`, `ln(x<sup>6</sup> + y<sup>4</sup>)`], a:0},
+           {t:`d. Condense 2&nbsp;log(x) + log(11)`, b:true, o:[`log(22x)`, `log(x<sup>2</sup> + 11)`, `log(11x<sup>2</sup>)`, `log(11x)`], a:2}],
+         hint:`Condense means work backward. First use the power property to turn coefficients into exponents. Added logs combine by multiplying, and subtracted logs combine by dividing.`},
+        {std:[], n:"13", type:"dd", cols:1, q:`Condense each logarithmic expression to a single logarithm.`,
+         parts:[
+           {t:`a. Condense ${LG(5,4)} + ${FR(1,3)}&nbsp;${LG(5,"x")}`, b:true, o:[`${LG(5,"4x<sup>3</sup>")}`, `${LG(5,`4${RAD(3,"x")}`)}`, `${LG(5,`${FR("4x",3)}`)}`, `${LG(5,`${RAD(3,"4x")}`)}`], a:1},
+           {t:`b. Condense 6&nbsp;ln(2) − 4&nbsp;ln(y)`, b:true, o:[`ln(64y<sup>4</sup>)`, `ln(${FR(3,"y")})`, `ln(${FR(12,"y<sup>4</sup>")})`, `ln(${FR(64,"y<sup>4</sup>")})`], a:3},
+           {t:`c. Condense 5&nbsp;ln(2) + 7&nbsp;ln(x) + 4&nbsp;ln(y)`, b:true, o:[`ln(32x<sup>7</sup>y<sup>4</sup>)`, `ln(10x<sup>7</sup>y<sup>4</sup>)`, `ln(32x<sup>4</sup>y<sup>7</sup>)`, `ln(32(x<sup>7</sup> + y<sup>4</sup>))`], a:0},
+           {t:`d. Condense ${LG(3,4)} + 2&nbsp;${LG(3,"1/2")} + ${LG(3,"x")}`, b:true, o:[`${LG(3,"2x")}`, `${LG(3,"4x")}`, `${LG(3,"x")}`, `${LG(3,"16x")}`], a:2}],
+         hint:`Turn each coefficient into an exponent first. A one third in front of a log becomes a cube root. Multiply what is added, divide by what is subtracted, and simplify any numbers that combine.`},
+        {std:[], n:"14", type:"dd", cols:1, q:`Use ${LG(7,4)} ≈ 0.712 and ${LG(7,12)} ≈ 1.277 and the logarithm properties to evaluate each logarithm. Use these given values, not a calculator.`,
+         parts:[
+           {t:`a. ${LG(7,3)} ≈`, b:true, o:[`1.989`, `0.565`, `1.794`, `−0.565`], a:1},
+           {t:`b. ${LG(7,48)} ≈`, b:true, o:[`0.565`, `0.909`, `2.554`, `1.989`], a:3},
+           {t:`c. ${LG(7,16)} ≈`, b:true, o:[`1.424`, `0.507`, `0.356`, `2.712`], a:0},
+           {t:`d. ${LG(7,64)} ≈`, b:true, o:[`0.361`, `3.712`, `2.136`, `2.848`], a:2},
+           {t:`e. ${LG(7,`${FR(1,4)}`)} ≈`, b:true, o:[`0.712`, `−0.712`, `1.404`, `0.288`], a:1},
+           {t:`f. ${LG(7,`${FR(1,3)}`)} ≈`, b:true, o:[`0.565`, `1.770`, `0.435`, `−0.565`], a:3}],
+         hint:`Write each number using 4, 12 and powers or quotients of them, for example 3 is 12 divided by 4. Then use the properties to turn products into sums, quotients into differences, and powers into multiples.`},
+        {std:[], n:"15", type:"dd", cols:1, q:`Use ${LG(5,2)} ≈ 0.431 and ${LG(5,6)} ≈ 1.113 and the logarithm properties to evaluate each logarithm. Use these given values, not a calculator.`,
+         parts:[
+           {t:`a. ${LG(5,12)} ≈`, b:true, o:[`1.544`, `0.682`, `0.480`, `2.226`], a:0},
+           {t:`b. ${LG(5,3)} ≈`, b:true, o:[`1.544`, `2.582`, `0.682`, `−0.682`], a:2},
+           {t:`c. ${LG(5,`${FR(1,2)}`)} ≈`, b:true, o:[`0.431`, `−0.431`, `2.320`, `0.569`], a:1},
+           {t:`d. ${LG(5,4)} ≈`, b:true, o:[`0.186`, `2.431`, `1.724`, `0.862`], a:3},
+           {t:`e. ${LG(5,24)} ≈`, b:true, o:[`1.975`, `1.544`, `0.959`, `2.837`], a:0},
+           {t:`f. ${LG(5,`${FR(1,3)}`)} ≈`, b:true, o:[`0.682`, `1.466`, `−0.682`, `−1.544`], a:2}],
+         hint:`Write each number using 2, 6 and powers or quotients of them. For a log of a fraction, remember the log of one over a number is the opposite of the log of that number.`}
+      ]},
+    // ============================================================ 2. CHANGE OF BASE
+    { id:"C2", title:"Change of Base", short:"Change of base",
+      overview:`<p>Calculators only have two log buttons: <b>log</b> (base 10) and <b>ln</b> (base <i>e</i>). The change of base formula lets you find a log with any other base by rewriting it as a quotient of logs that your calculator can do.</p>
+        <p class="bigeq">${LG("b","m")} = ${FR("log(m)","log(b)")} = ${FR("ln(m)","ln(b)")}</p>
+        <ul class="facts">
+          <li>The number inside the log goes on <b>top</b>. The base goes on the <b>bottom</b>.</li>
+          <li>Use the same kind of log on the top and the bottom: both common logs, or both natural logs.</li>
+          <li>It works for any positive numbers <i>m</i> and <i>b</i>, with <i>b</i> not equal to 1.</li>
+          <li>When a problem says to round to three decimal places, keep extra digits until the very end.</li>
+        </ul>`,
+      demos:[
+        {label:"Common logs", title:`Evaluate ${LG(3,6)} with common logs`, intro:CH_INTRO, start:`${LG(3,6)}`, steps:[
+          {line:`= <mark>${FR("log(6)","log(3)")}</mark>`, say:`Change of base. The number inside goes on top, the base goes on the bottom, and both use the same log button.`},
+          {line:`≈ ${FR("<mark>0.7782</mark>","<mark>0.4771</mark>")}`, say:`Type each log into the calculator. Keep several decimals so the answer stays accurate.`},
+          {line:`≈ <mark>1.631</mark>`, say:`Divide, then round to three decimal places.`}]},
+        {label:"Natural logs", title:`Evaluate ${LG(2,19)} with the natural log`, intro:CH_INTRO, start:`${LG(2,19)}`, steps:[
+          {line:`= <mark>${FR("ln(19)","ln(2)")}</mark>`, say:`This time we use the ln button. The pattern is exactly the same: number on top, base on the bottom.`},
+          {line:`≈ ${FR("<mark>2.9444</mark>","<mark>0.6931</mark>")}`, say:`Find each natural log on the calculator.`},
+          {line:`≈ <mark>4.248</mark>`, say:`Divide and round to three decimal places. Using ln or log gives the same answer.`}]},
+        {label:"Why it works", title:`Why the formula works`, intro:`Let us see where the formula comes from. Press Next.`, start:`Let x = ${LG("b","m")}`, steps:[
+          {line:`${PW("b","x")} = m`, say:`Rewrite the log in exponential form. Base b raised to x gives m.`},
+          {line:`log(${PW("b","x")}) = log(m)`, say:`Take the log of both sides. Any base works, as long as both sides use the same one.`},
+          {line:`<mark>x</mark> · log(b) = log(m)`, say:`The power property brings the exponent x down in front.`},
+          {line:`x = <mark>${FR("log(m)","log(b)")}</mark>`, say:`Divide both sides by log b to get x alone.`},
+          {line:`${LG("b","m")} = ${FR("log(m)","log(b)")}`, say:`x was ${LG("b","m")}, so that is the change of base formula.`}]}
+      ],
+      problems:[
+        {std:[], n:"1", type:"mc", q:`Choose the expression that is equal to ${LG(5,12)}.`,
+         c:[`${FR("ln(5)","ln(12)")}`, `${FR("ln(12)","ln(5)")}`, `ln(12) − ln(5)`, `ln(12) · ln(5)`], a:1,
+         hint:`Think about the formula in your notes. Decide which log goes in the numerator, the base or the number inside the log.`},
+        {std:[], n:"2", type:"mc", q:`Use the change of base formula to evaluate ${LG(16,64)}. Round to three decimal places.`,
+         c:[`1.500`, `0.667`, `2.000`, `4.000`], a:0,
+         hint:`Write it as a quotient of two logs with the number inside on top. Evaluate the top and the bottom with your calculator, then divide.`},
+        {std:[], n:"3", type:"mc", q:`Use the change of base formula to evaluate ${LG(26,9)}. Round to three decimal places.`,
+         c:[`1.483`, `0.346`, `0.674`, `2.889`], a:2,
+         hint:`Put log of 9 on top and log of 26 on the bottom. Use the same kind of log for both. Your answer should be less than 1, because 9 is less than 26.`},
+        {std:[], n:"4", type:"dd", cols:2, q:`Use the change of base formula to evaluate each logarithm. Round to three decimal places.`,
+         parts:[
+           {t:`a. ${LG(4,7)} ≈`, b:true, o:[`0.712`, `1.404`, `0.560`, `1.750`], a:1},
+           {t:`b. ${LG(5,13)} ≈`, b:true, o:[`0.627`, `0.956`, `2.600`, `1.594`], a:3},
+           {t:`c. ${LG(9,15)} ≈`, b:true, o:[`1.232`, `0.811`, `0.511`, `1.667`], a:0},
+           {t:`d. ${LG(8,22)} ≈`, b:true, o:[`0.673`, `1.012`, `1.486`, `2.750`], a:2}],
+         hint:`Put the log of the number inside on top and the log of the base on the bottom, using the same kind of log for both. Keep extra digits until the end, then round.`},
+        {std:[], n:"5", type:"dd", cols:2, q:`Use the change of base formula to evaluate each logarithm. Round to three decimal places.`,
+         parts:[
+           {t:`a. ${LG(6,17)} ≈`, b:true, o:[`0.632`, `1.581`, `1.041`, `2.833`], a:1},
+           {t:`b. ${LG(2,28)} ≈`, b:true, o:[`0.208`, `2.639`, `14.000`, `4.807`], a:3},
+           {t:`c. ${LG(7,`${FR(3,16)}`)} ≈`, b:true, o:[`−0.860`, `−1.162`, `−3.620`, `0.027`], a:0},
+           {t:`d. ${LG(3,`${FR(9,40)}`)} ≈`, b:true, o:[`−0.737`, `−2.590`, `−1.358`, `0.075`], a:2}],
+         hint:`Put the log of the number inside on top and the log of the base on the bottom. For a fraction inside the log, find the value of the fraction first, or use the log of the fraction on top. Expect a negative answer when the number inside is less than 1.`}
+      ]},
+    // ============================================================ 3. NATURAL LOG
+    { id:"C3", title:"Natural Log", short:"Natural log",
+      overview:`<p>The number <b>e</b> is a special constant, about <b>2.71828</b>. Like pi, it is irrational: its decimal never ends and never repeats. It shows up whenever something grows continuously, and it comes straight from compound interest. Compound $1 at 100% interest for one year, <i>n</i> times, and you get ${PW(`(1 + ${FR(1,"n")})`,"n")}. As <i>n</i> gets huge, that value settles at <b>e</b>.</p>
+        <table class="ctable"><thead><tr><th><i>n</i></th><th>${PW(`(1 + ${FR(1,"n")})`,"n")}</th></tr></thead><tbody>
+          <tr><td>1</td><td>2</td></tr><tr><td>10</td><td>2.5937</td></tr><tr><td>100</td><td>2.7048</td></tr><tr><td>1,000</td><td>2.7169</td></tr><tr><td>1,000,000</td><td>2.7183</td></tr></tbody></table>
+        <p>The <b>natural log</b>, written <b>ln</b>, is the logarithm with base <i>e</i>. So ln(x) means ${LG("e","x")}. It tells you which power of <i>e</i> gives x.</p>
+        <ul class="facts">
+          <li>ln(e) = 1, because ${PW("e",1)} = e</li>
+          <li>ln(1) = 0, because ${PW("e",0)} = 1</li>
+          <li>ln(${PW("e","x")}) = x</li>
+          <li>${PW("e","ln(x)")} = x</li>
+        </ul>
+        <p><b>Inverse properties.</b> A log and the exponential with the same base undo each other, for any base <i>b</i> that is positive and not 1.</p>
+        <ul class="facts">
+          <li>${LG("b",PW("b","x"))} = x &nbsp;&nbsp; and &nbsp;&nbsp; ln(${PW("e","x")}) = x</li>
+          <li>${PW("b",LG("b","x"))} = x &nbsp;&nbsp; and &nbsp;&nbsp; ${PW("e","ln(x)")} = x</li>
+        </ul>
+        <p><b>Converting.</b> Exponential form and natural log form say the same thing.</p>
+        <p class="bigeq">${PW("e","y")} = x &nbsp;&nbsp;⟷&nbsp;&nbsp; ln(x) = y</p>
+        <p>To solve an equation with the unknown in an exponent, take the natural log of both sides. This works for any base, not just <i>e</i>.</p>
+        <p><b>Finding an inverse.</b> The functions ${PW("e","x")} and ln(x) undo each other, so they are inverses. The inverse of f(x) = ${PW("e","x")} is ${FINV} = ln(x), and their graphs are mirror images across the line y = x. For a more complicated function, swap x and y, then solve for y, using ln to undo e. Then check your answer: if f and g are inverses, then f(g(x)) = x and g(f(x)) = x. Watch the examples below.</p>`,
+      demos:[
+        {label:"What is e", title:`Where e comes from`, intro:`Let us see where e comes from. Press Next to compound $1 more and more often.`, start:`${PW(`(1 + ${FR(1,"n")})`,"n")}`, steps:[
+          {line:`n = 1 &nbsp;→&nbsp; ${PW(`(1 + ${FR(1,1)})`,1)} = <mark>2</mark>`, say:`Compound once a year at 100% and $1 becomes $2.`},
+          {line:`n = 10 &nbsp;→&nbsp; ${PW("(1 + 0.1)",10)} ≈ <mark>2.5937</mark>`, say:`Compound 10 times a year and you earn a little more.`},
+          {line:`n = 100 &nbsp;→&nbsp; ${PW("(1 + 0.01)",100)} ≈ <mark>2.7048</mark>`, say:`A hundred times a year. The gains are getting smaller.`},
+          {line:`n = 1,000 &nbsp;→&nbsp; ≈ <mark>2.7169</mark>`, say:`A thousand times a year. The value is settling down.`},
+          {line:`n = 1,000,000 &nbsp;→&nbsp; ≈ <mark>2.7183</mark>`, say:`A million times a year, and it barely changes anymore.`},
+          {line:`<mark>e ≈ 2.71828…</mark>`, say:`The values settle toward one number. We call it e. It is irrational, like pi.`}]},
+        {label:"Exponential to ln", title:`Write ${PW("e","x")} = 12 using the natural log, then find x`, intro:CH_INTRO, start:`${PW("e","x")} = 12`, steps:[
+          {line:`<mark>ln(${PW("e","x")}) = ln(12)</mark>`, say:`To undo e, take the natural log of both sides. Whatever we do to one side, we do to the other.`},
+          {line:`<mark>x</mark> = ln(12)`, say:`ln and e undo each other, so ln of e to the x is just x. That is the natural log form of the same equation.`},
+          {line:`x ≈ <mark>2.485</mark>`, say:`Use the ln button on your calculator and round to three decimal places.`}]},
+        {label:"Solve with ln", title:`Solve 3${PW("e","2x")} = 21`, intro:CH_INTRO, start:`3${PW("e","2x")} = 21`, steps:[
+          {line:`${PW("e","2x")} = <mark>7</mark>`, say:`First get e to a power by itself. Divide both sides by 3.`},
+          {line:`<mark>2x = ln(7)</mark>`, say:`Now rewrite it in natural log form. The exponent, 2x, equals the natural log of 7.`},
+          {line:`x = <mark>${FR("ln(7)","2")}</mark>`, say:`Divide both sides by 2.`},
+          {line:`x ≈ <mark>0.973</mark>`, say:`Calculate and round to three decimal places.`}]},
+        {label:"Simple inverse", title:`Find the inverse of f(x) = ${PW("e","x")}`, intro:CH_INTRO, start:`y = ${PW("e","x")}`, steps:[
+          {line:`<mark>x = ${PW("e","y")}</mark>`, say:`To find an inverse, swap x and y.`},
+          {line:`<mark>ln(x) = y</mark>`, say:`Now solve for y. Rewrite the exponential in natural log form.`},
+          {line:`${FINV} = <mark>ln(x)</mark>`, say:`So the inverse of e to the x is ln of x, and the inverse of ln of x is e to the x. They undo each other.`}]},
+        {label:"A harder inverse", title:`Find the inverse of f(x) = ${PW("e","x − 2")} + 5`, intro:CH_INTRO, start:`y = ${PW("e","x − 2")} + 5`, steps:[
+          {line:`<mark>x = ${PW("e","y − 2")} + 5</mark>`, say:`Swap x and y.`},
+          {line:`<mark>x − 5</mark> = ${PW("e","y − 2")}`, say:`Get the exponential by itself. Subtract 5 from both sides.`},
+          {line:`ln(x − 5) = <mark>y − 2</mark>`, say:`Take the natural log of both sides. ln undoes e, which leaves the exponent.`},
+          {line:`y = ln(x − 5) <mark>+ 2</mark>`, say:`Add 2 to both sides to finish solving for y.`},
+          {line:`${FINV} = ln(x − 5) + 2`, say:`That is the inverse function. The inside of the ln must be positive, so x has to be greater than 5.`}]},
+        {label:"Inverse properties", title:`Simplify using the inverse properties`, intro:`A log and its matching exponential undo each other. Press Next to see four examples.`, start:`${PW(10,"log(4)")}`, steps:[
+          {line:`= <mark>4</mark>`, say:`The base of the exponent and the base of the log are both 10, so they undo each other. Only the 4 is left.`},
+          {line:`${PW("e","ln(20)")} = <mark>20</mark>`, say:`Same idea with base e. e to the natural log of 20 is just 20.`},
+          {line:`${LG(25,PW(25,"x"))} = <mark>x</mark>`, say:`Now the log is on the outside. Log base 25 of 25 to the x leaves just the exponent.`},
+          {line:`${LG(4,PW(16,"x"))} = ${LG(4,PW("("+PW(4,2)+")","x"))} = ${LG(4,PW(4,"2x"))} = <mark>2x</mark>`, say:`Here the bases do not match yet. Write 16 as 4 squared, multiply the exponents, and then the log and the base cancel, leaving 2x.`}]},
+        {label:"Inverse: base 6", title:`Find the inverse of f(x) = ${PW(6,"x")} and check it`, intro:CH_INTRO, start:`y = ${PW(6,"x")}`, steps:[
+          {line:`<mark>x = ${PW(6,"y")}</mark>`, say:`Swap x and y.`},
+          {line:`<mark>y = ${LG(6,"x")}</mark>`, say:`Rewrite the exponential equation in log form to solve for y.`},
+          {line:`${FINV} = ${LG(6,"x")}`, say:`That is the inverse function.`},
+          {line:`Check: f(${FINV}) = ${PW(6,LG(6,"x"))} = <mark>x</mark>`, say:`To check, put the inverse inside f. The exponential and the log cancel, and we get x back. So they really are inverses.`}]},
+        {label:"Inverse: ln(x + 3)", title:`Find the inverse of f(x) = ln(x + 3) and check it`, intro:CH_INTRO, start:`y = ln(x + 3)`, steps:[
+          {line:`<mark>x = ln(y + 3)</mark>`, say:`Swap x and y.`},
+          {line:`${PW("e","x")} = <mark>y + 3</mark>`, say:`Rewrite in exponential form with base e. The inside of the ln equals e to the x.`},
+          {line:`y = ${PW("e","x")} <mark>− 3</mark>`, say:`Subtract 3 from both sides to solve for y.`},
+          {line:`${FINV} = ${PW("e","x")} − 3`, say:`That is the inverse function.`},
+          {line:`Check: f(${FINV}) = ln(${PW("e","x")} − 3 + 3) = ln(${PW("e","x")}) = <mark>x</mark>`, say:`Put the inverse inside f. The minus 3 and plus 3 cancel, then ln undoes e. We get x back.`}]},
+        {label:"Inverse: base 1/5", title:`Find the inverse of f(x) = ${LG("1/5","x")}`, intro:CH_INTRO, start:`y = ${LG("1/5","x")}`, steps:[
+          {line:`<mark>x = ${LG("1/5","y")}</mark>`, say:`Swap x and y.`},
+          {line:`${PW(`(${FR(1,5)})`,"x")} = <mark>y</mark>`, say:`Rewrite in exponential form. The base of the log, one fifth, is raised to x and equals y.`},
+          {line:`${FINV} = ${PW(`(${FR(1,5)})`,"x")}`, say:`That is the inverse function. A log with a fraction for a base is undone by an exponential with the same base.`}]},
+        {label:"Inverse: ln(2x)", title:`Find the inverse of f(x) = ln(2x)`, intro:CH_INTRO, start:`y = ln(2x)`, steps:[
+          {line:`<mark>x = ln(2y)</mark>`, say:`Swap x and y.`},
+          {line:`${PW("e","x")} = <mark>2y</mark>`, say:`Rewrite in exponential form with base e.`},
+          {line:`y = ${FR(PW("e","x"),2)}`, say:`Divide both sides by 2 to solve for y.`},
+          {line:`${FINV} = ${FR(PW("e","x"),2)}`, say:`That is the inverse function.`}]}
+      ],
+      problems:[
+        {std:[], n:"1", type:"match", q:`Rewrite each logarithmic equation in exponential form.`,
+         chips:[`${PW("7",3)} = 343`, `${PW("3",2)} = 9`, `${PW("3","\u22121")} = ${FR(1,3)}`, `${PW("4",1)} = 4`, `${PW("(1/2)","\u22124")} = 16`, `${PW("6",0)} = 1`],
+         rows:[
+           {t:`${LG(3,9)} = 2`, a:1},
+           {t:`${LG(4,4)} = 1`, a:3},
+           {t:`${LG(6,1)} = 0`, a:5},
+           {t:`${LG(7,343)} = 3`, a:0},
+           {t:`${LG("1/2",16)} = −4`, a:4},
+           {t:`${LG(3,"${FR(1,3)}")} = −1`, a:2}],
+         hint:`A log equation says: base b raised to the answer gives the number. The base of the log is the base of the power, and the value of the log is the exponent.`},
+        {std:[], n:"2", type:"match", q:`Rewrite each exponential equation in logarithmic form.`,
+         chips:[`${LG(125,25)} = ${FR(2,3)}`, `${LG(16,"${FR(1,16)}")} = −1`, `${LG(6,36)} = 2`, `${LG(49,"${FR(1,7)}")} = −${FR(1,2)}`, `${LG(5,"${FR(1,25)}")} = −2`, `${LG(12,1)} = 0`],
+         rows:[
+           {t:`${PW("6",2)} = 36`, a:2},
+           {t:`${PW("12",0)} = 1`, a:5},
+           {t:`${PW("16","\u22121")} = ${FR(1,16)}`, a:1},
+           {t:`${PW("5","\u22122")} = ${FR(1,25)}`, a:4},
+           {t:`${PW("125","2/3")} = 25`, a:0},
+           {t:`${PW("49","\u22121/2")} = ${FR(1,7)}`, a:3}],
+         hint:`An exponential equation says: base b raised to the exponent gives the number. In log form the base stays the base, the number goes inside the log, and the exponent is the value of the log.`},
+        {std:[], n:"3", type:"dd", cols:2, q:`Evaluate each logarithm.`,
+         parts:[
+           {t:`a. ${LG(3,81)}`, b:true, o:[`−4`, `4`, `5`, `3`], a:1},
+           {t:`b. ${LG(7,49)}`, b:true, o:[`−2`, `3`, `1`, `2`], a:3},
+           {t:`c. ${LG(3,3)}`, b:true, o:[`1`, `−1`, `2`, `0`], a:0},
+           {t:`d. ${LG("1/2",1)}`, b:true, o:[`2`, `1`, `0`, `−1`], a:2},
+           {t:`e. ${LG(5,"${FR(1,625)}")}`, b:true, o:[`4`, `−4`, `−3`, `−5`], a:1},
+           {t:`f. ${LG(8,"${FR(1,512)}")}`, b:true, o:[`3`, `−2`, `−4`, `−3`], a:3},
+           {t:`g. ${LG(4,"0.25")}`, b:true, o:[`−1`, `1`, `0`, `−2`], a:0},
+           {t:`h. ${LG(10,"0.001")}`, b:true, o:[`3`, `−2`, `−3`, `−4`], a:2}],
+         hint:`Ask yourself which power of the base gives the number inside the log. For a fraction or a decimal, first write it as a power of the base with a negative exponent.`},
+        {std:[], n:"4", type:"dd", cols:2, q:`Simplify each expression using the inverse properties.`,
+         parts:[
+           {t:`a. ${PW(8,"${LG(8,\"x\")}")}`, b:true, o:[`8`, `8x`, `1`, `x`], a:3},
+           {t:`b. ${LG(7,"${PW(7,\"\\u22123x\")}")}`, b:true, o:[`3x`, `−3x`, `−3`, `−21x`], a:1},
+           {t:`c. ${PW(7,"${LG(7,\"x\")}")}`, b:true, o:[`7`, `7x`, `x`, `1`], a:2},
+           {t:`d. ${PW(3,"${LG(3,\"5x\")}")}`, b:true, o:[`5x`, `x`, `15x`, `5`], a:0},
+           {t:`e. ${PW("e","ln(4)")}`, b:true, o:[`${PW("e",4)}`, `1.386`, `e`, `4`], a:3}],
+         hint:`Look for a log and an exponential with the same base. They undo each other. A log of a power of its base leaves just the exponent, and a base raised to the log of something leaves just that something. If the bases do not match, rewrite one so they do.`},
+        {std:[], n:"5", type:"dd", cols:2, q:`Simplify each expression using the inverse properties.`,
+         parts:[
+           {t:`a. ${PW(10,"log(15)")}`, b:true, o:[`10`, `15`, `150`, `1.176`], a:1},
+           {t:`b. ${LG(3,"${PW(3,\"2x\")}")}`, b:true, o:[`3x`, `6x`, `2x`, `2`], a:2},
+           {t:`c. ${LG(2,"${PW(8,\"3x\")}")}`, b:true, o:[`9x`, `3x`, `24x`, `8x`], a:0},
+           {t:`d. ln(${PW("e","\u2212x")})`, b:true, o:[`x`, `${PW("e","\u2212x")}`, `−ex`, `−x`], a:3},
+           {t:`e. ln(${PW("e","4 + 5x")})`, b:true, o:[`${PW("e","4 + 5x")}`, `4 + 5x`, `20x`, `9x`], a:1}],
+         hint:`Look for a log and an exponential with the same base. They undo each other. A log of a power of its base leaves just the exponent, and a base raised to the log of something leaves just that something. If the bases do not match, rewrite one so they do.`},
+        {std:[], n:"6", type:"dd", cols:2, q:`Evaluate each logarithm. Round to three decimals.`,
+         parts:[
+           {t:`a. log(6)`, b:true, o:[`1.792`, `1.285`, `0.778`, `−0.778`], a:2},
+           {t:`b. ln(12)`, b:true, o:[`2.485`, `1.079`, `0.402`, `−2.485`], a:0},
+           {t:`c. ln(1/3)`, b:true, o:[`−0.477`, `−0.910`, `1.099`, `−1.099`], a:3},
+           {t:`d. log(2/7)`, b:true, o:[`−1.253`, `−0.544`, `−1.838`, `0.544`], a:1},
+           {t:`e. 3 ln(0.5)`, b:true, o:[`−0.903`, `−0.693`, `−2.079`, `2.079`], a:2},
+           {t:`f. log(0.6) + 1`, b:true, o:[`0.778`, `0.489`, `−0.222`, `1.222`], a:0}],
+         hint:`Use the log button for base 10 and the ln button for base e. For the last two, find the log first and then apply the coefficient or add the number.`},
+        {std:[], n:"7", type:"dd", q:`Find the inverse of each function. You can check your answer by showing that f(f<sup>−1</sup>(x)) = x.`,
+         parts:[
+           {t:`a. f(x) = ${PW("0.3","x")}`, b:true, o:[`${LG("x","0.3")}`, `${FR(1,"${PW(\"0.3\",\"x\")}")}`, `${LG("0.3","x")}`, `−${PW("0.3","x")}`], a:2},
+           {t:`b. f(x) = ${PW(11,"x")}`, b:true, o:[`${LG(11,"x")}`, `${LG("x",11)}`, `${FR("ln(x)",11)}`, `11 ln(x)`], a:0},
+           {t:`c. f(x) = ${LG(2,"x")}`, b:true, o:[`${PW("x",2)}`, `${LG("x",2)}`, `2x`, `${PW(2,"x")}`], a:3},
+           {t:`d. f(x) = ln(x − 1)`, b:true, o:[`${PW("e","x")} − 1`, `${PW("e","x")} + 1`, `${PW("e","x + 1")}`, `ln(x) + 1`], a:1}],
+         hint:`To find an inverse, swap x and y, then solve for y. Use a log to undo an exponential, and an exponential to undo a log. To check, put your answer into f. You should get x back.`},
+        {std:[], n:"8", type:"dd", q:`Find the inverse of each function.`,
+         parts:[
+           {t:`a. f(x) = ${PW("e","3x")}`, b:true, o:[`3 ln(x)`, `ln(3x)`, `${FR("ln(x)",3)}`, `${PW("e","x/3")}`], a:2},
+           {t:`b. f(x) = ${LG(4,"x + 2")}`, b:true, o:[`${PW(4,"x")} − 2`, `${PW(4,"x")} + 2`, `${PW(4,"x \u2212 2")}`, `${LG(4,"x")} − 2`], a:0},
+           {t:`c. f(x) = ${PW(4,"x")}`, b:true, o:[`${LG("x",4)}`, `4 log(x)`, `${PW("x",4)}`, `${LG(4,"x")}`], a:3},
+           {t:`d. f(x) = ln(${FR("x",3)})`, b:true, o:[`${FR("${PW(\"e\",\"x\")}",3)}`, `3${PW("e","x")}`, `${PW("e","3x")}`, `3 ln(x)`], a:1}],
+         hint:`To find an inverse, swap x and y, then solve for y. Use a log to undo an exponential, and an exponential to undo a log. To check, put your answer into f. You should get x back.`}
+      ] },
+    // ============================================================ 4. COMPOUND INTEREST MODEL
+    { id:"C4", title:"Compound Interest", short:"Compound interest",
+      overview:`<p><b>Compound interest</b> is interest paid on an initial investment, called the <b>principal</b>, and also on the interest it has already earned. So the interest earns interest.</p>
+        <p>Suppose a principal <i>P</i> is deposited in an account that pays an annual rate <i>r</i>, written as a decimal, compounded <i>n</i> times per year. After <i>t</i> years, the amount <i>A</i> in the account is:</p>
+        <p class="bigeq">A = P${PW(`(1 + ${FR("r","n")})`,"nt")}</p>
+        <ul class="facts">
+          <li><b>P</b> is the principal, the amount you start with.</li>
+          <li><b>r</b> is the annual rate as a decimal. The annual rate is often called the <b>nominal rate</b>.</li>
+          <li><b>n</b> is how many times per year the interest is compounded.</li>
+          <li><b>t</b> is the time in years.</li>
+        </ul>
+        <p>Common values of <i>n</i>: annually 1, semiannually 2, quarterly 4, monthly 12, weekly 52, daily 365.</p>
+        <p><b>Using the formula.</b> Follow the same plan every time.</p>
+        <ul class="facts">
+          <li>Write down <b>P</b>, <b>r</b> as a decimal, <b>n</b>, and <b>t</b>.</li>
+          <li>Substitute them into the formula.</li>
+          <li>Work inside the parentheses first, then the exponent, then multiply by P.</li>
+          <li>Keep extra decimals until the end, then round money to the nearest cent.</li>
+          <li><b>Interest earned</b> = A − P.</li>
+        </ul>`,
+      demos:[
+        {label:"Where it comes from", title:`Where the compound interest model comes from`, intro:`Let us build the model one year at a time. Press Next.`, start:`P = 1,000 &nbsp; r = 0.06 &nbsp; compounded once a year`, steps:[
+          {line:`Year 1: 1000(1.06) = <mark>$1,060.00</mark>`, say:`Each year the balance is multiplied by 1 plus the rate. After one year, we multiplied once.`},
+          {line:`Year 2: 1000(1.06)(1.06) = 1000(1.06)<sup>2</sup> = <mark>$1,123.60</mark>`, say:`After two years, we multiplied twice, so the exponent is 2.`},
+          {line:`Year 3: 1000(1.06)<sup>3</sup> = <mark>$1,191.02</mark>`, say:`See the pattern. The exponent is the number of times we compounded.`},
+          {line:`A = P${PW("(1 + r)","t")}`, say:`That is the pattern when we compound once a year.`},
+          {line:`A = P${PW(`(1 + ${FR("r","n")})`,"nt")}`, say:`If we compound n times a year, each period earns r over n, and there are n times t periods. That gives the compound interest model.`}]},
+        {label:"Quarterly", title:`$9,000 at 1.46% compounded quarterly for 3 years`, intro:CH_INTRO, start:`P = 9,000 &nbsp; r = 0.0146 &nbsp; n = 4 &nbsp; t = 3`, steps:[
+          {line:`A = 9000${PW(`(1 + ${FR("0.0146","4")})`,"4 · 3")}`, say:`Plug into the formula. Quarterly means n = 4, and the rate has to be a decimal.`},
+          {line:`A = 9000(<mark>1.00365</mark>)<sup><mark>12</mark></sup>`, say:`Work inside the parentheses first. 0.0146 divided by 4 is 0.00365, plus 1. Also, 4 times 3 is 12.`},
+          {line:`A ≈ 9000(<mark>1.04469</mark>)`, say:`Raise 1.00365 to the 12th power on your calculator.`},
+          {line:`A ≈ <mark>$9,402.21</mark>`, say:`Multiply by 9000 and round to the nearest cent.`}]},
+        {label:"Interest earned", title:`How much interest did that account earn`, intro:`Let us find the interest from the last example. Press Next.`, start:`Interest earned = A − P`, steps:[
+          {line:`= <mark>$9,402.21</mark> − $9,000.00`, say:`The interest is how much the account grew, so subtract the amount you started with from the final amount.`},
+          {line:`= <mark>$402.21</mark>`, say:`That is the interest the bank added over the 3 years.`}]}
+      ],
+      problems:[
+        {std:[], n:"1", type:"mc", q:`You deposit $500 in an account that pays 2.5% annual interest, compounded daily. Find the balance after 2 years.`,
+         c:[`$525.63`, `$525.31`, `$500.07`, `$525.00`], a:0,
+         hint:`Daily compounding means n = 365. Change 2.5% to a decimal before dividing by n. The exponent is n times t.`},
+        {std:[], n:"2", type:"dd", q:`You deposit $8,600 in an account that pays 1.32% annual interest, compounded monthly. Use the compound interest formula for both parts.`,
+         parts:[
+           {t:`a. The balance after 4 years is`, b:true, o:[`$9,063.15`, `$9,066.02`, `$16,138.65`, `$9,054.08`], a:1},
+           {t:`b. The interest that was added is`, b:true, o:[`$9,066.02`, `$454.08`, `$466.02`, `$463.15`], a:2}],
+         hint:`Monthly compounding means n = 12. First find the balance with the compound interest formula. The interest added is the difference between the final balance and the amount you started with.`},
+        {std:[], n:"3", type:"mc", q:`The principal is $3,500. Find the balance in the account after 6 years when r = 2.16%, compounded quarterly. Round to the hundredth.`,
+         c:[`$3,978.81`, `$3,953.60`, `$3,614.94`, `$3,982.92`], a:3,
+         hint:`Find n first: quarterly is 4, monthly is 12, daily is 365. Write the rate as a decimal and divide it by n inside the parentheses. The exponent is n times t.`},
+        {std:[], n:"4", type:"mc", q:`The principal is $3,500. Find the balance in the account after 6 years when r = 2.29%, compounded monthly. Round to the hundredth.`,
+         c:[`$4,014.98`, `$4,009.29`, `$3,980.90`, `$3,540.27`], a:0,
+         hint:`Find n first: quarterly is 4, monthly is 12, daily is 365. Write the rate as a decimal and divide it by n inside the parentheses. The exponent is n times t.`},
+        {std:[], n:"5", type:"mc", q:`The principal is $3,500. Find the balance in the account after 6 years when r = 1.26%, compounded monthly. Round to the hundredth.`,
+         c:[`$3,773.08`, `$3,764.60`, `$3,774.71`, `$3,522.11`], a:2,
+         hint:`Find n first: quarterly is 4, monthly is 12, daily is 365. Write the rate as a decimal and divide it by n inside the parentheses. The exponent is n times t.`},
+        {std:[], n:"6", type:"mc", q:`The principal is $3,500. Find the balance in the account after 6 years when r = 1.83%, compounded daily. Round to the hundredth.`,
+         c:[`$3,902.32`, `$3,906.18`, `$3,884.30`, `$3,501.05`], a:1,
+         hint:`Find n first: quarterly is 4, monthly is 12, daily is 365. Write the rate as a decimal and divide it by n inside the parentheses. The exponent is n times t.`},
+        {std:[], n:"7", type:"mc", q:`You deposited $5,000 in an account that pays 2.25% annual interest. Find the balance after 5 years when the interest is compounded quarterly.`,
+         c:[`$5,588.39`, `$5,562.50`, `$5,142.22`, `$5,593.60`], a:3,
+         hint:`Find n first: quarterly is 4, monthly is 12, daily is 365. Write the rate as a decimal and divide it by n inside the parentheses. The exponent is n times t.`},
+        {std:[], n:"8", type:"dd", q:`You deposit $2,200 into each of three separate bank accounts that pay 3% annual interest. Interest is compounded quarterly in Account 1, monthly in Account 2, and daily in Account 3. Find how much each account earns after 6 years.`,
+         parts:[
+           {t:`a. Account 1 earns`, b:true, o:[`$432.11`, `$396.00`, `$426.92`, `$2,632.11`], a:0},
+           {t:`b. Account 2 earns`, b:true, o:[`$396.00`, `$426.92`, `$433.29`, `$2,633.29`], a:2},
+           {t:`c. Account 3 earns`, b:true, o:[`$396.00`, `$433.86`, `$426.92`, `$2,633.86`], a:1},
+           {t:`d. The account that grew the most is`, b:true, o:[`Account 1`, `Account 2`, `Account 3`], a:2}],
+         hint:`Find each balance with the compound interest formula, using n = 4, 12 and 365. The interest earned is the balance minus the 2,200 you started with. Then compare the three amounts.`},
+        {std:[], n:"9", type:"mc", q:`The population <i>p</i> of a small town after <i>x</i> years can be modeled by the function p = 6850${PW("(1.03)","x")}. Find the average rate of change in the population over the first 6 years. Round to the hundredth.`,
+         c:[`8179.26 people per year`, `221.54 people per year`, `1329.26 people per year`, `205.50 people per year`], a:1,
+         hint:`The average rate of change is the change in p divided by the change in x. Find the population at x = 0 and at x = 6 first, and use only the first 6 years.`}
+      ]},
+    // ============================================================ 6. CONTINUOUSLY COMPOUNDED INTEREST
+    { id:"C6", title:"Continuously Compounded Interest", short:"Continuous",
+      overview:`<p>When interest is compounded <b>continuously</b>, the amount <i>A</i> in an account after <i>t</i> years is given by the <b>Pert model</b>.</p>
+        <p class="bigeq">A = P${PW("e","rt")}</p>
+        <p>Here <i>P</i> is the principal, <i>r</i> is the annual interest rate written as a decimal, and <i>e</i> is the number 2.71828… from the Natural Log section. Continuous compounding is what happens when the number of compounding periods per year gets bigger and bigger.</p>
+        <p>For comparison, here is the <b>simple interest model</b>, where interest is only paid on the original principal.</p>
+        <p class="bigeq">A = P(1 + rt)</p>`,
+      demos:[
+        {label:"Pert model", title:`$3,200 at 3.8% compounded continuously`, intro:CH_INTRO, start:`P = 3,200 &nbsp; r = 0.038`, steps:[
+          {line:`A = <mark>3200${PW("e","0.038t")}</mark>`, say:`Write the Pert model. Put the principal in front, and turn 3.8% into the decimal 0.038.`},
+          {line:`t = 7: &nbsp; A = 3200${PW("e","0.038 · 7")}`, say:`To find the balance after 7 years, replace t with 7.`},
+          {line:`A = 3200${PW("e","<mark>0.266</mark>")}`, say:`Multiply the exponent first. 0.038 times 7 is 0.266.`},
+          {line:`A ≈ 3200(<mark>1.3047</mark>)`, say:`Use the e to the x button on your calculator.`},
+          {line:`A ≈ <mark>$4,175.15</mark>`, say:`Multiply by 3200 and round to the nearest cent.`}]},
+        {label:"Simple interest", title:`$4,800 earning 5% simple interest`, intro:CH_INTRO, start:`P = 4,800 &nbsp; r = 0.05`, steps:[
+          {line:`A = <mark>4800(1 + 0.05t)</mark>`, say:`This is the simple interest model. There is no e, and t is not an exponent.`},
+          {line:`t = 5: &nbsp; A = 4800(1 + 0.05 · 5) = 4800(1.25) = <mark>$6,000.00</mark>`, say:`After 5 years, multiply 0.05 by 5 first, then add 1, then multiply by 4800.`},
+          {line:`t = 10: &nbsp; A = 4800(1 + 0.05 · 10) = 4800(1.5) = <mark>$7,200.00</mark>`, say:`After 10 years, the balance has grown by the same amount every year. That is what simple interest does.`}]},
+        {label:"Over time", title:`$4,600 at 4.5% compounded continuously`, intro:CH_INTRO, start:`A = 4600${PW("e","0.045t")}`, steps:[
+          {line:`t = 5: &nbsp; A = 4600${PW("e","0.225")} ≈ <mark>$5,760.68</mark>`, say:`After 5 years, the exponent is 0.045 times 5, which is 0.225. Then evaluate on your calculator.`},
+          {line:`t = 10: &nbsp; A = 4600${PW("e","0.45")} ≈ <mark>$7,214.24</mark>`, say:`After 10 years, the exponent is 0.45. Notice the balance grew by more than the first 5 years did. That is the power of compounding.`}]}
+      ],
+      problems:[
+        {std:[], n:"1", type:"mc", q:`Choose the formula for an amount <i>A</i> that is compounded continuously.`,
+         c:[`A = P(1 + rt)`, `A = P${PW(`(1 + ${FR("r","n")})`,"nt")}`, `A = P${PW("e","rt")}`, `A = P · ${PW("r","t")}`], a:2,
+         hint:`Continuous compounding uses the special number e. Look for the model with e raised to a power that contains both the rate and the time.`},
+        {std:[], n:"2", type:"dd", q:`Your account holds $4,600 and earns 4.5% annual interest, compounded continuously. Your friend deposits $4,800 and earns 5% simple interest. Compare the two balances.`,
+         parts:[
+           {t:`a. After 5 years, the greater balance belongs to`, b:true, o:[`Your account`, `Your friend’s account`], a:1},
+           {t:`b. After 10 years, the greater balance belongs to`, b:true, o:[`Your account`, `Your friend’s account`], a:0}],
+         hint:`Find both balances at the same time, using the Pert model for your account and the simple interest model for your friend’s. Then compare them. The winner can change as time passes.`},
+        {std:[], n:"3", type:"dd", q:`You deposit $7,300 in an account that earns 1.8% annual interest, compounded continuously.`,
+         parts:[
+           {t:`a. The Pert model for this account is`, b:true, o:[`A = 7300${PW("e","1.8t")}`, `A = 7300${PW("e","0.018t")}`, `A = 7300${PW("(1 + 0.018)","t")}`, `A = 0.018${PW("e","7300t")}`], a:1},
+           {t:`b. The balance after 15 years is`, b:true, o:[`$9,539.81`, `$9,271.00`, `$7,432.59`, `$9,562.74`], a:3}],
+         hint:`Write the rate as a decimal and put it next to t in the exponent. For the balance, replace t with 15, multiply in the exponent, then use the e to the x button.`},
+        {std:[], n:"4", type:"dd", q:`You deposit $1,500 in an account that earns 2% annual interest, compounded continuously.`,
+         parts:[
+           {t:`a. The Pert model for this account is`, b:true, o:[`A = 1500${PW("e","0.02t")}`, `A = 1500${PW("e","2t")}`, `A = 1500${PW("(1 + 0.02)","t")}`, `A = 1500(1 + 0.02t)`], a:0},
+           {t:`b. The balance after 5 years is`, b:true, o:[`$1,650.00`, `$1,656.12`, `$1,657.76`, `$1,530.30`], a:2}],
+         hint:`Write the rate as a decimal and put it next to t in the exponent. For the balance, replace t with the number of years, multiply in the exponent, then use the e to the x button.`},
+        {std:[], n:"5", type:"dd", q:`You deposit $10,000 in an account that earns 4% annual interest, compounded continuously.`,
+         parts:[
+           {t:`a. The Pert model for this account is`, b:true, o:[`A = 10000${PW("e","4t")}`, `A = 10000${PW("e","0.04t")}`, `A = 10000${PW("(1 + 0.04)","t")}`, `A = 10000(1 + 0.04t)`], a:1},
+           {t:`b. The balance after 7 years is`, b:true, o:[`$12,800.00`, `$13,159.32`, `$10,408.11`, `$13,231.30`], a:3}],
+         hint:`Write the rate as a decimal and put it next to t in the exponent. For the balance, replace t with the number of years, multiply in the exponent, then use the e to the x button.`},
+        {std:[], n:"6", type:"dd", q:`You deposit $3,400 in an account that earns 5.7% annual interest, compounded continuously.`,
+         parts:[
+           {t:`a. The Pert model for this account is`, b:true, o:[`A = 3400${PW("e","0.057t")}`, `A = 3400${PW("e","5.7t")}`, `A = 3400${PW("(1 + 0.057)","t")}`, `A = 3400(1 + 0.057t)`], a:0},
+           {t:`b. The balance after 3 years is`, b:true, o:[`$3,981.40`, `$4,015.17`, `$4,034.07`, `$3,599.43`], a:2}],
+         hint:`Write the rate as a decimal and put it next to t in the exponent. For the balance, replace t with the number of years, multiply in the exponent, then use the e to the x button.`},
+        {std:[], n:"7", type:"dd", q:`You deposit $3,000 in an account that earns 3.8% annual interest, compounded continuously. Your friend deposits $2,800 in an account that earns 4.5% annual interest, compounded monthly.`,
+         parts:[
+           {t:`a. Your balance after 5 years is`, b:true, o:[`$3,570.00`, `$3,627.75`, `$3,615.00`, `$3,116.19`], a:1},
+           {t:`b. Your balance after 15 years is`, b:true, o:[`$4,710.00`, `$5,249.06`, `$3,116.19`, `$5,304.80`], a:3},
+           {t:`c. After 5 years, the greater balance belongs to`, b:true, o:[`Your account`, `Your friend’s account`], a:0},
+           {t:`d. After 15 years, the greater balance belongs to`, b:true, o:[`Your account`, `Your friend’s account`], a:1}],
+         hint:`Find both balances at the same number of years, using the Pert model for the continuous account. Then compare them. Which account is greater can change as time passes.`},
+        {std:[], n:"8", type:"dd", q:`You deposit $2,750 in an account that earns 4% annual interest, compounded continuously. Your friend deposits $2,500 in an account that earns 5% annual interest, compounded daily.`,
+         parts:[
+           {t:`a. Your balance after 5 years is`, b:true, o:[`$3,300.00`, `$3,358.86`, `$3,345.80`, `$2,862.23`], a:1},
+           {t:`b. Your balance after 10 years is`, b:true, o:[`$3,850.00`, `$4,070.67`, `$2,862.23`, `$4,102.52`], a:3},
+           {t:`c. After 5 years, the greater balance belongs to`, b:true, o:[`Your account`, `Your friend’s account`], a:0},
+           {t:`d. After 10 years, the greater balance belongs to`, b:true, o:[`Your account`, `Your friend’s account`], a:1}],
+         hint:`Find both balances at the same number of years, using the Pert model for the continuous account. Then compare them. Which account is greater can change as time passes.`},
+        {std:[], n:"9", type:"dd", q:`You deposit $2,100 in an account that earns 5.2% annual interest, compounded continuously. Your friend deposits $2,550 in an account that earns simple interest at an annual rate of 4.8%.`,
+         parts:[
+           {t:`a. Your balance after 10 years is`, b:true, o:[`$3,192.00`, `$3,532.26`, `$3,486.40`, `$2,212.09`], a:1},
+           {t:`b. Your balance after 15 years is`, b:true, o:[`$3,738.00`, `$4,492.16`, `$2,212.09`, `$4,581.09`], a:3},
+           {t:`c. After 10 years, the greater balance belongs to`, b:true, o:[`Your friend’s account`, `Your account`], a:0},
+           {t:`d. After 15 years, the greater balance belongs to`, b:true, o:[`Your friend’s account`, `Your account`], a:1}],
+         hint:`Use the Pert model for your account and the simple interest model for your friend’s. Find both balances at the same number of years, then compare them.`},
+        {std:[], n:"10", type:"dd", q:`You want to invest $2,500 in an account to save for college. Account 1 pays 6% annual interest compounded quarterly. Account 2 pays 4% annual interest compounded continuously. Account 3 pays simple interest at a rate of 5.5%. Look at the interest each account earns over 10 years.`,
+         parts:[
+           {t:`a. The interest earned by Account 1 is`, b:true, o:[`$4,535.05`, `$2,035.05`, `$1,500.00`, `$1,977.12`], a:1},
+           {t:`b. The interest earned by Account 2 is`, b:true, o:[`$3,729.56`, `$1,000.00`, `$1,200.61`, `$1,229.56`], a:3},
+           {t:`c. The interest earned by Account 3 is`, b:true, o:[`$1,375.00`, `$3,875.00`, `$1,770.36`, `$141.35`], a:0},
+           {t:`d. To obtain the greatest interest after 10 years, you should choose`, b:true, o:[`Account 2`, `Account 3`, `Account 1`], a:2}],
+         hint:`Find the interest for each account, which is the final balance minus the 2,500 you started with. Use the compound interest formula for Account 1, the Pert model for Account 2, and the simple interest model for Account 3. Then compare.`}
+      ]},
+    // ============================================================ 7. SOLVING LOGARITHMIC EQUATIONS
+    { id:"C7", title:"Solving Logarithmic Equations", short:"Solving equations",
+      overview:`<p>To solve a log equation, use the log properties to get a single log, rewrite it in exponential form, and solve. But the inside of a log has to be positive. That means some answers can be <b>extraneous</b>: they come out of the algebra but do not work in the original equation. So you always have to check.</p>
+        <ul class="facts">
+          <li><b>The same base on both sides:</b> if ${LG("b","A")} = ${LG("b","B")}, then A = B. Set the insides equal.</li>
+          <li><b>A log equal to a number:</b> rewrite it in exponential form. ${LG("b","A")} = c means A = ${PW("b","c")}.</li>
+          <li><b>Two logs added together:</b> combine them into one log with the product property first.</li>
+          <li><b>Check every answer</b> in the original equation. The inside of every log must be greater than 0. Throw out any answer that makes an inside zero or negative.</li>
+        </ul>
+        <p class="muted">The domain of a log is not all real numbers, which is why extraneous solutions can show up.</p>`,
+      demos:[
+        {label:"Same base", title:`Solve ln(4x − 12) = ln(x)`, intro:CH_INTRO, start:`ln(4x − 12) = ln(x)`, steps:[
+          {line:`<mark>4x − 12 = x</mark>`, say:`Both sides are natural logs, so the insides must be equal. Set them equal.`},
+          {line:`3x = 12`, say:`Subtract x from both sides and add 12.`},
+          {line:`x = <mark>4</mark>`, say:`Divide both sides by 3.`},
+          {line:`Check: ln(4 · 4 − 12) = ln(4) &nbsp;and&nbsp; ln(4)`, say:`Check the answer. The inside of the left log is 4 and the inside of the right log is 4. Both are positive, and both sides match, so x = 4 works.`}]},
+        {label:"A number on one side", title:`Solve ${LG(2,"4x + 8")} = 5`, intro:CH_INTRO, start:`${LG(2,"4x + 8")} = 5`, steps:[
+          {line:`<mark>4x + 8 = ${PW(2,5)}</mark>`, say:`Rewrite in exponential form. The base 2 raised to 5 equals the inside.`},
+          {line:`4x + 8 = 32`, say:`Two to the fifth power is 32.`},
+          {line:`4x = 24`, say:`Subtract 8 from both sides.`},
+          {line:`x = <mark>6</mark>`, say:`Divide both sides by 4.`},
+          {line:`Check: ${LG(2,"4 · 6 + 8")} = ${LG(2,32)} = 5`, say:`Check it. The inside is 32, which is positive, and log base 2 of 32 is 5. So x = 6 works.`}]},
+        {label:"Extraneous solution 1", title:`Solve log(2x) + log(x − 5) = 2`, intro:`This one has a trap. Press Next, and watch for the check at the end.`, start:`log(2x) + log(x − 5) = 2`, steps:[
+          {line:`<mark>log(2x(x − 5)) = 2</mark>`, say:`Two logs are added, so combine them into one log with the product property.`},
+          {line:`<mark>2x(x − 5) = ${PW(10,2)}</mark>`, say:`Rewrite in exponential form. There is no base written, so the base is 10.`},
+          {line:`2${PW("x",2)} − 10x = 100`, say:`Multiply it out and simplify the right side.`},
+          {line:`${PW("x",2)} − 5x − 50 = 0`, say:`Move everything to one side and divide by 2. Now we can factor.`},
+          {line:`<mark>(x − 10)(x + 5) = 0</mark>`, say:`Factor.`},
+          {line:`x = 10 &nbsp;or&nbsp; x = −5`, say:`Set each factor equal to zero. That gives two possible answers.`},
+          {line:`x = −5: &nbsp;log(2 · −5) = log(−10) &nbsp;<mark>undefined</mark>`, say:`Now check each answer in the original equation. At x = −5 the inside of the first log is negative. A log of a negative number is not defined, so −5 is extraneous. Throw it out.`},
+          {line:`x = 10: &nbsp;log(20) + log(5) = log(100) = 2 &nbsp;<mark>works</mark>`, say:`At x = 10 both insides are positive, and the equation is true. So the only solution is x = 10.`}]},
+        {label:"Extraneous solution 2", title:`Solve ${LG(6,"6x")} + ${LG(6,"x − 1")} = 2`, intro:`Another one with a trap. Press Next.`, start:`${LG(6,"6x")} + ${LG(6,"x − 1")} = 2`, steps:[
+          {line:`<mark>${LG(6,"6x(x − 1)")} = 2</mark>`, say:`Combine the two logs with the product property.`},
+          {line:`<mark>6x(x − 1) = ${PW(6,2)}</mark>`, say:`Rewrite in exponential form with base 6.`},
+          {line:`6${PW("x",2)} − 6x − 36 = 0`, say:`Multiply it out and move everything to one side.`},
+          {line:`${PW("x",2)} − x − 6 = 0`, say:`Divide every term by 6 to make it easier to factor.`},
+          {line:`<mark>(x − 3)(x + 2) = 0</mark>`, say:`Factor.`},
+          {line:`x = 3 &nbsp;or&nbsp; x = −2`, say:`Two possible answers. Now we check both.`},
+          {line:`x = −2: &nbsp;${LG(6,"6 · −2")} = ${LG(6,"−12")} &nbsp;<mark>undefined</mark>`, say:`At x = −2 the inside of the first log is negative, so −2 is extraneous.`},
+          {line:`x = 3: &nbsp;${LG(6,18)} + ${LG(6,2)} = ${LG(6,36)} = 2 &nbsp;<mark>works</mark>`, say:`At x = 3 both insides are positive and the equation is true. The only solution is x = 3.`}]}
+      ],
+      problems:[
+        {std:[], n:"1", type:"dd", cols:2, q:`Solve each equation.`,
+         parts:[
+           {t:`a. ln(4x − 12) = ln(x)`, b:true, o:[`x = 12`, `x = 4`, `x = −4`, `x = 3`], a:1},
+           {t:`b. ln(2x − 4) = ln(x + 6)`, b:true, o:[`x = 2`, `x = −10`, `x = 5`, `x = 10`], a:3},
+           {t:`c. ${LG(2,"3x − 4")} = ${LG(2,5)}`, b:true, o:[`x = 3`, `x = 1`, `x = 9`, `x = −3`], a:0},
+           {t:`d. log(7x + 3) = log(38)`, b:true, o:[`x = 35`, `x = 4`, `x = 5`, `x = −5`], a:2}],
+         hint:`When both sides are logs with the same base, the insides must be equal. Set them equal, solve, and then check that the inside of each log is positive.`},
+        {std:[], n:"2", type:"dd", cols:2, q:`Solve each equation.`,
+         parts:[
+           {t:`a. ${LG(2,"4x + 8")} = 5`, b:true, o:[`x = 2`, `x = 6`, `x = 8`, `x = 10`], a:1},
+           {t:`b. ${LG(3,"2x + 1")} = 2`, b:true, o:[`x = 1`, `x = 5`, `x = 8`, `x = 4`], a:3},
+           {t:`c. log(12x − 9) = log(3x)`, b:true, o:[`x = 1`, `x = 3`, `x = 0`, `x = −1`], a:0},
+           {t:`d. ${LG(6,"5x + 9")} = ${LG(6,"6x")}`, b:true, o:[`x = 1`, `x = 3`, `x = 9`, `x = −9`], a:2}],
+         hint:`If both sides are logs with the same base, set the insides equal. If one side is a number, rewrite the equation in exponential form. Then solve and check that the inside of each log is positive.`},
+        {std:[], n:"3", type:"dd", cols:1, q:`Solve each equation, and check for extraneous solutions. Round to three decimal places if needed.`,
+         parts:[
+           {t:`a. ${LG(2,"x")} + ${LG(2,"x − 2")} = 3`, b:true, o:[`x = 4 and x = −2`, `x = 4 only`, `x = −2 only`, `no solution`], a:1},
+           {t:`b. ${LG(6,"3x")} + ${LG(6,"x − 1")} = 3`, b:true, o:[`x = 9 and x = −8`, `x = −8 only`, `no solution`, `x = 9 only`], a:3},
+           {t:`c. ln(x) + ln(x + 3) = 4`, b:true, o:[`x = 6.040 only`, `x = 6.040 and x = −9.040`, `x = −9.040 only`, `no solution`], a:0}],
+         hint:`Combine the two logs into one with the product property. Rewrite in exponential form, move everything to one side, and solve the quadratic. Then test each answer in the original equation: the inside of every log must be positive.`},
+        {std:[], n:"4", type:"dd", cols:1, q:`Solve each equation, and check for extraneous solutions. Round to three decimal places if needed.`,
+         parts:[
+           {t:`a. ln(x) + ln(x − 2) = 5`, b:true, o:[`x = 13.223 and x = −11.223`, `x = −11.223 only`, `x = 13.223 only`, `no solution`], a:2},
+           {t:`b. ${LG(3,"3x<sup>2</sup>")} + ${LG(3,3)} = 2`, b:true, o:[`x = −1 only`, `x = −1 and x = 1`, `x = 1 only`, `no solution`], a:1},
+           {t:`c. ${LG(4,"−x")} + ${LG(4,"x + 10")} = 2`, b:true, o:[`x = −8 only`, `x = −2 only`, `no solution`, `x = −8 and x = −2`], a:3}],
+         hint:`Combine the logs, rewrite in exponential form, and solve. Then test each answer in the ORIGINAL equation. A log is defined only when its inside is positive, but remember that the inside can be positive for a negative value of x.`},
+        {std:[], n:"5", type:"mc", q:`Solve ${LG(4,"x + 12")} + ${LG(4,"x")} = 3 and check for extraneous solutions. Round to three decimal places if needed.`,
+         c:[`x = 4 only`, `x = 4 and x = −16`, `x = −16 only`, `no solution`], a:0,
+         hint:`Combine the logs into one, rewrite in exponential form, and solve the quadratic by factoring. Then test both answers in the original equation.`}
+      ]}
+  ]
+};
+
+const isChallengeKey = k => /^\d+-C\d+-\d+$/.test(k);
+const challengeOn = () => !!(S.student && S.student.level === "honors" && CHALLENGE[S.unit] && (CHALLENGE_OPEN || CHALLENGE_PREVIEW_IDS.includes(S.student.id)));
+
+// ---- the panel at the bottom of the unit page ----
+function challengePanel(){
+  if(!challengeOn()) return "";
+  const head = CHALLENGE_HEADER_IMG ? `<img class="chimg" src="${CHALLENGE_HEADER_IMG}" alt="Challenge!">`
+    : `<h2 class="chhead"><span class="tile a">Challenge</span><span class="tile b">section</span></h2>`;
+  return `<section class="challenge" id="challenge" aria-label="Challenge section"><h2 class="sr">Challenge section</h2>
+    <div class="chtop">${head}<div class="chtext"><p class="chlabel">Challenge section</p>
+      <p class="chnote">You will not be tested on these concepts, but they are crucial when moving on to an AP or IB level mathematics course.</p></div></div>
+    <div class="chbtns">${CHALLENGE[S.unit].map((t, i) => {
+      const ps = problemsFor(t), done = ps.filter(p => progress[p.id] && progress[p.id].d).length;
+      const small = ps.length ? (done === ps.length ? "Complete " : "") + done + "/" + ps.length : (t.overview ? "Overview ready" : "Coming soon");
+      return `<button class="pill chbtn c${i % 4}" data-ch="${i}">${esc(t.title)}<small>${small}</small></button>`;
+    }).join("")}</div></section>`;
+}
+function bindChallengePanel(){ app.querySelectorAll("[data-ch]").forEach(b => b.onclick = () => go("challenge", {lesson: +b.dataset.ch})); }
+
+// ---- the step-by-step example: lines of math appear one at a time, each explained in a speech bubble ----
+const DEMO = {i: -1, timer: null, playing: false, steps: [], start: "", intro: "", set: [], ex: 0};
+const demosOf = t => t.demos || (t.demo ? [t.demo] : []);
+function demoStop(){ clearInterval(DEMO.timer); DEMO.timer = null; DEMO.playing = false; }
+function demoDraw(animate){
+  const board = document.getElementById("eqboard"); if(!board) return;
+  const lines = [DEMO.start].concat(DEMO.steps.slice(0, DEMO.i + 1).map(s => s.line));
+  board.innerHTML = lines.map((l, k) => `<div class="eqline ${animate && DEMO.i >= 0 && k === lines.length - 1 ? "new" : ""}">${l}</div>`).join("");
+  const b = document.getElementById("bubble");
+  b.innerHTML = DEMO.i < 0 ? DEMO.intro : DEMO.steps[DEMO.i].say;
+  b.classList.remove("pop"); if(animate){ void b.offsetWidth; b.classList.add("pop"); }
+  const m = document.getElementById("mascot"); m.classList.remove("hop"); if(animate){ void m.offsetWidth; m.classList.add("hop"); }
+  document.getElementById("dots").innerHTML = DEMO.steps.map((s, k) => `<i class="${k <= DEMO.i ? "on" : ""}"></i>`).join("");
+  document.getElementById("stepcount").textContent = DEMO.i < 0 ? "Ready" : `Step ${DEMO.i + 1} of ${DEMO.steps.length}`;
+  const atEnd = DEMO.i >= DEMO.steps.length - 1;
+  document.querySelector('[data-dm="next"]').disabled = atEnd;
+  document.querySelector('[data-dm="back"]').disabled = DEMO.i < 0;
+  document.querySelector('[data-dm="play"]').textContent = DEMO.playing ? "⏸ Pause" : (atEnd ? "▶ Play again" : "▶ Play");
+}
+function demoStep(delta, animate){ DEMO.i = Math.max(-1, Math.min(DEMO.steps.length - 1, DEMO.i + delta)); demoDraw(animate !== false); }
+function demoPlay(){
+  if(DEMO.playing){ demoStop(); demoDraw(false); return; }
+  if(DEMO.i >= DEMO.steps.length - 1) DEMO.i = -1;
+  DEMO.playing = true; demoStep(1);
+  DEMO.timer = setInterval(() => { if(DEMO.i >= DEMO.steps.length - 1){ demoStop(); demoDraw(false); } else demoStep(1); }, 3800);
+}
+function demoLoad(k){                                      // switch to example number k
+  demoStop(); const d = DEMO.set[k]; DEMO.ex = k;
+  Object.assign(DEMO, {i: -1, steps: d.steps, start: d.start, intro: d.intro || "Hi! Press Next, or Play, and I will walk you through it one step at a time."});
+  document.getElementById("extitle").innerHTML = d.title || "";
+  document.querySelectorAll("[data-ex]").forEach(b => { b.classList.toggle("sel", +b.dataset.ex === k); b.setAttribute("aria-pressed", +b.dataset.ex === k); });
+  demoDraw(false);
+}
+function bindDemo(t){
+  demoStop(); const set = demosOf(t); if(!set.length) return;
+  DEMO.set = set;
+  document.querySelectorAll("[data-ex]").forEach(b => b.onclick = () => demoLoad(+b.dataset.ex));
+  document.querySelector('[data-dm="next"]').onclick = () => { demoStop(); demoStep(1); };
+  document.querySelector('[data-dm="back"]').onclick = () => { demoStop(); demoStep(-1); };
+  document.querySelector('[data-dm="play"]').onclick = demoPlay;
+  document.querySelector('[data-dm="restart"]').onclick = () => { demoStop(); DEMO.i = -1; demoDraw(false); };
+  demoLoad(0);
+}
+function demoHtml(t){
+  const set = demosOf(t);
+  if(!set.length) return `<article class="chcard soon"><h3 class="chsub">Watch it, step by step</h3><p class="muted">A step-by-step example for this topic is coming soon.</p></article>`;
+  return `<article class="chcard chdemo" id="demo"><h3 class="chsub">Watch it, step by step</h3>
+    ${set.length > 1 ? `<div class="exrow" role="group" aria-label="Choose an example">${set.map((d, k) => `<button class="pill sm exbtn" data-ex="${k}">${d.label || "Example " + (k + 1)}</button>`).join("")}</div>` : ""}
+    <p class="extitle" id="extitle"></p>
+    <div class="demowrap"><div class="eqboard" id="eqboard" aria-live="polite"></div>
+      <div class="speaker"><div class="mascot" id="mascot">${BULB}</div><div class="bubble" id="bubble" role="status" aria-live="polite"></div></div></div>
+    <div class="democtl"><button class="pill unit" data-dm="restart">⟲ Restart</button><button class="pill unit" data-dm="back">◀ Back</button>
+      <button class="pill unit" data-dm="play">▶ Play</button><button class="pill unit" data-dm="next">Next ▶</button>
+      <span class="dots" id="dots"></span><span class="stepcount" id="stepcount"></span></div></article>`;
+}
+
+// ---- one topic's page: overview, the animated example, and practice ----
+function renderChallenge(){
+  const t = (CHALLENGE[S.unit] || [])[S.lesson];
+  if(!t || !challengeOn()){ S.view = "unit"; return renderUnit(); }
+  const ps = problemsFor(t);
+  app.innerHTML = header() +
+    `<div class="lessonlayout chlayout">
+      <aside class="side">
+        <div class="sidetop">${studentNav()}<img class="unitpic sm" src="${UNIT_IMG[S.unit]}" alt="Unit ${S.unit}"></div>
+        <div class="lrow sidenav"><span class="pill lesson chpill t${S.lesson % 4}">Challenge</span></div>
+        <div class="lesson-title">${esc(t.title)}</div>
+        <div class="sticky"><div class="lrow" id="stats">${ps.length ? statusRow(t, "jump") : `<span class="pill ghost">Practice coming soon</span>`}</div></div>
+        <p class="chnote sm">Challenge work never changes your grade.</p>
+      </aside>
+      <section class="mainq">
+        ${CHALLENGE_HEADER_IMG ? `<img class="chimg sm" src="${CHALLENGE_HEADER_IMG}" alt="Challenge!">` : ""}
+        <div id="banner"></div>
+        <article class="chcard"><h2 class="chtitle">${esc(t.title)}</h2>${t.sample ? `<p class="chsample">Sample content, shown so you can see the layout. It will be replaced.</p>` : ""}
+          ${t.overview ? `<div class="chbody">${t.overview}</div>` : `<p class="muted">The overview for this topic is coming soon.</p>`}</article>
+        ${demoHtml(t)}
+        <h3 class="chsub pr">Practice</h3>
+        <div id="qs">${ps.length ? ps.map(p => qHtml(p)).join("") : `<article class="chcard soon"><p class="muted">Practice problems for this topic are coming soon.</p></article>`}</div>
+      </section>
+    </div>`;
+  document.getElementById("out").onclick = logout; bindStudentNav();
+  banner(t); bindJump(); bindDemo(t);
+  ps.forEach(p => bind(p, t));
+}
+
+// ---- the teacher's view ----
+function challengeStats(unit, level, prog){
+  const topics = CHALLENGE[unit]; if(!topics || level !== "honors" || !prog) return null;
+  let tried = 0, done = 0, n = 0; const all = [];
+  const out = topics.map(t => {
+    let tn = 0, td = 0, tt = 0; const tp = [];
+    t.problems.forEach((p, i) => {
+      if(p.retired) return; tn++;
+      const r = prog[unit + "-" + t.id + "-" + i]; if(!r) return;
+      if(r.d || (r.w && r.w.length) || r.h) tt++;
+      if(r.d) { td++; tp.push(Math.max(0, 100 - PENALTY * (r.w || []).length)); }
+    });
+    n += tn; tried += tt; done += td; all.push(...tp);
+    return {id: t.id, n: tn, tried: tt, done: td, score: tp.length ? Math.round(mean(tp)) : null};
+  });
+  return {topics: out, n, tried, done, score: all.length ? Math.round(mean(all)) : null};
+}
+function sampleChallenge(id, unit){
+  const sid = hash32(id + "|ch"), prog = {};
+  if(rand01(sid, 11) > 0.4) return prog;                       // about 4 in 10 honors students try the challenge
+  (CHALLENGE[unit] || []).forEach((t, ti) => t.problems.forEach((p, i) => {
+    const seed = hash32(id + "|" + t.id + "|" + i);
+    if(rand01(seed, 1) > 0.75) return;
+    const wrong = rand01(seed, 2) < 0.5 ? 0 : 1 + Math.floor(rand01(seed, 3) * 3);
+    prog[unit + "-" + t.id + "-" + i] = {w: Array.from({length: wrong}, (_, k) => p.c ? (p.a + 1 + k) % p.c.length : JSON.stringify((p.parts || p.rows).map(() => k))), d: 1, h: 0, t: Date.now() - 86400000};
+  }));
+  return prog;
+}
+function challengeCard(unit, shown, isAll, testRows){
+  const topics = CHALLENGE[unit]; if(!topics) return "";
+  const honors = shown.filter(r => r.level === "honors");
+  if(!honors.length && !testRows.some(r => r.ch && r.ch.tried)) return "";
+  const tried = honors.filter(r => r.ch && r.ch.tried > 0), testT = testRows.filter(r => r.ch && r.ch.tried > 0);
+  const cell = s => !s || !s.tried ? `<td class="muted">—</td>` : `<td><span class="cell ${s.n && s.done === s.n ? "done" : s.done ? "prog" : "todo"}">${s.done}/${s.n}${s.score !== null ? " · " + s.score + "%" : ""}</span></td>`;
+  const rowH = r => `<tr>${isAll ? `<td>${esc(r.period)}</td>` : ""}<td class="idc"><span class="sid">${esc(r.id)}</span></td>${r.ch.topics.map(cell).join("")}<td title="${r.ch.done} of ${r.ch.n} problems finished"><b>${r.ch.score !== null ? r.ch.score + "%" : "—"}</b></td></tr>`;
+  const ncols = topics.length + 2 + (isAll ? 1 : 0);
+  const body = tried.map(rowH).join("") + (testT.length ? `<tr class="testsep"><td colspan="${ncols}">Test student · not counted in any class numbers</td></tr>` + testT.map(rowH).join("") : "");
+  return `<h2 class="vtitle" style="margin-top:22px">Challenge section</h2>
+    <p class="tnote2">Honors students who tried any challenge problem. Scores here never count toward any grade.${CHALLENGE_OPEN ? "" : " The section is still in preview, so only your practice logins can see it."}</p>
+    ${body ? `<div class="tscroll"><table class="ttable fit chtable"><thead><tr>${isAll ? "<th>Block</th>" : ""}<th>ID</th>${topics.map(t => `<th title="${esc(t.title)}">${esc(t.short)}</th>`).join("")}<th>Score</th></tr></thead><tbody>${body}</tbody></table></div>`
+      : `<div class="notice">No honors student in this view has tried the challenge section yet.</div>`}`;
+}
+const chCsv = r => r.ch && r.ch.tried ? [r.ch.done, r.ch.score === null ? "" : r.ch.score] : ["", ""];
+
 /* ============================================================
    TEACHER DASHBOARD: THE WHOLE CLASS, FROM THE BACKUP SHEET
    Students' work is saved on their own Chromebooks, so on its own this dashboard only sees work done on the
@@ -2462,7 +3293,7 @@ function lessonStatsFromProgress(lesson, unit, level, prog){
   const pts = p => prog[p.id] && prog[p.id].d ? Math.max(0, 100 - PENALTY * prog[p.id].w.length - (late(p) ? LATE_PENALTY : 0)) : null;
   const doneP = ps.filter(p => pts(p) !== null);
   const acc = doneP.length ? Math.round(mean(doneP.map(pts))) : null;
-  return {n: ps.length, done: doneP.length, acc, late: doneP.filter(late).length, score: gradeFor(level, doneP.length, ps.length, acc)};
+  return {n: ps.length, done: doneP.length, acc, late: doneP.filter(late).length, hints: ps.filter(p => prog[p.id] && prog[p.id].h).length, score: gradeFor(level, doneP.length, ps.length, acc)};
 }
 
 // STANDARDS: every problem tagged with a standard counts toward it. Only finished problems are scored
@@ -2478,8 +3309,8 @@ function standardStats(unit, level, prog){
   const al = alignedProblems(unit), res = {};
   Object.keys(al).forEach(code => {
     const mine = al[code].filter(x => level === "honors" || !x.p.honors);
-    const pts = mine.map(x => prog[x.id] && prog[x.id].d ? Math.max(0, 100 - PENALTY * prog[x.id].w.length) : null).filter(v => v !== null);
-    res[code] = {n: mine.length, done: pts.length, score: pts.length ? Math.round(mean(pts)) : null};
+    const pts = mine.map(x => prog[x.id] && prog[x.id].d ? Math.max(0, 100 - PENALTY * prog[x.id].w.length - (prog[x.id].h ? HINT_PENALTY : 0)) : null).filter(v => v !== null);
+    res[code] = {n: mine.length, done: pts.length, hints: mine.filter(x => prog[x.id] && prog[x.id].h).length, score: pts.length ? Math.round(mean(pts)) : null};
   });
   return res;
 }
@@ -2563,7 +3394,7 @@ function sampleProgress(id, level, unit){
     const wrong = firstTry ? 0 : 1 + Math.floor(rand01(seed, 3) * (2 + 12 * Math.pow(1 - ability, 1.5)));
     const dueAt = partFor(unit, l.id), day = 86400000;
     const t = dueAt ? dueAt.due.getTime() + (rand01(seed, 6) < 0.13 ? 1 : -1) * (0.3 + 6 * rand01(seed, 7)) * day : undefined;   // about 1 in 8 is late
-    prog[unit + "-" + l.id + "-" + i] = {w: sampleWrong(p, seed, wrong, ability, sid), d: 1, h: 0, t};
+    prog[unit + "-" + l.id + "-" + i] = {w: sampleWrong(p, seed, wrong, ability, sid), d: 1, h: rand01(seed, 9) < (ability < 0.5 ? 0.45 : 0.12) ? 1 : 0, t};
   }));
   return prog;
 }
@@ -2609,17 +3440,21 @@ async function loadClassData(unit){
       let old = null; try{ old = JSON.parse(localStorage.getItem("mph4:" + await sha(st.t + ":" + a))); }catch(e){}
       take(old); take(TR.data && TR.data[a]);
     }
-    const live = !!saved && Object.keys(saved).some(k => k.startsWith(unit + "-"));
+    const live = !!saved && Object.keys(saved).some(k => k.startsWith(unit + "-") && !isChallengeKey(k));
+    const known = !st.test && !!TR.data && TR.state === "ok";                // the backup has answered for the whole class
     const prog = live ? saved : (S.sample && !st.test ? sampleProgress(st.id, st.level, unit) : {});   // the test student never gets made-up work   // made-up work only in sample mode
     const per = {};
     lessons.forEach(l => {
       const n = l.problems.filter(p => !p.retired && (st.level === "honors" || !p.honors)).length;
-      per[l.id] = (!n || (!live && (!S.sample || st.test))) ? null : lessonStatsFromProgress(l, unit, st.level, prog);   // no saved work on this device = no data (not 0%)
+      // With no backup, no saved work on this device means "unknown" (a dash). Once the backup has answered, no work in it means "not started" (0 of n).
+      per[l.id] = (!n || (!live && !known && (!S.sample || st.test))) ? null : lessonStatsFromProgress(l, unit, st.level, prog);
     });
-    const partGrade = ids => { const v = ids.map(i => per[i]).filter(Boolean).map(x => x.score); return v.length ? mean(v) : null; };
+    const started = Object.values(per).some(x => x && x.done > 0);                // a student who has finished nothing yet has no grade yet (the Not started card counts them)
+    const partGrade = ids => { if(!started) return null; const v = ids.map(i => per[i]).filter(Boolean).map(x => x.score); return v.length ? mean(v) : null; };
     const p1 = partGrade(parts.p1), p2 = partGrade(parts.p2);
     const halves = [p1, p2].filter(v => v !== null);
-    rows.push({...st, period: st.id[0], live, per, std: standardStats(unit, st.level, prog), misc: misconceptionHits(unit, st.level, prog),
+    const chSrc = saved && Object.keys(saved).some(isChallengeKey) ? saved : (S.sample && !st.test && st.level === "honors" ? sampleChallenge(st.id, unit) : null);
+    rows.push({...st, period: st.id[0], live, per, std: standardStats(unit, st.level, prog), misc: misconceptionHits(unit, st.level, prog), ch: challengeStats(unit, st.level, chSrc),
                p1: rnd(p1), p2: rnd(p2), unit: rnd(halves.length ? mean(halves) : null)});
   }
   rows.sort((a,b) => a.id.localeCompare(b.id));
@@ -2692,16 +3527,16 @@ function bindChrome(){
 // ---- teacher home: a very general look at the unit, then the three sections ----
 function unitOverview(rows, unit){
   const ls = (CONTENT[unit] || []).filter(l => l.problems.length);
-  const comps = [], accs = []; let notStarted = 0;
+  const comps = [], accs = []; let notStarted = 0, workedN = 0;
   rows.forEach(r => {
     const ps = ls.map(l => r.per[l.id]).filter(Boolean);
     const n = ps.reduce((s, x) => s + x.n, 0), d = ps.reduce((s, x) => s + x.done, 0);
     if(!n) return;
-    comps.push(d / n * 100); if(d === 0) notStarted++;
+    comps.push(d / n * 100); if(d === 0) notStarted++; else workedN++;
     const w = ps.filter(x => x.acc !== null), dw = w.reduce((s, x) => s + x.done, 0);
     if(dw) accs.push(w.reduce((s, x) => s + x.acc * x.done, 0) / dw);
   });
-  return {students: rows.length, worked: comps.length, blocks: new Set(rows.map(r => r.period)).size, comp: rnd(mean(comps)), acc: rnd(mean(accs)), notStarted,
+  return {students: rows.length, worked: workedN, blocks: new Set(rows.map(r => r.period)).size, comp: rnd(mean(comps)), acc: rnd(mean(accs)), notStarted,
           levels: LEVELS.map(L => rows.filter(r => r.unit !== null && levelOf(r.unit).key === L.key).length)};
 }
 function renderTeacherHome(all, unit){
@@ -2788,33 +3623,35 @@ async function renderTeacher(){
   const cgroup = ws => `<colgroup>${ws.map(w => `<col style="width:${w}%">`).join("")}</colgroup>`;
   const keyChips = LEVELS.map(L => `<span class="lvl ${L.key}">${lvIcon(L.key)}${L.label}</span>`).join("");
 
-  let title, chips = "", table, extra = "", grid, fname;
+  let title, chips = "", table, extra = "", grid, fname, note = "";
 
   if(sec === "lesson"){
     // ---------- LESSON DATA ANALYSIS ----------
     const x = r => r.per[lv.id];
     const compOf = s => Math.round(s.done / s.n * 100);
     title = `${isAll ? "All blocks" : "Block " + esc(S.tBlock)} · Lesson ${esc(lv.id)}${lv.title ? ": " + esc(lv.title) : ""}`;
-    const head = `${isAll ? "<th>Block</th>" : ""}<th>ID</th><th>Completed</th><th>Accuracy</th>`;
+    const bulbs = n => !n ? `<span class="muted">—</span>` : `<span class="hintcell" title="${n} hint${n === 1 ? "" : "s"} used">${"💡".repeat(Math.min(n, 12))}</span>`;
+    const head = `${isAll ? "<th>Block</th>" : ""}<th>ID</th><th>Completed</th><th>Accuracy</th><th title="Problems where the student used the hint">Hints</th>`;
     const rowHtml = r => {
       const s = x(r), blk = isAll ? `<td>${esc(r.period)}</td>` : "";
-      if(!s) return `<tr>${blk}${idCell(r)}<td colspan="2" class="muted">—</td></tr>`;
+      if(!s) return `<tr>${blk}${idCell(r)}<td colspan="3" class="muted">—</td></tr>`;
       const cls = s.done === s.n ? "done" : s.done > 0 ? "prog" : "todo", byComp = r.level !== "honors";
-      return `<tr>${blk}${idCell(r)}<td class="${byComp ? "basis" : ""}"><span class="cell ${cls}">${s.done}/${s.n} · ${compOf(s)}%</span>${s.late ? `<span class="latecount" title="${s.late} finished after the due date">${s.late} late</span>` : ""}</td><td class="${byComp ? "" : "basis"}">${fmt(s.acc)}</td></tr>`;
+      return `<tr>${blk}${idCell(r)}<td class="${byComp ? "basis" : ""}"><span class="cell ${cls}">${s.done}/${s.n} · ${compOf(s)}%</span>${s.late ? `<span class="latecount" title="${s.late} finished after the due date">${s.late} late</span>` : ""}</td><td class="${byComp ? "" : "basis"}">${fmt(s.acc)}</td><td>${bulbs(s.hints)}</td></tr>`;
     };
     const testRows = isAll ? all.filter(r => r.test) : [];      // shown last, set apart, and never exported or averaged
-    const body = shown.map(rowHtml).join("") + (testRows.length ? `<tr class="testsep"><td colspan="4">Test student · not counted in any class numbers</td></tr>` + testRows.map(rowHtml).join("") : "");
-    const foot = isAll ? "" : `<tfoot><tr class="avg"><td class="idc">Avg</td><td>${fmt(avg(r => x(r) ? compOf(x(r)) : null))}</td><td>${fmt(avg(r => x(r) ? x(r).acc : null))}</td></tr></tfoot>`;
-    table = `<table class="ttable fit">${cgroup(isAll ? [14,18,38,30] : [22,42,36])}<thead><tr>${head}</tr></thead><tbody>${body}</tbody>${foot}</table>`;
+    const body = shown.map(rowHtml).join("") + (testRows.length ? `<tr class="testsep"><td colspan="5">Test student · not counted in any class numbers</td></tr>` + testRows.map(rowHtml).join("") : "");
+    const foot = isAll ? "" : `<tfoot><tr class="avg"><td class="idc">Avg</td><td>${fmt(avg(r => x(r) ? compOf(x(r)) : null))}</td><td>${fmt(avg(r => x(r) ? x(r).acc : null))}</td><td title="Average number of problems with a hint, per student">${(m => m === null ? "—" : "💡 " + m.toFixed(1))(mean(shown.map(x).filter(Boolean).map(s => s.hints)))}</td></tr></tfoot>`;
+    table = `<table class="ttable fit">${cgroup(isAll ? [12,14,30,24,20] : [18,34,28,20])}<thead><tr>${head}</tr></thead><tbody>${body}</tbody>${foot}</table>`;
     if(isAll) extra = `<h2 class="vtitle" style="margin-top:22px">By block</h2>
-      <div class="tscroll"><table class="ttable fit"><thead><tr><th>Block</th><th>Students</th><th>Completed</th><th>Accuracy</th></tr></thead><tbody>${blocks.filter(bk => bk !== "0").map(bk => {
+      <div class="tscroll"><table class="ttable fit"><thead><tr><th>Block</th><th>Students</th><th>Completed</th><th>Accuracy</th><th title="Average problems with a hint, per student">Hints (avg)</th></tr></thead><tbody>${blocks.filter(bk => bk !== "0").map(bk => {
         const rs = realAll.filter(r => r.period === bk).map(x).filter(Boolean);
-        return `<tr><td class="idc"><b>${esc(bk)}</b></td><td>${realAll.filter(r => r.period === bk).length}</td><td>${fmt(rnd(mean(rs.map(compOf))))}</td><td>${fmt(rnd(mean(rs.filter(s => s.acc !== null).map(s => s.acc))))}</td></tr>`;
+        return `<tr><td class="idc"><b>${esc(bk)}</b></td><td>${realAll.filter(r => r.period === bk).length}</td><td>${fmt(rnd(mean(rs.map(compOf))))}</td><td>${fmt(rnd(mean(rs.filter(s => s.acc !== null).map(s => s.acc))))}</td><td>${rs.length ? "💡 " + mean(rs.map(s => s.hints)).toFixed(1) : "—"}</td></tr>`;
       }).join("")}</tbody></table></div>`;
-    grid = [["Block","HW ID","Class","Completed","Total","Completion %","Accuracy %","Grade %","Finished late"],
+    grid = [["Block","HW ID","Class","Completed","Total","Completion %","Accuracy %","Grade %","Finished late","Hints used","Challenge finished","Challenge %"],
       ...shown.map(r => { const s = x(r);
-        return s ? [r.period, r.id, classOf(r), s.done, s.n, compOf(s), s.acc === null ? "" : s.acc, s.score, s.late] : [r.period, r.id, classOf(r), "", "", "", "", "", ""]; })];
+        return s ? [r.period, r.id, classOf(r), s.done, s.n, compOf(s), s.acc === null ? "" : s.acc, s.score, s.late, s.hints, ...chCsv(r)] : [r.period, r.id, classOf(r), "", "", "", "", "", "", "", ...chCsv(r)]; })];
     fname = `math3-unit${unit}-lesson${lv.id}-${bTag}.csv`;
+    extra += challengeCard(unit, shown, isAll, testRows);
 
   } else if(sec === "unit"){
     // ---------- UNIT GRADE CALCULATION (one block at a time) ----------
@@ -2838,12 +3675,13 @@ async function renderTeacher(){
     const cols = Object.keys(STD).filter(code => shown.some(r => r.std[code] && r.std[code].n > 0));
     title = `Block ${esc(S.tBlock)} · Standards mastery`;
     chips = keyChips;
+    note = `<p class="tnote2">A hint on a problem lowers that problem's score here by ${HINT_PENALTY} points, so a student who needed every hint no longer looks perfect. 💡 shows how many problems used a hint. Student scores and unit grades are not changed.</p>`;
     const hbtn = code => `<button class="stdh ${STD[code].review ? "rev" : ""}" data-std="${esc(code)}" title="${esc(stdTip(unit, code))}" aria-label="${esc(code)}, show details">${esc(STD[code].short)}</button>`;
     const cell = (x, code) => {
       if(!x || x.n === 0) return `<td class="stdc muted" title="Not assigned">—</td>`;
       if(x.score === null) return `<td class="stdc muted" title="No finished problems yet">—</td>`;
       const k = levelOf(x.score).key;
-      return `<td class="stdc stdcell ${k}" title="${esc(code)}: ${x.score}% on ${x.done} of ${x.n} problems">${lvIcon(k)}<b>${x.score}%</b></td>`;
+      return `<td class="stdc stdcell ${k}" title="${esc(code)}: ${x.score}% on ${x.done} of ${x.n} problems${x.hints ? ", with a hint used on " + x.hints : ""}">${lvIcon(k)}<b>${x.score}%</b>${x.hints ? `<span class="hmark" title="${x.hints} problem${x.hints === 1 ? "" : "s"} with a hint">💡${x.hints}</span>` : ""}</td>`;
     };
     const head = `<th>ID</th>${cols.map(c => `<th>${hbtn(c)}</th>`).join("")}`;
     const body = shown.map(r => `<tr>${idCell(r)}${cols.map(c => cell(r.std[c], c)).join("")}</tr>`).join("");
@@ -2875,7 +3713,7 @@ async function renderTeacher(){
         ? `<button class="pill ${lv && lv.id === l.id ? "sel" : ""}" data-lesson="${esc(l.id)}">Lesson ${esc(l.id)}</button>`
         : `<button class="pill" disabled title="Not built yet">Lesson ${esc(l.id)}</button>`).join("")}</div>` : ""}
     <h2 class="vtitle">${title}</h2>
-    ${chips ? `<div class="lrow">${chips}</div>` : ""}
+    ${chips ? `<div class="lrow">${chips}</div>` : ""}${note}
     <div class="blocks">${blocks.filter(bk => bk !== "0").map(blockBtn).join("")}<button class="pill allbtn ${isAll ? "sel" : ""}" data-blk="all" aria-pressed="${isAll}">All blocks</button></div>
     <div class="tscroll">${table}</div>
     ${extra}
@@ -2913,7 +3751,7 @@ async function renderTeacher(){
 function banner(l){
   const s = summary(l);
   document.getElementById("banner").innerHTML = s.n && s.done===s.n
-    ? `<div class="banner">🎉 Lesson complete! You finished ${s.n} problems with ${s.acc}% accuracy.</div>` : "";
+    ? `<div class="banner">🎉 ${String(l.id).startsWith("C") ? "Challenge topic" : "Lesson"} complete! You finished ${s.n} problems with ${s.acc}% accuracy.</div>` : "";
 }
 
 render();
