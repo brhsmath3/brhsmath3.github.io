@@ -1067,6 +1067,84 @@ body.noscroll{overflow:hidden}
 .cmptable tr.tclass td.idc{padding-left:26px;font-weight:400}
 .cmptable tr.tall td{font-weight:700;border-top:2px solid var(--ink)}
 .cmptable th{font-size:.74rem;padding-left:4px;padding-right:4px;overflow-wrap:normal;word-break:normal}
+
+/* ---- the monitor's pages ---- */
+.montabs .pill{font-size:.95rem}
+.explain{max-width:980px;margin:6px auto 12px;padding:10px 16px;border:2px solid var(--ink);border-radius:14px;background:var(--bluebg,var(--surface));line-height:1.5;text-align:left}
+.lvlkey{justify-content:center;margin:6px 0}
+.lvlkey .lvl small{opacity:.8;margin-left:3px}
+.msstats{display:flex;flex-wrap:wrap;gap:8px 22px;justify-content:center;margin:10px 0;font-size:1.02rem}
+.msstats b{font-size:1.25rem}
+.mcontrols{display:flex;flex-wrap:wrap;gap:8px 26px;justify-content:center;align-items:center;margin:8px 0 12px}
+.mcgroup{display:flex;flex-wrap:wrap;gap:6px;align-items:center}
+.mclabel{font-weight:700;margin-right:2px}
+.stdkey{max-width:1100px;margin:6px auto 8px;padding:6px 14px 10px;border:2px dashed var(--ink);border-radius:14px}
+.stdkey summary{cursor:pointer;font-weight:700;padding:4px 0}
+.keygrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:4px 18px;margin-top:6px;text-align:left}
+.keyitem{font-size:.9rem;line-height:1.35}
+.keyitem b{display:inline-block;min-width:62px}
+.need{display:inline-block;margin:1px 2px;padding:1px 9px;border:1.5px solid var(--ink);border-radius:999px;font-size:.78rem;font-weight:600;white-space:nowrap;color:#111}
+.need.near{background:#f9e7b8} .need.remed{background:#f6c4c4} .need.mastery{background:#cfe6c8} .need.exceeds{background:#c9defa}
+.needs{text-align:left;min-width:190px}
+.msscroll{max-height:72vh;overflow:auto}
+.msgrid{table-layout:auto;width:100%}
+.msgrid th,.msgrid td{white-space:nowrap}
+.msgrid thead th{position:sticky;top:0;z-index:3;background:var(--bg)}
+.msgrid td.msid,.msgrid thead th:first-child{position:sticky;left:0;z-index:2;background:var(--bg)}
+.msgrid thead th:first-child{z-index:4}
+.msclass{color:var(--muted);font-size:.88rem}
+.linkbtn{font:inherit;font-weight:700;color:inherit;background:none;border:none;text-decoration:underline;cursor:pointer;padding:0}
+.linkbtn:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.mstlist{display:flex;flex-direction:column;gap:10px}
+.mstrow{display:grid;grid-template-columns:minmax(0,1fr) 150px 130px;gap:14px;align-items:start;padding:10px 12px;border:2px solid var(--ink);border-radius:14px;text-align:left}
+.mstrow.exceeds{background:rgba(159,197,232,.22)} .mstrow.mastery{background:rgba(182,215,168,.25)} .mstrow.near{background:rgba(246,178,107,.22)} .mstrow.remed{background:rgba(235,87,87,.14)}
+.mstname small{color:var(--muted)}
+.msttext{margin-top:3px;font-size:.78rem;color:var(--muted);line-height:1.35}
+.mstpractice{margin-top:5px;font-size:.88rem}
+.mstscore{text-align:center} .mstscore small{display:block;font-size:.72rem;color:var(--muted)}
+.mstbar{height:8px;margin-top:5px;border:1.5px solid var(--ink);border-radius:999px;overflow:hidden;background:var(--bg)}
+.mstbar i{display:block;height:100%;background:var(--ink)}
+.mstwork{font-size:.82rem;text-align:right}
+@media(max-width:760px){.mstrow{grid-template-columns:1fr}.mstwork{text-align:left}}
+.cmptable td.needs{min-width:150px}
+
+/* ---- the 1 to 5 mastery score ---- */
+.mscore{white-space:nowrap}
+.mscore b{font-size:1.05rem}
+.goalok{margin-left:5px;color:#2e7d32;font-weight:700}
+.l5{margin-left:3px;color:#b8860b;font-size:.9em}
+.gpct{display:block;font-size:.62rem;font-weight:600;color:var(--muted)}
+.myms{min-width:180px;border:2px solid var(--ink);border-radius:16px;overflow:hidden;text-align:center;background:var(--surface);align-self:flex-start}
+.myms-head{padding:6px 12px;background:var(--green);font:700 .72rem "Poppins",system-ui,sans-serif;letter-spacing:.07em;text-transform:uppercase;color:#111}
+.myms-body{padding:4px 12px 8px}
+.myms-num{font:700 1.9rem "Playfair Display",Georgia,serif;line-height:1.25}
+.myms-num small{font:600 .78rem "Poppins",system-ui,sans-serif;color:var(--muted)}
+.myms-sub{font-size:.86rem}
+.myms-goal{margin-top:2px;font-size:.78rem;color:var(--muted);font-weight:600}
+.myms.remed .myms-head{background:#f6c4c4} .myms.near .myms-head{background:#f9e7b8} .myms.mastery .myms-head{background:#cfe6c8} .myms.exceeds .myms-head{background:#c9defa}
+.scalekey{max-width:1050px;margin:6px auto 8px;padding:8px 14px;border:2px solid var(--ink);border-radius:14px;text-align:center;line-height:1.7}
+.scalekey .sc{display:inline-block;margin:2px 4px;padding:1px 10px;border:1.5px solid var(--ink);border-radius:999px;font-size:.84rem;color:#111}
+.scalekey .sc1{background:#f6c4c4} .scalekey .sc2{background:#f9e7b8} .scalekey .sc3{background:#cfe6c8} .scalekey .sc4{background:#c9defa} .scalekey .sc5{background:#c9defa;border-style:double;border-width:3px}
+.mstnext{margin-top:6px;font-size:.86rem;line-height:1.4}
+.lvllist{margin:4px 0 10px;padding-left:20px;line-height:1.5}
+.msline{margin-top:10px}
+
+/* ---- packtime ---- */
+.packtable{table-layout:auto;width:100%}
+.packtable th{white-space:normal;font-size:.78rem;padding:6px 6px;line-height:1.2}
+.packtable td{padding:7px 6px}
+.packtable td{vertical-align:top;text-align:left}
+.packtable td:not(.pname):not(.pwhere):not(.needs){text-align:center}
+.packtable .pname{min-width:190px;max-width:290px}
+.packtable tr.worst td{background:rgba(235,87,87,.10)}
+.rank{display:inline-block;width:22px;height:22px;margin-right:6px;border:2px solid var(--ink);border-radius:50%;text-align:center;line-height:18px;font-size:.78rem;font-weight:700;background:#f6c4c4;color:#111}
+.psnip{margin-top:2px;font-size:.78rem;color:var(--muted);line-height:1.35;font-weight:400}
+.pwhere{font-size:.86rem;min-width:200px}
+.pids{margin-top:4px}
+.pid{display:inline-block;margin:1px 2px;padding:0 8px;border:1.5px solid var(--ink);border-radius:999px;font-size:.76rem;font-weight:600}
+.packrow{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:10px;align-items:center;padding:8px 12px;border:2px solid var(--ink);border-radius:12px;text-align:left}
+.packrow.needs{background:rgba(235,87,87,.10)}
+@media(max-width:760px){.packrow{grid-template-columns:1fr 1fr}}
 </style>
 </head>
 <body>
@@ -1077,6 +1155,7 @@ body.noscroll{overflow:hidden}
    CONFIGURATION: edit this section to customize the site.
    ============================================================ */
 const PENALTY = 5; // percent lost per wrong attempt
+const HINT_COST = 5;        // in a lesson, the first problem finished with a hint costs nothing; each later one loses this many points
 const HINT_PENALTY = 10;   // points a hint takes off a problem on the teacher's Standards mastery page only. Student scores and unit grades do not use it.
 
 const TEACHERS = [
@@ -1088,6 +1167,8 @@ const TEACHERS = [
 
 // A monitor has no students of her own. Her code opens a dashboard that can see every teacher's classes.
 const MONITOR = {id: "t5", name: "Monitor"};
+// Packtime: the students who meet in packtime, by teacher (their HW IDs). The Monitor's Packtime page pools them across teachers.
+const PACKTIME = {"t1": ["2BA", "2BE", "2CV", "2DN", "2DS", "2FM", "2KQ", "2MA", "2MJ", "2NV", "2RT", "2ST"], "t2": ["4AB", "1BD", "4BJ", "4CC", "4DE", "4EA", "4GS", "4GPS", "4KA", "4MA", "4VC", "4WC", "2RK"], "t4": ["1BS", "1BM", "1CG", "1FE", "1GD", "1GB", "1GN", "1HC", "1KC", "1KB", "1QL", "1SC", "1TC", "1VJ"]};
 
 // Student HW IDs are stored only as hashes (never as plain text).
 // level: "standard" or "honors"
@@ -1159,23 +1240,23 @@ const UNIT_TITLES = {1:"Functions and Their Inverses", 2:"Polynomial Functions",
 
 const STANDARDS = {
   5: {
-    "NC.M3.A-CED.2": {short:"CED.2", text:"Create and graph equations in two variables to represent absolute value, polynomial, exponential and rational relationships between quantities."},
-    "NC.M3.A-CED.1": {short:"CED.1", text:"Create equations and inequalities in one variable that represent absolute value, polynomial, exponential, and rational relationships and use them to solve problems algebraically and graphically."},
-    "NC.M3.A-CED.3": {short:"CED.3", text:"Create systems of equations and/or inequalities to model situations in context."},
-    "NC.M3.A-SSE.1": {short:"SSE.1", text:"Interpret expressions that represent a quantity in terms of its context."},
-    "NC.M3.A-SSE.3": {short:"SSE.3", text:"Write an equivalent form of an exponential expression by using the properties of exponents to transform expressions to reveal rates based on different intervals of the domain."},
-    "NC.M3.F-BF.1a": {short:"BF.1a", text:"Build polynomial and exponential functions with real solution(s) given a graph, a description of a relationship, or ordered pairs (include reading these from a table)."},
-    "NC.M3.F-LE.4":  {short:"LE.4",  text:"Use logarithms to express the solution to ab^(ct) = d where a, b, c, and d are numbers and evaluate the logarithm using technology."},
-    "NC.M3.A-REI.1": {short:"REI.1", text:"Justify a solution method for equations and explain each step of the solving process using mathematical reasoning."},
-    "NC.M3.F-IF.7":  {short:"IF.7",  text:"Analyze piecewise, absolute value, polynomials, exponential, rational, and trigonometric functions (sine and cosine) using different representations to show key features of the graph, by hand in simple cases and using technology for more complicated cases, including: domain and range; intercepts; intervals where the function is increasing, decreasing, positive, or negative; rate of change; relative maximums and minimums; symmetries; end behavior; period; and discontinuities."},
-    "NC.M3.F-IF.9":  {short:"IF.9",  text:"Compare key features of two functions using different representations by comparing properties of two different functions, each with a different representation (symbolically, graphically, numerically in tables, or by verbal descriptions)."},
-    "NC.M3.F-BF.4a": {short:"BF.4a", text:"Understand the inverse relationship between exponential and logarithmic, quadratic and square root, and linear to linear functions and use this relationship to solve problems using tables, graphs, and equations."},
-    "NC.M3.F-BF.4c": {short:"BF.4c", text:"If an inverse function exists for a linear, quadratic, and/or exponential function, f, represent the inverse function, f^(-1), with a table, graph, or equation and use it to solve problems in terms of a context."},
-    "NC.8.EE.2":     {short:"8.EE.2", review:true, text:"Use square root and cube root symbols to represent solutions to equations of the form x^2 = p and x^3 = p, where p is a positive rational number, and evaluate square roots of perfect squares and cube roots of perfect cubes for positive numbers less than or equal to 400."},
-    "NC.7.RP.3":     {short:"7.RP.3", review:true, text:"Use scale factors and unit rates in proportional relationships to solve ratio and percent problems."},
-    "NC.M2.N-RN.1":  {short:"N-RN.1", review:true, text:"Explain how expressions with rational exponents can be rewritten as radical expressions."},
-    "NC.M1.F-IF.2":  {short:"M1 IF.2", review:true, text:"Use function notation to evaluate linear, quadratic, and exponential functions for inputs in their domains, and interpret statements that use function notation in terms of a context."},
-    "NC.M1.F-IF.8b": {short:"M1 IF.8b", review:true, text:"Interpret and explain growth and decay rates for an exponential function."}
+    "NC.M3.A-CED.2": {short:"CED.2", plain:"Write and graph equations in two variables", cw:{"l3": "Create and graph absolute value and exponential equations in two variables.", "l4": "Create and graph absolute value, polynomial, and exponential equations in two variables; Create and graph rational equations in two variables.", "l5": "Not specified in the NCDPI crosswalk"}, text:"Create and graph equations in two variables to represent absolute value, polynomial, exponential and rational relationships between quantities."},
+    "NC.M3.A-CED.1": {short:"CED.1", plain:"Write and solve equations in one variable", cw:{"l3": "Create absolute value, polynomial, exponential, and rational equations and inequalities in one variable.", "l4": "Solve problems that require creating absolute value, polynomial, exponential, and rational equations and inequalities in one variable. Justify solution methods and steps of the solving process.", "l5": "Not specified in the NCDPI crosswalk"}, text:"Create equations and inequalities in one variable that represent absolute value, polynomial, exponential, and rational relationships and use them to solve problems algebraically and graphically."},
+    "NC.M3.A-CED.3": {short:"CED.3", plain:"Model situations with systems of equations", cw:{"l3": "Create systems of equations and inequalities that model a context.", "l4": "Represent contextual situations by creating a system of equations, and approximate solutions using technology.", "l5": "Not specified in the NCDPI crosswalk"}, text:"Create systems of equations and/or inequalities to model situations in context."},
+    "NC.M3.A-SSE.1": {short:"SSE.1", plain:"Explain what the parts of an expression mean", cw:{"l3": "Interpret piecewise, absolute value, polynomial, exponential, and rational expression in terms of a context.", "l4": "Interpret piecewise, absolute value, polynomial, exponential, and rational expressions and parts of these expressions in terms of a context.", "l5": "Rewrite piecewise, absolute value, polynomial, exponential, and rational expressions to interpret terms, factors, coefficients, and exponents in context."}, text:"Interpret expressions that represent a quantity in terms of its context."},
+    "NC.M3.A-SSE.3": {short:"SSE.3", plain:"Rewrite exponential expressions to show rates", cw:{"l3": "Not specified in the NCDPI crosswalk", "l4": "Use equivalent forms of exponential expressions to reveal rates based on different intervals of the domain.", "l5": "Not specified in the NCDPI crosswalk"}, text:"Write an equivalent form of an exponential expression by using the properties of exponents to transform expressions to reveal rates based on different intervals of the domain."},
+    "NC.M3.F-BF.1a": {short:"BF.1a", plain:"Build functions from graphs, tables and descriptions", cw:{"l3": "Build polynomial and exponential functions with real solutions from a mathematical or real-world context.", "l4": "Build polynomial and exponential functions with real solutions from a mathematical or real-world context, including combining standard function types with arithmetic.", "l5": "Not specified in the NCDPI crosswalk"}, text:"Build polynomial and exponential functions with real solution(s) given a graph, a description of a relationship, or ordered pairs (include reading these from a table)."},
+    "NC.M3.F-LE.4":  {short:"LE.4", plain:"Use logarithms to solve exponential equations", cw:{"l3": "Evaluate logarithms using technology.", "l4": "Use logarithms to express solutions to equations, and evaluate logarithms using technology.", "l5": "Not specified in the NCDPI crosswalk"},  text:"Use logarithms to express the solution to ab^(ct) = d where a, b, c, and d are numbers and evaluate the logarithm using technology."},
+    "NC.M3.A-REI.1": {short:"REI.1", plain:"Explain the steps of solving an equation", cw:{"l3": "Use mathematical reasoning to justify all steps in solving absolute value, polynomial, and exponential equations.", "l4": "Use mathematical reasoning to justify all steps in solving equations.", "l5": "Not specified in the NCDPI crosswalk"}, text:"Justify a solution method for equations and explain each step of the solving process using mathematical reasoning."},
+    "NC.M3.F-IF.7":  {short:"IF.7", plain:"Graph functions and find their key features", cw:{"l3": "Analyze absolute value, polynomial, exponential, and trigonometric functions to identify key features.", "l4": "Analyze continuous piecewise functions to identify key features.", "l5": "Not specified in the NCDPI crosswalk"},  text:"Analyze piecewise, absolute value, polynomials, exponential, rational, and trigonometric functions (sine and cosine) using different representations to show key features of the graph, by hand in simple cases and using technology for more complicated cases, including: domain and range; intercepts; intervals where the function is increasing, decreasing, positive, or negative; rate of change; relative maximums and minimums; symmetries; end behavior; period; and discontinuities."},
+    "NC.M3.F-IF.9":  {short:"IF.9", plain:"Compare two functions", cw:{"l3": "Compare key features of two functions of the same type given with different representations.", "l4": "Compare key features of two different functions given with different representations.", "l5": "Not specified in the NCDPI crosswalk"},  text:"Compare key features of two functions using different representations by comparing properties of two different functions, each with a different representation (symbolically, graphically, numerically in tables, or by verbal descriptions)."},
+    "NC.M3.F-BF.4a": {short:"BF.4a", plain:"Inverse functions: exponential and log", cw:{"l3": "Find the inverse function for a linear or quadratic equation.", "l4": "Find the inverse function for linear, quadratic, and exponential equations.", "l5": "Justify why two functions are inverses."}, text:"Understand the inverse relationship between exponential and logarithmic, quadratic and square root, and linear to linear functions and use this relationship to solve problems using tables, graphs, and equations."},
+    "NC.M3.F-BF.4c": {short:"BF.4c", plain:"Find and use an inverse function", cw:{"l3": "Find the inverse function for a linear or quadratic equation.", "l4": "Find the inverse function for linear, quadratic, and exponential equations.", "l5": "Justify why two functions are inverses."}, text:"If an inverse function exists for a linear, quadratic, and/or exponential function, f, represent the inverse function, f^(-1), with a table, graph, or equation and use it to solve problems in terms of a context."},
+    "NC.8.EE.2":     {short:"8.EE.2", plain:"Square roots and cube roots", review:true, text:"Use square root and cube root symbols to represent solutions to equations of the form x^2 = p and x^3 = p, where p is a positive rational number, and evaluate square roots of perfect squares and cube roots of perfect cubes for positive numbers less than or equal to 400."},
+    "NC.7.RP.3":     {short:"7.RP.3", plain:"Ratios, rates and percents", review:true, text:"Use scale factors and unit rates in proportional relationships to solve ratio and percent problems."},
+    "NC.M2.N-RN.1":  {short:"N-RN.1", plain:"Rational exponents and radicals", review:true, text:"Explain how expressions with rational exponents can be rewritten as radical expressions."},
+    "NC.M1.F-IF.2":  {short:"M1 IF.2", plain:"Function notation", review:true, text:"Use function notation to evaluate linear, quadratic, and exponential functions for inputs in their domains, and interpret statements that use function notation in terms of a context."},
+    "NC.M1.F-IF.8b": {short:"M1 IF.8b", plain:"Growth and decay rates", review:true, text:"Interpret and explain growth and decay rates for an exponential function."}
   }
 };
 
@@ -1893,7 +1974,15 @@ function problemsFor(lesson){
     .filter(p => !p.retired && (S.student.level === "honors" || !p.honors))
     .sort((a, b) => a._pos - b._pos);
 }
-function pts(p){ const r = progress[p.id]; if(!(r && r.d)) return null; const [u, l] = p.id.split("-"); return Math.max(0, 100 - PENALTY * r.w.length - (isLate(u, l, r) ? LATE_PENALTY : 0)); }
+// A lesson's hint rule: the first problem finished with a hint is free (by the time it was finished); every later one costs HINT_COST.
+function hintCosts(ps, prog){
+  const used = ps.filter(p => prog[p.id] && prog[p.id].d && prog[p.id].h).sort((a, b) => ((prog[a.id].t || 0) - (prog[b.id].t || 0)) || (ps.indexOf(a) - ps.indexOf(b)));
+  const out = {}; used.forEach((p, i) => { out[p.id] = i ? HINT_COST : 0; }); return out;
+}
+const lessonOfId = id => { const [u, l] = id.split("-"); return (CONTENT[u] || []).concat(typeof CHALLENGE !== "undefined" ? (CHALLENGE[u] || []) : []).find(x => String(x.id) === l); };
+function hintCostOf(p){ const r = progress[p.id]; if(!(r && r.d && r.h)) return 0; const ls = lessonOfId(p.id); return ls ? (hintCosts(problemsFor(ls), progress)[p.id] || 0) : 0; }
+const hintStillFree = p => { const ls = lessonOfId(p.id); return !(ls && problemsFor(ls).some(q => q.id !== p.id && progress[q.id] && progress[q.id].d && progress[q.id].h)); };
+function pts(p){ const r = progress[p.id]; if(!(r && r.d)) return null; const [u, l] = p.id.split("-"); return Math.max(0, 100 - PENALTY * r.w.length - (isLate(u, l, r) ? LATE_PENALTY : 0) - hintCostOf(p)); }
 function summary(lesson){
   const ps = problemsFor(lesson);
   const done = ps.filter(p => progress[p.id] && progress[p.id].d);
@@ -2075,7 +2164,7 @@ function renderLogin(){
     for(const tc of TEACHER_CODES){
       if(await sha("tc:" + tc.teacher + ":" + code) === tc.h){
         S.teacher = TEACHERS.find(t => t.id === tc.teacher) || (tc.teacher === MONITOR.id ? MONITOR : null); S.student = null; S.mon = tc.teacher === MONITOR.id; S.tTeacher = "all";
-        S.tCode = code; S.tId = tc.teacher; S.tUnit = 5; S.tBlock = ROSTER.filter(r => r.t === tc.teacher && !r.test).map(r => r.id[0]).sort()[0] || "1"; S.tSection = "home"; S.tLesson = "1"; S.tBox = ""; S.tHist = [];
+        S.tCode = code; S.tId = tc.teacher; S.tUnit = 5; S.tBlock = S.mon ? "all" : (ROSTER.filter(r => r.t === tc.teacher && !r.test).map(r => r.id[0]).sort()[0] || "1"); S.tSection = S.mon ? "mstud" : "home"; S.tLesson = "1"; S.tBox = ""; S.tHist = [];
         S.sample = (() => { try{ return localStorage.getItem("mph4:sampleview") === "1"; }catch(e){ return false; } })();
         trStart(); go("teacher"); return;
       }
@@ -2094,10 +2183,18 @@ function renderUnits(){
   app.querySelectorAll("[data-u]").forEach(b => b.onclick = () => go("unit",{unit:+b.dataset.u}));
 }
 
+function masteryBox(){
+  if(!S.student) return "";
+  const avg = masteryAvg(standardStats(S.unit, S.student.level, progress), S.unit), lvl = S.student.level, ok = atGoal(avg, lvl);
+  return `<div class="myms ${avg === null ? "" : masteryKey(avg)}" title="Your mastery score is the average of your standards. 1 Remediation, 2 Near mastery, 3 Mastery, 4 Exceeds mastery, 5 Exceeds mastery on the harder problems. Using hints lowers it.">
+    <div class="myms-head">My mastery score</div>
+    <div class="myms-body">${avg === null ? `<div class="myms-num">—</div><div class="myms-sub">Finish problems to see it</div>` : `<div class="myms-num">${avg.toFixed(1)}<small> of 5</small></div><div class="myms-sub"><b>${esc(masteryName(avg))}</b></div>`}
+      <div class="myms-goal">Goal: ${goalText(lvl)}${ok ? " ✓" : ""}</div></div></div>`;
+}
 function renderUnit(){
   const ls = CONTENT[S.unit] || [];
   app.innerHTML = header() +
-    `<div class="sband">${studentNav()}<img class="unitpic" src="${UNIT_IMG[S.unit]}" alt="Unit ${S.unit}">${partsOf(S.unit).map(pt => dueHtml(S.unit, pt.part, "box")).join("")}</div>
+    `<div class="sband">${studentNav()}<img class="unitpic" src="${UNIT_IMG[S.unit]}" alt="Unit ${S.unit}">${partsOf(S.unit).map(pt => dueHtml(S.unit, pt.part, "box")).join("")}${masteryBox()}</div>
      <div class="legend"><span class="dot done"></span>Complete <span class="dot prog"></span>In progress <span class="dot todo"></span>Not started <span class="dot done latedot"></span>Finished late <span class="legend-tip">Tap a number to jump</span></div>` +
     (ls.length ? ls.map((l,i) => `<div class="lrow"><button class="pill lesson ${partClass(l)}" data-l="${i}">U${S.unit} Lesson ${esc(l.id)}</button>${statusRow(l,"open",i)}</div>`).join("")
                : `<p class="empty">No lessons have been added to this unit yet.</p>`) + challengePanel();
@@ -2139,6 +2236,8 @@ function bindJump(){
 function refreshStats(l){
   document.getElementById("stats").innerHTML = statusRow(l,"jump");
   bindJump(); banner(l);
+  const ps = problemsFor(l);                                   // the other hint buttons say whether the lesson's free hint is still available
+  document.querySelectorAll("[data-hint]").forEach(b => { const q = b.closest(".q"), pr = q && ps.find(x => "q-" + x.id === q.id); if(pr) b.textContent = hintStillFree(pr) ? "💡 Use my hint (free once per lesson)" : `💡 Use my hint (−${HINT_COST}% on this problem)`; });
 }
 
 const draft = {};      // in-memory current selections (not saved)
@@ -2205,11 +2304,11 @@ function qHtml(p){
   const body = p.type==="dd" ? ddHtml(p,r,done) : p.type==="match" ? matchHtml(p,r,done) : mcHtml(p,r,done);
   let fb = "";
   const lw = lastWrong[p.id];
-  if(done) fb = `<div class="fb">✅ Correct! You earned ${pts(p)}% on this one.${isLate(...p.id.split("-").slice(0, 2), progress[p.id]) ? ` <b>It was finished after the due date, so it is marked late.</b>` : ""}</div>`;
+  if(done) fb = `<div class="fb">✅ Correct! You earned ${pts(p)}% on this one.${r.h ? (hintCostOf(p) ? ` (−${HINT_COST}% for using a hint after your free one in this lesson.)` : ` (Your free hint for this lesson was on this one.)`) : ""}${isLate(...p.id.split("-").slice(0, 2), progress[p.id]) ? ` <b>It was finished after the due date, so it is marked late.</b>` : ""}</div>`;
   else if(multi && lw && lw.length && !lw.stale) fb = `<div class="fb">❌ ${lw.filter(x => x === false).length} of ${lw.length} parts are correct (green). Fix the red ones and check again (−${PENALTY}% for each wrong check).</div>`;
   else if(!multi && r.w.length) fb = `<div class="fb">❌ Not quite. Try again (−${PENALTY}% for each wrong answer).</div>`;
   const hint = r.h ? `<div class="hintbox"><b>Hint:</b> ${p.hint}</div>` : "";
-  const hbtn = (!r.h && !done) ? `<button class="pill sm hintbtn" data-hint>💡 Use my hint (1 per problem)</button>` : "";
+  const hbtn = (!r.h && !done) ? `<button class="pill sm hintbtn" data-hint>${hintStillFree(p) ? "💡 Use my hint (free once per lesson)" : `💡 Use my hint (−${HINT_COST}% on this problem)`}</button>` : "";
   return `<div class="q ${p.side ? "withside" : ""} ${p.wide ? "wide" : ""}" id="q-${p.id}">
     <div class="num"><span class="ptitle">Problem ${esc(p.n)}</span> ${p.honors?`<span class="pill sm">Honors</span>`:""}${p.sample?` <span class="pill sm">Sample</span>`:""}${wbPageTag(p)}${lateTag(p)}</div>
     <div class="text">${p.q}</div>${extra}<div class="qbody">${body}${fb}${hint}${hbtn}</div></div>`;
@@ -3352,7 +3451,8 @@ function lessonStatsFromProgress(lesson, unit, level, prog){
   const ps = lesson.problems.map((p,i) => ({...p, id: unit + "-" + lesson.id + "-" + i}))
     .filter(p => !p.retired && (level === "honors" || !p.honors));
   const late = p => isLate(unit, lesson.id, prog[p.id]);
-  const pts = p => prog[p.id] && prog[p.id].d ? Math.max(0, 100 - PENALTY * prog[p.id].w.length - (late(p) ? LATE_PENALTY : 0)) : null;
+  const hc = hintCosts(ps, prog);
+  const pts = p => prog[p.id] && prog[p.id].d ? Math.max(0, 100 - PENALTY * prog[p.id].w.length - (late(p) ? LATE_PENALTY : 0) - (hc[p.id] || 0)) : null;
   const doneP = ps.filter(p => pts(p) !== null);
   const acc = doneP.length ? Math.round(mean(doneP.map(pts))) : null;
   return {n: ps.length, done: doneP.length, acc, late: doneP.filter(late).length, hints: ps.filter(p => prog[p.id] && prog[p.id].h).length, score: gradeFor(level, doneP.length, ps.length, acc)};
@@ -3367,12 +3467,33 @@ function alignedProblems(unit){
   })));
   return out;
 }
+// ---- The 1 to 5 mastery scale (from the Math 3 Standards Unpacking document: Level 3 is proficient, Levels 4 and 5 are above it).
+//      1 Remediation (under 70%) · 2 Near mastery (70 to 79%) · 3 Mastery (80 to 89%) · 4 Exceeds mastery (90% and up)
+//      5 Exceeds mastery on the HARDER problems: 90% and up overall, and 90% and up on the harder (honors) problems for that standard.
+//      The goal is 3 or higher for standard classes, and 4 or 5 for honors. ----
+const MASTERY = {1: {name: "Remediation", key: "remed"}, 2: {name: "Near mastery", key: "near"}, 3: {name: "Mastery", key: "mastery"}, 4: {name: "Exceeds mastery", key: "exceeds"}, 5: {name: "Exceeds mastery on the harder problems", key: "exceeds"}};
+const goalOf = level => level === "honors" ? 4 : 3;
+const goalText = level => level === "honors" ? "4 or 5" : "3 or higher";
+const levelFromScore = (score, hard) => score === null ? null : score >= 90 ? (hard && hard.done > 0 && hard.score >= 90 ? 5 : 4) : score >= 80 ? 3 : score >= 70 ? 2 : 1;
+function masteryAvg(std, unit){                          // a student's average level across the standards (the ones that build on earlier courses are shown, not averaged)
+  const STD = STANDARDS[unit] || {}, v = Object.keys(std).filter(c => !(STD[c] && STD[c].review) && std[c] && std[c].lvl).map(c => std[c].lvl);
+  return v.length ? Math.round(mean(v) * 10) / 10 : null;
+}
+const mIdx = avg => Math.min(5, Math.max(1, Math.round(avg)));
+const masteryName = avg => avg === null ? "" : MASTERY[mIdx(avg)].name;
+const masteryKey = avg => avg === null ? "" : MASTERY[mIdx(avg)].key;
+const atGoal = (avg, level) => avg !== null && avg >= goalOf(level);
+const masteryCell = (avg, level) => avg === null ? `<td class="stdc muted mscore">—</td>`
+  : `<td class="stdc stdcell mscore ${masteryKey(avg)}" title="${esc(masteryName(avg))}. Goal for ${level === "honors" ? "honors" : "standard"} classes: ${goalText(level)}."><b>${avg.toFixed(1)}</b>${atGoal(avg, level) ? `<span class="goalok" title="At or above the goal">✓</span>` : ""}</td>`;
+const cwText = t => /not specified/i.test(t) ? "Not specified by the state’s crosswalk. We look for success on the harder problems." : t;
 function standardStats(unit, level, prog){
   const al = alignedProblems(unit), res = {};
+  const ptsOf = x => prog[x.id] && prog[x.id].d ? Math.max(0, 100 - PENALTY * prog[x.id].w.length - (prog[x.id].h ? HINT_PENALTY : 0)) : null;
   Object.keys(al).forEach(code => {
     const mine = al[code].filter(x => level === "honors" || !x.p.honors);
-    const pts = mine.map(x => prog[x.id] && prog[x.id].d ? Math.max(0, 100 - PENALTY * prog[x.id].w.length - (prog[x.id].h ? HINT_PENALTY : 0)) : null).filter(v => v !== null);
-    res[code] = {n: mine.length, done: pts.length, hints: mine.filter(x => prog[x.id] && prog[x.id].h).length, score: pts.length ? Math.round(mean(pts)) : null};
+    const pts = mine.map(ptsOf).filter(v => v !== null), hp = mine.filter(x => x.p.honors).map(ptsOf).filter(v => v !== null);
+    const score = pts.length ? Math.round(mean(pts)) : null, hard = {n: mine.filter(x => x.p.honors).length, done: hp.length, score: hp.length ? Math.round(mean(hp)) : null};
+    res[code] = {n: mine.length, done: pts.length, hints: mine.filter(x => prog[x.id] && prog[x.id].h).length, score, hard, lvl: levelFromScore(score, hard)};
   });
   return res;
 }
@@ -3394,6 +3515,7 @@ function openStd(code, opener){
     <h3>${esc(code)}</h3>
     ${s.review ? `<p class="muted small" style="margin:0 0 8px">Builds on this earlier standard</p>` : ""}
     <p style="margin:0 0 12px">${esc(s.text).replace(/\^\(([^)]+)\)|\^(\d+)/g, (m, a, b) => "<sup>" + (a || b) + "</sup>")}</p>
+    ${s.cw ? `<p class="tlabel2">What each level looks like</p><ul class="lvllist"><li><b>Level 3 (mastery):</b> ${esc(cwText(s.cw.l3))}</li><li><b>Level 4 (exceeds mastery):</b> ${esc(cwText(s.cw.l4))}</li><li><b>Level 5 (the harder problems):</b> ${esc(cwText(s.cw.l5))}</li></ul>` : ""}
     <p class="tlabel2">Where it shows up</p>
     <ul>${Object.keys(by).map(id => `<li><b>Lesson ${esc(id)}</b> · problems ${by[id].map(esc).join(", ")}</li>`).join("") || `<li class="muted">No problems yet</li>`}</ul>
     <button class="pill unit" id="mclose">Close</button></div>`;
@@ -3427,13 +3549,13 @@ function attAnswer(p, sel){
 }
 function attKeyed(p){ return p.type === "mc" ? p.a : (p.type === "dd" ? p.parts : p.rows).map(x => x.a); }
 const attWhen = t => { try{ return new Date(t).toLocaleString([], {month: "short", day: "numeric", hour: "numeric", minute: "2-digit"}); }catch(e){ return ""; } };
-function attCard(p, rec, unit, lesson){
+function attCard(p, rec, unit, lesson, hc){
   const w = rec && rec.w ? rec.w : [], done = !!(rec && rec.d), late = done && isLate(unit, lesson.id, rec);
-  const score = done ? Math.max(0, 100 - PENALTY * w.length - (late ? LATE_PENALTY : 0)) : null;
+  const score = done ? Math.max(0, 100 - PENALTY * w.length - (late ? LATE_PENALTY : 0) - (hc || 0)) : null;
   const touched = rec && (done || w.length || rec.h);
   const status = !touched ? `<span class="pill sm attst none">Not attempted</span>` : done ? `<span class="pill sm attst good">Finished · ${score}%</span>` : `<span class="pill sm attst todo">Not finished</span>`;
   const attempts = w.map((k, n) => `<li class="att bad"><div class="atthd"><b>Wrong answer ${n + 1}</b></div>${attAnswer(p, attDecode(p, k))}</li>`).join("")
-    + (done ? `<li class="att good"><div class="atthd"><b>${w.length ? "Then the correct answer" : "Correct on the first try"}</b> · earned ${score}%${rec.t ? " · " + esc(attWhen(rec.t)) : ""}${late ? " · <b>finished after the due date</b>" : ""}</div>${attAnswer(p, attKeyed(p))}</li>` : "");
+    + (done ? `<li class="att good"><div class="atthd"><b>${w.length ? "Then the correct answer" : "Correct on the first try"}</b> · earned ${score}%${rec.h ? (hc ? ` · hint −${HINT_COST}%` : " · hint was free") : ""}${rec.t ? " · " + esc(attWhen(rec.t)) : ""}${late ? " · <b>finished after the due date</b>" : ""}</div>${attAnswer(p, attKeyed(p))}</li>` : "");
   const extra = p.html ? `<div class="qextra ${p.side ? "qgraph" : ""}">${p.html}</div>` : "";
   return `<div class="q attq"><div class="num"><span class="ptitle">Problem ${esc(p.n)}</span> ${p.honors ? `<span class="pill sm">Honors</span>` : ""}${rec && rec.h ? `<span class="pill sm">💡 Used the hint</span>` : ""}${late ? `<span class="pill sm">Finished late</span>` : ""} ${status}</div>
     <div class="text">${p.q}</div>${extra}
@@ -3449,7 +3571,7 @@ function openAtt(r, unit, lesson, opener){
     <div class="atthead"><div><h3>${esc(r.id)}${r.test ? " (test student)" : ""} · ${S.mon ? esc(r.tname) + " · " : ""}Block ${esc(r.period)}</h3><p class="attsub">Lesson ${esc(lesson.id)}: ${esc(lesson.title)}</p>
       <p class="attsum">${s ? `${s.done}/${s.n} finished${s.acc !== null ? ` · ${s.acc}% accuracy` : ""}` : ""}${hints ? ` · 💡 ${hints} hint${hints === 1 ? "" : "s"}` : ""}${s && s.late ? ` · ${s.late} finished late` : ""}</p></div>
       <button class="pill unit" id="attclose">Close</button></div>
-    <div class="attall">${ps.map(p => attCard(p, prog[p.id], unit, lesson)).join("")}</div>
+    <div class="attall">${(hc => ps.map(p => attCard(p, prog[p.id], unit, lesson, hc[p.id] || 0)).join(""))(hintCosts(ps, prog))}</div>
     <p class="muted small attfoot">Wrong answers are shown in the order they were checked. A wrong answer that was checked twice is saved once. Using the hint is not an attempt. The correct answer is shown in green.</p></div>`;
   m.hidden = false; document.body.classList.add("noscroll");
   const c = document.getElementById("attclose"); c.onclick = closeAtt; c.focus();
@@ -3458,7 +3580,7 @@ function closeAtt(){
   const m = document.getElementById("attmodal"); if(!m || m.hidden) return;
   const op = m.dataset.opener; m.hidden = true; m.innerHTML = ""; S.attOpen = false; document.body.classList.remove("noscroll");
   if(S.attStale){ S.attStale = false; render(); return; }
-  const el = op && document.querySelector(`[data-att="${op}"]`); if(el) el.focus();
+  const el = op && document.querySelector(`[data-att="${op}"], [data-mst="${op.replace(/^mst:/, "")}"], [data-pp="${op.replace(/^pp:/, "")}"]`); if(el) el.focus();
 }
 
 // Made-up progress for roster students with no saved progress on this device. It has the same shape as
@@ -3569,8 +3691,9 @@ async function loadClassData(unit){
     const partGrade = ids => { if(!started) return null; const v = ids.map(i => per[i]).filter(Boolean).map(x => x.score); return v.length ? mean(v) : null; };
     const p1 = partGrade(parts.p1), p2 = partGrade(parts.p2);
     const halves = [p1, p2].filter(v => v !== null);
+    const stdS = standardStats(unit, st.level, prog);
     const chSrc = saved && Object.keys(saved).some(isChallengeKey) ? saved : (S.sample && !st.test ? sampleChallenge(S.mon ? st.t + ":" + st.id : st.id, unit, st.level) : null);
-    rows.push({...st, key: st.t + ":" + st.id, tname: ((TEACHERS.find(t => t.id === st.t)) || {}).name || "", period: st.id[0], live, per, std: standardStats(unit, st.level, prog), misc: misconceptionHits(unit, st.level, prog), ch: challengeStats(unit, st.level, chSrc), prog,
+    rows.push({...st, key: st.t + ":" + st.id, tname: ((TEACHERS.find(t => t.id === st.t)) || {}).name || "", period: st.id[0], live, per, std: stdS, mastery: masteryAvg(stdS, unit), misc: misconceptionHits(unit, st.level, prog), ch: challengeStats(unit, st.level, chSrc), prog,
                p1: rnd(p1), p2: rnd(p2), unit: rnd(halves.length ? mean(halves) : null)});
   }
   rows.sort((a,b) => (S.mon ? a.t.localeCompare(b.t) : 0) || a.id.localeCompare(b.id));
@@ -3640,7 +3763,7 @@ function bindChrome(){
   const hb = document.getElementById("thome"); if(hb) hb.onclick = tHome;
   const bulb = document.getElementById("tbulb"); if(bulb) bulb.onclick = logout;   // back to the page where students log in
   const pv = document.getElementById("tpreview"); if(pv) pv.onclick = enterPreview;
-  document.querySelectorAll("[data-teacher]").forEach(b => b.onclick = () => { S.tTeacher = b.dataset.teacher; S.tBox = ""; render(); });
+  document.querySelectorAll("[data-teacher]").forEach(b => b.onclick = () => { S.tTeacher = b.dataset.teacher; S.tBlock = "all"; render(); });
   document.querySelectorAll("[data-unit]").forEach(b => b.onclick = () => tGo({unit: +b.dataset.unit}));
 }
 
@@ -3671,6 +3794,8 @@ function renderTeacherHome(all, unit){
   const empty = trCfg()
     ? `<div class="notice emptyhome"><b>No student work to show yet.</b><br>Your roster is loaded (${all.length} students · ${blockTxt}). ${trNote} To see how it will look, turn on <b>Sample data</b> (top right).</div>`
     : `<div class="notice emptyhome"><b>No student work has been saved on this device yet.</b><br>Your roster is loaded (${all.length} students · ${blockTxt}). Each student’s progress is saved on the Chromebook they use, so this page fills in with work done on this device. To see how it will look, turn on <b>Sample data</b> (top right).</div>`;
+  const mv = all.filter(r => r.mastery !== null), msAvg = mv.length ? Math.round(mean(mv.map(r => r.mastery)) * 10) / 10 : null;
+  const msLine = msAvg === null ? "" : `<p class="tnote2 msline">Average mastery score <b>${msAvg.toFixed(1)} of 5</b> · <b>${Math.round(mv.filter(r => atGoal(r.mastery, r.level)).length / mv.length * 100)}%</b> of these students are at their goal (standard classes 3 or higher, honors 4 or 5). See Standards mastery for each student.</p>`;
   const overview = has && !anyWork ? empty : has ? `
     <div class="hstats">
       ${card("s1", "Students", `<b>${o.students}</b><span>in ${o.blocks} block${o.blocks === 1 ? "" : "s"}${o.worked < o.students ? ` · ${o.worked} with work${trCfg() ? "" : " here"}` : ""}</span>`)}
@@ -3681,7 +3806,7 @@ function renderTeacherHome(all, unit){
     <div class="mpanel">
       <div class="mbar" role="img" aria-label="${LEVELS.map((L, i) => L.label + " " + o.levels[i]).join(", ")}">${LEVELS.map((L, i) => o.levels[i] ? `<span class="seg ${L.key}" style="flex:${o.levels[i]}" title="${L.label}: ${o.levels[i]}"></span>` : "").join("")}</div>
       <div class="lrow">${LEVELS.map((L, i) => `<span class="lvl ${L.key}">${lvIcon(L.key)}${L.label} <b>${o.levels[i]}</b></span>`).join("")}</div>
-    </div>`
+    </div>${msLine}`
     : `<div class="notice">Nothing here yet. Unit ${unit} hasn’t been added.</div>`;
   const bub = (sec, name) => `<button class="pill hbtn" data-sec="${sec}" ${has ? "" : "disabled"}>${name}</button>`;
   app.innerHTML = `<div class="tview sec-home">` + teacherHeader() + `
@@ -3715,38 +3840,201 @@ function teacherSummaryTable(rows, unit){
     ${groups.map(g => line(esc(g.t.name), g.rs, "tgroup") + classGroups(g.rs).map(c => line("Block " + esc(c.bk), c.rows, "tclass")).join("")).join("")}
     ${line("All teachers", rows, "tall")}</tbody></table>`;
 }
+// ---- the monitor's pages. She runs remediation, so the first thing she sees is each student's mastery of each standard. ----
+const monitorTabs = sec => `<div class="lrow tabs montabs">${[["mstud", "Student mastery"], ["teachers", "Compare teachers"], ["packtime", "Packtime"], ["unit", "Unit grades"], ["lesson", "Lesson details"]].map(([k, n]) => `<button class="pill ${sec === k ? "sel" : ""}" data-sec="${k}">${n}</button>`).join("")}</div>`;
+const stdPlain = (STD, c) => STD[c].plain || STD[c].short;
+const levelLegend = () => `<div class="lrow lvlkey">${LEVELS.map((L, i) => `<span class="lvl ${L.key}">${lvIcon(L.key)}${L.label} <small>${i === 0 ? "90% and up" : i === LEVELS.length - 1 ? "under 70%" : L.min + " to " + (LEVELS[i - 1].min - 1) + "%"}</small></span>`).join("")}</div>`;
+function stdKey(STD, cols){
+  return `<details class="stdkey" open><summary>What each standard means</summary><div class="keygrid">${cols.map(c => `<div class="keyitem" title="${esc(STD[c].text)}"><b>${esc(STD[c].short)}</b> <span>${esc(stdPlain(STD, c))}</span>${STD[c].review ? ` <small>(builds on earlier work)</small>` : ""}</div>`).join("")}</div></details>`;
+}
+const stdCellHtml = (v, lvl) => v === null || v === undefined ? `<td class="stdc muted">—</td>` : `<td class="stdc stdcell ${levelOf(v).key}">${lvIcon(levelOf(v).key)}<b>${v}%</b>${lvl === 5 ? `<span class="l5" title="Level 5: exceeds mastery, including the harder problems">★</span>` : ""}</td>`;
+const scaleLegend = () => `<div class="scalekey"><b>Mastery score</b> is the average of a student’s standards: ${[1, 2, 3, 4, 5].map(n => `<span class="sc sc${n}"><b>${n}</b> ${esc(MASTERY[n].name)}</span>`).join("")}
+  <div class="muted small">Goals: standard classes 3 or higher, honors 4 or 5. Level 5 needs the harder (honors) problems. Standards that build on earlier courses are shown but not averaged.</div></div>`;
+const needChip = (STD, c, v) => `<span class="need ${levelOf(v).key}" title="${esc(stdPlain(STD, c))}">${esc(STD[c].short)} ${v}%</span>`;
+function monitorShell(sec, title, inner, noPick){
+  return `<div class="tview sec-standards">` + teacherHeader(noPick) + monitorTabs(sec) + `<h2 class="vtitle">${title}</h2>${inner}<div id="stdmodal" class="modal" hidden></div><div id="attmodal" class="modal" hidden></div>${sampleNote()}</div>`;
+}
+function monitorBind(unit, byKey){
+  bindChrome();
+  app.querySelectorAll("[data-sec]").forEach(b => b.onclick = () => { if(!b.disabled) tGo({section: b.dataset.sec}); });
+  app.querySelectorAll("[data-std]").forEach(b => b.onclick = () => openStd(b.dataset.std, b.dataset.std));
+  app.querySelectorAll("[data-mst]").forEach(b => b.onclick = () => openMst(byKey[b.dataset.mst], unit));
+  const modal = document.getElementById("stdmodal"); modal.onclick = e => { if(e.target === modal) closeStd(); };
+  const am = document.getElementById("attmodal"); am.onclick = e => { if(e.target === am) closeAtt(); };
+  document.onkeydown = e => { if(e.key === "Escape"){ closeStd(); closeAtt(); } };
+}
+function renderMonitorStudents(allRows, unit){
+  const STD = STANDARDS[unit] || {}, has = unitHas(unit);
+  const who = S.tTeacher === "all" ? "All teachers" : esc(((TEACHERS.find(t => t.id === S.tTeacher)) || {}).name);
+  const scope = S.tTeacher === "all" ? allRows : allRows.filter(r => r.t === S.tTeacher);
+  const blocks = [...new Set(scope.map(r => r.period))].sort();
+  if(S.tBlock !== "all" && !blocks.includes(S.tBlock)) S.tBlock = "all";
+  const classRows = S.tBlock === "all" ? scope : scope.filter(r => r.period === S.tBlock);
+  const cols = Object.keys(STD).filter(code => scope.some(r => r.std[code] && r.std[code].n > 0));
+  const scoresOf = r => cols.map(c => r.std[c] && r.std[c].score !== null ? {c, v: r.std[c].score} : null).filter(Boolean);
+  const people = classRows.map(r => { const s = scoresOf(r); return {r, m: r.mastery, goal: goalOf(r.level), o: s.length ? Math.round(mean(s.map(x => x.v))) : null, bl: s.filter(x => x.v < 80).sort((a, b) => a.v - b.v), has: s.length > 0}; });
+  const belowGoal = people.filter(x => x.m !== null && x.m < x.goal), nGoal = people.filter(x => x.m !== null && x.m >= x.goal).length, nNeed = people.filter(x => x.bl.length).length, nNone = people.filter(x => !x.has).length;
+  const only = S.mOnly === true ? "1" : (S.mOnly || "0");
+  let list = only === "goal" ? belowGoal.slice() : only === "1" ? people.filter(x => x.bl.length) : people.slice();
+  list.sort(S.mSort === "id" ? ((a, b) => a.r.t.localeCompare(b.r.t) || a.r.id.localeCompare(b.r.id))
+    : ((a, b) => (a.m === null) - (b.m === null) || (a.m === null ? 0 : (a.m - a.goal) - (b.m - b.goal)) || (a.m === null ? 0 : a.m - b.m) || b.bl.length - a.bl.length || a.r.id.localeCompare(b.r.id)));
+  const grid = [["Student", "Teacher", "Block", "Group", "Mastery score", "Goal", "At goal", "Overall %", "Needs help with", ...cols.map(c => STD[c].short + " %")],
+    ...list.map(x => [x.r.id, x.r.tname, x.r.period, x.r.level === "honors" ? "Honors" : "Standard", x.m === null ? "" : x.m, goalOf(x.r.level), x.m === null ? "" : (x.m >= x.goal ? "Yes" : "No"), x.o === null ? "" : x.o,
+      !x.has ? "No work yet" : x.bl.map(b => STD[b.c].short + " " + b.v + "%").join("; "), ...cols.map(c => x.r.std[c] && x.r.std[c].score !== null ? x.r.std[c].score : "")])];
+  const btn = (attr, val, on, label) => `<button class="pill sm ${on ? "sel" : ""}" ${attr}="${val}" aria-pressed="${on}">${label}</button>`;
+  const rowH = x => `<tr><td class="idc msid"><button type="button" class="linkbtn" data-mst="${esc(x.r.key)}" title="See ${esc(x.r.id)}’s mastery in detail">${esc(x.r.id)}</button></td>
+    <td class="msclass">${S.tTeacher === "all" ? esc(x.r.tname) + " · " : ""}Block ${esc(x.r.period)} · ${x.r.level === "honors" ? "Honors" : "Standard"}</td>${masteryCell(x.m, x.r.level)}${stdCellHtml(x.o)}
+    <td class="needs">${!x.has ? `<span class="muted">No work yet</span>` : x.bl.length ? x.bl.slice(0, 3).map(b => needChip(STD, b.c, b.v)).join(" ") + (x.bl.length > 3 ? ` <span class="muted">+${x.bl.length - 3} more</span>` : "") : `<span class="muted">Nothing under 80%</span>`}</td>
+    ${cols.map(c => stdCellHtml(x.r.std[c] && x.r.std[c].score !== null ? x.r.std[c].score : null, x.r.std[c] && x.r.std[c].lvl)).join("")}</tr>`;
+  const inner = !has ? `<div class="notice">Unit ${unit} hasn’t been added yet.</div>` : `
+    <p class="explain"><b>How to read this page.</b> Each row is a student. The <b>Mastery score</b> is the student’s average level across the unit’s standards, from 1 to 5, and ✓ means they have reached their goal. Each colored box after that is the student’s average score on one <b>standard</b>, a skill from this unit. The key below says what each one means. <b>Needs help with</b> lists the standards where the student is under 80%, lowest first. Click a student’s ID for the full picture, what the next level looks like, and where to practice.</p>
+    ${scaleLegend()}
+    ${levelLegend()}
+    <div class="msstats"><span><b>${classRows.length}</b> students</span><span><b>${nGoal}</b> at their goal</span><span><b>${belowGoal.length}</b> below their goal</span><span><b>${nNeed}</b> need help on a standard</span><span><b>${nNone}</b> have no work yet</span></div>
+    <div class="mcontrols">
+      <div class="mcgroup"><span class="mclabel">Class</span>${btn("data-mblk", "all", S.tBlock === "all", S.tTeacher === "all" ? "All classes" : "All of " + who + "’s classes")}${blocks.map(bk => btn("data-mblk", bk, S.tBlock === bk, "Block " + esc(bk))).join("")}</div>
+      <div class="mcgroup"><span class="mclabel">Show</span>${btn("data-monly", "0", only === "0", "Everyone")}${btn("data-monly", "goal", only === "goal", "Below their goal")}${btn("data-monly", "1", only === "1", "Needs help on a standard")}</div>
+      <div class="mcgroup"><span class="mclabel">Sort</span>${btn("data-msort", "need", S.mSort !== "id", "Furthest from goal first")}${btn("data-msort", "id", S.mSort === "id", "Teacher, class, ID")}</div>
+      <div class="mcgroup"><button class="pill sm" id="mcopy" ${S.sample ? 'disabled title="Turn off sample data to copy real numbers"' : 'title="Copy exactly this list, to paste into a spreadsheet"'}>Copy this list</button></div>
+    </div>
+    <div id="tbox" class="tbox"></div>
+    ${stdKey(STD, cols)}
+    <p class="tnote2">A hint on a problem lowers that problem’s score here by ${HINT_PENALTY} points. ${list.length} student${list.length === 1 ? "" : "s"} shown.</p>
+    ${list.length ? `<div class="tscroll msscroll"><table class="ttable msgrid"><thead><tr><th>Student</th><th>Class</th><th title="The average of the student’s standard levels, 1 to 5">Mastery score</th><th title="The average percent across the standards">Overall %</th><th>Needs help with</th>${cols.map(c => `<th title="${esc(stdPlain(STD, c))}">${esc(STD[c].short)}</th>`).join("")}</tr></thead><tbody>${list.map(rowH).join("")}</tbody></table></div>` : `<div class="notice">${only === "goal" ? "Every student in this view has reached their goal." : only === "1" ? "No student in this view is under 80% on a standard right now." : "No students here."}</div>`}`;
+  app.innerHTML = monitorShell("mstud", who + " · Student mastery by standard", inner);
+  const byKey = {}; allRows.forEach(r => { byKey[r.key] = r; });
+  monitorBind(unit, byKey);
+  app.querySelectorAll("[data-mblk]").forEach(b => b.onclick = () => { S.tBlock = b.dataset.mblk; render(); });
+  app.querySelectorAll("[data-monly]").forEach(b => b.onclick = () => { S.mOnly = b.dataset.monly; render(); });
+  app.querySelectorAll("[data-msort]").forEach(b => b.onclick = () => { S.mSort = b.dataset.msort; render(); });
+  const mc = document.getElementById("mcopy");
+  if(mc) mc.onclick = async () => {
+    const text = toTSV(grid), box = document.getElementById("tbox");
+    try{ await navigator.clipboard.writeText(text); box.innerHTML = `<p class="notice ok">Copied ${list.length} student${list.length === 1 ? "" : "s"}. Paste it into your spreadsheet.</p>`; }
+    catch(e){ box.innerHTML = `<p class="muted small">Your browser blocked copying. Select the text below, copy it, and paste into your spreadsheet.</p><textarea class="tsv" readonly rows="6">${esc(text)}</textarea>`; const ta = box.querySelector("textarea"); ta.focus(); ta.select(); }
+  };
+}
+function openMst(r, unit){
+  const STD = STANDARDS[unit] || {}, m = document.getElementById("attmodal"); if(!m || !r) return;
+  const items = Object.keys(STD).map(c => ({c, s: r.std[c]})).filter(x => x.s && x.s.n > 0).sort((a, b) => (a.s.score === null) - (b.s.score === null) || ((a.s.score || 0) - (b.s.score || 0)));
+  const sc = items.filter(x => x.s.score !== null).map(x => x.s.score), o = sc.length ? Math.round(mean(sc)) : null, low = sc.filter(v => v < 80).length, ms = r.mastery;
+  m.dataset.opener = "mst:" + r.key; S.attOpen = true;
+  const next = x => { const s = x.s, w = STD[x.c].cw; if(!w || s.lvl === null) return "";
+    const tgt = s.lvl <= 2 ? ["To reach mastery (Level 3)", w.l3] : s.lvl === 3 ? ["To reach Level 4", w.l4] : s.lvl === 4 ? ["To reach Level 5", w.l5] : null;
+    return tgt ? `<div class="mstnext"><b>${tgt[0]}:</b> ${esc(cwText(tgt[1]))}</div>` : `<div class="mstnext"><b>Level 5:</b> ${esc(cwText(w.l5))}</div>`; };
+  const row = x => {
+    const s = x.s, lv = s.score === null ? null : levelOf(s.score), by = stdWhere(unit, x.c);
+    const where = Object.keys(by).map(id => `Lesson ${esc(id)} (problem${by[id].length > 1 ? "s" : ""} ${by[id].join(", ")})`).join("; ");
+    return `<div class="mstrow ${lv ? lv.key : "none"}"><div class="mstname"><b>${esc(stdPlain(STD, x.c))}</b> <span class="muted">${esc(STD[x.c].short)}</span>${STD[x.c].review ? ` <small>(builds on earlier work)</small>` : ""}
+        <div class="msttext">${esc(STD[x.c].text)}</div>${next(x)}${lv && s.score < 80 ? `<div class="mstpractice"><b>To practice this:</b> ${where || "no problems yet"}.</div>` : ""}</div>
+      <div class="mstscore">${s.score === null ? `<span class="muted">Not enough work yet</span>` : `${lvIcon(lv.key)}<b>${s.score}%</b><small>Level ${s.lvl} · ${esc(MASTERY[s.lvl].name)}${s.lvl === 5 ? " ★" : ""}</small>`}<div class="mstbar"><i style="width:${s.score === null ? 0 : s.score}%"></i></div></div>
+      <div class="mstwork muted">${s.done} of ${s.n} problems finished${s.hard && s.hard.n ? `<br>${s.hard.done} of ${s.hard.n} harder` : ""}${s.hints ? `<br>💡 ${s.hints} hint${s.hints === 1 ? "" : "s"} used` : ""}</div></div>`;
+  };
+  m.innerHTML = `<div class="attcard" role="dialog" aria-modal="true" aria-label="Mastery for ${esc(r.id)}">
+    <div class="atthead"><div><h3>${esc(r.id)} · ${esc(r.tname)} · Block ${esc(r.period)} · ${r.level === "honors" ? "Honors" : "Standard"}</h3><p class="attsub">Mastery by standard · Unit ${unit}</p>
+      <p class="attsum">${ms === null ? "No work yet" : `Mastery score <b>${ms.toFixed(1)} of 5</b> (${esc(masteryName(ms))}) · goal ${goalText(r.level)}${atGoal(ms, r.level) ? " ✓" : ""} · overall ${o}% · ${low ? `${low} standard${low === 1 ? "" : "s"} under 80%` : "every standard at 80% or above"}`}</p></div><button class="pill unit" id="attclose">Close</button></div>
+    <div class="mstlist">${items.map(row).join("") || `<p class="muted">No work to show yet.</p>`}</div>
+    <p class="muted small attfoot">The lowest standards are first. A score is the average of the problems the student has finished on that standard, and a hint lowers a problem’s score by ${HINT_PENALTY} points. The level descriptions come from the Math 3 Standards Unpacking document.</p></div>`;
+  m.hidden = false; document.body.classList.add("noscroll"); const c = document.getElementById("attclose"); c.onclick = closeAtt; c.focus();
+}
 function renderTeacherCompare(rows, unit){
   const STD = STANDARDS[unit] || {}, has = unitHas(unit);
   const groups = TEACHERS.map(t => ({t, rs: rows.filter(r => r.t === t.id)})).filter(g => g.rs.length);
   const cols = Object.keys(STD).filter(code => rows.some(r => r.std[code] && r.std[code].n > 0));
   const avgStd = (rs, code) => { const v = rs.map(r => r.std[code]).filter(x => x && x.score !== null).map(x => x.score); return v.length ? Math.round(mean(v)) : null; };
   const overall = rs => { const v = cols.map(c => avgStd(rs, c)).filter(x => x !== null); return v.length ? Math.round(mean(v)) : null; };
-  const cell = v => v === null ? `<td class="stdc muted">—</td>` : `<td class="stdc stdcell ${levelOf(v).key}">${lvIcon(levelOf(v).key)}<b>${v}%</b></td>`;
-  const line = (label, rs, cls) => `<tr class="${cls}"><td class="idc">${label}</td><td>${rs.length}</td>${cell(overall(rs))}${cols.map(c => cell(avgStd(rs, c))).join("")}</tr>`;
-  const hbtn = code => `<button class="stdh ${STD[code].review ? "rev" : ""}" data-std="${esc(code)}" title="${esc(stdTip(unit, code))}" aria-label="${esc(code)}, show details">${esc(STD[code].short)}</button>`;
-  const keyChips = LEVELS.map(L => `<span class="lvl ${L.key}">${lvIcon(L.key)}${L.label}</span>`).join("");
-  app.innerHTML = `<div class="tview sec-standards">` + teacherHeader(true) + `
-    <div class="lrow tabs">
-      <button class="pill" data-sec="lesson">Lesson data analysis</button><button class="pill" data-sec="unit">Unit grade calculation</button>
-      <button class="pill" data-sec="standards">Standards mastery</button><button class="pill sel" data-sec="teachers">Compare teachers</button>
-    </div>
-    <h2 class="vtitle">Compare teachers · Unit ${unit}</h2>
-    ${has && rows.length ? `
-    <h3 class="cmphead">Overview by teacher</h3>
-    <p class="tnote2">Each teacher's classes together, with every class underneath. Completed and Accuracy are class averages. Students with no work yet are counted in Students but not in the averages.</p>
-    <div class="tscroll">${teacherSummaryTable(rows, unit)}</div>
-    <h2 class="vtitle" style="margin-top:26px">Standards mastery by teacher</h2>
-    <div class="lrow">${keyChips}</div>
-    <p class="tnote2">The average mastery of each teacher's students on each standard, and an overall number (the average of the standards). A hint on a problem lowers that problem's score here by ${HINT_PENALTY} points. Click a standard to see where it shows up.</p>
-    <div class="tscroll"><table class="ttable fit stdgrid cmptable ${cols.length > 7 ? "many" : ""}"><colgroup>${[11, 7, 7, ...cols.map(() => (75 / cols.length).toFixed(2))].map(w => `<col style="width:${w}%">`).join("")}</colgroup><thead><tr><th>Teacher</th><th>Students</th><th>Overall</th>${cols.map(c => `<th>${hbtn(c)}</th>`).join("")}</tr></thead><tbody>
-      ${groups.map(g => line(esc(g.t.name), g.rs, "tgroup") + classGroups(g.rs).map(c => line("Block " + esc(c.bk), c.rows, "tclass")).join("")).join("")}
-      ${line("All teachers", rows, "tall")}</tbody></table></div>` : `<div class="notice">${has ? "No student data to compare yet. It appears here as students work and the backup is read." : `Nothing here yet. Unit ${unit} hasn’t been added.`}</div>`}
-    <div id="stdmodal" class="modal" hidden></div>${sampleNote()}</div>`;
-  bindChrome();
-  app.querySelectorAll("[data-sec]").forEach(b => b.onclick = () => { if(!b.disabled) tGo({section: b.dataset.sec}); });
-  app.querySelectorAll("[data-std]").forEach(b => b.onclick = () => openStd(b.dataset.std, b.dataset.std));
-  const modal = document.getElementById("stdmodal"); modal.onclick = e => { if(e.target === modal) closeStd(); };
-  document.onkeydown = e => { if(e.key === "Escape") closeStd(); };
+  const stuScores = r => cols.map(c => r.std[c] && r.std[c].score !== null ? r.std[c].score : null).filter(v => v !== null);
+  const msOf = rs => { const v = rs.map(r => r.mastery).filter(x => x !== null); return {avg: v.length ? Math.round(mean(v) * 10) / 10 : null, n: v.length, goal: rs.filter(r => atGoal(r.mastery, r.level)).length}; };
+  const msCell = a => a === null ? `<td class="stdc muted mscore">—</td>` : `<td class="stdc stdcell mscore ${masteryKey(a)}" title="${esc(masteryName(a))}"><b>${a.toFixed(1)}</b></td>`;
+  const card = (label, rs, cls) => {
+    const avgs = cols.map(c => ({c, v: avgStd(rs, c)})).filter(x => x.v !== null).sort((a, b) => a.v - b.v), ms = msOf(rs);
+    const withWork = rs.filter(r => stuScores(r).length).length, lowStu = rs.filter(r => stuScores(r).some(v => v < 80)).length;
+    return `<tr class="${cls}"><td class="idc">${label}</td><td>${rs.length}</td><td>${withWork}</td>${msCell(ms.avg)}
+      <td>${ms.n ? `<b>${ms.goal}</b> <span class="muted">of ${ms.n} (${Math.round(ms.goal / ms.n * 100)}%)</span>` : "—"}</td>
+      <td>${withWork ? `<b>${lowStu}</b> <span class="muted">of ${withWork} (${Math.round(lowStu / withWork * 100)}%)</span>` : "—"}</td>
+      <td class="needs">${avgs.slice(0, 2).map(x => needChip(STD, x.c, x.v)).join(" ") || "—"}</td><td class="needs">${avgs.length ? needChip(STD, avgs[avgs.length - 1].c, avgs[avgs.length - 1].v) : "—"}</td></tr>`;
+  };
+  const line = (label, rs, cls) => `<tr class="${cls}"><td class="idc">${label}</td><td>${rs.length}</td>${msCell(msOf(rs).avg)}${stdCellHtml(overall(rs))}${cols.map(c => stdCellHtml(avgStd(rs, c))).join("")}</tr>`;
+  const hbtn = code => `<button class="stdh ${STD[code].review ? "rev" : ""}" data-std="${esc(code)}" title="${esc(stdPlain(STD, code) + ". " + stdTip(unit, code))}" aria-label="${esc(code)}, show details">${esc(STD[code].short)}</button>`;
+  const body = g => card(esc(g.t.name), g.rs, "tgroup") + classGroups(g.rs).map(c => card("Block " + esc(c.bk), c.rows, "tclass")).join("");
+  const inner = !(has && rows.length) ? `<div class="notice">${has ? "No student data to compare yet. It appears here as students work." : `Unit ${unit} hasn’t been added yet.`}</div>` : `
+    <p class="explain"><b>How to read this page.</b> Each teacher’s classes together, with every class underneath. The <b>Mastery score</b> is the class’s average of its students’ scores, from 1 to 5 (3 is mastery). <b>At their goal</b> counts students who reached their own goal: 3 or higher in standard classes, 4 or 5 in honors. <b>Under 80%</b> counts students who are under 80% on at least one standard. <b>Weakest</b> and <b>strongest</b> name the standards that pull a class down or up.</p>
+    ${scaleLegend()}
+    ${levelLegend()}
+    <h3 class="cmphead">Scorecard</h3>
+    <div class="tscroll"><table class="ttable cmptable"><thead><tr><th>Teacher or class</th><th>Students</th><th>With work</th><th>Mastery score (1 to 5)</th><th>At their goal</th><th>Under 80% on a standard</th><th>Weakest standards</th><th>Strongest standard</th></tr></thead><tbody>
+      ${groups.map(body).join("")}${card("All teachers", rows, "tall")}</tbody></table></div>
+    <h3 class="cmphead" style="margin-top:26px">Mastery on each standard</h3>
+    ${stdKey(STD, cols)}
+    <p class="tnote2">Each box is the average of that class’s students on that standard. A hint on a problem lowers that problem’s score here by ${HINT_PENALTY} points. Click a standard’s code to see where it shows up and what each level looks like.</p>
+    <div class="tscroll"><table class="ttable cmptable msgrid"><thead><tr><th>Teacher or class</th><th>Students</th><th>Mastery score</th><th>Overall %</th>${cols.map(c => `<th>${hbtn(c)}</th>`).join("")}</tr></thead><tbody>
+      ${groups.map(g => line(esc(g.t.name), g.rs, "tgroup") + classGroups(g.rs).map(c => line("Block " + esc(c.bk), c.rows, "tclass")).join("")).join("")}${line("All teachers", rows, "tall")}</tbody></table></div>`;
+  app.innerHTML = monitorShell("teachers", "Compare teachers · Unit " + unit, inner, true);
+  monitorBind(unit, {});
+}
+
+// ---- Packtime: the students who meet in packtime, from all the teachers, and where they struggled most ----
+const probSnip = p => String(p.q || p.instr || "").replace(/<[^>]+>/g, " ").replace(/\s+/g, " ").trim().slice(0, 95);
+function renderPacktime(allRows, unit){
+  const STD = STANDARDS[unit] || {}, has = unitHas(unit), tn = t => ((TEACHERS.find(x => x.id === t)) || {}).name || t;
+  const group = allRows.filter(r => (PACKTIME[r.t] || []).includes(r.id));
+  const missing = []; Object.keys(PACKTIME).forEach(t => PACKTIME[t].forEach(id => { if(!ROSTER.some(r => r.t === t && r.id === id)) missing.push({t, id}); }));
+  const perTeacher = TEACHERS.map(t => ({t, n: group.filter(r => r.t === t.id).length})).filter(x => x.n);
+  const ms = group.map(r => r.mastery).filter(v => v !== null), msAvg = ms.length ? Math.round(mean(ms) * 10) / 10 : null, nGoal = group.filter(r => atGoal(r.mastery, r.level)).length;
+  // standards, lowest group average first
+  const cols = Object.keys(STD).filter(c => group.some(r => r.std[c] && r.std[c].n > 0));
+  const sRows = cols.map(c => { const sc = group.map(r => r.std[c] && r.std[c].score !== null ? {r, v: r.std[c].score} : null).filter(Boolean);
+    return {c, n: sc.length, avg: sc.length ? Math.round(mean(sc.map(x => x.v))) : null, low: sc.filter(x => x.v < 80).sort((a, b) => a.v - b.v)}; })
+    .filter(x => x.avg !== null).sort((a, b) => a.avg - b.avg || b.low.length - a.low.length);
+  // problems: how many of the packtime students who tried it needed extra help (a wrong answer, the hint, or not finished yet)
+  const probs = [];
+  (CONTENT[unit] || []).forEach(l => l.problems.forEach((p, i) => {
+    if(p.retired) return; const id = unit + "-" + l.id + "-" + i;
+    const tried = group.filter(r => r.level === "honors" || !p.honors).map(r => ({r, rec: r.prog && r.prog[id]})).filter(x => x.rec && (x.rec.d || (x.rec.w && x.rec.w.length) || x.rec.h));
+    if(tried.length < 2) return;
+    const needs = x => (x.rec.w && x.rec.w.length) || x.rec.h || !x.rec.d, nh = tried.filter(needs).length;
+    probs.push({l, p, id, tried, nh, pct: Math.round(nh / tried.length * 100), wrong: Math.round(mean(tried.map(x => (x.rec.w || []).length)) * 10) / 10, hints: tried.filter(x => x.rec.h).length, open: tried.filter(x => !x.rec.d).length});
+  }));
+  probs.sort((a, b) => b.pct - a.pct || b.wrong - a.wrong || b.tried.length - a.tried.length);
+  const shownP = S.pAll ? probs : probs.slice(0, 12), probById = {}; probs.forEach(x => { probById[x.id] = x; });
+  const people = group.map(r => { const sc = cols.map(c => r.std[c] && r.std[c].score !== null ? {c, v: r.std[c].score} : null).filter(Boolean); return {r, m: r.mastery, goal: goalOf(r.level), bl: sc.filter(x => x.v < 80).sort((a, b) => a.v - b.v), has: sc.length > 0}; })
+    .sort((a, b) => (a.m === null) - (b.m === null) || (a.m === null ? 0 : (a.m - a.goal) - (b.m - b.goal)) || a.r.id.localeCompare(b.r.id));
+  const idChips = (xs, max) => xs.slice(0, max).map(y => `<span class="pid" title="${esc(tn(y.r.t))} · Block ${esc(y.r.period)} · ${y.v}%">${esc(y.r.id)}</span>`).join(" ") + (xs.length > max ? ` <span class="muted">+${xs.length - max} more</span>` : "");
+  const stdRow = (x, i) => { const s = STD[x.c], by = stdWhere(unit, x.c), where = Object.keys(by).map(id => `Lesson ${esc(id)} (${by[id].length > 1 ? "problems" : "problem"} ${by[id].join(", ")})`).join("; ");
+    return `<tr class="${i < 3 ? "worst" : ""}"><td class="pname">${i < 3 ? `<span class="rank">${i + 1}</span>` : ""}<b>${esc(stdPlain(STD, x.c))}</b> <button type="button" class="linkbtn" data-std="${esc(x.c)}" title="What each level looks like">${esc(s.short)}</button>${s.review ? ` <small class="muted">(builds on earlier work)</small>` : ""}</td>
+      ${stdCellHtml(x.avg)}<td><b>${x.low.length}</b> <span class="muted">of ${x.n}</span><div class="pids">${idChips(x.low, 8)}</div></td><td class="pwhere">${where || "—"}</td></tr>`; };
+  const probRow = (x, i) => `<tr class="${i < 3 && x.pct > 0 ? "worst" : ""}"><td class="pname">${i < 3 && x.pct > 0 ? `<span class="rank">${i + 1}</span>` : ""}<b>Lesson ${esc(x.l.id)} · Problem ${esc(x.p.n)}</b>${x.p.honors ? ` <span class="pill sm">Honors</span>` : ""}<div class="psnip">${esc(probSnip(x.p))}</div></td>
+    <td>${(x.p.std || []).map(c => STD[c] ? esc(STD[c].short) : esc(c)).join(", ") || "—"}</td><td>${x.tried.length}</td><td><b>${x.nh}</b> <span class="muted">of ${x.tried.length} (${x.pct}%)</span></td><td>${x.wrong}</td><td>${x.hints}</td><td>${x.open}</td>
+    <td><button type="button" class="pill sm" data-pp="${esc(x.id)}">Who</button></td></tr>`;
+  const inner = !has ? `<div class="notice">Unit ${unit} hasn’t been added yet.</div>` : `
+    <p class="explain"><b>How to read this page.</b> These are the students in packtime, from every teacher. <b>Standards</b> are ranked by the group’s average score, lowest first. <b>Problems</b> are ranked by how many of the packtime students who tried them needed extra help: a wrong answer, a hint, or not finished yet. A problem needs at least 2 packtime students who tried it to be listed. Click <b>Who</b> to see which students.</p>
+    <div class="msstats"><span><b>${group.length}</b> packtime students</span>${perTeacher.map(x => `<span>${esc(x.t.name)} <b>${x.n}</b></span>`).join("")}<span><b>${ms.length}</b> have started the unit</span>${msAvg === null ? "" : `<span>group mastery score <b>${msAvg.toFixed(1)}</b> of 5</span><span><b>${nGoal}</b> at their goal</span>`}</div>
+    ${missing.length ? `<div class="notice">${missing.map(x => `<b>${esc(x.id)}</b> (${esc(tn(x.t))})`).join(", ")} ${missing.length === 1 ? "isn’t" : "aren’t"} in that teacher’s roster, so ${missing.length === 1 ? "that student isn’t" : "those students aren’t"} included. Check the ID.</div>` : ""}
+    ${!ms.length ? `<div class="notice">No packtime student has started the unit yet. This page fills in as they work.</div>` : `
+    <h3 class="cmphead">Standards they struggled with most</h3>
+    <div class="tscroll"><table class="ttable packtable"><thead><tr><th>Standard</th><th>Group average</th><th>Students under 80%</th><th>Where to practice</th></tr></thead><tbody>${sRows.map(stdRow).join("")}</tbody></table></div>
+    <h3 class="cmphead" style="margin-top:26px">Problems they struggled with most</h3>
+    ${probs.length ? `<div class="tscroll"><table class="ttable packtable"><thead><tr><th>Problem</th><th>Standards</th><th>Tried</th><th>Needed extra help</th><th>Avg wrong answers</th><th>Used the hint</th><th>Not finished</th><th>Who</th></tr></thead><tbody>${shownP.map(probRow).join("")}</tbody></table></div>
+      ${probs.length > 12 ? `<p style="text-align:center"><button type="button" class="pill sm" data-pall="1">${S.pAll ? "Show only the top 12" : `Show all ${probs.length} problems`}</button></p>` : ""}` : `<div class="notice">No problem has been tried by 2 or more packtime students yet.</div>`}
+    <h3 class="cmphead" style="margin-top:26px">The packtime students</h3>
+    <p class="tnote2">Furthest below their own goal first. Click a student’s ID for their standards and where to practice.</p>
+    <div class="tscroll"><table class="ttable packtable"><thead><tr><th>Student</th><th>Class</th><th>Mastery score</th><th>Needs help with</th></tr></thead><tbody>${people.map(x => `<tr><td class="idc"><button type="button" class="linkbtn" data-mst="${esc(x.r.key)}">${esc(x.r.id)}</button></td><td class="msclass">${esc(x.r.tname)} · Block ${esc(x.r.period)} · ${x.r.level === "honors" ? "Honors" : "Standard"}</td>${masteryCell(x.m, x.r.level)}<td class="needs">${!x.has ? `<span class="muted">No work yet</span>` : x.bl.length ? x.bl.slice(0, 3).map(b => needChip(STD, b.c, b.v)).join(" ") + (x.bl.length > 3 ? ` <span class="muted">+${x.bl.length - 3} more</span>` : "") : `<span class="muted">Nothing under 80%</span>`}</td></tr>`).join("")}</tbody></table></div>`}`;
+  app.innerHTML = monitorShell("packtime", "Packtime · Unit " + unit, inner, true);
+  const byKey = {}; allRows.forEach(r => { byKey[r.key] = r; });
+  monitorBind(unit, byKey);
+  app.querySelectorAll("[data-pp]").forEach(b => b.onclick = () => openPackProblem(probById[b.dataset.pp]));
+  app.querySelectorAll("[data-pall]").forEach(b => b.onclick = () => { S.pAll = !S.pAll; render(); });
+}
+function openPackProblem(pr){
+  const m = document.getElementById("attmodal"); if(!m || !pr) return; m.dataset.opener = "pp:" + pr.id; S.attOpen = true;
+  const rows = pr.tried.slice().sort((a, b) => ((b.rec.w || []).length - (a.rec.w || []).length) || (!!b.rec.h - !!a.rec.h) || ((!a.rec.d) - (!b.rec.d)) || a.r.id.localeCompare(b.r.id));
+  m.innerHTML = `<div class="attcard" role="dialog" aria-modal="true" aria-label="Lesson ${esc(pr.l.id)} problem ${esc(pr.p.n)}">
+    <div class="atthead"><div><h3>Lesson ${esc(pr.l.id)} · Problem ${esc(pr.p.n)}${pr.p.honors ? " (honors)" : ""}</h3><p class="attsub">${esc(probSnip(pr.p))}</p>
+      <p class="attsum">${pr.nh} of ${pr.tried.length} packtime students who tried it needed extra help</p></div><button class="pill unit" id="attclose">Close</button></div>
+    <div class="mstlist">${rows.map(x => { const w = (x.rec.w || []).length, help = w || x.rec.h || !x.rec.d;
+      return `<div class="packrow ${help ? "needs" : ""}"><span><b>${esc(x.r.id)}</b> <span class="muted">${esc(x.r.tname)} · Block ${esc(x.r.period)}</span></span><span>${w} wrong answer${w === 1 ? "" : "s"}</span><span>${x.rec.h ? "💡 used the hint" : "no hint"}</span><span>${x.rec.d ? "finished" : "not finished"}</span></div>`; }).join("")}</div>
+    <p class="muted small attfoot">Only the packtime students who have tried this problem are listed. The students with the most wrong answers are first.</p></div>`;
+  m.hidden = false; document.body.classList.add("noscroll"); const c = document.getElementById("attclose"); c.onclick = closeAtt; c.focus();
 }
 
 function miscSection(shown){
@@ -3776,7 +4064,10 @@ async function renderTeacher(){
   const STD = STANDARDS[unit] || {};
   const all0 = await loadClassData(unit);
   if(S.view !== "teacher") return;
+  if(S.mon && (S.tSection === "home" || S.tSection === "standards")) S.tSection = "mstud";           // her first stop is each student's mastery of each standard
   if(S.mon && S.tSection === "teachers") return renderTeacherCompare(all0.filter(r => !r.test), unit);
+  if(S.mon && S.tSection === "mstud") return renderMonitorStudents(all0.filter(r => !r.test), unit);
+  if(S.mon && S.tSection === "packtime") return renderPacktime(all0.filter(r => !r.test), unit);
   const all = S.mon && S.tTeacher !== "all" ? all0.filter(r => r.t === S.tTeacher) : all0;       // the monitor can look at one teacher or at everyone
   const realAll = all.filter(r => !r.test);          // the test student (Block 0) is kept out of class numbers
   if(S.tSection === "home") return renderTeacherHome(realAll, unit);
@@ -3829,21 +4120,22 @@ async function renderTeacher(){
         return s ? [r.period, r.id, classOf(r), s.done, s.n, compOf(s), s.acc === null ? "" : s.acc, s.score, s.late, s.hints, ...chCsv(r)] : [r.period, r.id, classOf(r), "", "", "", "", "", "", "", ...chCsv(r)]; })];
     fname = `math3-unit${unit}-lesson${lv.id}-${bTag}.csv`;
     extra += challengeCard(unit, shown, isAll, testRows);
+    note = `<p class="tnote2">Accuracy takes off ${PENALTY}% for each wrong answer. The first hint a student uses in a lesson is free, and each later hint takes off ${HINT_COST}% on that problem. 💡 shows how many problems used a hint.</p>`;
 
   } else if(sec === "unit"){
     // ---------- UNIT GRADE CALCULATION (one block at a time) ----------
     const lessonScore = (r, l) => r.per[l.id] ? r.per[l.id].score : null;
     title = isAll ? `All blocks · Unit ${unit} grade` : `Block ${esc(S.tBlock)} · Unit ${unit} grade`;
     chips = LEVELS.map(L => `<span class="lvl ${L.key}">${lvIcon(L.key)}${L.label} <b>${shown.filter(r => r.unit !== null && levelOf(r.unit).key === L.key).length}</b></span>`).join("");
-    const head = `${isAll ? "<th>Block</th>" : ""}<th>ID</th>${lessons.map(l => `<th>L${esc(l.id)}</th>`).join("")}<th>Part 1</th><th>Part 2</th><th>Unit</th>`;
+    const head = `${isAll ? "<th>Block</th>" : ""}<th>ID</th>${lessons.map(l => `<th>L${esc(l.id)}</th>`).join("")}<th>Part 1</th><th>Part 2</th><th>Unit</th><th title="The average of the student's standard levels, 1 to 5">Mastery</th>`;
     const body = shown.map(r => `<tr>${isAll ? `<td>${esc(r.period)}</td>` : ""}${idCell(r)}${lessons.map(l => { const s = r.per[l.id]; return `<td>${fmt(s ? s.score : null)}${s && s.late ? `<span class="latemark" title="${s.late} finished after the due date" aria-label="${s.late} finished late">●</span>` : ""}</td>`; }).join("")}` +
-      `<td><b>${fmt(r.p1)}</b></td><td><b>${fmt(r.p2)}</b></td><td class="ucell ${r.unit === null ? "" : levelOf(r.unit).key}">${r.unit === null ? "" : lvIcon(levelOf(r.unit).key)}<b>${fmt(r.unit)}</b></td></tr>`).join("");
-    const foot = `<tfoot><tr class="avg">${isAll ? "<td></td>" : ""}<td class="idc">Avg</td>${lessons.map(l => `<td>${fmt(avg(r => lessonScore(r, l)))}</td>`).join("")}<td>${fmt(avg(r => r.p1))}</td><td>${fmt(avg(r => r.p2))}</td><td>${fmt(avg(r => r.unit))}</td></tr></tfoot>`;
+      `<td><b>${fmt(r.p1)}</b></td><td><b>${fmt(r.p2)}</b></td><td class="ucell ${r.unit === null ? "" : levelOf(r.unit).key}">${r.unit === null ? "" : lvIcon(levelOf(r.unit).key)}<b>${fmt(r.unit)}</b></td>${masteryCell(r.mastery, r.level)}</tr>`).join("");
+    const foot = `<tfoot><tr class="avg">${isAll ? "<td></td>" : ""}<td class="idc">Avg</td>${lessons.map(l => `<td>${fmt(avg(r => lessonScore(r, l)))}</td>`).join("")}<td>${fmt(avg(r => r.p1))}</td><td>${fmt(avg(r => r.p2))}</td><td>${fmt(avg(r => r.unit))}</td>${(m => m.length ? `<td class="stdcell mscore ${masteryKey(Math.round(mean(m) * 10) / 10)}"><b>${(Math.round(mean(m) * 10) / 10).toFixed(1)}</b></td>` : `<td>—</td>`)(shown.map(r => r.mastery).filter(v => v !== null))}</tr></tfoot>`;
     const lw = (42 / lessons.length).toFixed(2);
-    table = `<table class="ttable fit unitgrid">${cgroup(isAll ? [8, 10, ...lessons.map(() => (43 / lessons.length).toFixed(2)), 11, 11, 17] : [13, ...lessons.map(() => lw), 11, 11, 23])}<thead><tr>${head}</tr></thead><tbody>${body}</tbody>${foot}</table>`;
-    grid = [["Block","HW ID",...lessons.map(l => `Lesson ${l.id} %`),"Part 1 %","Part 2 %","Unit %","Level"],
+    table = `<table class="ttable fit unitgrid">${cgroup(isAll ? [7, 9, ...lessons.map(() => (41 / lessons.length).toFixed(2)), 10, 10, 12, 11] : [11, ...lessons.map(() => (44 / lessons.length).toFixed(2)), 10, 10, 13, 12])}<thead><tr>${head}</tr></thead><tbody>${body}</tbody>${foot}</table>`;
+    grid = [["Block","HW ID",...lessons.map(l => `Lesson ${l.id} %`),"Part 1 %","Part 2 %","Unit %","Level","Mastery score"],
       ...shown.map(r => [r.period, r.id, ...lessons.map(l => { const v = lessonScore(r, l); return v === null ? "" : v; }),
-        r.p1 === null ? "" : r.p1, r.p2 === null ? "" : r.p2, r.unit === null ? "" : r.unit, r.unit === null ? "" : levelOf(r.unit).label])];
+        r.p1 === null ? "" : r.p1, r.p2 === null ? "" : r.p2, r.unit === null ? "" : r.unit, r.unit === null ? "" : levelOf(r.unit).label, r.mastery === null ? "" : r.mastery])];
     fname = `math3-unit${unit}-grades-${bTag}.csv`;
     extra = `<p class="tnote2">A red <span class="latemark">●</span> beside a lesson score means some of that lesson was finished after its due date.</p>`;
     if(isAll) extra += `<h2 class="vtitle" style="margin-top:22px">By block</h2>
@@ -3857,26 +4149,30 @@ async function renderTeacher(){
     const cols = Object.keys(STD).filter(code => shown.some(r => r.std[code] && r.std[code].n > 0));
     title = isAll ? `All blocks · Standards mastery` : `Block ${esc(S.tBlock)} · Standards mastery`;
     chips = keyChips;
-    note = `<p class="tnote2">A hint on a problem lowers that problem's score here by ${HINT_PENALTY} points, so a student who needed every hint no longer looks perfect. 💡 shows how many problems used a hint. Student scores and unit grades are not changed.</p>`;
+    note = `<p class="tnote2">A hint on a problem lowers that problem's score here by ${HINT_PENALTY} points, so a student who needed every hint no longer looks perfect. 💡 shows how many problems used a hint. Student scores and unit grades are not changed.</p>
+      <p class="tnote2"><b>Mastery</b> is the average of each student's standard levels: 1 Remediation (under 70%), 2 Near mastery (70 to 79%), 3 Mastery (80 to 89%), 4 Exceeds mastery (90% and up), and 5 Exceeds mastery on the harder problems (90% and up overall, and 90% and up on the harder honors problems, shown with ★). The goal is 3 or higher for standard classes and 4 or 5 for honors; ✓ means a student is at their goal. Standards that build on earlier courses are shown but not averaged.</p>`;
     const hbtn = code => `<button class="stdh ${STD[code].review ? "rev" : ""}" data-std="${esc(code)}" title="${esc(stdTip(unit, code))}" aria-label="${esc(code)}, show details">${esc(STD[code].short)}</button>`;
     const cell = (x, code) => {
       if(!x || x.n === 0) return `<td class="stdc muted" title="Not assigned">—</td>`;
       if(x.score === null) return `<td class="stdc muted" title="No finished problems yet">—</td>`;
       const k = levelOf(x.score).key;
-      return `<td class="stdc stdcell ${k}" title="${esc(code)}: ${x.score}% on ${x.done} of ${x.n} problems${x.hints ? ", with a hint used on " + x.hints : ""}">${lvIcon(k)}<b>${x.score}%</b>${x.hints ? `<span class="hmark" title="${x.hints} problem${x.hints === 1 ? "" : "s"} with a hint">💡${x.hints}</span>` : ""}</td>`;
+      return `<td class="stdc stdcell ${k}" title="${esc(code)}: ${x.score}% on ${x.done} of ${x.n} problems${x.hints ? ", with a hint used on " + x.hints : ""}">${lvIcon(k)}<b>${x.score}%</b>${x.lvl === 5 ? `<span class="l5" title="Level 5: exceeds mastery, including the harder problems">★</span>` : ""}${x.hints ? `<span class="hmark" title="${x.hints} problem${x.hints === 1 ? "" : "s"} with a hint">💡${x.hints}</span>` : ""}</td>`;
     };
-    const head = `${isAll ? "<th>Block</th>" : ""}<th>ID</th>${cols.map(c => `<th>${hbtn(c)}</th>`).join("")}`;
-    const body = shown.map(r => `<tr>${isAll ? `<td>${esc(r.period)}</td>` : ""}${idCell(r)}${cols.map(c => cell(r.std[c], c)).join("")}</tr>`).join("");
+    const head = `${isAll ? "<th>Block</th>" : ""}<th>ID</th><th title="The average of the student's standard levels, 1 to 5">Mastery</th>${cols.map(c => `<th>${hbtn(c)}</th>`).join("")}`;
+    const body = shown.map(r => `<tr>${isAll ? `<td>${esc(r.period)}</td>` : ""}${idCell(r)}${masteryCell(r.mastery, r.level)}${cols.map(c => cell(r.std[c], c)).join("")}</tr>`).join("");
+    const mVals = shown.map(r => r.mastery).filter(v => v !== null), mAvg = mVals.length ? Math.round(mean(mVals) * 10) / 10 : null;
+    const mPct = mVals.length ? Math.round(shown.filter(r => atGoal(r.mastery, r.level)).length / mVals.length * 100) : null;
+    const mFoot = mAvg === null ? `<td>—</td>` : `<td class="stdcell mscore ${masteryKey(mAvg)}"><b>${mAvg.toFixed(1)}</b><small class="gpct" title="Students at or above their goal">${mPct}% at goal</small></td>`;
     const colAvg = c => avg(r => r.std[c] && r.std[c].score !== null ? r.std[c].score : null);
-    const foot = `<tfoot><tr class="avg">${isAll ? "<td></td>" : ""}<td class="idc">Avg</td>${cols.map(c => { const v = colAvg(c); return v === null ? `<td>—</td>` : `<td class="stdcell ${levelOf(v).key}">${lvIcon(levelOf(v).key)}<b>${v}%</b></td>`; }).join("")}</tr></tfoot>`;
+    const foot = `<tfoot><tr class="avg">${isAll ? "<td></td>" : ""}<td class="idc">Avg</td>${mFoot}${cols.map(c => { const v = colAvg(c); return v === null ? `<td>—</td>` : `<td class="stdcell ${levelOf(v).key}">${lvIcon(levelOf(v).key)}<b>${v}%</b></td>`; }).join("")}</tr></tfoot>`;
     const idw = cols.length > 7 ? 10 : 22, bw = isAll ? 5 : 0;
-    table = `<table class="ttable fit stdgrid ${cols.length > 7 ? "many" : ""}">${cgroup([...(isAll ? [bw] : []), idw, ...cols.map(() => ((100 - idw - bw) / cols.length).toFixed(2))])}<thead><tr>${head}</tr></thead><tbody>${body}</tbody>${foot}</table>`;
+    table = `<table class="ttable fit stdgrid ${cols.length > 7 ? "many" : ""}">${cgroup([...(isAll ? [bw] : []), idw, 8, ...cols.map(() => ((100 - idw - bw - 8) / cols.length).toFixed(2))])}<thead><tr>${head}</tr></thead><tbody>${body}</tbody>${foot}</table>`;
     extra = `<h2 class="vtitle" style="margin-top:22px">Breakdown by standard</h2>
       <div class="tscroll"><table class="ttable fit"><thead><tr><th>Standard</th>${LEVELS.map(L => `<th>${lvIcon(L.key)}${L.label}</th>`).join("")}</tr></thead><tbody>${cols.map(c =>
         `<tr><td class="idc">${hbtn(c)}</td>${LEVELS.map(L => `<td>${shown.filter(r => r.std[c] && r.std[c].score !== null && levelOf(r.std[c].score).key === L.key).length}</td>`).join("")}</tr>`).join("")}</tbody></table></div>`;
-    grid = [["Block","HW ID",...cols.map(c => `${c} %`),...cols.map(c => `${c} Level`)],
-      ...shown.map(r => [r.period, r.id, ...cols.map(c => r.std[c] && r.std[c].score !== null ? r.std[c].score : ""),
-        ...cols.map(c => r.std[c] && r.std[c].score !== null ? levelOf(r.std[c].score).label : "")])];
+    grid = [["Block","HW ID","Mastery score","Goal",...cols.map(c => `${c} %`),...cols.map(c => `${c} Level (1-5)`)],
+      ...shown.map(r => [r.period, r.id, r.mastery === null ? "" : r.mastery, goalOf(r.level), ...cols.map(c => r.std[c] && r.std[c].score !== null ? r.std[c].score : ""),
+        ...cols.map(c => r.std[c] && r.std[c].lvl ? r.std[c].lvl : "")])];
     fname = `math3-unit${unit}-standards-${bTag}.csv`;
     extra += miscSection(shown);
   }
@@ -3887,12 +4183,11 @@ async function renderTeacher(){
     : `<button class="pill ${S.tBlock === bk ? "sel" : ""}" data-blk="${esc(bk)}" aria-pressed="${S.tBlock === bk}" title="Your test student. Not counted in any class numbers.">${bk === "0" ? "Block 0 · test" : "Block " + esc(bk)}</button>`;
 
   app.innerHTML = `<div class="tview sec-${sec}">` + teacherHeader() + unitBar() + `
-    <div class="lrow tabs">
+    ${S.mon ? monitorTabs(sec) : `<div class="lrow tabs">
       <button class="pill ${sec === "lesson" ? "sel" : ""}" data-sec="lesson">Lesson data analysis</button>
       <button class="pill ${sec === "unit" ? "sel" : ""}" data-sec="unit">Unit grade calculation</button>
       <button class="pill ${sec === "standards" ? "sel" : ""}" data-sec="standards">Standards mastery</button>
-      ${S.mon ? `<button class="pill" data-sec="teachers">Compare teachers</button>` : ""}
-    </div>
+    </div>`}
     ${sec === "lesson" ? `<div class="lrow tabs">${lessons.map(l => l.problems.length
         ? `<button class="pill ${lv && lv.id === l.id ? "sel" : ""}" data-lesson="${esc(l.id)}">Lesson ${esc(l.id)}</button>`
         : `<button class="pill" disabled title="Not built yet">Lesson ${esc(l.id)}</button>`).join("")}</div>` : ""}
