@@ -1145,6 +1145,8 @@ body.noscroll{overflow:hidden}
 .packrow{display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:10px;align-items:center;padding:8px 12px;border:2px solid var(--ink);border-radius:12px;text-align:left}
 .packrow.needs{background:rgba(235,87,87,.10)}
 @media(max-width:760px){.packrow{grid-template-columns:1fr 1fr}}
+.lvl.none{background:var(--surface);border-style:dashed;color:var(--muted)}
+.ucell b{font-weight:700}
 </style>
 </head>
 <body>
@@ -3768,6 +3770,10 @@ function bindChrome(){
 }
 
 // ---- teacher home: a very general look at the unit, then the three sections ----
+// Mastery levels are decided by finished work only. A student who has not done a lesson yet is not placed in Remediation for it,
+// and a student with nothing finished has no level yet. (Grades are separate: standard classes are graded on completion, honors on accuracy.)
+const levelCounts = rows => LEVELS.map(L => rows.filter(r => r.mastery !== null && masteryKey(r.mastery) === L.key).length);
+const noLevelCount = rows => rows.filter(r => r.mastery === null).length;
 function unitOverview(rows, unit){
   const ls = (CONTENT[unit] || []).filter(l => l.problems.length);
   const comps = [], accs = []; let notStarted = 0, workedN = 0;
@@ -3780,7 +3786,7 @@ function unitOverview(rows, unit){
     if(dw) accs.push(w.reduce((s, x) => s + x.acc * x.done, 0) / dw);
   });
   return {students: rows.length, worked: workedN, blocks: new Set(rows.map(r => r.period)).size, comp: rnd(mean(comps)), acc: rnd(mean(accs)), notStarted,
-          levels: LEVELS.map(L => rows.filter(r => r.unit !== null && levelOf(r.unit).key === L.key).length)};
+          levels: levelCounts(rows), noLevel: noLevelCount(rows)};
 }
 function renderTeacherHome(all, unit){
   const has = unitHas(unit), o = unitOverview(all, unit);
@@ -3805,7 +3811,8 @@ function renderTeacherHome(all, unit){
     </div>
     <div class="mpanel">
       <div class="mbar" role="img" aria-label="${LEVELS.map((L, i) => L.label + " " + o.levels[i]).join(", ")}">${LEVELS.map((L, i) => o.levels[i] ? `<span class="seg ${L.key}" style="flex:${o.levels[i]}" title="${L.label}: ${o.levels[i]}"></span>` : "").join("")}</div>
-      <div class="lrow">${LEVELS.map((L, i) => `<span class="lvl ${L.key}">${lvIcon(L.key)}${L.label} <b>${o.levels[i]}</b></span>`).join("")}</div>
+      <div class="lrow">${LEVELS.map((L, i) => `<span class="lvl ${L.key}">${lvIcon(L.key)}${L.label} <b>${o.levels[i]}</b></span>`).join("")}${o.noLevel ? `<span class="lvl none" title="These students have not finished a problem that counts toward a standard yet">No level yet <b>${o.noLevel}</b></span>` : ""}</div>
+      <p class="tnote2">Levels come from each student’s <b>finished</b> work (their mastery score), so a student is never placed in Remediation just because a lesson isn’t done yet. Grades are figured separately.</p>
     </div>${msLine}`
     : `<div class="notice">Nothing here yet. Unit ${unit} hasn’t been added.</div>`;
   const bub = (sec, name) => `<button class="pill hbtn" data-sec="${sec}" ${has ? "" : "disabled"}>${name}</button>`;
@@ -4126,22 +4133,23 @@ async function renderTeacher(){
     // ---------- UNIT GRADE CALCULATION (one block at a time) ----------
     const lessonScore = (r, l) => r.per[l.id] ? r.per[l.id].score : null;
     title = isAll ? `All blocks · Unit ${unit} grade` : `Block ${esc(S.tBlock)} · Unit ${unit} grade`;
-    chips = LEVELS.map(L => `<span class="lvl ${L.key}">${lvIcon(L.key)}${L.label} <b>${shown.filter(r => r.unit !== null && levelOf(r.unit).key === L.key).length}</b></span>`).join("");
+    chips = LEVELS.map((L, i) => `<span class="lvl ${L.key}">${lvIcon(L.key)}${L.label} <b>${levelCounts(shown)[i]}</b></span>`).join("") + (noLevelCount(shown) ? `<span class="lvl none" title="These students have not finished a problem that counts toward a standard yet">No level yet <b>${noLevelCount(shown)}</b></span>` : "");
     const head = `${isAll ? "<th>Block</th>" : ""}<th>ID</th>${lessons.map(l => `<th>L${esc(l.id)}</th>`).join("")}<th>Part 1</th><th>Part 2</th><th>Unit</th><th title="The average of the student's standard levels, 1 to 5">Mastery</th>`;
     const body = shown.map(r => `<tr>${isAll ? `<td>${esc(r.period)}</td>` : ""}${idCell(r)}${lessons.map(l => { const s = r.per[l.id]; return `<td>${fmt(s ? s.score : null)}${s && s.late ? `<span class="latemark" title="${s.late} finished after the due date" aria-label="${s.late} finished late">●</span>` : ""}</td>`; }).join("")}` +
-      `<td><b>${fmt(r.p1)}</b></td><td><b>${fmt(r.p2)}</b></td><td class="ucell ${r.unit === null ? "" : levelOf(r.unit).key}">${r.unit === null ? "" : lvIcon(levelOf(r.unit).key)}<b>${fmt(r.unit)}</b></td>${masteryCell(r.mastery, r.level)}</tr>`).join("");
+      `<td><b>${fmt(r.p1)}</b></td><td><b>${fmt(r.p2)}</b></td><td class="ucell"><b>${fmt(r.unit)}</b></td>${masteryCell(r.mastery, r.level)}</tr>`).join("");
     const foot = `<tfoot><tr class="avg">${isAll ? "<td></td>" : ""}<td class="idc">Avg</td>${lessons.map(l => `<td>${fmt(avg(r => lessonScore(r, l)))}</td>`).join("")}<td>${fmt(avg(r => r.p1))}</td><td>${fmt(avg(r => r.p2))}</td><td>${fmt(avg(r => r.unit))}</td>${(m => m.length ? `<td class="stdcell mscore ${masteryKey(Math.round(mean(m) * 10) / 10)}"><b>${(Math.round(mean(m) * 10) / 10).toFixed(1)}</b></td>` : `<td>—</td>`)(shown.map(r => r.mastery).filter(v => v !== null))}</tr></tfoot>`;
     const lw = (42 / lessons.length).toFixed(2);
     table = `<table class="ttable fit unitgrid">${cgroup(isAll ? [7, 9, ...lessons.map(() => (41 / lessons.length).toFixed(2)), 10, 10, 12, 11] : [11, ...lessons.map(() => (44 / lessons.length).toFixed(2)), 10, 10, 13, 12])}<thead><tr>${head}</tr></thead><tbody>${body}</tbody>${foot}</table>`;
-    grid = [["Block","HW ID",...lessons.map(l => `Lesson ${l.id} %`),"Part 1 %","Part 2 %","Unit %","Level","Mastery score"],
+    grid = [["Block","HW ID",...lessons.map(l => `Lesson ${l.id} %`),"Part 1 %","Part 2 %","Unit %","Mastery level","Mastery score"],
       ...shown.map(r => [r.period, r.id, ...lessons.map(l => { const v = lessonScore(r, l); return v === null ? "" : v; }),
-        r.p1 === null ? "" : r.p1, r.p2 === null ? "" : r.p2, r.unit === null ? "" : r.unit, r.unit === null ? "" : levelOf(r.unit).label, r.mastery === null ? "" : r.mastery])];
+        r.p1 === null ? "" : r.p1, r.p2 === null ? "" : r.p2, r.unit === null ? "" : r.unit, r.mastery === null ? "" : masteryName(r.mastery), r.mastery === null ? "" : r.mastery])];
     fname = `math3-unit${unit}-grades-${bTag}.csv`;
-    extra = `<p class="tnote2">A red <span class="latemark">●</span> beside a lesson score means some of that lesson was finished after its due date.</p>`;
+    extra = `<p class="tnote2">A red <span class="latemark">●</span> beside a lesson score means some of that lesson was finished after its due date.</p>
+      <p class="tnote2">Grades follow the grading basis: standard classes are graded on completion, honors on accuracy. The <b>Mastery</b> column and the level counts above use only the work a student has <b>finished</b>, so an unfinished lesson never lowers a mastery level.</p>`;
     if(isAll) extra += `<h2 class="vtitle" style="margin-top:22px">By block</h2>
-      <div class="tscroll"><table class="ttable fit"><thead><tr><th>Block</th><th>Students</th><th>Average unit grade</th>${LEVELS.map(L => `<th>${lvIcon(L.key)}${L.label}</th>`).join("")}</tr></thead><tbody>${classGroups(realAll).map(g => {
+      <div class="tscroll"><table class="ttable fit"><thead><tr><th>Block</th><th>Students</th><th>Average unit grade</th>${LEVELS.map(L => `<th>${lvIcon(L.key)}${L.label}</th>`).join("")}<th>No level yet</th></tr></thead><tbody>${classGroups(realAll).map(g => {
         const rs = g.rows, grades = rs.filter(r => r.unit !== null).map(r => r.unit);
-        return `<tr><td class="idc">${S.mon ? esc(g.tname) + " · " : ""}Block ${esc(g.bk)}</td><td>${rs.length}</td><td>${fmt(rnd(mean(grades)))}</td>${LEVELS.map(L => `<td>${rs.filter(r => r.unit !== null && levelOf(r.unit).key === L.key).length}</td>`).join("")}</tr>`;
+        return `<tr><td class="idc">${S.mon ? esc(g.tname) + " · " : ""}Block ${esc(g.bk)}</td><td>${rs.length}</td><td>${fmt(rnd(mean(grades)))}</td>${levelCounts(rs).map(n => `<td>${n}</td>`).join("")}<td>${noLevelCount(rs)}</td></tr>`;
       }).join("")}</tbody></table></div>`;
 
   } else {
