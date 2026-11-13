@@ -1554,7 +1554,7 @@ const CONTENT = {
        q:`Solve (1/4) · ${PW(10,"d+2")} = 0.25. Show your reasoning.`,
        parts:[
          {t:`(a) Multiplying both sides by 4 gives`, b:true, o:[`${PW(10,"d+2")} = 0.0625`, `${PW(10,"d+2")} = 0.25`, `${PW(10,"d+2")} = 1`, `${PW(10,"d+2")} = 4`], a:2},
-         {t:`(b) Rewriting that in log form gives`, b:true, o:[`d = log 1`, `d + 2 = log 1 = 0`, `log(d + 2) = 1`, `d + 2 = 10 log 1`], a:1},
+         {t:`(b) Rewriting that in log form gives`, b:true, o:[`d = log 1`, `d + 2 = log 1`, `log(d + 2) = 1`, `d + 2 = 10 log 1`], a:1},
          {t:`(c) So d =`, o:["−1","0","2","−2"], a:3}],
        hint:`Get the power of 10 alone first. Then convert: ${PW(10,"y")} = N becomes y = log N, where y is the whole exponent (d + 2). Think about which exponent on 10 gives your number.`},
 
@@ -1562,7 +1562,7 @@ const CONTENT = {
        q:`Solve 9 · ${PW(10,"0.2t")} = 900. Show your reasoning.`,
        parts:[
          {t:`(a) Dividing both sides by 9 gives`, b:true, o:[`${PW(10,"0.2t")} = 891`, `${PW(10,"0.2t")} = 8,100`, `${PW(10,"0.2t")} = 100`, `${PW(10,"0.2t")} = 1/100`], a:2},
-         {t:`(b) Rewriting that in log form gives`, b:true, o:[`t = log 100`, `0.2t = log 100 = 2`, `log(0.2t) = 100`, `0.2t = 100`], a:1},
+         {t:`(b) Rewriting that in log form gives`, b:true, o:[`t = log 100`, `0.2t = log 100`, `log(0.2t) = 100`, `0.2t = 100`], a:1},
          {t:`(c) So t =`, o:["0.4","2","10","20"], a:2}],
        hint:`Divide to isolate the power of 10, then convert: ${PW(10,"y")} = N becomes y = log N, where y is the whole exponent 0.2t. Ask yourself whether your number is a power of 10, and which one.`},
 
@@ -3848,9 +3848,9 @@ function teacherSummaryTable(rows, unit){
     ${line("All teachers", rows, "tall")}</tbody></table>`;
 }
 // ---- the monitor's pages. She runs remediation, so the first thing she sees is each student's mastery of each standard. ----
-const monitorTabs = sec => `<div class="lrow tabs montabs">${[["mstud", "Student mastery"], ["teachers", "Compare teachers"], ["packtime", "Packtime"], ["unit", "Unit grades"], ["lesson", "Lesson details"]].map(([k, n]) => `<button class="pill ${sec === k ? "sel" : ""}" data-sec="${k}">${n}</button>`).join("")}</div>`;
+const monitorTabs = sec => `<div class="lrow tabs montabs">${[["mstud", "Student mastery"], ["teachers", "Compare teachers"], ["packtime", "Packtime"]].map(([k, n]) => `<button class="pill ${sec === k ? "sel" : ""}" data-sec="${k}">${n}</button>`).join("")}</div>`;
 const stdPlain = (STD, c) => STD[c].plain || STD[c].short;
-const levelLegend = () => `<div class="lrow lvlkey">${LEVELS.map((L, i) => `<span class="lvl ${L.key}">${lvIcon(L.key)}${L.label} <small>${i === 0 ? "90% and up" : i === LEVELS.length - 1 ? "under 70%" : L.min + " to " + (LEVELS[i - 1].min - 1) + "%"}</small></span>`).join("")}</div>`;
+const levelLegend = () => `<div class="lrow lvlkey">${LEVELS.map(L => `<span class="lvl ${L.key}">${lvIcon(L.key)}${L.label}</span>`).join("")}</div>`;
 function stdKey(STD, cols){
   return `<details class="stdkey" open><summary>What each standard means</summary><div class="keygrid">${cols.map(c => `<div class="keyitem" title="${esc(STD[c].text)}"><b>${esc(STD[c].short)}</b> <span>${esc(stdPlain(STD, c))}</span>${STD[c].review ? ` <small>(builds on earlier work)</small>` : ""}</div>`).join("")}</div></details>`;
 }
@@ -3885,41 +3885,28 @@ function renderMonitorStudents(allRows, unit){
   let list = only === "goal" ? belowGoal.slice() : only === "1" ? people.filter(x => x.bl.length) : people.slice();
   list.sort(S.mSort === "id" ? ((a, b) => a.r.t.localeCompare(b.r.t) || a.r.id.localeCompare(b.r.id))
     : ((a, b) => (a.m === null) - (b.m === null) || (a.m === null ? 0 : (a.m - a.goal) - (b.m - b.goal)) || (a.m === null ? 0 : a.m - b.m) || b.bl.length - a.bl.length || a.r.id.localeCompare(b.r.id)));
-  const grid = [["Student", "Teacher", "Block", "Group", "Mastery score", "Goal", "At goal", "Overall %", "Needs help with", ...cols.map(c => STD[c].short + " %")],
-    ...list.map(x => [x.r.id, x.r.tname, x.r.period, x.r.level === "honors" ? "Honors" : "Standard", x.m === null ? "" : x.m, goalOf(x.r.level), x.m === null ? "" : (x.m >= x.goal ? "Yes" : "No"), x.o === null ? "" : x.o,
-      !x.has ? "No work yet" : x.bl.map(b => STD[b.c].short + " " + b.v + "%").join("; "), ...cols.map(c => x.r.std[c] && x.r.std[c].score !== null ? x.r.std[c].score : "")])];
   const btn = (attr, val, on, label) => `<button class="pill sm ${on ? "sel" : ""}" ${attr}="${val}" aria-pressed="${on}">${label}</button>`;
   const rowH = x => `<tr><td class="idc msid"><button type="button" class="linkbtn" data-mst="${esc(x.r.key)}" title="See ${esc(x.r.id)}’s mastery in detail">${esc(x.r.id)}</button></td>
     <td class="msclass">${S.tTeacher === "all" ? esc(x.r.tname) + " · " : ""}Block ${esc(x.r.period)} · ${x.r.level === "honors" ? "Honors" : "Standard"}</td>${masteryCell(x.m, x.r.level)}${stdCellHtml(x.o)}
     <td class="needs">${!x.has ? `<span class="muted">No work yet</span>` : x.bl.length ? x.bl.slice(0, 3).map(b => needChip(STD, b.c, b.v)).join(" ") + (x.bl.length > 3 ? ` <span class="muted">+${x.bl.length - 3} more</span>` : "") : `<span class="muted">Nothing under 80%</span>`}</td>
     ${cols.map(c => stdCellHtml(x.r.std[c] && x.r.std[c].score !== null ? x.r.std[c].score : null, x.r.std[c] && x.r.std[c].lvl)).join("")}</tr>`;
   const inner = !has ? `<div class="notice">Unit ${unit} hasn’t been added yet.</div>` : `
-    <p class="explain"><b>How to read this page.</b> Each row is a student. The <b>Mastery score</b> is the student’s average level across the unit’s standards, from 1 to 5, and ✓ means they have reached their goal. Each colored box after that is the student’s average score on one <b>standard</b>, a skill from this unit. The key below says what each one means. <b>Needs help with</b> lists the standards where the student is under 80%, lowest first. Click a student’s ID for the full picture, what the next level looks like, and where to practice.</p>
-    ${scaleLegend()}
-    ${levelLegend()}
+${levelLegend()}
     <div class="msstats"><span><b>${classRows.length}</b> students</span><span><b>${nGoal}</b> at their goal</span><span><b>${belowGoal.length}</b> below their goal</span><span><b>${nNeed}</b> need help on a standard</span><span><b>${nNone}</b> have no work yet</span></div>
     <div class="mcontrols">
       <div class="mcgroup"><span class="mclabel">Class</span>${btn("data-mblk", "all", S.tBlock === "all", S.tTeacher === "all" ? "All classes" : "All of " + who + "’s classes")}${blocks.map(bk => btn("data-mblk", bk, S.tBlock === bk, "Block " + esc(bk))).join("")}</div>
       <div class="mcgroup"><span class="mclabel">Show</span>${btn("data-monly", "0", only === "0", "Everyone")}${btn("data-monly", "goal", only === "goal", "Below their goal")}${btn("data-monly", "1", only === "1", "Needs help on a standard")}</div>
       <div class="mcgroup"><span class="mclabel">Sort</span>${btn("data-msort", "need", S.mSort !== "id", "Furthest from goal first")}${btn("data-msort", "id", S.mSort === "id", "Teacher, class, ID")}</div>
-      <div class="mcgroup"><button class="pill sm" id="mcopy" ${S.sample ? 'disabled title="Turn off sample data to copy real numbers"' : 'title="Copy exactly this list, to paste into a spreadsheet"'}>Copy this list</button></div>
     </div>
-    <div id="tbox" class="tbox"></div>
     ${stdKey(STD, cols)}
-    <p class="tnote2">A hint on a problem lowers that problem’s score here by ${HINT_PENALTY} points. ${list.length} student${list.length === 1 ? "" : "s"} shown.</p>
-    ${list.length ? `<div class="tscroll msscroll"><table class="ttable msgrid"><thead><tr><th>Student</th><th>Class</th><th title="The average of the student’s standard levels, 1 to 5">Mastery score</th><th title="The average percent across the standards">Overall %</th><th>Needs help with</th>${cols.map(c => `<th title="${esc(stdPlain(STD, c))}">${esc(STD[c].short)}</th>`).join("")}</tr></thead><tbody>${list.map(rowH).join("")}</tbody></table></div>` : `<div class="notice">${only === "goal" ? "Every student in this view has reached their goal." : only === "1" ? "No student in this view is under 80% on a standard right now." : "No students here."}</div>`}`;
+    <p class="tnote2">${list.length} student${list.length === 1 ? "" : "s"} shown.</p>
+    ${list.length ? `<div class="tscroll msscroll"><table class="ttable msgrid"><thead><tr><th>Student</th><th>Class</th><th>Mastery score</th><th>Overall %</th><th>Needs help with</th>${cols.map(c => `<th title="${esc(stdPlain(STD, c))}">${esc(STD[c].short)}</th>`).join("")}</tr></thead><tbody>${list.map(rowH).join("")}</tbody></table></div>` : `<div class="notice">${only === "goal" ? "Every student in this view has reached their goal." : only === "1" ? "No student in this view is under 80% on a standard right now." : "No students here."}</div>`}`;
   app.innerHTML = monitorShell("mstud", who + " · Student mastery by standard", inner);
   const byKey = {}; allRows.forEach(r => { byKey[r.key] = r; });
   monitorBind(unit, byKey);
   app.querySelectorAll("[data-mblk]").forEach(b => b.onclick = () => { S.tBlock = b.dataset.mblk; render(); });
   app.querySelectorAll("[data-monly]").forEach(b => b.onclick = () => { S.mOnly = b.dataset.monly; render(); });
   app.querySelectorAll("[data-msort]").forEach(b => b.onclick = () => { S.mSort = b.dataset.msort; render(); });
-  const mc = document.getElementById("mcopy");
-  if(mc) mc.onclick = async () => {
-    const text = toTSV(grid), box = document.getElementById("tbox");
-    try{ await navigator.clipboard.writeText(text); box.innerHTML = `<p class="notice ok">Copied ${list.length} student${list.length === 1 ? "" : "s"}. Paste it into your spreadsheet.</p>`; }
-    catch(e){ box.innerHTML = `<p class="muted small">Your browser blocked copying. Select the text below, copy it, and paste into your spreadsheet.</p><textarea class="tsv" readonly rows="6">${esc(text)}</textarea>`; const ta = box.querySelector("textarea"); ta.focus(); ta.select(); }
-  };
 }
 function openMst(r, unit){
   const STD = STANDARDS[unit] || {}, m = document.getElementById("attmodal"); if(!m || !r) return;
@@ -3941,7 +3928,7 @@ function openMst(r, unit){
     <div class="atthead"><div><h3>${esc(r.id)} · ${esc(r.tname)} · Block ${esc(r.period)} · ${r.level === "honors" ? "Honors" : "Standard"}</h3><p class="attsub">Mastery by standard · Unit ${unit}</p>
       <p class="attsum">${ms === null ? "No work yet" : `Mastery score <b>${ms.toFixed(1)} of 5</b> (${esc(masteryName(ms))}) · goal ${goalText(r.level)}${atGoal(ms, r.level) ? " ✓" : ""} · overall ${o}% · ${low ? `${low} standard${low === 1 ? "" : "s"} under 80%` : "every standard at 80% or above"}`}</p></div><button class="pill unit" id="attclose">Close</button></div>
     <div class="mstlist">${items.map(row).join("") || `<p class="muted">No work to show yet.</p>`}</div>
-    <p class="muted small attfoot">The lowest standards are first. A score is the average of the problems the student has finished on that standard, and a hint lowers a problem’s score by ${HINT_PENALTY} points. The level descriptions come from the Math 3 Standards Unpacking document.</p></div>`;
+</div>`;
   m.hidden = false; document.body.classList.add("noscroll"); const c = document.getElementById("attclose"); c.onclick = closeAtt; c.focus();
 }
 function renderTeacherCompare(rows, unit){
@@ -3965,15 +3952,13 @@ function renderTeacherCompare(rows, unit){
   const hbtn = code => `<button class="stdh ${STD[code].review ? "rev" : ""}" data-std="${esc(code)}" title="${esc(stdPlain(STD, code) + ". " + stdTip(unit, code))}" aria-label="${esc(code)}, show details">${esc(STD[code].short)}</button>`;
   const body = g => card(esc(g.t.name), g.rs, "tgroup") + classGroups(g.rs).map(c => card("Block " + esc(c.bk), c.rows, "tclass")).join("");
   const inner = !(has && rows.length) ? `<div class="notice">${has ? "No student data to compare yet. It appears here as students work." : `Unit ${unit} hasn’t been added yet.`}</div>` : `
-    <p class="explain"><b>How to read this page.</b> Each teacher’s classes together, with every class underneath. The <b>Mastery score</b> is the class’s average of its students’ scores, from 1 to 5 (3 is mastery). <b>At their goal</b> counts students who reached their own goal: 3 or higher in standard classes, 4 or 5 in honors. <b>Under 80%</b> counts students who are under 80% on at least one standard. <b>Weakest</b> and <b>strongest</b> name the standards that pull a class down or up.</p>
-    ${scaleLegend()}
     ${levelLegend()}
     <h3 class="cmphead">Scorecard</h3>
     <div class="tscroll"><table class="ttable cmptable"><thead><tr><th>Teacher or class</th><th>Students</th><th>With work</th><th>Mastery score (1 to 5)</th><th>At their goal</th><th>Under 80% on a standard</th><th>Weakest standards</th><th>Strongest standard</th></tr></thead><tbody>
       ${groups.map(body).join("")}${card("All teachers", rows, "tall")}</tbody></table></div>
     <h3 class="cmphead" style="margin-top:26px">Mastery on each standard</h3>
     ${stdKey(STD, cols)}
-    <p class="tnote2">Each box is the average of that class’s students on that standard. A hint on a problem lowers that problem’s score here by ${HINT_PENALTY} points. Click a standard’s code to see where it shows up and what each level looks like.</p>
+    <p class="tnote2">Click a standard’s code to see where it shows up and what each level looks like.</p>
     <div class="tscroll"><table class="ttable cmptable msgrid"><thead><tr><th>Teacher or class</th><th>Students</th><th>Mastery score</th><th>Overall %</th>${cols.map(c => `<th>${hbtn(c)}</th>`).join("")}</tr></thead><tbody>
       ${groups.map(g => line(esc(g.t.name), g.rs, "tgroup") + classGroups(g.rs).map(c => line("Block " + esc(c.bk), c.rows, "tclass")).join("")).join("")}${line("All teachers", rows, "tall")}</tbody></table></div>`;
   app.innerHTML = monitorShell("teachers", "Compare teachers · Unit " + unit, inner, true);
@@ -4071,7 +4056,7 @@ async function renderTeacher(){
   const STD = STANDARDS[unit] || {};
   const all0 = await loadClassData(unit);
   if(S.view !== "teacher") return;
-  if(S.mon && (S.tSection === "home" || S.tSection === "standards")) S.tSection = "mstud";           // her first stop is each student's mastery of each standard
+  if(S.mon && !["mstud", "teachers", "packtime"].includes(S.tSection)) S.tSection = "mstud";           // her first stop is each student's mastery of each standard
   if(S.mon && S.tSection === "teachers") return renderTeacherCompare(all0.filter(r => !r.test), unit);
   if(S.mon && S.tSection === "mstud") return renderMonitorStudents(all0.filter(r => !r.test), unit);
   if(S.mon && S.tSection === "packtime") return renderPacktime(all0.filter(r => !r.test), unit);
