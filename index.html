@@ -1147,6 +1147,132 @@ body.noscroll{overflow:hidden}
 @media(max-width:760px){.packrow{grid-template-columns:1fr 1fr}}
 .lvl.none{background:var(--surface);border-style:dashed;color:var(--muted)}
 .ucell b{font-weight:700}
+
+/* ---- Unit 6: lesson 1 notes ---- */
+.eqbig{margin:8px 0 12px;font-family:"Playfair Display",Georgia,serif;font-size:2.1rem;line-height:1.5;text-align:center}
+.eqbig.sm{font-size:1.45rem;text-align:left;margin:2px 0 8px}
+.n6hl{padding:0 6px;border-radius:8px;transition:background .15s}
+.eqbig.show-c .hh,.eqbig.show-c .hk{background:#c9defa;color:#111}
+.eqbig.show-r .hr{background:#f6c4c4;color:#111}
+.npills{display:flex;flex-wrap:wrap;gap:10px;margin:6px 0 10px}
+.npill{font-size:.95rem;letter-spacing:.04em}
+.npill.sel{background:var(--blue);color:#111}
+.npill.ans{cursor:default;text-transform:uppercase}
+.n6slot{display:inline-block;min-width:3.6em;padding:0 6px;border-bottom:2px solid var(--ink);text-align:center;font-weight:700;text-transform:none;letter-spacing:0}
+.nsay,.nstep{margin:8px 0;line-height:1.55;font-size:1.02rem}
+.nsay.sm{font-size:.92rem;color:var(--muted)}
+.ntwo{display:flex;flex-wrap:wrap;gap:18px 26px;align-items:flex-start}
+.nleft{flex:1 1 320px;min-width:0}
+.nright{flex:0 1 380px;min-width:260px}
+.ngraph{width:100%;height:auto;display:block;background:var(--bg);border:2px solid var(--ink);border-radius:14px;touch-action:manipulation;cursor:crosshair}
+.ngraph:focus-visible{outline:3px solid var(--blue);outline-offset:3px}
+.ngraph.static{cursor:default}
+.ng-grid{stroke:rgba(128,128,128,.28);stroke-width:1}
+.ng-axis{stroke:var(--ink);stroke-width:2}
+.ng-t{font:600 10.5px "Poppins",system-ui,sans-serif;fill:var(--muted)}
+.ng-circle{fill:rgba(159,197,232,.18);stroke:var(--ink);stroke-width:3}
+.ng-dot{fill:var(--ink);stroke:var(--bg);stroke-width:2}
+.ng-dot.r{fill:#d6336c}
+.ng-dot.wrong{fill:#9aa0a6}
+.ng-seg{stroke:#d6336c;stroke-width:3;stroke-dasharray:6 4}
+.ng-lab rect{fill:var(--surface);stroke:var(--ink);stroke-width:1.6}
+.ng-lab text{font:700 11px "Poppins",system-ui,sans-serif;fill:var(--text)}
+.ng-cur{fill:none;stroke:var(--blue);stroke-width:2.5}
+.nitem{margin:12px 0;padding:12px 14px;border:2px solid var(--ink);border-radius:14px}
+.nitem.done,.nsteps td.done{border-color:#2e7d32}
+.nitem.done{background:rgba(182,215,168,.16)}
+.nitem.locked{opacity:.5}
+.nrow{display:block;margin:6px 0;font-size:1.12rem;line-height:2.4}
+.nrow>*:not(sup){vertical-align:middle}
+.nrow sup,.eqbig sup,.nrun sup,.nsteps sup{vertical-align:super;font-size:.7em;line-height:0}
+.nrow .nb,.nrow .nsel{margin:0 2px}
+.nb{width:3.2em;padding:4px 6px;border:2px solid var(--ink);border-radius:10px;font:600 1.05rem "Poppins",system-ui,sans-serif;text-align:center;background:var(--bg);color:var(--text)}
+.nb.wide{width:4.8em}
+.nsel{width:3.7em;padding:4px 2px;border:2px solid var(--ink);border-radius:10px;font:600 1.05rem "Poppins",system-ui,sans-serif;background:var(--bg);color:var(--text)}
+.nb.ok,.nsel.ok{border-color:#2e7d32;background:#d9efd2;color:#111}
+.nb.bad,.nsel.bad{border-color:#c62828;background:#fbd9d9;color:#111}
+.nb.shown,.nsel.shown{border-color:#2b6fc4;background:#dbe9fb;color:#111}
+.nb:focus-visible,.nsel:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.nfb{display:inline-block;margin-left:8px;font-size:.98rem;font-weight:600;line-height:1.35;max-width:100%}
+.nfb.good{color:#2e7d32}
+.nfb.bad{color:#c62828}
+.nresult{margin:10px 0}
+.deskit{margin:14px 0 4px;padding:12px 14px;border:2px dashed var(--ink);border-radius:14px;display:flex;flex-wrap:wrap;gap:8px 12px;align-items:center}
+.deskit .copied{font-size:.9rem;font-weight:600;color:#2e7d32}
+.nsteps{width:100%;border-collapse:collapse;margin-bottom:12px}
+.nsteps th,.nsteps td{border:2px solid var(--ink);padding:10px 12px;vertical-align:middle;text-align:left}
+.nsteps th{background:var(--surface);text-align:center;font-weight:700}
+.nsteps td.locked{opacity:.45}
+.nrun{margin:6px 0;padding:6px 10px;border-radius:10px;background:rgba(159,197,232,.2);font-size:1.05rem}
+.nnav{display:flex;flex-direction:column;gap:6px;margin:10px 0}
+.nnav .pill.sel{background:var(--blue);color:#111}
+.nnext{display:flex;justify-content:flex-end;margin:6px 0 24px}
+.vidrow{margin:8px 0}
+.soonnote{margin:12px 0}
+@media(max-width:760px){.eqbig{font-size:1.6rem}.nright{flex-basis:100%}}
+
+.nnav .pill{white-space:normal;line-height:1.25;padding-top:8px;padding-bottom:8px;text-align:center;width:100%}
+
+.n6v{text-transform:none}
+.deskit a.pill,.nnext a.pill{color:var(--text);text-decoration:none;display:inline-flex;align-items:center}
+
+.nrow select.nsel,.nitem select.nsel,.nsteps select.nsel{width:3.9em;min-width:0;max-width:4.6em}
+
+/* ---- Unit 6 notes, part 2: radicals, locked challenges, the unlock banner ---- */
+.n6sqrt{white-space:nowrap}
+.n6bar{border-top:2px solid currentColor;padding:0 4px;margin-left:1px}
+.ng-seg.hyp{stroke:var(--ink);stroke-dasharray:none}
+.nsub{margin:16px 0 6px}
+.chbtn.locked,.nnavb.locked{opacity:.55;border-style:dashed;cursor:not-allowed}
+.nrow select.nsel.wide,.nitem select.nsel.wide{width:auto;min-width:6em;max-width:15em}
+.nunlock{border-color:#2e7d32;background:rgba(182,215,168,.25);margin-top:16px}
+.u6pair{display:flex;flex-wrap:wrap;gap:14px 18px;margin:8px 0}
+.u6pair figure{margin:0;flex:1 1 220px;max-width:300px}
+.u6pair figcaption{margin-top:4px;font-weight:700;text-align:center}
+.ng-t.dotlab{font-weight:700;fill:var(--text)}
+
+/* ---- student passcodes ---- */
+.pinback{z-index:80}
+.pincard{position:relative;width:100%;max-width:420px;max-height:94vh;overflow:auto;padding:22px 22px 16px;border:2px solid var(--ink);border-radius:22px;background:var(--surface);box-shadow:6px 6px 0 var(--ink)}
+.pinx{position:absolute;top:10px;right:12px;width:36px;height:36px;padding:0;display:flex;align-items:center;justify-content:center;border:2px solid var(--ink);border-radius:50%;background:var(--bg);color:var(--text);font:700 1.5rem/1 "Poppins",system-ui,sans-serif;cursor:pointer}
+.pinx:hover{background:var(--blue);color:#111}
+.pinx:focus-visible,.pinkey:focus-visible,.pinteach:focus-visible,.pcid:focus-visible{outline:3px solid var(--blue);outline-offset:2px}
+.pinhead{font-size:1.6rem;margin:0 0 10px;justify-content:center;padding:0 30px}
+.pinwho{margin:4px 0 8px;text-align:center;line-height:1.6;font-size:.95rem}
+.pinid{display:inline-block;padding:0 9px;border:2px solid var(--ink);border-radius:10px;background:var(--bg);font:700 1.1rem "Poppins",system-ui,sans-serif}
+.pinsay{margin:8px 0;text-align:center;line-height:1.5;font-size:1.05rem;font-weight:600}
+.pinnote{margin:8px 0;padding:8px 12px;border:2px dashed var(--ink);border-radius:12px;background:rgba(159,197,232,.18);font-weight:600;line-height:1.45;text-align:center}
+.pinstep{margin:6px 0 0;text-align:center;font-size:.8rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700}
+.pindots{display:flex;justify-content:center;gap:20px;margin:16px 0 8px;cursor:text}
+.pindots i{width:22px;height:22px;border:2px solid var(--ink);border-radius:50%;background:transparent;transition:background .12s,transform .12s,border-color .12s}
+.pindots i.on{background:var(--ink);transform:scale(1.1)}
+.pindots.bad i.on{background:#c62828;border-color:#c62828}
+.pindots.shake{animation:pinshake .45s}
+@keyframes pinshake{0%,100%{transform:translateX(0)}20%{transform:translateX(-9px)}40%{transform:translateX(9px)}60%{transform:translateX(-6px)}80%{transform:translateX(6px)}}
+.pinhidden{position:absolute;opacity:0;width:1px;height:1px;border:0;padding:0;pointer-events:none}
+.pinkeys{display:grid;grid-template-columns:repeat(3,62px);gap:9px 14px;justify-content:center;margin:10px auto 4px}
+.pinkey{width:62px;height:62px;padding:0;border:2px solid var(--ink);border-radius:50%;background:var(--bg);color:var(--text);font:700 1.45rem "Poppins",system-ui,sans-serif;cursor:pointer;display:flex;align-items:center;justify-content:center}
+.pinkey:active{background:var(--blue);color:#111}
+.pinkey.blank{border:0;background:none;cursor:default}
+.pinkey.del{font-size:1.2rem}
+.pinteachers{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:12px 0 4px}
+.pinteach{padding:18px 8px;font-size:1rem;border-radius:999px}
+.pinlabel{display:block;margin:10px 0 4px;font-weight:700;text-align:center}
+.pcid{display:block;width:100%;box-sizing:border-box;text-align:center}
+.pinerr{min-height:1.4em;margin:6px 0 2px;text-align:center;font-weight:600}
+.pincard .pill.go{display:block;margin:6px auto 0}
+.pinfine{margin:10px 0 0;font-size:.88rem;color:var(--muted);text-align:center;line-height:1.6}
+.pinwait,.pinsaved{text-align:center;font-weight:700;padding:18px 8px}
+@media (prefers-reduced-motion:reduce){.pindots.shake{animation:none}.pindots i{transition:none}}
+@media (max-height:640px){.pinkeys{grid-template-columns:repeat(3,52px)}.pinkey{width:52px;height:52px;font-size:1.25rem}.pindots{margin:10px 0 4px}}
+.pinscard{max-width:780px}
+.pinsctl{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0 6px}
+.pinsctl .copied{font-size:.9rem;font-weight:600;color:#2e7d32}
+.pinsscroll{max-height:56vh;overflow:auto}
+.pinstable th,.pinstable td{padding:6px 8px;white-space:nowrap;text-align:left}
+.pinval{font:700 1.05rem "Poppins",system-ui,sans-serif;letter-spacing:.12em}
+.pinask{font-weight:600}
+.pinsmsg{margin:8px 0}
 </style>
 </head>
 <body>
@@ -1218,7 +1344,7 @@ const BACKUP = {"*": {"sb": "https://xmvfnhikyqrqjorrmapj.supabase.co", "key": "
 // comes along to the new ID, on their Chromebook and in the backup sheet.   "teacherId:NEWID": ["OLDID", ...]
 const ID_ALIASES = {"t4:1GB": ["1GG"], "t2:4PE": ["41PE"]};
 const LATE_PENALTY = 0;   // points taken off a problem finished after its deadline. 0 = scores are unchanged and late work is only marked.
-const PARTS = { 5: { p1: DUE_PARTS[5][0].lessons, p2: DUE_PARTS[5][1].lessons } };
+const PARTS = { 5: { p1: DUE_PARTS[5][0].lessons, p2: DUE_PARTS[5][1].lessons }, 6: { p1: ["1","2","3","4","5"], p2: ["7","8","9"] } };   // Unit 6: Lesson 6 is the Checkpoint
 
 // STANDARDS addressed in each unit (official NC wording). Each homework problem lists the codes it
 // addresses in its own "std" field, so adding a new lesson only means tagging its problems.
@@ -1241,6 +1367,11 @@ const UNIT_TITLES = {1:"Functions and Their Inverses", 2:"Polynomial Functions",
                      5:"Exponential Functions and Equations", 6:"Circles", 7:"Trigonometric Functions", 8:"Statistical Inferences"};
 
 const STANDARDS = {
+  6: {
+    "NC.M3.G-GPE.1": {short:"GPE.1", plain:"Equation of a circle: center and radius", text:"Derive the equation of a circle of given center and radius using the Pythagorean Theorem; complete the square to find the center and radius of a circle given by an equation.",
+      cw:{l3:"Determine the radius given the equation of a circle.", l4:"Find the center and radius of a circle given in standard form.", l5:"Recognize any equation of a circle, and find the center and radius and other points on the circle."}},
+    "NC.M2.A-SSE.3": {short:"M2 SSE.3", plain:"Complete the square", review:true, text:"Write an equivalent form of a quadratic expression by completing the square, where a is an integer, of a quadratic expression, to reveal the maximum or minimum value of the function the expression defines."}
+  },
   5: {
     "NC.M3.A-CED.2": {short:"CED.2", plain:"Write and graph equations in two variables", cw:{"l3": "Create and graph absolute value and exponential equations in two variables.", "l4": "Create and graph absolute value, polynomial, and exponential equations in two variables; Create and graph rational equations in two variables.", "l5": "Not specified in the NCDPI crosswalk"}, text:"Create and graph equations in two variables to represent absolute value, polynomial, exponential and rational relationships between quantities."},
     "NC.M3.A-CED.1": {short:"CED.1", plain:"Write and solve equations in one variable", cw:{"l3": "Create absolute value, polynomial, exponential, and rational equations and inequalities in one variable.", "l4": "Solve problems that require creating absolute value, polynomial, exponential, and rational equations and inequalities in one variable. Justify solution methods and steps of the solving process.", "l5": "Not specified in the NCDPI crosswalk"}, text:"Create equations and inequalities in one variable that represent absolute value, polynomial, exponential, and rational relationships and use them to solve problems algebraically and graphically."},
@@ -1740,6 +1871,94 @@ const CONTENT = {
   ]
 };
 
+// =====================================================================================================================
+// UNIT 6 · LESSON 1 homework: the workbook's Practice Problems 1, 2, 3, 7 and 13 (everyone), plus 4 and 8 (honors).
+// (More lessons are added here as their problems are chosen.)
+// =====================================================================================================================
+const S_GPE1 = "NC.M3.G-GPE.1", S_M2SSE3 = "NC.M2.A-SSE.3";
+const u6s = n => (n < 0 ? "−" + Math.abs(n) : String(n));
+const u6part = (v, ch) => v === 0 ? `${ch}<sup>2</sup>` : `(${ch} ${v > 0 ? "−" : "+"} ${Math.abs(v)})<sup>2</sup>`;
+const u6e = (h, k, rr) => `${u6part(h, "x")} + ${u6part(k, "y")} = ${rr}`;
+const u6c = (h, k) => `(${u6s(h)}, ${u6s(k)})`;
+function u6Graph(o){                                       // a still picture of a circle on a grid (for reading, not clicking)
+  const W = o.size || 290, x0 = o.x[0], x1 = o.x[1], y0 = o.y[0], y1 = o.y[1], U = W / (x1 - x0), H = U * (y1 - y0), px = x => (x - x0) * U, py = y => (y1 - y) * U;
+  let g = "";
+  for(let x = x0; x <= x1; x++) g += `<line x1="${px(x)}" y1="0" x2="${px(x)}" y2="${H}" class="ng-grid"/>`;
+  for(let y = y0; y <= y1; y++) g += `<line x1="0" y1="${py(y)}" x2="${W}" y2="${py(y)}" class="ng-grid"/>`;
+  g += `<line x1="0" y1="${py(0)}" x2="${W}" y2="${py(0)}" class="ng-axis"/><line x1="${px(0)}" y1="0" x2="${px(0)}" y2="${H}" class="ng-axis"/>`;
+  for(let x = x0 + 1; x < x1; x++) if(x !== 0 && x % 2 === 0) g += `<text x="${px(x)}" y="${Math.min(H - 3, py(0) + 14)}" class="ng-t" text-anchor="middle">${u6s(x)}</text>`;
+  for(let y = y0 + 1; y < y1; y++) if(y !== 0 && y % 2 === 0) g += `<text x="${Math.max(18, px(0) - 5)}" y="${py(y) + 4}" class="ng-t" text-anchor="end">${u6s(y)}</text>`;
+  g += `<circle cx="${px(o.cx)}" cy="${py(o.cy)}" r="${o.r * U}" class="ng-circle"/>`;
+  (o.dots || []).forEach(d => { g += `<circle cx="${px(d.x)}" cy="${py(d.y)}" r="4.5" class="ng-dot"/><text x="${px(d.x) + 7}" y="${py(d.y) - 8}" class="ng-t dotlab">${d.t}</text>`; });
+  return `<svg class="ngraph static" viewBox="0 0 ${W} ${H}" role="img" aria-label="${o.alt}">${g}</svg>`;
+}
+CONTENT[6] = [
+  { id:"1", title:"Distances and Circles", problems:[
+    {std:[S_GPE1], n:"1", type:"dd",
+     q:`Write an equation that represents each circle.`,
+     html:`<div class="u6pair"><figure>${u6Graph({x:[-9,5], y:[-1,10], cx:-2, cy:4, r:4, dots:[{x:-2, y:4, t:"(−2, 4)"}], alt:"Graph a. A circle with its center at negative 2, 4, resting on the x-axis."})}<figcaption>Graph a</figcaption></figure>
+       <figure>${u6Graph({x:[-10,10], y:[-10,10], cx:0, cy:0, r:8, alt:"Graph b. A circle centered at the origin that reaches 8 on each axis."})}<figcaption>Graph b</figcaption></figure></div>`,
+     parts:[
+       {t:`a. The equation of the circle in graph a is`, b:true, o:[u6e(-2,4,16), u6e(2,-4,16), u6e(-2,4,4), u6e(-2,4,8)], a:0},
+       {t:`b. The equation of the circle in graph b is`, b:true, o:[u6e(0,0,64), u6e(0,0,8), u6e(0,0,16), u6e(8,8,64)], a:0}],
+     hint:`Find the center first, then count the radius. In (x − h)<sup>2</sup> + (y − k)<sup>2</sup> = r<sup>2</sup>, use the opposite sign of each center coordinate, and the number on the right side is the radius squared.`},
+    {std:[S_GPE1], n:"2", type:"match",
+     q:`Match each description to its equation.`,
+     instr:`Drag each equation onto its description, or tap an equation and then tap the description.`,
+     rows:[
+       {t:`a. Circle centered at ${u6c(0,-4)} with a radius of 3`, a:1},
+       {t:`b. Circle centered at ${u6c(1,-4)} with a radius of √3`, a:4},
+       {t:`c. Circle centered at ${u6c(1,4)} with a radius of √3`, a:2},
+       {t:`d. Circle centered at ${u6c(1,0)} with a radius of 3`, a:0},
+       {t:`e. Circle centered at ${u6c(1,-4)} with a radius of 3`, a:3}],
+     chips:[u6e(1,0,9), u6e(0,-4,9), u6e(1,4,3), u6e(1,-4,9), u6e(1,-4,3)],
+     hint:`Read the center and the radius from each equation. A plus sign inside the parentheses means a negative center coordinate. The number on the right side is the radius squared, so a radius of √3 goes with 3 and a radius of 3 goes with 9.`},
+    {std:[S_GPE1], n:"3", type:"mc",
+     q:`Write an equation of a circle that is centered at ${u6c(-3,2)} with a radius of 5.`,
+     c:[u6e(3,-2,5), u6e(-3,2,5), u6e(3,-2,25), u6e(-3,2,25)], a:3,
+     hint:`The center is (−3, 2), so you subtract −3 from x, which is the same as adding 3, and you subtract 2 from y. The right side is the radius squared, so work out 5 times 5.`},
+    {std:[S_GPE1], n:"7", type:"dd",
+     q:`The circle ${u6e(2,1,25)}. Graph it in Desmos, or on graph paper, to help with each part.`,
+     parts:[
+       {t:`a. The center of the circle is`, b:true, o:[u6c(2,1), u6c(-2,-1), u6c(2,-1), u6c(1,2)], a:0},
+       {t:`b. The highest point of the circle is`, b:true, o:[u6c(2,6), u6c(2,5), u6c(7,1), u6c(2,-4)], a:0},
+       {t:`c. The point ${u6c(4,0)} is`, b:true, o:["on the circle", "inside the circle", "outside the circle"], a:1},
+       {t:`d. The point ${u6c(-3,3)} is`, b:true, o:["on the circle", "inside the circle", "outside the circle"], a:2},
+       {t:`e. The point ${u6c(-2,-2)} is`, b:true, o:["on the circle", "inside the circle", "outside the circle"], a:0},
+       {t:`f. To decide if a point is inside, on, or outside a circle, you can`, b:true,
+        o:[`find its distance from the center and compare it with the radius: smaller means inside, equal means on the circle, and larger means outside`,
+           `find its distance from the origin and compare it with the radius`,
+           `check whether both of its coordinates are smaller than the radius`,
+           `add its coordinates and compare the sum with the radius squared`], a:0}],
+     hint:`The center is (h, k) and the radius is the square root of the right side. To test a point, find its distance from the center (use the distance formula) and compare that distance with the radius.`},
+    {std:[S_M2SSE3], n:"13", type:"match",
+     q:`Match each expression with the value needed in the box to make a perfect square trinomial.`,
+     instr:`Drag each value onto its expression, or tap a value and then tap the expression.`,
+     rows:[
+       {t:`a. x<sup>2</sup> − 8x + □`, a:0}, {t:`b. x<sup>2</sup> + 20x + □`, a:3}, {t:`c. x<sup>2</sup> − 16x + □`, a:2}, {t:`d. x<sup>2</sup> + 9x + □`, a:1}],
+     chips:["16", "20.25", "64", "100"],
+     hint:`Take half of the number in front of x, then square it. For example, half of 8 is 4, and 4 squared is 16.`},
+    {std:[S_GPE1, S_M2SSE3], n:"4H", type:"dd", honors:true,
+     q:`Find the center and radius of the circle with this equation: x<sup>2</sup> + 16x + 64 + y<sup>2</sup> − 2y + 1 = 144.`,
+     parts:[
+       {t:`a. Writing each group of three terms as a squared binomial gives`, b:true, o:[u6e(-8,1,144), u6e(8,-1,144), u6e(-64,-1,144), u6e(-8,1,209)], a:0},
+       {t:`b. The center of the circle is`, b:true, o:[u6c(-8,1), u6c(8,-1), u6c(-8,-1), u6c(8,1)], a:0},
+       {t:`c. The radius of the circle is`, b:true, o:["12", "144", "72", "6"], a:0}],
+     hint:`Look at each group of three terms. x<sup>2</sup> + 16x + 64 is already a perfect square trinomial, and so is y<sup>2</sup> − 2y + 1. Factor each one. The right side stays 144, because you did not add anything.`},
+    {std:[S_GPE1, S_M2SSE3], n:"8H", type:"match", honors:true,
+     q:`A classmate missed the lesson on completing the square to find the center and radius of a circle. Put the steps of the process in order.`,
+     instr:`Drag each step onto its place in the list, or tap a step and then tap the place.`,
+     rows:[{t:`Step 1`, a:1}, {t:`Step 2`, a:4}, {t:`Step 3`, a:3}, {t:`Step 4`, a:0}, {t:`Step 5`, a:5}, {t:`Step 6`, a:2}],
+     chips:[`Add both of those values to both sides of the equation.`,
+            `Group the x-terms together and the y-terms together, and move the constant to the right side.`,
+            `Read the center (h, k) and the radius from the equation.`,
+            `Take half of the y-term, and square it.`,
+            `Take half of the x-term, and square it.`,
+            `Rewrite each group as a squared binomial.`],
+     hint:`Group first. Then find the two numbers that complete the squares, add them to both sides, rewrite each group as a square, and read off the circle.`}
+  ]}
+];
+
 // Draws the graph of y = 3^x used in Lesson 3, Problem 4.
 function expGraph(){
   const W=360,H=250,L=52,R=345,T=12,B=205,xmax=9.5,ymax=12000;
@@ -2100,7 +2319,7 @@ function go(view, extra){
 function enterPreview(){
   S.preview = true; S.student = {id: "PREVIEW", level: "honors", h: "preview:" + S.tId, preview: true, aliasIds: [], aliasH: []};
   S.hist = []; progress = {}; resetLive(); S.unit = S.tUnit; S.lesson = null;
-  S.view = unitHas(S.tUnit) ? "unit" : "units";
+  S.view = (unitHas(S.tUnit) || PLANNED[S.tUnit]) ? "unit" : "units";
   render(); window.scrollTo(0, 0);
 }
 function exitPreview(){
@@ -2116,6 +2335,839 @@ function header(){
     <span class="pill sm">${S.student.level==="honors"?"Honors":"Standard"}</span>
     <button class="logout" id="out">Log out</button></div></header>`;
 }
+// =====================================================================================================================
+// UNIT 6. The unit page, and Lesson 1's self-paced notes.
+//   * Until the workbook problems are added, Unit 6 shows its lessons as "coming soon".
+//   * Lesson 1 notes are interactive (click the graph, fill in the blanks) and only Mr. Watts's students see them,
+//     because he is out that day. Honors students also get "Complete the square".
+//   * UNIT6_OPEN = false keeps the whole unit closed to students. A teacher's "See student view" can always open it.
+// =====================================================================================================================
+const UNIT6_OPEN = false;                  // change to true when Unit 6 is ready for students
+const UNIT6_VIDEOS_URL = "";               // paste the link to the videos here and a "Videos" button appears on the Unit 6 page
+const NOTES_TEACHERS = ["t4"];             // the teachers whose students get the Lesson 1 notes (t4 = Watts)
+const DESMOS_URL = "https://www.desmos.com/calculator";
+const PLANNED = {6: [
+  {id: "1", title: "Distances and Circles", part: 1}, {id: "2", title: "Lines, Angles, and Arcs", part: 1}, {id: "3", title: "Tangent Lines", part: 1},
+  {id: "4", title: "Relationships of Intersecting Lines", part: 1}, {id: "5", title: "Special Points", part: 1},
+  {id: "7", title: "Arcs and Sectors", part: 2}, {id: "8", title: "A New Way to Measure Angles", part: 2}, {id: "9", title: "Using Radians", part: 2}]};
+const unitOpen = u => u !== 6 || UNIT6_OPEN || !!(S.student && S.student.preview);
+const notesOn = () => S.unit === 6 && !!S.student && (S.student.preview ? NOTES_TEACHERS.includes(S.tId) : !!(S.teacher && NOTES_TEACHERS.includes(S.teacher.id)));
+
+// ---- small math helpers for the notes ----
+const N6M = "−";                                            // a real minus sign, for display
+const n6s = n => (n < 0 ? N6M + Math.abs(n) : String(n));    // a number, with a real minus sign
+const n6part = (v, ch) => v === 0 ? `${ch}<sup>2</sup>` : `(${ch} ${v > 0 ? N6M : "+"} ${Math.abs(v)})<sup>2</sup>`;    // (x − 4)², or x² when the center is on the axis
+const n6eq = (h, k, rr) => `${n6part(h, "x")} + ${n6part(k, "y")} = ${rr}`;
+const n6cp = (h, k, rr) => `${h === 0 ? "x" : "(x" + (h > 0 ? "-" : "+") + Math.abs(h) + ")"}^2+${k === 0 ? "y" : "(y" + (k > 0 ? "-" : "+") + Math.abs(k) + ")"}^2=${rr}`;   // what gets copied for Desmos
+const n6term = (n, v) => n === 0 ? "" : ` ${n > 0 ? "+" : N6M} ${Math.abs(n) === 1 ? "" : Math.abs(n)}${v}`;
+const n6gen = (A, B, C, lead) => { lead = lead || 1; const L = lead === 1 ? "" : lead;
+  return `${L}x<sup>2</sup> + ${L}y<sup>2</sup>${n6term(lead * A, "x")}${n6term(lead * B, "y")}${C === 0 ? "" : ` ${lead * C > 0 ? "+" : N6M} ${Math.abs(lead * C)}`} = 0`; };
+const n6gcp = (A, B, C, lead) => { lead = lead || 1; const t = (n, v) => n === 0 ? "" : (n > 0 ? "+" : "-") + (Math.abs(n) === 1 ? "" : Math.abs(n)) + v;
+  return `${lead === 1 ? "" : lead}x^2+${lead === 1 ? "" : lead}y^2${t(lead * A, "x")}${t(lead * B, "y")}${lead * C === 0 ? "" : (lead * C > 0 ? "+" : "-") + Math.abs(lead * C)}=0`; };
+const n6parse = s => {                                      // a whole number, decimal or fraction, typed with - or the real minus sign
+  s = String(s).replace(/[−–—]/g, "-").replace(/\s+/g, "").replace(/^\+/, ""); if(!s) return NaN;
+  const f = s.match(/^(-?\d+(?:\.\d+)?)\/(\d+(?:\.\d+)?)$/); if(f) return +f[2] === 0 ? NaN : +f[1] / +f[2];
+  return /^-?\d+(?:\.\d+)?$/.test(s) ? +s : NaN; };
+const n6rad = s => {                                        // a radius: 6, 4.47, √20, sqrt(20), 2√5 or 2*sqrt(5)
+  const t = String(s).replace(/[−–—]/g, "-").replace(/\s+/g, "").replace(/\*/g, "").replace(/sqrt/gi, "√").replace(/[()]/g, "");
+  const m = t.match(/^(\d+(?:\.\d+)?)?√(\d+(?:\.\d+)?)$/); if(m) return (m[1] ? +m[1] : 1) * Math.sqrt(+m[2]);
+  return n6parse(t); };
+const n6box = (k, label, wide) => `<input class="nb${wide ? " wide" : ""}" data-b="${k}" type="text" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="${esc(label)}">`;
+const n6sign = (k, label) => `<select class="nsel" data-b="${k}" aria-label="${esc(label)}"><option value="">▾</option><option value="-">${N6M}</option><option value="+">+</option></select>`;
+const n6eqrow = p => `(x ${n6sign(p + "s1", "minus or plus, for x")} ${n6box(p + "n1", "number for x")})<sup>2</sup> + (y ${n6sign(p + "s2", "minus or plus, for y")} ${n6box(p + "n2", "number for y")})<sup>2</sup> = ${n6box(p + "rr", "the number on the right side", true)}`;
+const n6eqspecs = (p, h, k, rr) => [{t: "p", s: p + "s1", n: p + "n1", want: h}, {t: "p", s: p + "s2", n: p + "n2", want: k}, {t: "n", k: p + "rr", want: rr}];
+const n6desmos = (text, what) => `<div class="deskit"><span><b>Check it with Desmos.</b> ${what || "Desmos graphs the circle for you, so you can see the center and the radius right away."}</span>
+  <button type="button" class="pill sm" data-copy="${esc(text)}">Copy the equation</button><a class="pill sm" href="${DESMOS_URL}" target="_blank" rel="noopener">Open Desmos</a><span class="copied" aria-live="polite"></span></div>`;
+if(!window.__n6copy){ window.__n6copy = true;
+  document.addEventListener("click", e => { const b = e.target.closest && e.target.closest("[data-copy]"); if(!b) return;
+    const t = b.dataset.copy, say = () => { const s = b.parentElement.querySelector(".copied"); if(s){ s.textContent = "Copied. Now paste it into Desmos."; setTimeout(() => { s.textContent = ""; }, 4500); } };
+    const old = () => { const ta = document.createElement("textarea"); ta.value = t; ta.setAttribute("readonly", ""); ta.style.cssText = "position:fixed;opacity:0"; document.body.appendChild(ta); ta.select(); try{ document.execCommand("copy"); say(); }catch(_){} ta.remove(); };
+    if(navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(say, old); else old(); }); }
+
+// ---- the graph: click a point (or use the arrow keys and Enter) ----
+const NG = {};
+function noteGraph(id, o){
+  const W = o.size || 360, x0 = o.x[0], x1 = o.x[1], y0 = o.y[0], y1 = o.y[1], U = W / (x1 - x0), H = U * (y1 - y0), px = x => (x - x0) * U, py = y => (y1 - y) * U;
+  let g = "";
+  for(let x = x0; x <= x1; x++) g += `<line x1="${px(x)}" y1="0" x2="${px(x)}" y2="${H}" class="ng-grid"/>`;
+  for(let y = y0; y <= y1; y++) g += `<line x1="0" y1="${py(y)}" x2="${W}" y2="${py(y)}" class="ng-grid"/>`;
+  g += `<line x1="0" y1="${py(0)}" x2="${W}" y2="${py(0)}" class="ng-axis"/><line x1="${px(0)}" y1="0" x2="${px(0)}" y2="${H}" class="ng-axis"/>`;
+  for(let x = x0; x <= x1; x++) if(x !== 0 && x % 2 === 0 && x > x0 && x < x1) g += `<text x="${px(x)}" y="${Math.min(H - 3, py(0) + 14)}" class="ng-t" text-anchor="middle">${n6s(x)}</text>`;
+  for(let y = y0; y <= y1; y++) if(y !== 0 && y % 2 === 0 && y > y0 && y < y1) g += `<text x="${Math.max(18, px(0) - 5)}" y="${py(y) + 4}" class="ng-t" text-anchor="end">${n6s(y)}</text>`;
+  if(o.circle) g += `<circle cx="${px(o.circle.cx)}" cy="${py(o.circle.cy)}" r="${o.circle.r * U}" class="ng-circle"/>`;
+  NG[id] = {W, H, U, x0, x1, y0, y1, px, py, cur: null, marks: []};
+  return `<svg class="ngraph" id="${id}" viewBox="0 0 ${W} ${H}" role="application" tabindex="0" aria-label="${esc(o.label || "A coordinate grid")}. Click a point, or use the arrow keys to move and press Enter to choose.">${g}<g class="ng-over"></g></svg>`;
+}
+function graphMarks(id, marks){
+  const G = NG[id], svg = document.getElementById(id); if(!G || !svg) return; G.marks = marks || G.marks;
+  const out = G.marks.map(m => {
+    if(m.t === "dot") return `<circle cx="${G.px(m.x)}" cy="${G.py(m.y)}" r="6" class="ng-dot ${m.cls || ""}"/>`;
+    if(m.t === "seg") return `<line x1="${G.px(m.x1)}" y1="${G.py(m.y1)}" x2="${G.px(m.x2)}" y2="${G.py(m.y2)}" class="ng-seg ${m.cls || ""}"/>`;
+    const w = m.text.length * 7.4 + 16, lx = Math.max(3, Math.min(G.W - w - 3, G.px(m.x) + (m.dx || 0))), ly = Math.max(3, Math.min(G.H - 25, G.py(m.y) + (m.dy || 0)));
+    return `<g class="ng-lab"><rect x="${lx}" y="${ly}" width="${w}" height="22" rx="11"/><text x="${lx + w / 2}" y="${ly + 15}" text-anchor="middle">${esc(m.text)}</text></g>`;
+  }).join("");
+  svg.querySelector(".ng-over").innerHTML = out + (G.cur ? `<rect class="ng-cur" x="${G.px(G.cur[0]) - 9}" y="${G.py(G.cur[1]) - 9}" width="18" height="18" rx="4"/>` : "");
+}
+function bindGraph(id, onPick){
+  const G = NG[id], svg = document.getElementById(id); if(!G || !svg) return;
+  if(!onPick){ svg.classList.add("static"); svg.removeAttribute("tabindex"); svg.setAttribute("role", "img"); return; }
+  const clamp = (x, y) => [Math.max(G.x0, Math.min(G.x1, x)), Math.max(G.y0, Math.min(G.y1, y))];
+  svg.onclick = e => { const r = svg.getBoundingClientRect(); G.cur = null;
+    onPick(...clamp(Math.round(G.x0 + ((e.clientX - r.left) / r.width * G.W) / G.U), Math.round(G.y1 - ((e.clientY - r.top) / r.height * G.H) / G.U))); };
+  svg.onkeydown = e => { const d = {ArrowLeft: [-1, 0], ArrowRight: [1, 0], ArrowUp: [0, 1], ArrowDown: [0, -1]}[e.key];
+    if(d){ e.preventDefault(); G.cur = clamp((G.cur ? G.cur[0] : 0) + d[0], (G.cur ? G.cur[1] : 0) + d[1]); graphMarks(id); }
+    else if((e.key === "Enter" || e.key === " ") && G.cur){ e.preventDefault(); const c = G.cur.slice(); onPick(c[0], c[1]); } };
+}
+
+// ---- checking the fill-in-the-blank boxes ----
+const n6val = (root, k) => { const el = root.querySelector(`[data-b="${k}"]`); return el ? el.value.trim() : ""; };
+const n6pair = (root, sk, nk) => { const s = n6val(root, sk), n = n6parse(n6val(root, nk)); return (!s || isNaN(n)) ? NaN : (s === "-" ? n : -n); };    // (x − 4) is 4, and (x + 4) is −4
+function n6ok(root, s){
+  if(s.t === "n"){ const v = n6parse(n6val(root, s.k)); return !isNaN(v) && Math.abs(v - s.want) < 1e-9; }
+  if(s.t === "r"){ const v = n6rad(n6val(root, s.k)); return !isNaN(v) && Math.abs(v - s.want) < 0.011; }
+  if(s.t === "p"){ if(s.want === 0) return n6parse(n6val(root, s.n)) === 0; const v = n6pair(root, s.s, s.n); return !isNaN(v) && Math.abs(v - s.want) < 1e-9; }
+  if(s.t === "s") return s.want.includes(n6val(root, s.k).toLowerCase().replace(/\s+/g, ""));
+  if(s.t === "c") return n6val(root, s.k) === s.want;
+  if(s.t === "u"){ const a = n6parse(n6val(root, s.k1)), b = n6parse(n6val(root, s.k2)), w = s.want, near = (x, y) => Math.abs(x - y) < 1e-9;
+    return !isNaN(a) && !isNaN(b) && ((near(a, w[0]) && near(b, w[1])) || (near(a, w[1]) && near(b, w[0]))); }
+  return false;
+}
+const n6els = (root, s) => (s.t === "p" ? [s.s, s.n] : s.t === "u" ? [s.k1, s.k2] : [s.k]).map(k => root.querySelector(`[data-b="${k}"]`)).filter(Boolean);
+function n6fill(root, s){ const set = (k, v) => { const el = root.querySelector(`[data-b="${k}"]`); if(el) el.value = v; };
+  if(s.t === "n") set(s.k, String(s.want)); if(s.t === "r") set(s.k, s.text || String(s.want));
+  if(s.t === "p"){ set(s.s, s.want > 0 || s.want === 0 ? "-" : "+"); set(s.n, String(Math.abs(s.want))); }
+  if(s.t === "s") set(s.k, s.want[0]); if(s.t === "c") set(s.k, s.want); if(s.t === "u"){ set(s.k1, String(s.want[0])); set(s.k2, String(s.want[1])); } }
+const n6lock = root => { root.querySelectorAll("input,select,.nchk").forEach(e => { e.disabled = true; }); };
+const n6unlock = root => { root.classList.remove("locked"); root.querySelectorAll("input,select,.nchk").forEach(e => { e.disabled = false; }); };
+function bindItem(root, specs, opt){
+  opt = opt || {}; const btn = root.querySelector(".nchk"), fb = root.querySelector(".nfb"); let tries = 0, showBtn = null;
+  const all = () => specs.forEach(s => n6els(root, s).forEach(el => el.classList.remove("ok", "bad", "shown")));
+  btn.onclick = () => {
+    all(); const res = specs.map(s => ({s, ok: n6ok(root, s)})); res.forEach(r => n6els(root, r.s).forEach(el => el.classList.add(r.ok ? "ok" : "bad")));
+    if(res.every(r => r.ok)){ root.classList.add("done"); fb.className = "nfb good"; fb.textContent = opt.good || "Yes, that is right."; n6lock(root); if(showBtn) showBtn.remove(); if(opt.key) noteMark(opt.key, false); if(opt.done) opt.done(root, false); return; }
+    tries++; fb.className = "nfb bad"; fb.textContent = (opt.hint && opt.hint(res.filter(r => !r.ok).map(r => r.s), root)) || "Look at the boxes marked in red, and try again.";
+    if(tries >= 3 && !showBtn){ showBtn = document.createElement("button"); showBtn.type = "button"; showBtn.className = "pill sm nshow"; showBtn.textContent = "Show me"; btn.after(showBtn);
+      showBtn.onclick = () => { all(); specs.forEach(s => { n6fill(root, s); n6els(root, s).forEach(el => el.classList.add("shown")); }); root.classList.add("done"); fb.className = "nfb good"; fb.textContent = "Here is the answer. Read through it and see how it works, then keep going."; n6lock(root); showBtn.remove(); if(opt.key) noteMark(opt.key, true); if(opt.done) opt.done(root, true); }; }
+  };
+  root.querySelectorAll("input").forEach(i => i.addEventListener("keydown", e => { if(e.key === "Enter"){ e.preventDefault(); btn.click(); } }));
+}
+
+
+const n6dopen = what => `<div class="deskit"><span><b>Check it with Desmos.</b> ${what}</span><a class="pill sm" href="${DESMOS_URL}" target="_blank" rel="noopener">Open Desmos</a></div>`;
+const n6dmini = text => `<button type="button" class="pill sm" data-copy="${esc(text)}">Copy for Desmos</button><span class="copied" aria-live="polite"></span>`;
+const n6chk = `<button type="button" class="pill sm nchk">Check</button><span class="nfb" role="status" aria-live="polite"></span>`;
+
+// ================= Topic 1: standard form of a circle (everyone) =================
+function noteStd(){
+  const CX = 4, CY = -1, R = 6;
+  const SAY0 = "Click CENTER and RADIUS to see which parts of the equation they match.";
+  const SAY = {
+    c: "The center is the point (h, k). Look at the signs. The equation has x minus h, so h is the number being subtracted from x. For example, (x − 4) means h = 4, but (y + 1) means k = −1, because y + 1 is the same as y minus −1.",
+    r: "The radius r is the distance from the center to any point on the circle. The right side of the equation is r squared, so you take the square root of that number to find r. For example, if the right side is 36, then r = 6."};
+  const html = `
+  <article class="chcard">
+    <h2 class="chtitle">Standard Form of the Circle Equation</h2>
+    <div class="eqbig" id="n1f">(x ${N6M} <span class="n6hl hh">h</span>)<sup>2</sup> + (y ${N6M} <span class="n6hl hk">k</span>)<sup>2</sup> = <span class="n6hl hr">r</span><sup>2</sup></div>
+    <div class="npills"><button type="button" class="pill unit npill" data-hl="c" aria-pressed="false">CENTER <span class="n6v">(h, k)</span></button><button type="button" class="pill unit npill" data-hl="r" aria-pressed="false">RADIUS <span class="n6v">(r)</span></button></div>
+    <p class="nsay" id="n1say" aria-live="polite">${SAY0}</p>
+  </article>
+  <article class="chcard">
+    <h3 class="chsub">Find the standard form of the circle on the right.</h3>
+    <div class="ntwo">
+      <div class="nleft">
+        <div class="npills"><span class="pill unit npill ans">CENTER ( <span class="n6slot" id="n1c">click the graph</span> )</span><span class="pill unit npill ans">RADIUS ( <span class="n6slot" id="n1r">click the graph</span> )</span></div>
+        <p class="nstep" id="n1step" aria-live="polite"><b>Step 1.</b> Click the center of the circle on the graph.</p>
+        <div class="nitem" id="n1b1" hidden><p class="nsay"><b>Step 3.</b> Fill in the blanks with the center and the radius you found.</p>
+          <div class="nrow">(x ${N6M} ${n6box("h", "h")})<sup>2</sup> + (y ${N6M} ${n6box("k", "k")})<sup>2</sup> = (${n6box("r", "r")})<sup>2</sup></div><div class="nrow">${n6chk}</div></div>
+        <div class="nitem" id="n1b2" hidden><p class="nsay"><b>Step 4.</b> Now simplify. Subtracting a negative number is the same as adding. Work out the radius squared on the right side.</p>
+          <div class="nrow">${n6eqrow("e")}</div><div class="nrow">${n6chk}</div></div>
+        <div id="n1end" hidden></div>
+      </div>
+      <div class="nright">${noteGraph("g1", {x: [-4, 12], y: [-9, 7], circle: {cx: CX, cy: CY, r: R}, label: "A circle on a coordinate grid"})}</div>
+    </div>
+  </article>`;
+  return {html, bind(){
+    const f = document.getElementById("n1f"), say = document.getElementById("n1say"), step = document.getElementById("n1step");
+    document.querySelectorAll("[data-hl]").forEach(b => b.onclick = () => {
+      const on = b.getAttribute("aria-pressed") !== "true";
+      document.querySelectorAll("[data-hl]").forEach(x => { x.setAttribute("aria-pressed", "false"); x.classList.remove("sel"); }); f.className = "eqbig";
+      if(on){ b.setAttribute("aria-pressed", "true"); b.classList.add("sel"); f.classList.add("show-" + b.dataset.hl); say.textContent = SAY[b.dataset.hl]; } else say.textContent = SAY0; });
+    let cen = null, rad = null, wrong = null;
+    const draw = () => { const m = [];
+      if(cen){ m.push({t: "dot", x: cen[0], y: cen[1]}, {t: "label", x: cen[0], y: cen[1], text: `CENTER (${n6s(cen[0])}, ${n6s(cen[1])})`, dx: -118, dy: -34}); }
+      if(rad){ m.push({t: "seg", x1: cen[0], y1: cen[1], x2: rad[0], y2: rad[1]}, {t: "dot", x: rad[0], y: rad[1], cls: "r"}, {t: "label", x: rad[0], y: rad[1], text: `RADIUS ${rad[2]}`, dx: 8, dy: 12}); }
+      if(wrong) m.push({t: "dot", x: wrong[0], y: wrong[1], cls: "wrong"});
+      graphMarks("g1", m); };
+    bindGraph("g1", (x, y) => {
+      if(rad){ draw(); return; }
+      if(!cen){
+        if(x === CX && y === CY){ cen = [x, y]; wrong = null; document.getElementById("n1c").textContent = `${n6s(x)}, ${n6s(y)}`;
+          step.innerHTML = "<b>Step 2.</b> Now click a point on the circle that lands on a grid crossing. The distance from the center to that point is the radius."; }
+        else { wrong = [x, y]; const d = Math.hypot(x - CX, y - CY);
+          step.innerHTML = `<b>Step 1.</b> You clicked (${n6s(x)}, ${n6s(y)}). ${Math.abs(d - R) < 1e-9 ? "That point is on the circle. The center is the point in the middle, the same distance from every point on the circle." : "The center is the point in the middle of the circle. Try again."}`; }
+      } else {
+        const d = Math.hypot(x - CX, y - CY);
+        if(Math.abs(d - R) < 1e-9){ rad = [x, y, Math.round(d)]; wrong = null; document.getElementById("n1r").textContent = String(rad[2]);
+          step.innerHTML = `<b>Step 2.</b> Good. Count the squares from the center to that point. The radius is ${rad[2]}.`;
+          const b1 = document.getElementById("n1b1"); b1.hidden = false; }
+        else if(x === CX && y === CY){ wrong = null; step.innerHTML = "<b>Step 2.</b> That is the center. Click a point on the circle instead."; }
+        else { wrong = [x, y]; step.innerHTML = `<b>Step 2.</b> The point (${n6s(x)}, ${n6s(y)}) is not on the circle. Click a point where the circle passes through a grid crossing.`; }
+      }
+      draw(); });
+    bindItem(document.getElementById("n1b1"), [{t: "n", k: "h", want: CX}, {t: "n", k: "k", want: CY}, {t: "n", k: "r", want: R}], {
+      good: "Yes. That is the equation, with the numbers filled in.",
+      hint: () => "h is the x-coordinate of the center and k is the y-coordinate. Use the center and the radius you found on the graph. Type a negative number with a minus sign.",
+      done: () => { document.getElementById("n1b2").hidden = false; } });
+    bindItem(document.getElementById("n1b2"), n6eqspecs("e", CX, CY, R * R), {key: "6-N1-0",
+      good: "Yes. That is the standard form of the circle.",
+      hint: (bad, root) => { const hv = n6pair(root, "es1", "en1"), kv = n6pair(root, "es2", "en2"), rr = n6parse(n6val(root, "err"));
+        if(hv === -CX || kv === -CY) return "Check the signs. Subtracting a negative number is the same as adding, so y minus negative 1 becomes y plus 1.";
+        if(rr === R) return "The right side is the radius squared. Work out 6 times 6.";
+        return "Use the numbers you found, and watch the signs. Subtracting a negative number is the same as adding. The right side is the radius squared."; },
+      done: () => { const e = document.getElementById("n1end"); e.hidden = false;
+        e.innerHTML = `<div class="nresult"><div class="eqbig sm">${n6eq(CX, CY, R * R)}</div><p class="nsay">That is the standard form of this circle. The center is (4, ${N6M}1) and the radius is 6.</p></div>${n6desmos(n6cp(CX, CY, R * R))}`; } });
+    graphMarks("g1", []);
+  }};
+}
+
+// ================= Topic 2: from an equation to the center and radius (everyone) =================
+const N2 = [{h: 3, k: 2, rr: 25, r: 5}, {h: -2, k: 5, rr: 49, r: 7}, {h: -6, k: -1, rr: 16, r: 4}, {h: 0, k: -4, rr: 9, r: 3}, {h: 1, k: -6, rr: 20, r: Math.sqrt(20), text: "2√5"}];
+function noteFromEq(){
+  const html = `
+  <article class="chcard"><h2 class="chtitle">From an equation to the center and radius</h2>
+    <div class="chbody"><p>When a circle is in standard form, you can read the center and the radius right off the equation.</p>
+      <ul class="facts"><li>The equation has <b>x ${N6M} h</b> and <b>y ${N6M} k</b>. A minus sign means the center coordinate is positive. A plus sign means it is negative.</li>
+        <li>If x or y is by itself, like x<sup>2</sup>, that part of the center is 0.</li>
+        <li>The number on the right side is r<sup>2</sup>. Take the square root to get the radius r.</li></ul></div></article>
+  <article class="chcard"><h3 class="chsub">Your turn. Find the center and the radius.</h3>
+    ${N2.map((it, i) => `<div class="nitem" id="n2i${i}"><div class="eqbig sm">${n6eq(it.h, it.k, it.rr)}</div>
+      <div class="nrow">Center ( ${n6box("h", "h, the x-coordinate of the center")} , ${n6box("k", "k, the y-coordinate of the center")} ) &nbsp; Radius ${n6box("r", "the radius", true)}</div>
+      ${it.text ? `<p class="nsay sm">This one does not come out to a whole number. Type the radius as a square root, like √20 or 2√5, or as a decimal.</p>` : ""}
+      <div class="nrow">${n6chk}${n6dmini(n6cp(it.h, it.k, it.rr))}</div></div>`).join("")}
+    ${n6dopen("Type each equation into Desmos (or copy it with the button) and look at the graph. Click the center to see its coordinates.")}</article>`;
+  return {html, bind(){
+    N2.forEach((it, i) => bindItem(document.getElementById("n2i" + i), [{t: "n", k: "h", want: it.h}, {t: "n", k: "k", want: it.k}, {t: "r", k: "r", want: it.r, text: it.text}], {key: "6-N2-" + i,
+      hint: (bad, root) => { const h = n6parse(n6val(root, "h")), k = n6parse(n6val(root, "k")), r = n6rad(n6val(root, "r"));
+        if((it.h !== 0 && h === -it.h) || (it.k !== 0 && k === -it.k)) return "Check the signs. The equation has x minus h and y minus k, so a plus sign in the equation means the center coordinate is negative.";
+        if(it.h === 0 && bad.some(s => s.k === "h")) return "x by itself is the same as x minus 0, so the x-coordinate of the center is 0.";
+        if(!isNaN(r) && Math.abs(r - it.rr) < 0.011) return "The number on the right side is the radius squared. Take its square root to find the radius.";
+        if(it.text && bad.some(s => s.k === "r")) return "The radius is the square root of 20. Type √20 or 2√5, or a decimal rounded to the hundredths.";
+        return null; } }));
+  }};
+}
+
+// ================= Topic 3: write the equation of a circle (everyone) =================
+const N3 = [{kind: "text", h: 2, k: 5, r: 3}, {kind: "text", h: -4, k: 1, r: 5}, {kind: "text", h: -3, k: -2, r: 6},
+  {kind: "graph", h: -2, k: -3, r: 4}, {kind: "graph", h: 1, k: -2, r: 3}, {kind: "text", h: 0, k: -3, r: 2, note: "The center is on the y-axis, so one of the numbers is 0."}];
+function noteWrite(){
+  const html = `
+  <article class="chcard"><h2 class="chtitle">Write the equation of a circle</h2>
+    <div class="chbody"><p>Now go the other way. Start with a center and a radius, or with a graph, and write the equation.</p>
+      <ul class="facts"><li>Put the center (h, k) into <b>(x ${N6M} h)<sup>2</sup> + (y ${N6M} k)<sup>2</sup> = r<sup>2</sup></b>. If a coordinate is negative, you add it instead.</li>
+        <li>The number on the right side is the radius <b>squared</b>.</li></ul></div></article>
+  <article class="chcard"><h3 class="chsub">Your turn. Write the equation.</h3>
+    ${N3.map((it, i) => `<div class="nitem" id="n3i${i}">
+      ${it.kind === "graph" ? `<div class="ntwo"><div class="nleft"><p class="nsay">Read the center and the radius from the graph. Then write the equation of the circle.</p>
+          <div class="nrow">Center ( ${n6box("h", "h")} , ${n6box("k", "k")} ) &nbsp; Radius ${n6box("r", "the radius")}</div><div class="nrow">${n6eqrow("w")}</div><div class="nrow">${n6chk}</div></div>
+        <div class="nright">${noteGraph("g3i" + i, {x: [-8, 8], y: [-8, 8], size: 300, circle: {cx: it.h, cy: it.k, r: it.r}, label: "A circle on a coordinate grid"})}</div></div>`
+      : `<p class="nsay">Center (${n6s(it.h)}, ${n6s(it.k)}), radius ${it.r}. Write the equation of the circle.${it.note ? " " + it.note : ""}</p><div class="nrow">${n6eqrow("w")}</div><div class="nrow">${n6chk}</div>`}</div>`).join("")}
+    ${n6dopen("Type your equation into Desmos. If the circle lands in the right place, your equation is right.")}</article>`;
+  return {html, bind(){
+    N3.forEach((it, i) => { const root = document.getElementById("n3i" + i); if(it.kind === "graph"){ bindGraph("g3i" + i, null); graphMarks("g3i" + i, []); }
+      const specs = n6eqspecs("w", it.h, it.k, it.r * it.r).concat(it.kind === "graph" ? [{t: "n", k: "h", want: it.h}, {t: "n", k: "k", want: it.k}, {t: "n", k: "r", want: it.r}] : []);
+      bindItem(root, specs, {key: "6-N3-" + i,
+        hint: (bad, rt) => { const hv = n6pair(rt, "ws1", "wn1"), kv = n6pair(rt, "ws2", "wn2"), rr = n6parse(n6val(rt, "wrr"));
+          if((it.h !== 0 && hv === -it.h) || (it.k !== 0 && kv === -it.k)) return "Check the signs. If the center coordinate is positive, you subtract it. If it is negative, you add it.";
+          if(rr === it.r) return "The number on the right side is the radius squared. Multiply the radius by itself.";
+          if(it.kind === "graph" && bad.some(s => s.k === "h" || s.k === "k" || s.k === "r")) return "Look at the graph again. The center is the middle of the circle, and the radius is the distance from the center to the circle.";
+          return null; } }); });
+  }};
+}
+
+// ================= Topic 4: complete the square (honors) =================
+const N4 = [{A: -6, B: 4, C: -12}, {A: 8, B: -2, C: 8}, {A: -10, B: -4, C: 4}, {A: -2, B: 4, C: -4, lead: 2}, {A: 0, B: 6, C: -7, note: "There is no x term in this one, so half of it is 0."}];
+function noteCts(){
+  const item = (it, i) => { const p = "q" + i, L = it.lead || 1;
+    return `<div class="nitem" id="n4p${i}"><div class="eqbig sm">${n6gen(it.A, it.B, it.C, L)}</div>
+      ${L > 1 ? `<div class="nrow">Divide every term by ${n6box(p + "d", "the number to divide by")}. The equation becomes ${n6gen(it.A, it.B, it.C, 1)}.</div>` : ""}
+      <div class="nrow">Group and move the constant: [x<sup>2</sup>${n6term(it.A, "x")}] + [y<sup>2</sup>${n6term(it.B, "y")}] = ${n6box(p + "c", "the constant on the right side")}</div>
+      <div class="nrow">Half of the x-term, squared: (${FR(n6s(it.A), 2)})<sup>2</sup> = ${n6box(p + "a", "half the x-term, squared")} &nbsp; Half of the y-term, squared: (${FR(n6s(it.B), 2)})<sup>2</sup> = ${n6box(p + "b", "half the y-term, squared")}</div>
+      ${it.note ? `<p class="nsay sm">${it.note}</p>` : ""}
+      <div class="nrow">Standard form: ${n6eqrow(p)}</div>
+      <div class="nrow">Center ( ${n6box(p + "h", "h")} , ${n6box(p + "k", "k")} ) &nbsp; Radius ${n6box(p + "r", "the radius")}</div>
+      <div class="nrow">${n6chk}${n6dmini(n6gcp(it.A, it.B, it.C, L))}</div></div>`; };
+  const html = `
+  <article class="chcard"><h2 class="chtitle">Complete the square</h2><p class="chsample" style="display:block">${isHonorsStudent() ? "Honors topic" : "Challenge topic. This one is optional."}</p>
+    <div class="chbody"><p>Sometimes a circle is not in standard form. It looks like x<sup>2</sup> + y<sup>2</sup> + Ax + By + C = 0. To find the center and the radius, <b>complete the square</b> for x and for y to rewrite it in standard form.</p>
+      <p>Fill in the table below, one step at a time. Each step unlocks after you get the one before it.</p></div></article>
+  <article class="chcard"><table class="nsteps"><thead><tr><th>Steps</th><th>x<sup>2</sup> + y<sup>2</sup> ${N6M} 2x + 6y ${N6M} 6 = 0</th></tr></thead><tbody>
+    <tr><td>1. Group the x-terms together and the y-terms together. Move the constant to the right side of the equation.</td>
+      <td id="n4r1"><div class="nrow">[x<sup>2</sup> ${N6M} 2x] + [y<sup>2</sup> + 6y] = ${n6box("c1", "the constant on the right side")}</div><div class="nrow">${n6chk}</div></td></tr>
+    <tr><td>2. Take half of the <u>linear</u> x-term and square it. Add this value to the constant side.</td>
+      <td id="n4r2" class="locked"><div class="nrow">(${FR(N6M + "2", 2)})<sup>2</sup> = ${n6box("a", "half the x-term, squared")}</div><div class="nrun" id="n4run2" hidden></div><div class="nrow">${n6chk}</div></td></tr>
+    <tr><td>3. Take half of the <u>linear</u> y-term and square it. Add this value to the constant side.</td>
+      <td id="n4r3" class="locked"><div class="nrow">(${FR(6, 2)})<sup>2</sup> = ${n6box("b", "half the y-term, squared")}</div><div class="nrun" id="n4run3" hidden></div><div class="nrow">${n6chk}</div></td></tr>
+    <tr><td>4. Write the variable side in the form (x ${N6M} h)<sup>2</sup> + (y ${N6M} k)<sup>2</sup> and add like terms on the other side.</td>
+      <td id="n4r4" class="locked"><div class="nrow">${n6eqrow("f")}</div><div class="nrow">${n6chk}</div></td></tr></tbody></table>
+    <div class="nitem locked" id="n4r5"><p class="nsay"><b>Now read the circle.</b> Find its center and its radius.</p>
+      <div class="nrow">Center ( ${n6box("h", "h")} , ${n6box("k", "k")} ) &nbsp; Radius ${n6box("r", "the radius")}</div><div class="nrow">${n6chk}</div></div>
+    <div id="n4end" hidden>${n6desmos("x^2+y^2-2x+6y-6=0", "Desmos can graph the original equation too. Copy it, paste it in, and check that the center and the radius match.")}</div></article>
+  <article class="chcard"><h3 class="chsub">Your turn. Complete the square.</h3>
+    <p class="nsay">Do each one. The center and the radius should come out as whole numbers.</p>${N4.map(item).join("")}
+    ${n6dopen("Copy the original equation and paste it into Desmos. Click the center to check your answer.")}</article>`;
+  return {html, bind(){
+    const lock = id => { const r = document.getElementById(id); r.querySelectorAll("input,select,.nchk").forEach(e => { e.disabled = true; }); };
+    ["n4r2", "n4r3", "n4r4", "n4r5"].forEach(lock);
+    const unlock = id => { const r = document.getElementById(id); r.classList.remove("locked"); r.querySelectorAll("input,select,.nchk").forEach(e => { e.disabled = false; }); };
+    bindItem(document.getElementById("n4r1"), [{t: "n", k: "c1", want: 6}], {good: "Yes. Move the constant to the other side, and its sign changes.",
+      hint: () => "The constant is −6 on the left. Add 6 to both sides to move it to the right.", done: () => unlock("n4r2") });
+    bindItem(document.getElementById("n4r2"), [{t: "n", k: "a", want: 1}], {good: "Yes. Add 1 to both sides.",
+      hint: () => "Half of −2 is −1. Then square it. A negative number times a negative number is positive.",
+      done: () => { const r = document.getElementById("n4run2"); r.hidden = false; r.innerHTML = `[x<sup>2</sup> ${N6M} 2x + 1] + [y<sup>2</sup> + 6y] = 6 + 1`; unlock("n4r3"); } });
+    bindItem(document.getElementById("n4r3"), [{t: "n", k: "b", want: 9}], {good: "Yes. Add 9 to both sides.",
+      hint: () => "Half of 6 is 3. Then square it.",
+      done: () => { const r = document.getElementById("n4run3"); r.hidden = false; r.innerHTML = `[x<sup>2</sup> ${N6M} 2x + 1] + [y<sup>2</sup> + 6y + 9] = 6 + 1 + 9`; unlock("n4r4"); } });
+    bindItem(document.getElementById("n4r4"), n6eqspecs("f", 1, -3, 16), {good: "Yes. Each group is now a perfect square.",
+      hint: (bad, root) => { const hv = n6pair(root, "fs1", "fn1"), kv = n6pair(root, "fs2", "fn2");
+        if(hv === -1 || kv === 3) return "Inside each set of parentheses use half of the middle number, with the same sign. x squared minus 2x plus 1 factors as (x − 1) squared.";
+        return "Factor each group. x squared minus 2x plus 1 is (x − 1) squared. On the right side, add 6 + 1 + 9."; },
+      done: () => unlock("n4r5") });
+    bindItem(document.getElementById("n4r5"), [{t: "n", k: "h", want: 1}, {t: "n", k: "k", want: -3}, {t: "n", k: "r", want: 4}], {key: "6-N6-0", good: "Yes. The center is (1, −3) and the radius is 4.",
+      hint: () => "The center is (h, k), the opposite signs of the numbers in the parentheses. The radius is the square root of the number on the right.",
+      done: () => { document.getElementById("n4end").hidden = false; } });
+    N4.forEach((it, i) => { const p = "q" + i, L = it.lead || 1, c = -it.C, a = (it.A / 2) ** 2, b = (it.B / 2) ** 2, rr = c + a + b, r = Math.sqrt(rr);
+      const specs = (L > 1 ? [{t: "n", k: p + "d", want: L}] : []).concat([{t: "n", k: p + "c", want: c}, {t: "n", k: p + "a", want: a}, {t: "n", k: p + "b", want: b}], n6eqspecs(p, -it.A / 2, -it.B / 2, rr),
+        [{t: "n", k: p + "h", want: -it.A / 2}, {t: "n", k: p + "k", want: -it.B / 2}, {t: "n", k: p + "r", want: r}]);
+      bindItem(document.getElementById("n4p" + i), specs, {key: "6-N6-" + (i + 1), hint: bad => { const ks = bad.map(s => s.k || s.n);
+        if(ks.includes(p + "d")) return "Divide every term by the number in front of x squared, so that x squared and y squared each have a 1 in front.";
+        if(ks.includes(p + "c")) return "Move the constant to the other side. Its sign changes.";
+        if(ks.includes(p + "a") || ks.includes(p + "b")) return "Take half of the number in front of the x, or in front of the y, and then square it. Squaring a negative number gives a positive number.";
+        if(bad.some(s => s.t === "p" || s.k === p + "rr")) return "Inside each set of parentheses use half of the middle number, with the same sign. The right side is the constant plus the two squared values you added.";
+        return "The center is (h, k), the opposite signs of the numbers in the parentheses. The radius is the square root of the number on the right."; } }); });
+  }};
+}
+
+// ================= the notes page, the panel on the unit page, and the Unit 6 unit page =================
+
+// ================= Topic N0: Warm-up, going the distance (everyone) =================
+const n6sq = s => `<span class="n6sqrt">√<span class="n6bar">${s}</span></span>`;       // a square root sign with a bar over what is inside
+const N0D = [
+  {A: [-2, 1], B: [4, 9], hl: 6, vl: 8, d: 10, x: [-4, 6], y: [-1, 11]},
+  {A: [1, -3], B: [6, 9], hl: 5, vl: 12, d: 13, x: [-1, 8], y: [-5, 11]},
+  {A: [-2, -1], B: [1, 4], hl: 3, vl: 5, d: Math.sqrt(34), text: "√34", x: [-4, 3], y: [-3, 6]}];
+function noteDist(){
+  const html = `
+  <article class="chcard"><h2 class="chtitle">Warm-up: Going the Distance</h2>
+    <div class="chbody"><p>The distance between two points comes from the Pythagorean Theorem. Draw a right triangle between the points.</p>
+      <ul class="facts"><li>The <b>horizontal leg</b> is the difference of the x-coordinates.</li>
+        <li>The <b>vertical leg</b> is the difference of the y-coordinates.</li>
+        <li>The distance is the long side of the triangle, so use the Pythagorean Theorem to find it.</li></ul>
+      <div class="eqbig sm">d = ${n6sq(`(x<sub>2</sub> ${N6M} x<sub>1</sub>)<sup>2</sup> + (y<sub>2</sub> ${N6M} y<sub>1</sub>)<sup>2</sup>`)}</div></div></article>
+  <article class="chcard"><h3 class="chsub">Find the distance between each pair of points.</h3>
+    ${N0D.map((it, i) => `<div class="nitem" id="n0i${i}"><div class="ntwo"><div class="nleft">
+        <p class="nsay">Points <b>A (${n6s(it.A[0])}, ${n6s(it.A[1])})</b> and <b>B (${n6s(it.B[0])}, ${n6s(it.B[1])})</b>.</p>
+        <div class="nrow">Horizontal leg ${n6box("hl", "the horizontal leg")} &nbsp; Vertical leg ${n6box("vl", "the vertical leg")}</div>
+        <div class="nrow">Distance ${n6box("d", "the distance", true)}</div>
+        ${it.text ? `<p class="nsay sm">This one does not come out to a whole number. Type the distance as a square root, like √34, or as a decimal.</p>` : ""}
+        <div class="nrow">${n6chk}</div></div>
+        <div class="nright">${noteGraph("g0i" + i, {x: it.x, y: it.y, size: 300, label: `Points A and B on a coordinate grid, with a right triangle between them`})}</div></div></div>`).join("")}</article>
+  <article class="chcard"><h3 class="chsub">Where the circle equation comes from</h3>
+    <p class="nsay">A circle is all the points that are the same distance from the center. This circle has its center at (3, 2) and its radius is 5. Click any point on the circle that lands on a grid crossing, and we will measure how far it is from the center.</p>
+    <div class="ntwo"><div class="nleft"><p class="nstep" id="n0say" aria-live="polite">Click a point on the circle.</p></div>
+      <div class="nright">${noteGraph("g0c", {x: [-4, 10], y: [-5, 9], circle: {cx: 3, cy: 2, r: 5}, label: "A circle with center (3, 2) and radius 5"})}</div></div>
+    <div class="nitem" id="n0der"><p class="nsay"><b>Now write the equation yourself.</b> Call the center (h, k) and a point on the circle (x, y).</p>
+      <div class="nrow">1. The distance between them is ${n6sq(`(x ${N6M} ${n6box("dh", "the letter for the x-coordinate of the center")})<sup>2</sup> + (y ${N6M} ${n6box("dk", "the letter for the y-coordinate of the center")})<sup>2</sup>`)}. Type the letters.</div>
+      <div class="nrow">2. Every point on the circle is the same distance from the center. That distance is the radius, so the square root equals ${n6box("dr", "the letter for the radius")}. Type the letter.</div>
+      <div class="nrow">3. Square both sides to remove the square root. Then (x ${N6M} h)<sup>2</sup> + (y ${N6M} k)<sup>2</sup> equals <select class="nsel wide" data-b="dq" aria-label="what the right side equals"><option value="">▾</option><option value="r">r</option><option value="r2">r squared</option><option value="2r">2r</option></select></div>
+      <div class="nrow">${n6chk}</div></div></article>`;
+  return {html, bind(){
+    N0D.forEach((it, i) => { const id = "g0i" + i, a = it.A, b = it.B; bindGraph(id, null);
+      graphMarks(id, [{t: "seg", x1: a[0], y1: a[1], x2: b[0], y2: a[1]}, {t: "seg", x1: b[0], y1: a[1], x2: b[0], y2: b[1]}, {t: "seg", x1: a[0], y1: a[1], x2: b[0], y2: b[1], cls: "hyp"},
+        {t: "dot", x: a[0], y: a[1]}, {t: "dot", x: b[0], y: b[1], cls: "r"}, {t: "label", x: a[0], y: a[1], text: `A (${n6s(a[0])}, ${n6s(a[1])})`, dx: 8, dy: 8}, {t: "label", x: b[0], y: b[1], text: `B (${n6s(b[0])}, ${n6s(b[1])})`, dx: 8, dy: -30}]);
+      bindItem(document.getElementById("n0i" + i), [{t: "n", k: "hl", want: it.hl}, {t: "n", k: "vl", want: it.vl}, {t: "r", k: "d", want: it.d, text: it.text}], {key: "6-N0-" + i,
+        hint: (bad, root) => { const d = n6rad(n6val(root, "d")), legsOk = !bad.some(s => s.k === "hl" || s.k === "vl");
+          if(!legsOk) return "Find each leg by subtracting. For the horizontal leg, subtract the x-coordinates. For the vertical leg, subtract the y-coordinates. Use the bigger number minus the smaller one, so the length is positive.";
+          if(!isNaN(d) && Math.abs(d - (it.hl + it.vl)) < 0.011) return "Do not add the legs. Square each leg, add the squares, and then take the square root.";
+          return "Use the Pythagorean Theorem. Square each leg, add the squares, and then take the square root."; }}); });
+    const say = document.getElementById("n0say");
+    bindGraph("g0c", (x, y) => { const dx = x - 3, dy = y - 2, d2 = dx * dx + dy * dy, d = Math.sqrt(d2), on = Math.abs(d - 5) < 1e-9;
+      say.innerHTML = d2 === 0 ? "That is the center. Its distance from the center is 0."
+        : `The point (${n6s(x)}, ${n6s(y)}) is ${Math.abs(dx)} ${dx >= 0 ? "right" : "left"} and ${Math.abs(dy)} ${dy >= 0 ? "up" : "down"} from the center. Its distance is ${n6sq(`${Math.abs(dx)}<sup>2</sup> + ${Math.abs(dy)}<sup>2</sup>`)} = √${d2}${Number.isInteger(d) ? " = " + d : ""}. ${on ? "That equals the radius, 5, so the point is on the circle. Every point on the circle is the same distance from the center." : "That is not 5, so the point is not on the circle."}`;
+      graphMarks("g0c", [{t: "seg", x1: 3, y1: 2, x2: x, y2: y}, {t: "dot", x: 3, y: 2}, {t: "dot", x, y, cls: on ? "r" : "wrong"}]); });
+    graphMarks("g0c", [{t: "dot", x: 3, y: 2}]);
+    bindItem(document.getElementById("n0der"), [{t: "s", k: "dh", want: ["h"]}, {t: "s", k: "dk", want: ["k"]}, {t: "s", k: "dr", want: ["r"]}, {t: "c", k: "dq", want: "r2"}], {key: "6-N0-3",
+      good: "Yes. That is where the equation of a circle comes from.",
+      hint: (bad) => bad.some(s => s.k === "dq") && bad.length === 1 ? "The distance equals r. When you square both sides, r becomes r squared." : "Use the letters from the equation. The center is (h, k) and the radius is r." });
+  }};
+}
+
+// ================= Topic N4: use Desmos to find the center and radius (everyone) =================
+const N4D = [{A: -4, B: 2, C: -4, h: 2, k: -1, r: 3, x: [-2, 6], y: [-5, 3]}, {A: 6, B: -8, C: 9, h: -3, k: 4, r: 4, x: [-8, 3], y: [-1, 9]}, {A: 0, B: -10, C: 16, h: 0, k: 5, r: 3, x: [-5, 5], y: [0, 10]}];
+function noteDesmos(){
+  const html = `
+  <article class="chcard"><h2 class="chtitle">Use Desmos to find the center and radius</h2>
+    <div class="chbody"><p>Sometimes a circle comes as one long equation, like x<sup>2</sup> + y<sup>2</sup> ${N6M} 4x + 2y ${N6M} 4 = 0. It is not in standard form, so you cannot read the center and the radius from it. Desmos can do the hard part for you.</p>
+      <ul class="facts"><li>Copy the equation, and paste it into Desmos. The circle appears.</li>
+        <li>Click the center in Desmos to see its coordinates. Use the grid to find the radius.</li>
+        <li>Then write the equation in standard form with the center and the radius you found.</li></ul></div></article>
+  <article class="chcard"><h3 class="chsub">Your turn. Find the center and the radius, then write the standard form.</h3>
+    <p class="nsay sm">If Desmos is not working, use the graph next to each equation instead.</p>
+    ${N4D.map((it, i) => `<div class="nitem" id="n4d${i}"><div class="eqbig sm">${n6gen(it.A, it.B, it.C, 1)}</div>
+      <div class="ntwo"><div class="nleft">
+        <div class="nrow">${n6dmini(n6gcp(it.A, it.B, it.C, 1))} <a class="pill sm" href="${DESMOS_URL}" target="_blank" rel="noopener">Open Desmos</a></div>
+        <div class="nrow">Center ( ${n6box("h", "h")} , ${n6box("k", "k")} ) &nbsp; Radius ${n6box("r", "the radius")}</div>
+        <div class="nrow">Standard form: ${n6eqrow("d")}</div><div class="nrow">${n6chk}</div></div>
+        <div class="nright">${noteGraph("g4d" + i, {x: it.x, y: it.y, size: 280, circle: {cx: it.h, cy: it.k, r: it.r}, label: "The graph of the circle"})}</div></div></div>`).join("")}</article>`;
+  return {html, bind(){
+    N4D.forEach((it, i) => { bindGraph("g4d" + i, null); graphMarks("g4d" + i, []);
+      bindItem(document.getElementById("n4d" + i), [{t: "n", k: "h", want: it.h}, {t: "n", k: "k", want: it.k}, {t: "n", k: "r", want: it.r}].concat(n6eqspecs("d", it.h, it.k, it.r * it.r)), {key: "6-N4-" + i,
+        hint: (bad, root) => { const hv = n6pair(root, "ds1", "dn1"), kv = n6pair(root, "ds2", "dn2");
+          if(bad.some(s => s.k === "h" || s.k === "k" || s.k === "r")) return "Look at the graph. The center is the middle of the circle, and the radius is the distance from the center to the edge of the circle.";
+          if((it.h !== 0 && hv === -it.h) || (it.k !== 0 && kv === -it.k)) return "Check the signs. If the center coordinate is positive, you subtract it. If it is negative, you add it.";
+          return "Use the center and the radius you found. The number on the right side is the radius squared."; }}); });
+  }};
+}
+
+// ================= Topic N5: bridge, complete the square (challenge / honors) =================
+const N5B = [{b: 6, c: 9, h: 3}, {b: -10, c: 25, h: 5}, {b: 2, c: 1, h: 1}, {b: -1, c: 0.25, h: 0.5}];
+function noteBridge(){
+  const lead = b => `x<sup>2</sup> ${b > 0 ? "+" : N6M} ${Math.abs(b) === 1 ? "" : Math.abs(b)}x`;
+  const html = `
+  <article class="chcard"><h2 class="chtitle">Bridge: complete the square</h2>
+    <div class="chbody"><p>To <b>complete the square</b>, add the number that turns x<sup>2</sup> + bx into a perfect square.</p>
+      <ul class="facts"><li>Take half of the number in front of x.</li><li>Square it. That is the number to add.</li>
+        <li>The result factors as (x + half)<sup>2</sup>, with the same sign as the middle term.</li></ul>
+      <div class="eqbig sm">x<sup>2</sup> + 6x + 9 = (x + 3)<sup>2</sup></div><p class="nsay sm">Half of 6 is 3, and 3 squared is 9.</p></div></article>
+  <article class="chcard"><h3 class="chsub">Your turn. Fill in the missing numbers.</h3>
+    ${N5B.map((it, i) => `<div class="nitem" id="n5i${i}"><div class="nrow eqbig sm">${lead(it.b)} + ${n6box("c", "the number to add", true)} = (x ${it.b > 0 ? "+" : N6M} ${n6box("hh", "the number inside the parentheses", true)})<sup>2</sup></div>
+      ${i === 3 ? `<p class="nsay sm">You can type fractions like 1/4, or decimals like 0.25.</p>` : ""}<div class="nrow">${n6chk}</div></div>`).join("")}</article>`;
+  return {html, bind(){
+    N5B.forEach((it, i) => bindItem(document.getElementById("n5i" + i), [{t: "n", k: "c", want: it.c}, {t: "n", k: "hh", want: it.h}], {key: "6-N5-" + i,
+      hint: () => `Take half of the number in front of x, which is half of ${n6s(it.b)}. Then square it to get the number to add. The number inside the parentheses is that half, without its sign.` }));
+  }};
+}
+
+// ================= Topic N7: points on a circle (challenge / honors) =================
+function notePoints(){
+  const html = `
+  <article class="chcard"><h2 class="chtitle">Points on a circle</h2>
+    <div class="chbody"><p>A point is on a circle when its coordinates make the equation true. Use this circle for the questions below.</p>
+      <div class="eqbig sm">${n6eq(3, -2, 25)}</div></div>
+    <div class="ntwo"><div class="nleft"><p class="nsay">Here are two points near the circle. Are they on it. Check them with the equation, not by looking.</p></div>
+      <div class="nright">${noteGraph("g7", {x: [-4, 10], y: [-9, 5], size: 340, circle: {cx: 3, cy: -2, r: 5}, label: "A circle with two points marked, A and B"})}</div></div></article>
+  <article class="chcard"><h3 class="chsub">Your turn.</h3>
+    <div class="nitem" id="n7i0"><p class="nsay">Is the point <b>A (7, 1)</b> on the circle. Put it into the equation.</p>
+      <div class="nrow">(7 ${N6M} 3)<sup>2</sup> + (1 + 2)<sup>2</sup> = ${n6box("v", "the value of the left side", true)}</div>
+      <div class="nrow">Compared with 25, the point is <select class="nsel wide" data-b="yn" aria-label="on the circle or not"><option value="">▾</option><option value="y">on the circle</option><option value="n">not on the circle</option></select></div><div class="nrow">${n6chk}</div></div>
+    <div class="nitem" id="n7i1"><p class="nsay">Is the point <b>B (5, 3)</b> on the circle.</p>
+      <div class="nrow">(5 ${N6M} 3)<sup>2</sup> + (3 + 2)<sup>2</sup> = ${n6box("v", "the value of the left side", true)}</div>
+      <div class="nrow">Compared with 25, the point is <select class="nsel wide" data-b="yn" aria-label="on the circle or not"><option value="">▾</option><option value="y">on the circle</option><option value="n">not on the circle</option></select></div><div class="nrow">${n6chk}</div></div>
+    <div class="nitem" id="n7i2"><p class="nsay">Find the points on the circle where <b>x = 6</b>. Put 6 in for x, and solve for y.</p>
+      <div class="nrow">(6 ${N6M} 3)<sup>2</sup> + (y + 2)<sup>2</sup> = 25, so (y + 2)<sup>2</sup> = ${n6box("a", "the value of y plus 2, squared", true)}</div>
+      <div class="nrow">That means y + 2 = ± ${n6box("b", "the square root")}</div>
+      <div class="nrow">So the two y-values are ${n6box("y1", "the first y-value")} and ${n6box("y2", "the second y-value")}</div><div class="nrow">${n6chk}</div></div></article>`;
+  return {html, bind(){
+    bindGraph("g7", null); graphMarks("g7", [{t: "dot", x: 7, y: 1, cls: "r"}, {t: "label", x: 7, y: 1, text: "A (7, 1)", dx: 8, dy: -4}, {t: "dot", x: 5, y: 3, cls: "wrong"}, {t: "label", x: 5, y: 3, text: "B (5, 3)", dx: 8, dy: -26}]);
+    bindItem(document.getElementById("n7i0"), [{t: "n", k: "v", want: 25}, {t: "c", k: "yn", want: "y"}], {key: "6-N7-0", good: "Yes. The left side is 25, so the point is on the circle.",
+      hint: () => "Subtract inside each set of parentheses first, then square each one, and add. Then compare with 25." });
+    bindItem(document.getElementById("n7i1"), [{t: "n", k: "v", want: 29}, {t: "c", k: "yn", want: "n"}], {key: "6-N7-1", good: "Yes. The left side is 29, not 25, so the point is not on the circle.",
+      hint: () => "Subtract inside each set of parentheses first, then square each one, and add. Then compare with 25." });
+    bindItem(document.getElementById("n7i2"), [{t: "n", k: "a", want: 16}, {t: "n", k: "b", want: 4}, {t: "u", k1: "y1", k2: "y2", want: [2, -6]}], {key: "6-N7-2", good: "Yes. The points are (6, 2) and (6, −6).",
+      hint: () => "Subtract 9 from both sides. Then take the square root of both sides, and remember there are two answers, a positive one and a negative one. Then subtract 2 from each." });
+  }};
+}
+
+// ================= Topic N8: recognize any circle equation (challenge / honors) =================
+const N8R = [{A: -4, B: 6, C: 4, rhs: 9, kind: "circle", h: 2, k: -3, r: 3}, {A: 2, B: -4, C: 5, rhs: 0, kind: "point", h: -1, k: 2, r: 0}, {A: -6, B: 2, C: 20, rhs: -10, kind: "none"}];
+function noteRecognize(){
+  const html = `
+  <article class="chcard"><h2 class="chtitle">Recognize any circle equation</h2>
+    <div class="chbody"><p>Not every equation that looks like a circle really is one. Complete the square, and then look at the number on the right side. That number is r<sup>2</sup>.</p>
+      <ul class="facts"><li>If it is <b>positive</b>, the graph is a circle.</li><li>If it is <b>zero</b>, the graph is just one point, the center.</li>
+        <li>If it is <b>negative</b>, there is no graph, because a square can never equal a negative number.</li></ul></div></article>
+  <article class="chcard"><h3 class="chsub">Your turn. What does each equation graph.</h3>
+    ${N8R.map((it, i) => `<div class="nitem" id="n8i${i}"><div class="eqbig sm">${n6gen(it.A, it.B, it.C, 1)}</div>
+      <div class="nrow">After you complete the square, the right side is ${n6box("rhs", "the number on the right side", true)}</div>
+      <div class="nrow">The graph is <select class="nsel wide" data-b="kind" aria-label="what the graph is"><option value="">▾</option><option value="circle">a circle</option><option value="point">just one point</option><option value="none">no graph</option></select></div>
+      ${it.kind === "none" ? "" : `<div class="nrow">Center ( ${n6box("h", "h")} , ${n6box("k", "k")} ) &nbsp; Radius ${n6box("r", "the radius")}</div>`}
+      <div class="nrow">${n6chk}${n6dmini(n6gcp(it.A, it.B, it.C, 1))}</div></div>`).join("")}</article>`;
+  return {html, bind(){
+    N8R.forEach((it, i) => bindItem(document.getElementById("n8i" + i), [{t: "n", k: "rhs", want: it.rhs}, {t: "c", k: "kind", want: it.kind}].concat(it.kind === "none" ? [] : [{t: "n", k: "h", want: it.h}, {t: "n", k: "k", want: it.k}, {t: "n", k: "r", want: it.r}]), {key: "6-N8-" + i,
+      hint: (bad) => bad.some(s => s.k === "rhs") ? "Move the constant to the right side, then add the two squared values. The right side is the constant plus (half the x-term) squared plus (half the y-term) squared."
+        : bad.some(s => s.k === "kind") ? "Look at the number on the right side. Positive means a circle, zero means just one point, and negative means no graph."
+        : "The center is the opposite signs of the numbers in the parentheses. The radius is the square root of the number on the right side." }));
+  }};
+}
+
+// ================= which topics exist, who can open them, and remembering what each student finished =================
+//   Core notes (everyone):  Warm-up, Standard form, Equation to center and radius, Write the equation, Use Desmos.
+//   Challenges: Bridge, Complete the square, Points on a circle, Recognize any circle equation.
+//     Honors students can open the challenges from the start. Standard students see them locked until they finish the core notes.
+const NOTES_CHALLENGES_OPEN = false;       // true = standard students can open the challenges from the start
+const NOTE_ITEMS = {N0: 4, N1: 1, N2: 5, N3: 6, N4: 3, N5: 4, N6: 6, N7: 3, N8: 3};      // how many things to finish in each topic
+const NOTE_TOPICS = [
+  {id: "N0", title: "Warm-up: going the distance", short: "Warm-up: distance", sub: "Start here", core: true, build: noteDist},
+  {id: "N1", title: "Standard form of a circle", short: "Standard form", sub: "Activity 1", core: true, build: noteStd},
+  {id: "N2", title: "From an equation to the center and radius", short: "Equation to center and radius", sub: "Practice", core: true, build: noteFromEq},
+  {id: "N3", title: "Write the equation of a circle", short: "Write the equation", sub: "Practice", core: true, build: noteWrite},
+  {id: "N4", title: "Use Desmos to find the center and radius", short: "Use Desmos", sub: "Activity 4", core: true, build: noteDesmos},
+  {id: "N5", title: "Bridge: complete the square", short: "Bridge: complete the square", sub: "Challenge", challenge: true, build: noteBridge},
+  {id: "N6", title: "Complete the square for circles", short: "Complete the square for circles", sub: "Challenge", challenge: true, build: noteCts},
+  {id: "N7", title: "Points on a circle", short: "Points on a circle", sub: "Challenge", challenge: true, build: notePoints},
+  {id: "N8", title: "Recognize any circle equation", short: "Recognize any circle equation", sub: "Challenge", challenge: true, build: noteRecognize}];
+const noteKey = (t, i) => "6-" + t.id + "-" + i;
+const noteDoneKey = k => !!(progress[k] && progress[k].d);
+const noteCount = t => { let d = 0; for(let i = 0; i < NOTE_ITEMS[t.id]; i++) if(noteDoneKey(noteKey(t, i))) d++; return {done: d, total: NOTE_ITEMS[t.id]}; };
+const noteComplete = t => { const c = noteCount(t); return c.done === c.total; };
+const notesCoreDone = () => NOTE_TOPICS.filter(t => t.core).every(noteComplete);
+const isHonorsStudent = () => !!(S.student && S.student.level === "honors");
+const challengesOpen = () => NOTES_CHALLENGES_OPEN || isHonorsStudent() || notesCoreDone();
+const topicLocked = t => !!t.challenge && !challengesOpen();
+const notesTopics = () => NOTE_TOPICS;
+function noteMark(key, shown){                      // one thing finished: remember it (it is saved and backed up like homework)
+  const was = challengesOpen(), r = progress[key] = progress[key] || {w: [], d: 0, h: 0};
+  if(r.d) return; r.d = 1; r.t = Date.now(); if(shown) r.h = 1; save();
+  if(S.view === "notes"){ refreshNotesNav(); if(!was && challengesOpen()) noteUnlockBanner(); }
+}
+function noteUnlockBanner(){
+  const m = document.getElementById("ntopic"), nx = m && m.querySelector(".nnext"); if(!m || !nx || document.getElementById("nunlock")) return;
+  const d = document.createElement("div"); d.id = "nunlock"; d.className = "chcard nunlock"; d.setAttribute("role", "status");
+  d.innerHTML = "<b>You unlocked the challenges.</b> You finished all of the core notes. The challenges are optional, and they are great practice for AP or IB math. Open them from the list on the left, or from the Unit 6 page.";
+  nx.before(d); d.scrollIntoView({block: "nearest", behavior: "smooth"});
+}
+function noteNavHtml(){
+  return NOTE_TOPICS.map((x, i) => { const lock = topicLocked(x), done = noteComplete(x);
+    return `<button type="button" class="pill sm nnavb ${i === S.lesson ? "sel" : ""} ${lock ? "locked" : ""}" data-nt="${i}" ${lock ? 'disabled title="Finish the core notes to unlock this"' : ""} ${i === S.lesson ? 'aria-current="page"' : ""}>${lock ? "🔒 " : done ? "✓ " : ""}${i + 1}. ${esc(x.short)}</button>`; }).join("");
+}
+function noteNextHtml(){
+  const next = NOTE_TOPICS[S.lesson + 1];
+  return next && !topicLocked(next) ? `<button type="button" class="pill unit" data-nt="${S.lesson + 1}">Next: ${esc(next.short)} ▶</button>` : `<button type="button" class="pill unit" id="n6done">Back to Unit 6</button>`;
+}
+function bindNotesNav(){
+  app.querySelectorAll("[data-nt]").forEach(x => x.onclick = () => { if(x.disabled) return; if(S.view === "notes"){ S.lesson = +x.dataset.nt; render(); window.scrollTo(0, 0); } else go("notes", {lesson: +x.dataset.nt}); });
+  const dn = document.getElementById("n6done"); if(dn) dn.onclick = () => { S.view = "unit"; render(); window.scrollTo(0, 0); };
+}
+function refreshNotesNav(){ const nav = document.querySelector(".nnav"), nx = document.querySelector(".nnext"); if(nav) nav.innerHTML = noteNavHtml(); if(nx) nx.innerHTML = noteNextHtml(); bindNotesNav(); }
+
+function notesPanel(){
+  if(!notesOn()) return "";
+  const hon = isHonorsStudent(), core = NOTE_TOPICS.filter(t => t.core), ch = NOTE_TOPICS.filter(t => t.challenge), cd = core.filter(noteComplete).length;
+  const pill = t => { const i = NOTE_TOPICS.indexOf(t), lock = topicLocked(t), c = noteCount(t), done = c.done === c.total;
+    const sub = lock ? "Unlocks when you finish the core notes" : done ? "Done ✓" : c.done ? `${c.done} of ${c.total} done` : (t.challenge ? (hon ? "Honors" : "Challenge") : t.sub);
+    return `<button type="button" class="pill chbtn c${i % 4} ${lock ? "locked" : ""}" data-nt="${i}" ${lock ? "disabled" : ""}>${lock ? "🔒 " : ""}${esc(t.title)}<small>${sub}</small></button>`; };
+  return `<section class="challenge notes6" id="notes" aria-label="Lesson 1 notes"><h2 class="sr">Lesson 1 notes</h2>
+    <div class="chtop"><h2 class="chhead"><span class="tile a">Lesson 1</span><span class="tile b">notes</span></h2><div class="chtext"><p class="chlabel">Self-paced notes</p>
+      <p class="chnote">Work through these on your own, at your own speed. Click the graphs, fill in the blanks, and check your work. Desmos is your best friend in this unit, so keep it open. The notes are not graded.${hon ? "" : " Finish the core notes to unlock the challenges."}</p></div></div>
+    <p class="chlabel nsub">Core notes · ${cd === core.length ? "all done ✓" : `${cd} of ${core.length} done`}</p>
+    <div class="chbtns">${core.map(pill).join("")}</div>
+    <p class="chlabel nsub">${hon ? "Honors topics" : "Challenges"} · ${hon ? "you can start these any time" : challengesOpen() ? "unlocked, and optional" : "finish the core notes to unlock"}</p>
+    <div class="chbtns">${ch.map(pill).join("")}</div></section>`;
+}
+const bindNotesPanel = () => bindNotesNav();
+function renderNotes(){
+  const t = NOTE_TOPICS[S.lesson];
+  if(!t || !notesOn() || !unitOpen(S.unit) || topicLocked(t)){ S.view = "unit"; return renderUnit(); }
+  const b = t.build();
+  app.innerHTML = header() + `<div class="lessonlayout chlayout nlayout">
+      <aside class="side">
+        <div class="sidetop">${studentNav()}<img class="unitpic sm" src="${UNIT_IMG[S.unit]}" alt="Unit ${S.unit}"></div>
+        <div class="lrow sidenav"><span class="pill lesson p1">U${S.unit} Lesson 1</span></div>
+        <div class="lesson-title">Notes: ${esc(t.title)}</div>
+        <div class="nnav" role="navigation" aria-label="Notes topics">${noteNavHtml()}</div>
+        <p class="chnote sm">Notes are not graded. Take your time, and use Desmos to check your work.</p>
+      </aside>
+      <section class="mainq" id="ntopic">${b.html}<div class="nnext">${noteNextHtml()}</div></section></div>`;
+  document.getElementById("out").onclick = logout; bindStudentNav(); bindNotesNav();
+  b.bind();
+}
+
+function renderUnitClosed(){
+  app.innerHTML = header() + `<div class="sband">${studentNav()}<img class="unitpic" src="${UNIT_IMG[S.unit]}" alt="Unit ${S.unit}"></div>
+    <p class="empty">Unit ${S.unit} opens soon. Your teacher will let you know when you can start.</p>`;
+  document.getElementById("out").onclick = logout; bindStudentNav();
+}
+function renderUnitPlanned(planned){
+  app.innerHTML = header() + `<div class="sband">${studentNav()}<img class="unitpic" src="${UNIT_IMG[S.unit]}" alt="Unit ${S.unit}"></div>
+    ${S.unit === 6 && UNIT6_VIDEOS_URL ? `<p class="vidrow"><a class="pill unit" href="${esc(UNIT6_VIDEOS_URL)}" target="_blank" rel="noopener">Videos for this unit</a></p>` : ""}
+    ${notesPanel()}
+    <p class="empty soonnote">The workbook problems for this unit are coming soon.</p>` +
+    planned.map(l => `<div class="lrow"><button type="button" class="pill lesson p${l.part}" disabled>U${S.unit} Lesson ${esc(l.id)}</button><span class="pill ghost">${esc(l.title)}</span></div>`).join("");
+  document.getElementById("out").onclick = logout; bindStudentNav(); bindNotesPanel();
+}
+
+
+const plannedRest = () => {                                 // lessons that are planned but have no problems yet
+  const pl = PLANNED[S.unit]; if(!pl) return "";
+  const have = new Set((CONTENT[S.unit] || []).filter(l => l.problems.length).map(l => String(l.id))), rest = pl.filter(l => !have.has(l.id));
+  return rest.length ? `<p class="empty soonnote">More lessons are coming soon.</p>` + rest.map(l => `<div class="lrow"><button type="button" class="pill lesson p${l.part}" disabled>U${S.unit} Lesson ${esc(l.id)}</button><span class="pill ghost">${esc(l.title)}</span></div>`).join("") : "";
+};
+
+// =====================================================================================================================
+// STUDENT PASSCODES. After a student types their HW ID, a small screen asks for their passcode, or helps them make one.
+// It is there to stop a student from logging in as the WRONG student by a typo. The passcodes are kept in the teacher's
+// Supabase backup (never in this file), and each teacher can look up their own students' passcodes.
+//   PINS_ON  = false switches the whole thing off.
+//   PIN_DEMO = true keeps the passcodes in this browser only (used for the preview link, so the screens can be tried).
+// If the database cannot be reached, or the passcode functions have not been added to it yet, students are let in.
+// =====================================================================================================================
+const PINS_ON = true;
+const PIN_DEMO = false;
+const pinCfg = tid => { const c = BACKUP[tid] && BACKUP[tid].sb ? BACKUP[tid] : BACKUP["*"]; return c && c.sb ? c : null; };
+const pinMode = tid => PINS_ON && (PIN_DEMO ? "demo" : (pinCfg(tid) ? "sb" : null));
+const pinNetErr = e => e instanceof TypeError || /failed to fetch|networkerror|load failed|^HTTP \d+|timed? ?out/i.test((e && e.message) || "");
+const pinMissing = e => /could not find the function|schema cache/i.test((e && e.message) || "");
+const pinCap = s => { s = String(s || "Something went wrong"); return s.charAt(0).toUpperCase() + s.slice(1) + (/[.!]$/.test(s) ? "" : "."); };
+const demoGet = () => { try{ return JSON.parse(localStorage.getItem("mph4pindemo") || "{}"); }catch(e){ return {}; } };
+const demoPut = m => { try{ localStorage.setItem("mph4pindemo", JSON.stringify(m)); }catch(e){} };
+const PINAPI = {
+  async status(tid, id){ if(PIN_DEMO) return {has_pin: !!demoGet()[tid + ":" + id]};
+    const r = await sbRpc(pinCfg(tid), "hw_pin_status", {p_teacher: tid, p_id: id}); return {has_pin: !!r.has_pin}; },
+  async check(tid, id, pin){
+    if(PIN_DEMO){ const m = demoGet(), e = m[tid + ":" + id]; if(!e) return {match: false};
+      e.fails = (e.fails || []).filter(t => Date.now() - t < 600000);
+      if(e.fails.length >= 5){ demoPut(m); throw new Error("too many wrong passcodes. Wait 10 minutes, or choose Forgot passcode"); }
+      if(e.pin === pin){ e.fails = []; demoPut(m); return {match: true}; }
+      e.fails.push(Date.now()); demoPut(m); return {match: false, left: Math.max(0, 5 - e.fails.length)}; }
+    const r = await sbRpc(pinCfg(tid), "hw_pin_check", {p_teacher: tid, p_id: id, p_pin: pin}); return {match: !!r.match, left: r.left}; },
+  async set(tid, id, pin){
+    if(PIN_DEMO){ const m = demoGet(), k = tid + ":" + id; if(m[k]) throw new Error("a passcode is already set. Enter it, or choose Forgot passcode");
+      m[k] = {pin, set: Date.now(), resets: 0, last: null, fails: []}; demoPut(m); return; }
+    await sbRpc(pinCfg(tid), "hw_pin_set", {p_teacher: tid, p_id: id, p_pin: pin}); },
+  async reset(tid, id, pin){
+    if(PIN_DEMO){ const m = demoGet(), k = tid + ":" + id, e = m[k];
+      if(e){ e.pin = pin; e.set = Date.now(); e.resets = (e.resets || 0) + 1; e.last = Date.now(); e.fails = []; } else m[k] = {pin, set: Date.now(), resets: 0, last: null, fails: []};
+      demoPut(m); return; }
+    await sbRpc(pinCfg(tid), "hw_pin_reset", {p_teacher: tid, p_id: id, p_pin: pin}); },
+  async list(tid, code){
+    if(PIN_DEMO){ const m = demoGet(), out = {};
+      Object.keys(m).forEach(k => { if(k.startsWith(tid + ":")) out[k.slice(tid.length + 1)] = {pin: m[k].pin, set: new Date(m[k].set).toISOString(), resets: m[k].resets || 0, last_reset: m[k].last ? new Date(m[k].last).toISOString() : null}; });
+      return out; }
+    const r = await sbRpc(pinCfg(tid), "hw_pins", {p_teacher: tid, p_code: code}); return r.pins || {}; },
+  async clear(tid, code, id){ if(PIN_DEMO){ const m = demoGet(); delete m[tid + ":" + id]; demoPut(m); return; }
+    await sbRpc(pinCfg(tid), "hw_pin_clear", {p_teacher: tid, p_code: code, p_id: id}); }
+};
+
+// ---- the little screen ----
+let PINM = null;
+function pinShow(inner){
+  pinHide();
+  const m = document.createElement("div"); m.className = "modal pinback"; m.id = "pinscreen";
+  m.innerHTML = `<div class="pincard" role="dialog" aria-modal="true" aria-labelledby="pintitle">${inner}</div>`;
+  document.body.appendChild(m); document.body.classList.add("noscroll"); PINM = m;
+  const first = m.querySelector("input") || m.querySelector("button.go"); if(first) first.focus({preventScroll: true});
+  m.addEventListener("keydown", e => { if(e.key !== "Tab") return;
+    const f = [...m.querySelectorAll("input,button,a[href]")].filter(x => !x.disabled && x.offsetParent !== null); if(!f.length) return;
+    const a = f[0], z = f[f.length - 1];
+    if(e.shiftKey && document.activeElement === a){ e.preventDefault(); z.focus(); } else if(!e.shiftKey && document.activeElement === z){ e.preventDefault(); a.focus(); } });
+  return m;
+}
+function pinHide(){ if(PINM){ PINM.remove(); PINM = null; document.body.classList.remove("noscroll"); } }
+const pinSet = (m, inner) => { m.querySelector(".pincard").innerHTML = inner; const f = m.querySelector("input"); if(f) f.focus({preventScroll: true}); };
+const pinX = `<button type="button" class="pinx" data-pin="close" aria-label="Close">×</button>`;
+const pinHead = (a, b) => `<h2 class="chhead pinhead" id="pintitle"><span class="tile a">${a}</span><span class="tile b">${b}</span></h2>`;
+const pinWho = id => `<p class="pinwho">Logging in as <b class="pinid">${esc(id)}</b>. Not you? <button type="button" class="linkbtn" data-pin="change">Change ID</button></p>`;
+// four bubbles that fill in as the digits go in, with a number pad underneath (the keyboard works too)
+const pinPadHtml = () => `<div class="pinpad"><div class="pindots" id="pindots" role="img" aria-label="No digits entered yet"><i></i><i></i><i></i><i></i></div>
+  <input class="pinhidden" id="pinhid" type="password" inputmode="numeric" pattern="[0-9]*" maxlength="4" autocomplete="off" autocapitalize="off" spellcheck="false" aria-label="Passcode, four digits" aria-describedby="pinerr">
+  <div class="pinkeys" role="group" aria-label="Number pad">${[1, 2, 3, 4, 5, 6, 7, 8, 9].map(n => `<button type="button" class="pinkey" data-k="${n}" aria-label="${n}">${n}</button>`).join("")}<span class="pinkey blank" aria-hidden="true"></span><button type="button" class="pinkey" data-k="0" aria-label="0">0</button><button type="button" class="pinkey del" data-k="del" aria-label="Delete">⌫</button></div></div>`;
+function pinPad(m, onFull){
+  const hid = m.querySelector("#pinhid"), dots = m.querySelector("#pindots"), items = [...dots.querySelectorAll("i")]; let locked = false;
+  const paint = () => { const n = hid.value.length; items.forEach((d, i) => d.classList.toggle("on", i < n)); dots.setAttribute("aria-label", n ? `${n} of 4 digits entered` : "No digits entered yet"); };
+  const full = () => { if(hid.value.length === 4 && !locked){ locked = true; hid.readOnly = true; setTimeout(() => onFull(hid.value), 170); } };
+  hid.addEventListener("input", () => { hid.value = hid.value.replace(/\D/g, "").slice(0, 4); paint(); full(); });
+  m.querySelectorAll(".pinkey[data-k]").forEach(b => { b.onmousedown = e => e.preventDefault();
+    b.onclick = () => { if(locked) return; const k = b.dataset.k; hid.value = k === "del" ? hid.value.slice(0, -1) : (hid.value + k).slice(0, 4); paint(); full(); hid.focus({preventScroll: true}); }; });
+  dots.onclick = () => hid.focus({preventScroll: true});
+  return {
+    clear(){ hid.value = ""; locked = false; hid.readOnly = false; paint(); hid.focus({preventScroll: true}); },
+    miss(){ dots.classList.add("bad", "shake"); setTimeout(() => dots.classList.remove("bad", "shake"), 460); },
+    busy(){ locked = true; hid.readOnly = true; }
+  };
+}
+function pinWire(m, resolve){                           // the parts every screen shares: the X, Change ID, Escape, and Enter in a text box
+  const out = () => { pinHide(); resolve(false); };
+  m.querySelectorAll('[data-pin="close"],[data-pin="change"]').forEach(b => b.onclick = out);
+  m.onkeydown = e => { if(e.key === "Escape"){ e.preventDefault(); out(); } else if(e.key === "Enter" && e.target.type === "text"){ e.preventDefault(); const ok = m.querySelector("#pinok"); if(ok && !ok.disabled) ok.click(); } };
+}
+function pinDone(m, then){
+  m.querySelector(".pincard").innerHTML = `${pinHead("All", "set")}<p class="pinsay pinsaved" role="status">Your passcode is saved.</p>`;
+  setTimeout(() => { pinHide(); then(); }, 900);
+}
+
+// make a passcode: the first time, or after "Forgot passcode". Make it, then enter it again.
+function pinCreate(tid, id, kind, note){
+  return new Promise(resolve => {
+    const reset = kind === "reset"; let first = null;
+    const m = pinShow(`${pinX}${pinHead(reset ? "Make a new" : "Make a", "passcode")}${pinWho(id)}${note ? `<p class="pinnote">${note}</p>` : ""}
+      <p class="pinsay" id="pinsay">Pick one you’ll remember.</p>${pinPadHtml()}
+      <p class="err pinerr" id="pinerr" role="alert"></p>
+      <p class="pinfine">Your teacher can see your passcode if you forget it.</p>`);
+    pinWire(m, resolve);
+    const err = m.querySelector("#pinerr"), say = m.querySelector("#pinsay");
+    const pad = pinPad(m, async v => {
+      if(first === null){ first = v; say.textContent = "Now enter it again."; err.textContent = ""; pad.clear(); return; }
+      if(v !== first){ pad.miss(); first = null; setTimeout(() => { say.textContent = "Pick one you’ll remember."; err.textContent = "Passcodes do not match."; pad.clear(); }, 460); return; }
+      err.textContent = "Saving…";
+      try{ await (reset ? PINAPI.reset(tid, id, v) : PINAPI.set(tid, id, v)); pinDone(m, () => resolve(true)); }
+      catch(e){
+        if(pinMissing(e)){ pinHide(); resolve(true); return; }
+        if(!reset && /already set/i.test((e && e.message) || "")){ resolve(pinEnter(tid, id, "You already have a passcode. Enter it to log in.")); return; }
+        err.textContent = pinNetErr(e) ? "Couldn’t save it. Check the Wi-Fi and enter it again." : pinCap(e.message); pad.clear(); }
+    });
+  });
+}
+
+// enter the passcode
+function pinEnter(tid, id, note){
+  return new Promise(resolve => {
+    const m = pinShow(`${pinX}${pinHead("Enter your", "passcode")}${pinWho(id)}${note ? `<p class="pinnote">${note}</p>` : ""}
+      ${pinPadHtml()}<p class="err pinerr" id="pinerr" role="alert"></p>
+      <p class="pinfine"><button type="button" class="linkbtn" data-pin="forgot">Forgot passcode?</button></p>`);
+    pinWire(m, resolve);
+    const err = m.querySelector("#pinerr");
+    m.querySelector('[data-pin="forgot"]').onclick = () => resolve(pinForgot(tid, id));
+    const pad = pinPad(m, async v => {
+      err.textContent = "";
+      try{
+        const r = await PINAPI.check(tid, id, v);
+        if(r.match){ pinHide(); resolve(true); return; }
+        pad.miss(); setTimeout(() => { err.textContent = "Wrong passcode. Not your ID? Tap Change ID." + (r.left !== undefined && r.left <= 2 ? ` ${r.left} ${r.left === 1 ? "try" : "tries"} left.` : ""); pad.clear(); }, 460);
+      }catch(e){
+        if(pinMissing(e)){ pinHide(); resolve(true); return; }
+        if(pinNetErr(e)){ resolve(pinUnreachable(tid, id)); return; }
+        err.textContent = pinCap(e.message); pad.clear(); }
+    });
+  });
+}
+
+// "Forgot passcode": two steps. First pick your teacher (four bubbles), then type your HW ID. Then make a new passcode.
+function pinForgot(tid, id){
+  return new Promise(resolve => {
+    const m = pinShow(`<div></div>`);
+    const one = () => {
+      pinSet(m, `${pinX}${pinHead("Forgot", "passcode")}<p class="pinstep">Step 1 of 2</p><p class="pinsay">Pick your teacher.</p>
+        <div class="pinteachers">${TEACHERS.map(t => `<button type="button" class="pill pinteach" data-tid="${t.id}">${esc(t.name)}</button>`).join("")}</div>
+        <p class="err pinerr" id="pinerr" role="alert"></p>
+        <p class="pinfine"><button type="button" class="linkbtn" data-pin="back">Back</button></p>`);
+      pinWire(m, resolve);
+      m.querySelector('[data-pin="back"]').onclick = () => resolve(pinEnter(tid, id));
+      m.querySelectorAll("[data-tid]").forEach(b => b.onclick = () => {
+        if(b.dataset.tid !== tid){ m.querySelector("#pinerr").textContent = "That’s not the teacher you started with. Wrong teacher? Tap the X and start over."; return; }
+        two(); });
+    };
+    const two = () => {
+      pinSet(m, `${pinX}${pinHead("Forgot", "passcode")}<p class="pinstep">Step 2 of 2</p><p class="pinsay">Now type your HW ID.</p>
+        <label class="pinlabel" for="pcid">HW ID</label>
+        <input class="pin pcid" id="pcid" type="text" autocomplete="off" autocapitalize="characters" spellcheck="false" maxlength="12" placeholder="Homework ID">
+        <p class="err pinerr" id="pinerr" role="alert"></p>
+        <button type="button" class="pill go" id="pinok">Continue</button>
+        <p class="pinfine"><button type="button" class="linkbtn" data-pin="back">Back</button></p>`);
+      pinWire(m, resolve);
+      const err = m.querySelector("#pinerr"), box = m.querySelector("#pcid");
+      m.querySelector('[data-pin="back"]').onclick = one;
+      m.querySelector("#pinok").onclick = () => {
+        const v = box.value.toUpperCase().replace(/\s+/g, "");
+        if(!v){ err.textContent = "Type your HW ID."; box.focus(); return; }
+        if(v !== id){ err.textContent = "That doesn’t match the ID you started with. Typo? Tap the X and try again."; box.focus(); box.select(); return; }
+        resolve(pinCreate(tid, id, "reset", "Heads up: your teacher can see when a passcode is changed."));
+      };
+    };
+    one();
+  });
+}
+
+// the passcode check cannot be reached (the Wi-Fi, or the school blocking it). Nobody is locked out of homework.
+function pinUnreachable(tid, id){
+  return new Promise(resolve => {
+    const m = pinShow(`${pinX}${pinHead("Can’t", "connect")}${pinWho(id)}
+      <p class="pinsay">The passcode check isn’t loading. Make sure the Wi-Fi is on, then try again.</p>
+      <button type="button" class="pill go" id="pinok">Try again</button>
+      <p class="pinfine">Still stuck? <button type="button" class="linkbtn" data-pin="skip">Continue without a passcode</button>. Just make sure the ID above is yours.</p>`);
+    pinWire(m, resolve);
+    m.querySelector("#pinok").onclick = () => resolve(pinGate(tid, id));
+    m.querySelector('[data-pin="skip"]').onclick = () => { pinHide(); resolve(true); };
+  });
+}
+
+// the gate: resolves true when the student may log in, false when they leave (X, Escape, or Change ID)
+async function pinGate(tid, id){
+  if(!pinMode(tid)) return true;
+  let gone = false;
+  const w = pinShow(`${pinX}<p class="pinwait" role="status">One moment…</p>`);
+  w.querySelector('[data-pin="close"]').onclick = () => { gone = true; pinHide(); };
+  w.onkeydown = e => { if(e.key === "Escape"){ gone = true; pinHide(); } };
+  let st;
+  try{ st = await PINAPI.status(tid, id); }
+  catch(e){ if(gone) return false; if(pinMissing(e)){ pinHide(); return true; } return pinUnreachable(tid, id); }
+  if(gone) return false;
+  return st.has_pin ? pinEnter(tid, id) : pinCreate(tid, id, "create");
+}
+
+
+// ---- the teacher's list of their own students' passcodes ----
+async function openPins(){
+  const tid = S.tId; if(!tid || S.mon) return;
+  const old = document.getElementById("pinsmodal"); if(old) old.remove();
+  const m = document.createElement("div"); m.className = "modal"; m.id = "pinsmodal"; document.body.appendChild(m); document.body.classList.add("noscroll");
+  const roster = ROSTER.filter(r => r.t === tid && !r.test).sort((a, b) => a.id.localeCompare(b.id));
+  let pins = null, show = false, onlyMissing = false, askClear = null, msg = "", copied = "";
+  const close = () => { m.remove(); document.body.classList.remove("noscroll"); document.removeEventListener("keydown", onKey); };
+  const onKey = e => { if(e.key === "Escape") close(); };
+  document.addEventListener("keydown", onKey);
+  const dfmt = iso => { try{ return new Date(iso).toLocaleDateString("en-US", {month: "short", day: "numeric"}); }catch(e){ return ""; } };
+  const sampleMap = () => { const o = {}; roster.forEach((r, i) => { if(i % 6 === 5) return;
+    const n = Math.abs([...r.id].reduce((h, c) => (h * 31 + c.charCodeAt(0)) | 0, 7 + i)); o[r.id] = {pin: String(1000 + n % 9000), set: new Date(Date.now() - (n % 20) * 864e5).toISOString(), resets: n % 7 === 0 ? 1 + n % 3 : 0, last_reset: null}; }); return o; };
+  const draw = loading => {
+    const has = r => pins && pins[r.id], nSet = roster.filter(has).length, nCh = roster.filter(r => has(r) && pins[r.id].resets > 0).length;
+    const rows = roster.map(r => ({r, e: has(r)})).filter(x => !onlyMissing || !x.e);
+    m.innerHTML = `<div class="attcard pinscard" role="dialog" aria-modal="true" aria-labelledby="pinstitle">
+      <div class="atthead"><div><h3 id="pinstitle">Student passcodes${S.sample ? " (sample data)" : ""}</h3><p class="attsub">${esc(S.teacher.name)} · ${roster.length} students</p>
+        <p class="attsum">${loading ? "Loading…" : pins ? `${nSet} of ${roster.length} have made a passcode · ${roster.length - nSet} have not yet · ${nCh} changed theirs at least once` : ""}</p></div>
+        <button type="button" class="pill unit" id="pinsclose">Close</button></div>
+      ${msg ? `<p class="err pinsmsg" role="alert">${esc(msg)}</p>` : ""}
+      ${pins ? `<div class="pinsctl"><button type="button" class="pill sm" id="pinsshow" aria-pressed="${show}">${show ? "Hide passcodes" : "Show passcodes"}</button>
+        <button type="button" class="pill sm" id="pinsmiss" aria-pressed="${onlyMissing}">${onlyMissing ? "Show everyone" : "Only students without one"}</button>
+        <button type="button" class="pill sm" id="pinscopy" ${S.sample ? 'disabled title="Turn off sample data to copy real passcodes"' : ""}>Copy this list</button>
+        <button type="button" class="pill sm" id="pinsref">Refresh</button><span class="copied" role="status">${esc(copied)}</span></div>
+        <div class="tscroll pinsscroll"><table class="ttable pinstable"><thead><tr><th>Block</th><th>HW ID</th><th>Passcode</th><th>Made</th><th>Changed</th><th></th></tr></thead><tbody>
+        ${rows.map(x => `<tr><td>${esc(x.r.id[0])}</td><td class="idc"><b>${esc(x.r.id)}</b></td>
+          <td class="pinval">${x.e ? (show ? esc(x.e.pin) : "••••") : `<span class="muted">Not made yet</span>`}</td>
+          <td>${x.e ? esc(dfmt(x.e.set)) : "—"}</td>
+          <td>${x.e && x.e.resets ? `${x.e.resets} time${x.e.resets === 1 ? "" : "s"}${x.e.last_reset ? ", last " + esc(dfmt(x.e.last_reset)) : ""}` : "—"}</td>
+          <td>${x.e ? (askClear === x.r.id ? `<span class="pinask">Clear it? <button type="button" class="pill sm" data-doclear="${esc(x.r.id)}">Yes</button> <button type="button" class="pill sm" data-noclear="1">No</button></span>`
+              : `<button type="button" class="pill sm" data-clear="${esc(x.r.id)}" ${S.sample ? "disabled" : ""}>Clear</button>`) : ""}</td></tr>`).join("")}
+        </tbody></table></div>` : ""}
+      <p class="muted small attfoot">Only you can see this list, and only with your teacher code. Clear lets a student make a new passcode the next time they log in.</p></div>`;
+    m.onclick = e => { if(e.target === m) close(); };
+    const $ = id => m.querySelector("#" + id);
+    $("pinsclose").onclick = close;
+    if(!pins) return;
+    $("pinsshow").onclick = () => { show = !show; draw(); };
+    $("pinsmiss").onclick = () => { onlyMissing = !onlyMissing; draw(); };
+    $("pinsref").onclick = () => { askClear = null; msg = ""; load(); };
+    $("pinscopy").onclick = async () => {
+      const text = [["Block", "HW ID", "Passcode", "Made", "Times changed"]].concat(roster.map(r => { const e = pins[r.id]; return [r.id[0], r.id, e ? e.pin : "", e ? dfmt(e.set) : "", e ? e.resets : ""]; })).map(r => r.join("\t")).join("\n");
+      try{ await navigator.clipboard.writeText(text); copied = "Copied. Paste it into a spreadsheet."; }catch(err){ const ta = document.createElement("textarea"); ta.value = text; ta.style.cssText = "position:fixed;opacity:0"; document.body.appendChild(ta); ta.select(); try{ document.execCommand("copy"); copied = "Copied. Paste it into a spreadsheet."; }catch(_){ copied = "Your browser blocked copying."; } ta.remove(); }
+      draw(); };
+    m.querySelectorAll("[data-clear]").forEach(b => b.onclick = () => { askClear = b.dataset.clear; draw(); });
+    m.querySelectorAll("[data-noclear]").forEach(b => b.onclick = () => { askClear = null; draw(); });
+    m.querySelectorAll("[data-doclear]").forEach(b => b.onclick = async () => {
+      b.disabled = true;
+      try{ await PINAPI.clear(tid, S.tCode, b.dataset.doclear); askClear = null; msg = ""; await load(); }
+      catch(e){ msg = pinNetErr(e) ? "Couldn’t reach the database. Try again." : pinCap(e.message); askClear = null; draw(); } });
+  };
+  const load = async () => {
+    draw(true);
+    try{ pins = S.sample ? sampleMap() : await PINAPI.list(tid, S.tCode); msg = ""; }
+    catch(e){ pins = null;
+      msg = pinMissing(e) ? "Passcodes aren’t set up in the database yet. Run the newest Math3-supabase-setup.txt in Supabase (the guide has the steps), then open this again."
+        : pinNetErr(e) ? "Couldn’t reach the database. Check the Wi-Fi and try again." : pinCap(e.message); }
+    draw();
+  };
+  if(!PIN_DEMO && !S.sample && !pinCfg(tid)){ msg = "Passcodes need the Supabase backup, and this site isn’t connected to one."; draw(); return; }
+  load();
+}
+
 function render(){
   demoStop();
   document.body.dataset.view = S.view;
@@ -2124,6 +3176,7 @@ function render(){
   if(S.view==="unit") return renderUnit();
   if(S.view==="lesson") return renderLesson();
   if(S.view==="challenge") return renderChallenge();
+  if(S.view==="notes") return renderNotes();
   if(S.view==="teacher") return renderTeacher();
 }
 
@@ -2152,6 +3205,10 @@ function renderLogin(){
     const h = await sha(S.teacher.id + ":" + id);
     const rec = STUDENTS.find(s => s.h === h);
     if(!rec){ err.textContent = "That HW ID doesn’t match this teacher. Check both and try again."; return; }
+    const goBtn = document.getElementById("go"); goBtn.disabled = true; err.textContent = "";
+    let allowed = true; try{ allowed = await pinGate(S.teacher.id, id); }catch(e){ console.warn("The passcode check was skipped:", e); pinHide(); }
+    goBtn.disabled = false;
+    if(!allowed){ const f = document.getElementById("pin"); if(f){ f.focus(); f.select(); } return; }       // the X or Change ID: back to the ID box
     const aliasIds = ID_ALIASES[S.teacher.id + ":" + id] || [];
     const aliasH = await Promise.all(aliasIds.map(a => sha(S.teacher.id + ":" + a)));
     S.student = {...rec, id, aliasIds, aliasH}; S.pin = ""; S.hist = []; load(); migrateAliases(); bkStart(); go("units");
@@ -2194,13 +3251,15 @@ function masteryBox(){
       <div class="myms-goal">Goal: ${goalText(lvl)}${ok ? " ✓" : ""}</div></div></div>`;
 }
 function renderUnit(){
+  if(!unitOpen(S.unit)) return renderUnitClosed();
   const ls = CONTENT[S.unit] || [];
+  if(PLANNED[S.unit] && !ls.some(l => l.problems.length)) return renderUnitPlanned(PLANNED[S.unit]);
   app.innerHTML = header() +
     `<div class="sband">${studentNav()}<img class="unitpic" src="${UNIT_IMG[S.unit]}" alt="Unit ${S.unit}">${partsOf(S.unit).map(pt => dueHtml(S.unit, pt.part, "box")).join("")}${masteryBox()}</div>
-     <div class="legend"><span class="dot done"></span>Complete <span class="dot prog"></span>In progress <span class="dot todo"></span>Not started <span class="dot done latedot"></span>Finished late <span class="legend-tip">Tap a number to jump</span></div>` +
+     <div class="legend"><span class="dot done"></span>Complete <span class="dot prog"></span>In progress <span class="dot todo"></span>Not started <span class="dot done latedot"></span>Finished late <span class="legend-tip">Tap a number to jump</span></div>` + notesPanel() +
     (ls.length ? ls.map((l,i) => `<div class="lrow"><button class="pill lesson ${partClass(l)}" data-l="${i}">U${S.unit} Lesson ${esc(l.id)}</button>${statusRow(l,"open",i)}</div>`).join("")
-               : `<p class="empty">No lessons have been added to this unit yet.</p>`) + challengePanel();
-  document.getElementById("out").onclick = logout; bindStudentNav(); bindChallengePanel();
+               : `<p class="empty">No lessons have been added to this unit yet.</p>`) + plannedRest() + challengePanel();
+  document.getElementById("out").onclick = logout; bindStudentNav(); bindChallengePanel(); bindNotesPanel();
   app.querySelectorAll("[data-l]").forEach(b => b.onclick = () => {
     if(!problemsFor(ls[+b.dataset.l]).length) return;
     go("lesson",{lesson:+b.dataset.l, jump:null});
@@ -2426,7 +3485,9 @@ function bkRel(local, server){
   return bkAhead(local, server) ? "send" : "adopt";
 }
 function bkProblem(id){
-  const [u, l, i] = id.split("-"), les = (CONTENT[u] || []).concat(CHALLENGE[u] || []).find(x => String(x.id) === l);
+  const [u, l, i] = id.split("-");
+  if(u === "6" && typeof NOTE_ITEMS !== "undefined" && NOTE_ITEMS[l] !== undefined) return +i < NOTE_ITEMS[l] ? {n: String(+i + 1), note: 1} : null;     // the Unit 6 notes are saved and backed up like homework
+  const les = (CONTENT[u] || []).concat(CHALLENGE[u] || []).find(x => String(x.id) === l);
   return les && les.problems[+i] ? les.problems[+i] : null;
 }
 function bkRec(id){
@@ -3736,7 +4797,7 @@ function teacherHeader(noPick){
   return `<header class="top thead">
       <div class="tl">${isWatts ? `<button class="homebtn" id="tbulb" aria-label="Main page, where students log in" title="Main page (student login)">${BULB}</button>` : ""}</div>
       <h1>Math 3</h1>
-      <div class="who tr">${trButtonHtml()}<button class="pill sm sampletog ${S.sample ? "on" : ""}" id="tsample" aria-pressed="${!!S.sample}" title="${S.sample ? "Showing made-up data. Click to show only real student work." : "Showing real student work only. Click to preview the dashboard with made-up data."}">Sample data: ${S.sample ? "ON" : "OFF"}</button><span class="pill sm">${esc(S.teacher.name)}</span><button class="logout" id="out">Log out</button></div>
+      <div class="who tr">${trButtonHtml()}${S.mon ? "" : `<button class="pill sm" id="tpins" title="See and reset your students’ passcodes">Student passcodes</button>`}<button class="pill sm sampletog ${S.sample ? "on" : ""}" id="tsample" aria-pressed="${!!S.sample}" title="${S.sample ? "Showing made-up data. Click to show only real student work." : "Showing real student work only. Click to preview the dashboard with made-up data."}">Sample data: ${S.sample ? "ON" : "OFF"}</button><span class="pill sm">${esc(S.teacher.name)}</span><button class="logout" id="out">Log out</button></div>
     </header>
     <div class="topband">
       <div class="navstack">
@@ -3765,6 +4826,7 @@ function bindChrome(){
   const hb = document.getElementById("thome"); if(hb) hb.onclick = tHome;
   const bulb = document.getElementById("tbulb"); if(bulb) bulb.onclick = logout;   // back to the page where students log in
   const pv = document.getElementById("tpreview"); if(pv) pv.onclick = enterPreview;
+  const tp = document.getElementById("tpins"); if(tp) tp.onclick = openPins;
   document.querySelectorAll("[data-teacher]").forEach(b => b.onclick = () => { S.tTeacher = b.dataset.teacher; S.tBlock = "all"; render(); });
   document.querySelectorAll("[data-unit]").forEach(b => b.onclick = () => tGo({unit: +b.dataset.unit}));
 }
