@@ -3109,7 +3109,7 @@ async function openPins(){
   const tid = S.tId; if(!tid || S.mon) return;
   const old = document.getElementById("pinsmodal"); if(old) old.remove();
   const m = document.createElement("div"); m.className = "modal"; m.id = "pinsmodal"; document.body.appendChild(m); document.body.classList.add("noscroll");
-  const roster = ROSTER.filter(r => r.t === tid && !r.test).sort((a, b) => a.id.localeCompare(b.id));
+  const roster = ROSTER.filter(r => r.t === tid && !r.test);
   let pins = null, show = false, onlyMissing = false, askClear = null, msg = "", copied = "";
   const close = () => { m.remove(); document.body.classList.remove("noscroll"); document.removeEventListener("keydown", onKey); };
   const onKey = e => { if(e.key === "Escape") close(); };
@@ -4759,10 +4759,15 @@ async function loadClassData(unit){
     rows.push({...st, key: st.t + ":" + st.id, tname: ((TEACHERS.find(t => t.id === st.t)) || {}).name || "", period: st.id[0], live, per, std: stdS, mastery: masteryAvg(stdS, unit), misc: misconceptionHits(unit, st.level, prog), ch: challengeStats(unit, st.level, chSrc), prog,
                p1: rnd(p1), p2: rnd(p2), unit: rnd(halves.length ? mean(halves) : null)});
   }
-  rows.sort((a,b) => (S.mon ? a.t.localeCompare(b.t) : 0) || a.id.localeCompare(b.id));
+  rows.sort((a,b) => (S.mon ? a.t.localeCompare(b.t) : 0) || rosterCmp(a, b));
   return rows;
 }
 
+// The class lists are kept in the order the teachers gave them (alphabetical by last name, to match the gradebook).
+// Every list of students on the teacher pages uses this order, instead of sorting by HW ID.
+const ROSTER_POS = {}; ROSTER.forEach((r, i) => { ROSTER_POS[r.t + ":" + r.id] = i; });
+const rosterPos = r => { const v = ROSTER_POS[r.t + ":" + r.id]; return v === undefined ? 1e9 : v; };
+const rosterCmp = (a, b) => (rosterPos(a) - rosterPos(b)) || String(a.id).localeCompare(String(b.id));
 const toTSV = grid => grid.map(r => r.join("\t")).join("\n");
 const toCSV = grid => grid.map(r => r.map(v => `"${String(v).replace(/"/g,'""')}"`).join(",")).join("\n");
 
@@ -4945,8 +4950,8 @@ function renderMonitorStudents(allRows, unit){
   const belowGoal = people.filter(x => x.m !== null && x.m < x.goal), nGoal = people.filter(x => x.m !== null && x.m >= x.goal).length, nNeed = people.filter(x => x.bl.length).length, nNone = people.filter(x => !x.has).length;
   const only = S.mOnly === true ? "1" : (S.mOnly || "0");
   let list = only === "goal" ? belowGoal.slice() : only === "1" ? people.filter(x => x.bl.length) : people.slice();
-  list.sort(S.mSort === "id" ? ((a, b) => a.r.t.localeCompare(b.r.t) || a.r.id.localeCompare(b.r.id))
-    : ((a, b) => (a.m === null) - (b.m === null) || (a.m === null ? 0 : (a.m - a.goal) - (b.m - b.goal)) || (a.m === null ? 0 : a.m - b.m) || b.bl.length - a.bl.length || a.r.id.localeCompare(b.r.id)));
+  list.sort(S.mSort === "id" ? ((a, b) => a.r.t.localeCompare(b.r.t) || rosterCmp(a.r, b.r))
+    : ((a, b) => (a.m === null) - (b.m === null) || (a.m === null ? 0 : (a.m - a.goal) - (b.m - b.goal)) || (a.m === null ? 0 : a.m - b.m) || b.bl.length - a.bl.length || rosterCmp(a.r, b.r)));
   const btn = (attr, val, on, label) => `<button class="pill sm ${on ? "sel" : ""}" ${attr}="${val}" aria-pressed="${on}">${label}</button>`;
   const rowH = x => `<tr><td class="idc msid"><button type="button" class="linkbtn" data-mst="${esc(x.r.key)}" title="See ${esc(x.r.id)}’s mastery in detail">${esc(x.r.id)}</button></td>
     <td class="msclass">${S.tTeacher === "all" ? esc(x.r.tname) + " · " : ""}Block ${esc(x.r.period)} · ${x.r.level === "honors" ? "Honors" : "Standard"}</td>${masteryCell(x.m, x.r.level)}${stdCellHtml(x.o)}
@@ -4958,7 +4963,7 @@ ${levelLegend()}
     <div class="mcontrols">
       <div class="mcgroup"><span class="mclabel">Class</span>${btn("data-mblk", "all", S.tBlock === "all", S.tTeacher === "all" ? "All classes" : "All of " + who + "’s classes")}${blocks.map(bk => btn("data-mblk", bk, S.tBlock === bk, "Block " + esc(bk))).join("")}</div>
       <div class="mcgroup"><span class="mclabel">Show</span>${btn("data-monly", "0", only === "0", "Everyone")}${btn("data-monly", "goal", only === "goal", "Below their goal")}${btn("data-monly", "1", only === "1", "Needs help on a standard")}</div>
-      <div class="mcgroup"><span class="mclabel">Sort</span>${btn("data-msort", "need", S.mSort !== "id", "Furthest from goal first")}${btn("data-msort", "id", S.mSort === "id", "Teacher, class, ID")}</div>
+      <div class="mcgroup"><span class="mclabel">Sort</span>${btn("data-msort", "need", S.mSort !== "id", "Furthest from goal first")}${btn("data-msort", "id", S.mSort === "id", "Teacher, class, list order")}</div>
     </div>
     ${stdKey(STD, cols)}
     <p class="tnote2">${list.length} student${list.length === 1 ? "" : "s"} shown.</p>
@@ -5052,7 +5057,7 @@ function renderPacktime(allRows, unit){
   probs.sort((a, b) => b.pct - a.pct || b.wrong - a.wrong || b.tried.length - a.tried.length);
   const shownP = S.pAll ? probs : probs.slice(0, 12), probById = {}; probs.forEach(x => { probById[x.id] = x; });
   const people = group.map(r => { const sc = cols.map(c => r.std[c] && r.std[c].score !== null ? {c, v: r.std[c].score} : null).filter(Boolean); return {r, m: r.mastery, goal: goalOf(r.level), bl: sc.filter(x => x.v < 80).sort((a, b) => a.v - b.v), has: sc.length > 0}; })
-    .sort((a, b) => (a.m === null) - (b.m === null) || (a.m === null ? 0 : (a.m - a.goal) - (b.m - b.goal)) || a.r.id.localeCompare(b.r.id));
+    .sort((a, b) => (a.m === null) - (b.m === null) || (a.m === null ? 0 : (a.m - a.goal) - (b.m - b.goal)) || rosterCmp(a.r, b.r));
   const idChips = (xs, max) => xs.slice(0, max).map(y => `<span class="pid" title="${esc(tn(y.r.t))} · Block ${esc(y.r.period)} · ${y.v}%">${esc(y.r.id)}</span>`).join(" ") + (xs.length > max ? ` <span class="muted">+${xs.length - max} more</span>` : "");
   const stdRow = (x, i) => { const s = STD[x.c], by = stdWhere(unit, x.c), where = Object.keys(by).map(id => `Lesson ${esc(id)} (${by[id].length > 1 ? "problems" : "problem"} ${by[id].join(", ")})`).join("; ");
     return `<tr class="${i < 3 ? "worst" : ""}"><td class="pname">${i < 3 ? `<span class="rank">${i + 1}</span>` : ""}<b>${esc(stdPlain(STD, x.c))}</b> <button type="button" class="linkbtn" data-std="${esc(x.c)}" title="What each level looks like">${esc(s.short)}</button>${s.review ? ` <small class="muted">(builds on earlier work)</small>` : ""}</td>
@@ -5081,7 +5086,7 @@ function renderPacktime(allRows, unit){
 }
 function openPackProblem(pr){
   const m = document.getElementById("attmodal"); if(!m || !pr) return; m.dataset.opener = "pp:" + pr.id; S.attOpen = true;
-  const rows = pr.tried.slice().sort((a, b) => ((b.rec.w || []).length - (a.rec.w || []).length) || (!!b.rec.h - !!a.rec.h) || ((!a.rec.d) - (!b.rec.d)) || a.r.id.localeCompare(b.r.id));
+  const rows = pr.tried.slice().sort((a, b) => ((b.rec.w || []).length - (a.rec.w || []).length) || (!!b.rec.h - !!a.rec.h) || ((!a.rec.d) - (!b.rec.d)) || rosterCmp(a.r, b.r));
   m.innerHTML = `<div class="attcard" role="dialog" aria-modal="true" aria-label="Lesson ${esc(pr.l.id)} problem ${esc(pr.p.n)}">
     <div class="atthead"><div><h3>Lesson ${esc(pr.l.id)} · Problem ${esc(pr.p.n)}${pr.p.honors ? " (honors)" : ""}</h3><p class="attsub">${esc(probSnip(pr.p))}</p>
       <p class="attsum">${pr.nh} of ${pr.tried.length} packtime students who tried it needed extra help</p></div><button class="pill unit" id="attclose">Close</button></div>
@@ -5095,7 +5100,7 @@ function miscSection(shown){
   const by = {};
   shown.forEach(r => Object.keys(r.misc || {}).forEach(t => { if(MISC[t]) (by[t] = by[t] || []).push(r); }));
   const times = (r, t) => Object.keys(r.misc[t]).length;
-  const ranked = Object.keys(by).map(t => ({t, rows: by[t].slice().sort((a, b) => times(b, t) - times(a, t) || a.id.localeCompare(b.id))}))
+  const ranked = Object.keys(by).map(t => ({t, rows: by[t].slice().sort((a, b) => times(b, t) - times(a, t) || rosterCmp(a, b))}))
     .sort((a, b) => b.rows.length - a.rows.length || MISC[a.t].t.localeCompare(MISC[b.t].t)).slice(0, 8);
   const list = ranked.map((m, i) => {
     const where = {}; m.rows.forEach(r => Object.keys(r.misc[m.t]).forEach(lb => { where[lb] = (where[lb] || 0) + 1; }));
