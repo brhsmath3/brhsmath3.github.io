@@ -1334,6 +1334,7 @@ body.noscroll{overflow:hidden}
 .nschip{padding:2px 10px;border:2px solid var(--ink);border-radius:999px;background:var(--bg);font:700 .9rem "Poppins",system-ui,sans-serif}
 .nsnone{margin:6px 0;font-weight:600}
 .nsnote{margin:10px 0 0;font-size:.8rem;color:var(--muted)}
+body[data-view="unit"] .due.hasnote .dnote{display:block !important}
 </style>
 </head>
 <body>
@@ -1394,9 +1395,10 @@ const DUE_PARTS = {
     {part:2, lessons:["6","7","8"],     due:new Date(2026, 10, 18, 23, 59, 59)}       // Part 2 (Lessons 6-8): Wednesday, November 18
   ],
   6: [
-    // For now, the Lesson 1 problems are due by the end of the day (always 11:59 PM today). Nobody is marked late.
-    // After Thanksgiving break, replace this with the real Part 1 and Part 2 dates, like Unit 5 above.
-    {part:1, lessons:["1"], eod:true, get due(){ const d = new Date(); d.setHours(23, 59, 59, 0); return d; }}
+    // Watts's students only (teachers: ["t4"]): the Lesson 1 problems are due Friday, November 20, at 3:30 PM (the end of the school day).
+    // The other teachers have no Unit 6 deadline yet. To give one a deadline, add another entry here with that teacher's id, for example teachers:["t2"].
+    // After Thanksgiving break, split the unit into the real Part 1 and Part 2, like Unit 5 above.
+    {part:1, lessons:["1"], label:"Lesson 1", note:"by the end of the school day", teachers:["t4"], due:new Date(2026, 10, 20, 15, 30, 0)}
   ]
 };
 // BACKUP: send each student's results to their teacher's Google Sheet. {} means off.
@@ -2314,13 +2316,24 @@ function statusRow(lesson, mode, idx){
 // ---- DEADLINES: a countdown per part; problems stay open forever and late work is marked ----
 const pad2 = n => String(n).padStart(2, "0");
 const unitWord = (n, w) => `${n} ${w}${n === 1 ? "" : "s"}`;
-const partsOf = u => DUE_PARTS[u] || [];
+let DUE_TID = null;      // set while the teacher pages are built student by student (the monitor sees four teachers at once)
+const dueTid = () => DUE_TID || (S.student ? (S.student.preview ? S.tId : (S.teacher && S.teacher.id)) : S.tId);
+const partsOf = u => (DUE_PARTS[u] || []).filter(p => !p.teachers || p.teachers.includes(dueTid()));
 const partFor = (u, lessonId) => partsOf(u).find(p => p.lessons.includes(String(lessonId))) || null;
 const partClass = l => { const pt = partFor(S.unit, l.id); return pt ? "p" + pt.part : ""; };
-const dueLabel = part => part.due.toLocaleDateString("en-US", {weekday:"short", month:"short", day:"numeric"});
+const partName = part => part.label || ("Part " + part.part);
+const dueTime = part => part.due.toLocaleTimeString("en-US", {hour: "numeric", minute: "2-digit"});
+const dueEOD = part => part.due.getHours() === 23 && part.due.getMinutes() === 59;
+const dueDate = part => part.due.toLocaleDateString("en-US", {weekday:"short", month:"short", day:"numeric"});
+const dueLabel = part => dueDate(part) + (dueEOD(part) ? "" : " at " + dueTime(part));
+const dueDay = part => { const day = d => new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime(); return Math.round((day(part.due) - day(new Date())) / 86400000); };      // 0 = today, 1 = tomorrow      // "Fri, Nov 20 at 3:30 PM" (an 11:59 PM deadline shows only the date)
+const dueWhen = (part, s) => part.note
+  ? (s.cal === 0 ? `today ${part.note} (${dueTime(part)})` : s.cal === 1 ? `tomorrow, ${dueDate(part)}, ${part.note} (${dueTime(part)})` : `${part.note} on ${dueDate(part)} (${dueTime(part)})`)
+  : (s.cal === 0 ? `today at ${dueTime(part)}` : s.cal === 1 ? `tomorrow at ${dueTime(part)}` : dueLabel(part));
+const lateFor = s => s.days ? unitWord(s.days, "day") : s.hrs ? unitWord(s.hrs, "hr") : s.min + " min";
 function dueState(part){
   const ms = part.due - Date.now(), a = Math.abs(ms);
-  return {late: ms <= 0, today: ms > 0 && a < 86400000, days: Math.floor(a / 86400000), hrs: Math.floor(a % 86400000 / 3600000), min: Math.floor(a % 3600000 / 60000)};
+  return {late: ms <= 0, cal: dueDay(part), today: ms > 0 && a < 86400000, days: Math.floor(a / 86400000), hrs: Math.floor(a % 86400000 / 3600000), min: Math.floor(a % 3600000 / 60000)};
 }
 // was this finished problem completed after its part's deadline?
 const isLate = (unit, lessonId, r) => { const pt = partFor(unit, lessonId); return !!(pt && r && r.d && r.t && r.t > pt.due.getTime()); };
@@ -2333,10 +2346,9 @@ function lateTag(p){
 }
 function dueText(part){
   const s = dueState(part), lab = dueLabel(part);
-  if(part.eod) return `Lesson 1 is due <b>by the end of the day</b> · ${unitWord(s.hrs, "hr")} ${s.min} min left`;
-  return s.late ? `Part ${part.part} was due ${lab} · <b>${unitWord(s.days, "day")} late</b> (still open)`
-    : s.today ? `Part ${part.part} is due <b>today at 11:59 PM</b> · ${unitWord(s.hrs, "hr")} ${s.min} min left`
-    : `Part ${part.part} is due ${lab} · <b>${unitWord(s.days, "day")} ${unitWord(s.hrs, "hr")}</b> left`;
+  const left = s.today ? `${unitWord(s.hrs, "hr")} ${s.min} min` : `${unitWord(s.days, "day")} ${unitWord(s.hrs, "hr")}`;
+  return s.late ? `${partName(part)} was due ${part.note ? part.note + ", " : ""}${lab} · <b>${lateFor(s)} late</b> (still open)`
+    : `${partName(part)} is due ${dueWhen(part, s)} · <b>${left}</b> left`;
 }
 // one line for the first page: every deadline in the unit
 function dueLines(u){
@@ -2346,20 +2358,18 @@ function dueLines(u){
 }
 function dueHtml(u, partNo, kind){
   const part = partsOf(u).find(p => p.part === partNo); if(!part) return "";
-  const s = dueState(part), lab = dueLabel(part), cls = (s.late ? "late" : s.today ? "soon" : "ok") + " p" + part.part;
+  const s = dueState(part), lab = dueLabel(part), cls = (s.late ? "late" : s.today ? "soon" : "ok") + " p" + part.part + (part.note ? " hasnote" : "");
   const at = `data-due data-unit="${u}" data-part="${partNo}" data-kind="${kind}"`;
-  if(part.eod) return kind === "mini" ? `<div class="due mini soon p${part.part}" ${at}><b>${unitWord(s.hrs, "hr")} ${s.min} min</b> left<small>Due by the end of the day</small></div>`
-    : `<div class="due soon p${part.part}" ${at}><div class="dhead">Lesson 1 · Due by the end of the day</div><div class="dbody"><div class="dcount"><span><b>${pad2(s.hrs)}</b>hrs</span><span><b>${pad2(s.min)}</b>min</span></div><div class="dnote">until the homework is due</div></div></div>`;
   if(kind === "mini"){
-    return `<div class="due mini ${cls}" ${at}>` + (s.late ? `<b>${unitWord(s.days, "day")} late</b><small>Part ${partNo} was due ${lab} · still open</small>`
-      : s.today ? `<b>${unitWord(s.hrs, "hr")} ${s.min} min</b> left<small>Part ${partNo} is due today at 11:59 PM</small>`
-      : `<b>${unitWord(s.days, "day")} ${unitWord(s.hrs, "hr")}</b> left<small>Part ${partNo} · due ${lab}</small>`) + `</div>`;
+    return `<div class="due mini ${cls}" ${at}>` + (s.late ? `<b>${lateFor(s)} late</b><small>${partName(part)} was due ${part.note ? part.note + ", " : ""}${lab} · still open</small>`
+      : s.today ? `<b>${unitWord(s.hrs, "hr")} ${s.min} min</b> left<small>${partName(part)} is due ${dueWhen(part, s)}</small>`
+      : `<b>${unitWord(s.days, "day")} ${unitWord(s.hrs, "hr")}</b> left<small>${part.note ? `${partName(part)} is due ${dueWhen(part, s)}` : `${partName(part)} · due ${lab}`}</small>`) + `</div>`;
   }
-  const head = s.late ? `Part ${partNo} · Past due` : s.today ? `Part ${partNo} · Due today` : `Part ${partNo} · Due ${lab}`;
+  const head = s.late ? `${partName(part)} · Past due` : s.cal === 0 ? `${partName(part)} · Due today` : s.cal === 1 ? `${partName(part)} · Due tomorrow` : `${partName(part)} · Due ${dueDate(part)}`;
   const nums = s.late ? `<span><b>${s.days}</b>days</span><span><b>${pad2(s.hrs)}</b>hrs</span>`
     : s.today ? `<span><b>${pad2(s.hrs)}</b>hrs</span><span><b>${pad2(s.min)}</b>min</span>`
     : `<span><b>${s.days}</b>days</span><span><b>${pad2(s.hrs)}</b>hrs</span><span><b>${pad2(s.min)}</b>min</span>`;
-  return `<div class="due ${cls}" ${at}><div class="dhead">${head}</div><div class="dbody"><div class="dcount">${nums}</div><div class="dnote">${s.late ? `late · was due ${lab} · still open` : "until the homework is due"}</div></div></div>`;
+  return `<div class="due ${cls}" ${at}><div class="dhead">${head}</div><div class="dbody"><div class="dcount">${nums}</div><div class="dnote">${s.late ? `late · was due ${lab} · still open` : part.note ? `due ${part.note}, ${dueTime(part)}` : "until the homework is due"}</div></div></div>`;
 }
 function tickDue(){
   document.querySelectorAll("[data-due]").forEach(e => {
@@ -4812,7 +4822,7 @@ function sampleProgress(id, level, unit){
     if(rand01(seed, 1) > 0.45 + 0.55 * effort) return;      // not finished
     const firstTry = rand01(seed, 2) < 0.2 + 0.75 * ability;
     const wrong = firstTry ? 0 : 1 + Math.floor(rand01(seed, 3) * (2 + 12 * Math.pow(1 - ability, 1.5)));
-    const dueAt0 = partFor(unit, l.id), dueAt = dueAt0 && !dueAt0.eod ? dueAt0 : null, day = 86400000;
+    const dueAt = partFor(unit, l.id), day = 86400000;
     const t = dueAt ? dueAt.due.getTime() + (rand01(seed, 6) < 0.13 ? 1 : -1) * (0.3 + 6 * rand01(seed, 7)) * day : undefined;   // about 1 in 8 is late
     prog[unit + "-" + l.id + "-" + i] = {w: sampleWrong(p, seed, wrong, ability, sid), d: 1, h: rand01(seed, 9) < (ability < 0.5 ? 0.45 : 0.12) ? 1 : 0, t};
   }));
@@ -4860,6 +4870,7 @@ async function loadClassData(unit){
       let old = null; try{ old = JSON.parse(localStorage.getItem("mph4:" + await sha(st.t + ":" + a))); }catch(e){}
       take(old); take(TR.data && TR.data[dk(a)]);
     }
+    DUE_TID = st.t;                                                              // this student's own teacher decides which deadline applies
     const live = !!saved && Object.keys(saved).some(k => k.startsWith(unit + "-") && !isChallengeKey(k));
     const known = !st.test && !!TR.data && TR.state === "ok";                // the backup has answered for the whole class
     const prog = live ? saved : (S.sample && !st.test ? sampleProgress(S.mon ? st.t + ":" + st.id : st.id, st.level, unit) : {});   // the test student never gets made-up work   // made-up work only in sample mode
@@ -4877,6 +4888,7 @@ async function loadClassData(unit){
     const chSrc = saved && Object.keys(saved).some(isChallengeKey) ? saved : (S.sample && !st.test ? sampleChallenge(S.mon ? st.t + ":" + st.id : st.id, unit, st.level) : null);
     rows.push({...st, key: st.t + ":" + st.id, tname: ((TEACHERS.find(t => t.id === st.t)) || {}).name || "", period: st.id[0], live, per, std: stdS, mastery: masteryAvg(stdS, unit), misc: misconceptionHits(unit, st.level, prog), ch: challengeStats(unit, st.level, chSrc), prog,
                p1: rnd(p1), p2: rnd(p2), unit: rnd(halves.length ? mean(halves) : null)});
+    DUE_TID = null;
   }
   rows.sort((a,b) => (S.mon ? a.t.localeCompare(b.t) : 0) || rosterCmp(a, b));
   return rows;
